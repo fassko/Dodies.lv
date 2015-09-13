@@ -22,6 +22,16 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Please allow to use your location!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Please allow to use your location!</string>
+	<key>MGLMapboxAccessToken</key>
+	<string>sk.eyJ1Ijoia3Jpc3RhcHMiLCJhIjoiY2llaWx1aG9kMDAydXRlbHo1ZTgwazk5YiJ9.Vx8dPdWobZHh7_5c1XPXNA</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
