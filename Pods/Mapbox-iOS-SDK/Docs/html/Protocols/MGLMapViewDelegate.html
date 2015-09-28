@@ -11,7 +11,7 @@
 	<body>
 		<header id="top_header">
 			<div id="library" class="hideInXcode">
-				<h1><a id="libraryTitle" href="../index.html">Mapbox iOS SDK 2.0.0 </a></h1>
+				<h1><a id="libraryTitle" href="../index.html">Mapbox iOS SDK 2.1.2 </a></h1>
 				<a id="developerHome" href="../index.html">Mapbox</a>
 			</div>
 			
@@ -61,11 +61,17 @@
 	
 	<option value="//api/name/mapView:lineWidthForPolylineAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:lineWidthForPolylineAnnotation:</option>
 	
+	<option value="//api/name/mapView:regionDidChangeAnimated:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:regionDidChangeAnimated:</option>
+	
+	<option value="//api/name/mapView:regionWillChangeAnimated:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:regionWillChangeAnimated:</option>
+	
 	<option value="//api/name/mapView:rightCalloutAccessoryViewForAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:rightCalloutAccessoryViewForAnnotation:</option>
 	
 	<option value="//api/name/mapView:strokeColorForShapeAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:strokeColorForShapeAnnotation:</option>
 	
 	<option value="//api/name/mapViewDidStopLocatingUser:">&nbsp;&nbsp;&nbsp;&nbsp;- mapViewDidStopLocatingUser:</option>
+	
+	<option value="//api/name/mapViewRegionIsChanging:">&nbsp;&nbsp;&nbsp;&nbsp;- mapViewRegionIsChanging:</option>
 	
 	<option value="//api/name/mapViewWillStartLocatingUser:">&nbsp;&nbsp;&nbsp;&nbsp;- mapViewWillStartLocatingUser:</option>
 	
@@ -119,11 +125,17 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:lineWidthForPolylineAnnotation:">mapView:lineWidthForPolylineAnnotation:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:regionDidChangeAnimated:">mapView:regionDidChangeAnimated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:regionWillChangeAnimated:">mapView:regionWillChangeAnimated:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:rightCalloutAccessoryViewForAnnotation:">mapView:rightCalloutAccessoryViewForAnnotation:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:strokeColorForShapeAnnotation:">mapView:strokeColorForShapeAnnotation:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapViewDidStopLocatingUser:">mapViewDidStopLocatingUser:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapViewRegionIsChanging:">mapViewRegionIsChanging:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapViewWillStartLocatingUser:">mapViewWillStartLocatingUser:</a></span></li>
 	
@@ -225,6 +237,24 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/mapView:rightCalloutAccessoryViewForAnnotation:">&ndash;&nbsp;mapView:rightCalloutAccessoryViewForAnnotation:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapView:regionWillChangeAnimated:">&ndash;&nbsp;mapView:regionWillChangeAnimated:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapViewRegionIsChanging:">&ndash;&nbsp;mapViewRegionIsChanging:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapView:regionDidChangeAnimated:">&ndash;&nbsp;mapView:regionDidChangeAnimated:</a></code>
 	</span>
 	
 	
@@ -569,7 +599,7 @@
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Tells the delegate that the location of the user was updated.</p>
 
-<p>While the showsUserLocation property is set to <code>YES</code>, this method is called whenever a new location update is received by the map view. This method is also called if the map view’s user tracking mode is set to MGLUserTrackingModeFollowWithHeading and the heading changes.</p>
+<p>While the showsUserLocation property is set to <code>YES</code>, this method is called whenever a new location update is received by the map view. This method is also called if the map view’s user tracking mode is set to MGLUserTrackingModeFollowWithHeading and the heading changes, or if it is set to MGLUserTrackingModeFollowWithCourse and the course changes.</p>
 
 <p>This method is not called if the application is currently running in the background. If you want to receive location updates while running in the background, you must use the Core Location framework.</p>
 	</div>
@@ -837,6 +867,122 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/mapView:regionDidChangeAnimated:" title="mapView:regionDidChangeAnimated:"></a>
+	<h3 class="subsubtitle method-title">mapView:regionDidChangeAnimated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells the delegate that the region displayed by the map view just changed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mapView:(MGLMapView *)<em>mapView</em> regionDidChangeAnimated:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view whose visible region changed.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p>Whether the change caused an animated effect on the map.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells the delegate that the region displayed by the map view just changed.</p>
+
+<p>This method is called whenever the currently displayed map region has finished changing.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mapView:regionWillChangeAnimated:" title="mapView:regionWillChangeAnimated:"></a>
+	<h3 class="subsubtitle method-title">mapView:regionWillChangeAnimated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells the delegate that the region displayed by the map view is about to change.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mapView:(MGLMapView *)<em>mapView</em> regionWillChangeAnimated:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view whose visible region will change.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p>Whether the change will cause an animated effect on the map.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells the delegate that the region displayed by the map view is about to change.</p>
+
+<p>This method is called whenever the currently displayed map region will start changing.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/mapView:rightCalloutAccessoryViewForAnnotation:" title="mapView:rightCalloutAccessoryViewForAnnotation:"></a>
 	<h3 class="subsubtitle method-title">mapView:rightCalloutAccessoryViewForAnnotation:</h3>
 	
@@ -1016,6 +1162,59 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/mapViewRegionIsChanging:" title="mapViewRegionIsChanging:"></a>
+	<h3 class="subsubtitle method-title">mapViewRegionIsChanging:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells the delegate that the region displayed by the map view is changing.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mapViewRegionIsChanging:(MGLMapView *)<em>mapView</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view whose visible region is changing.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells the delegate that the region displayed by the map view is changing.</p>
+
+<p>This method is called whenever the currently displayed map region changes. During movement, this method may be called many times to report updates to the map position. Therefore, your implementation of this method should be as lightweight as possible to avoid affecting performance.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/mapViewWillStartLocatingUser:" title="mapViewWillStartLocatingUser:"></a>
 	<h3 class="subsubtitle method-title">mapViewWillStartLocatingUser:</h3>
 	
@@ -1083,7 +1282,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 Mapbox. All rights reserved. (Last updated: 2015-08-24)</span><br />
+						<p><span class="copyright">&copy; 2015 Mapbox. All rights reserved. (Last updated: 2015-09-15)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

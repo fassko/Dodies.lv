@@ -5,6 +5,7 @@
 #import "MGLAnnotation.h"
 #import "MGLAnnotationImage.h"
 #import "MGLGeometry.h"
+#import "MGLMapCamera.h"
 #import "MGLMapView+IBAdditions.h"
 #import "MGLMapView.h"
 #import "MGLMultiPoint.h"

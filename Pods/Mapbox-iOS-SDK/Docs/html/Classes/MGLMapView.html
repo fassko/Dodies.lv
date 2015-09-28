@@ -11,7 +11,7 @@
 	<body>
 		<header id="top_header">
 			<div id="library" class="hideInXcode">
-				<h1><a id="libraryTitle" href="../index.html">Mapbox iOS SDK 2.0.0 </a></h1>
+				<h1><a id="libraryTitle" href="../index.html">Mapbox iOS SDK 2.1.2 </a></h1>
 				<a id="developerHome" href="../index.html">Mapbox</a>
 			</div>
 			
@@ -45,6 +45,8 @@
 	
 	<option value="//api/name/bundledStyleURLs">&nbsp;&nbsp;&nbsp;&nbsp;bundledStyleURLs</option>
 	
+	<option value="//api/name/camera">&nbsp;&nbsp;&nbsp;&nbsp;camera</option>
+	
 	<option value="//api/name/centerCoordinate">&nbsp;&nbsp;&nbsp;&nbsp;centerCoordinate</option>
 	
 	<option value="//api/name/compassView">&nbsp;&nbsp;&nbsp;&nbsp;compassView</option>
@@ -56,6 +58,8 @@
 	<option value="//api/name/displayHeadingCalibration">&nbsp;&nbsp;&nbsp;&nbsp;displayHeadingCalibration</option>
 	
 	<option value="//api/name/logoView">&nbsp;&nbsp;&nbsp;&nbsp;logoView</option>
+	
+	<option value="//api/name/pitchEnabled">&nbsp;&nbsp;&nbsp;&nbsp;pitchEnabled</option>
 	
 	<option value="//api/name/rotateEnabled">&nbsp;&nbsp;&nbsp;&nbsp;rotateEnabled</option>
 	
@@ -94,6 +98,10 @@
 	
 	<option value="//api/name/addAnnotations:">&nbsp;&nbsp;&nbsp;&nbsp;- addAnnotations:</option>
 	
+	<option value="//api/name/addOverlay:">&nbsp;&nbsp;&nbsp;&nbsp;- addOverlay:</option>
+	
+	<option value="//api/name/addOverlays:">&nbsp;&nbsp;&nbsp;&nbsp;- addOverlays:</option>
+	
 	<option value="//api/name/addStyleClass:">&nbsp;&nbsp;&nbsp;&nbsp;- addStyleClass:</option>
 	
 	<option value="//api/name/convertCoordinate:toPointToView:">&nbsp;&nbsp;&nbsp;&nbsp;- convertCoordinate:toPointToView:</option>
@@ -118,6 +126,10 @@
 	
 	<option value="//api/name/removeAnnotations:">&nbsp;&nbsp;&nbsp;&nbsp;- removeAnnotations:</option>
 	
+	<option value="//api/name/removeOverlay:">&nbsp;&nbsp;&nbsp;&nbsp;- removeOverlay:</option>
+	
+	<option value="//api/name/removeOverlays:">&nbsp;&nbsp;&nbsp;&nbsp;- removeOverlays:</option>
+	
 	<option value="//api/name/removeStyleClass:">&nbsp;&nbsp;&nbsp;&nbsp;- removeStyleClass:</option>
 	
 	<option value="//api/name/resetNorth">&nbsp;&nbsp;&nbsp;&nbsp;- resetNorth</option>
@@ -125,6 +137,10 @@
 	<option value="//api/name/resetPosition">&nbsp;&nbsp;&nbsp;&nbsp;- resetPosition</option>
 	
 	<option value="//api/name/selectAnnotation:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- selectAnnotation:animated:</option>
+	
+	<option value="//api/name/setCamera:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setCamera:animated:</option>
+	
+	<option value="//api/name/setCamera:withDuration:animationTimingFunction:">&nbsp;&nbsp;&nbsp;&nbsp;- setCamera:withDuration:animationTimingFunction:</option>
 	
 	<option value="//api/name/setCenterCoordinate:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setCenterCoordinate:animated:</option>
 	
@@ -139,6 +155,8 @@
 	<option value="//api/name/setVisibleCoordinates:count:edgePadding:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setVisibleCoordinates:count:edgePadding:animated:</option>
 	
 	<option value="//api/name/setZoomLevel:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setZoomLevel:animated:</option>
+	
+	<option value="//api/name/showAnnotations:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- showAnnotations:animated:</option>
 	
 	<option value="//api/name/toggleDebug">&nbsp;&nbsp;&nbsp;&nbsp;- toggleDebug</option>
 	
@@ -172,6 +190,10 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Managing Annotation Selections">Managing Annotation Selections</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Adding Overlays">Adding Overlays</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Removing Overlays">Removing Overlays</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Displaying the User&apos;s Location">Displaying the User&apos;s Location</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Debugging">Debugging</a></span></li>
@@ -190,6 +212,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/bundledStyleURLs">bundledStyleURLs</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/camera">camera</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/centerCoordinate">centerCoordinate</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/compassView">compassView</a></span></li>
@@ -201,6 +225,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayHeadingCalibration">displayHeadingCalibration</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logoView">logoView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pitchEnabled">pitchEnabled</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rotateEnabled">rotateEnabled</a></span></li>
 	
@@ -240,6 +266,10 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addAnnotations:">addAnnotations:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addOverlay:">addOverlay:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addOverlays:">addOverlays:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addStyleClass:">addStyleClass:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/convertCoordinate:toPointToView:">convertCoordinate:toPointToView:</a></span></li>
@@ -264,6 +294,10 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeAnnotations:">removeAnnotations:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeOverlay:">removeOverlay:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeOverlays:">removeOverlays:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeStyleClass:">removeStyleClass:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resetNorth">resetNorth</a></span></li>
@@ -271,6 +305,10 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resetPosition">resetPosition</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/selectAnnotation:animated:">selectAnnotation:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCamera:animated:">setCamera:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCamera:withDuration:animationTimingFunction:">setCamera:withDuration:animationTimingFunction:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCenterCoordinate:animated:">setCenterCoordinate:animated:</a></span></li>
 	
@@ -285,6 +323,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setVisibleCoordinates:count:edgePadding:animated:">setVisibleCoordinates:count:edgePadding:animated:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setZoomLevel:animated:">setZoomLevel:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showAnnotations:animated:">showAnnotations:animated:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/toggleDebug">toggleDebug</a></span></li>
 	
@@ -383,6 +423,12 @@
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/pitchEnabled">&nbsp;&nbsp;pitchEnabled</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/compassView">&nbsp;&nbsp;compassView</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -463,6 +509,12 @@
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/showAnnotations:animated:">&ndash;&nbsp;showAnnotations:animated:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/direction">&nbsp;&nbsp;direction</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -476,6 +528,24 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/resetNorth">&ndash;&nbsp;resetNorth</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/camera">&nbsp;&nbsp;camera</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setCamera:animated:">&ndash;&nbsp;setCamera:animated:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setCamera:withDuration:animationTimingFunction:">&ndash;&nbsp;setCamera:withDuration:animationTimingFunction:</a></code>
 	</span>
 	
 	
@@ -622,6 +692,46 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/deselectAnnotation:animated:">&ndash;&nbsp;deselectAnnotation:animated:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Adding Overlays" name="task_Adding Overlays"></a>
+						<h3 class="subsubtitle task-title">Adding Overlays</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addOverlay:">&ndash;&nbsp;addOverlay:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addOverlays:">&ndash;&nbsp;addOverlays:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Removing Overlays" name="task_Removing Overlays"></a>
+						<h3 class="subsubtitle task-title">Removing Overlays</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeOverlay:">&ndash;&nbsp;removeOverlay:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeOverlays:">&ndash;&nbsp;removeOverlays:</a></code>
 	</span>
 	
 	
@@ -817,6 +927,47 @@
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>URLs of the styles bundled with the library.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/camera" title="camera"></a>
+	<h3 class="subsubtitle method-title">camera</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>A camera representing the current viewpoint of the map.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) MGLMapCamera *camera</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>A camera representing the current viewpoint of the map.</p>
 	</div>
 	
 	
@@ -1071,6 +1222,51 @@
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>The Mapbox logo image view shown in the lower-left of the map.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pitchEnabled" title="pitchEnabled"></a>
+	<h3 class="subsubtitle method-title">pitchEnabled</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>A Boolean value that determines whether the user may change the pitch (tilt) of the map.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, getter=isPitchEnabled) BOOL pitchEnabled</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>A Boolean value that determines whether the user may change the pitch (tilt) of the map.</p>
+
+<p>This property controls only user interactions with the map. If you set the value of this property to <code>NO</code>, you may still change the pitch of the map programmatically.</p>
+
+<p>The default value of this property is <code>YES</code>.</p>
 	</div>
 	
 	
@@ -1767,6 +1963,112 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/addOverlay:" title="addOverlay:"></a>
+	<h3 class="subsubtitle method-title">addOverlay:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Adds a single overlay object to the map.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addOverlay:(id&lt;MGLOverlay&gt;)<em>overlay</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>overlay</em></dt>
+			<dd><p>The overlay object to add. This object must conform to the <a href="../Protocols/MGLOverlay.html">MGLOverlay</a> protocol.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Adds a single overlay object to the map.</p>
+
+<p>To remove an overlay from a map, use the <a href="#//api/name/removeOverlay:">removeOverlay:</a> method.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/addOverlays:" title="addOverlays:"></a>
+	<h3 class="subsubtitle method-title">addOverlays:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Adds an array of overlay objects to the map.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addOverlays:(NSArray&lt;id&lt;MGLOverlay&gt; &gt; *)<em>overlays</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>overlays</em></dt>
+			<dd><p>An array of objects, each of which must conform to the <a href="../Protocols/MGLOverlay.html">MGLOverlay</a> protocol.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Adds an array of overlay objects to the map.</p>
+
+<p>To remove multiple overlays from a map, use the <a href="#//api/name/removeOverlays:">removeOverlays:</a> method.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/addStyleClass:" title="addStyleClass:"></a>
 	<h3 class="subsubtitle method-title">addStyleClass:</h3>
 	
@@ -2432,6 +2734,112 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/removeOverlay:" title="removeOverlay:"></a>
+	<h3 class="subsubtitle method-title">removeOverlay:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes a single overlay object from the map.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeOverlay:(id&lt;MGLOverlay&gt;)<em>overlay</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>overlay</em></dt>
+			<dd><p>The overlay object to remove.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Removes a single overlay object from the map.</p>
+
+<p>If the specified overlay is not currently associated with the map view, this method does nothing.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeOverlays:" title="removeOverlays:"></a>
+	<h3 class="subsubtitle method-title">removeOverlays:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes one or more overlay objects from the map.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeOverlays:(NSArray&lt;id&lt;MGLOverlay&gt; &gt; *)<em>overlays</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>overlays</em></dt>
+			<dd><p>An array of objects, each of which conforms to the <a href="../Protocols/MGLOverlay.html">MGLOverlay</a> protocol.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Removes one or more overlay objects from the map.</p>
+
+<p>If a given overlay object is not associated with the map view, it is ignored.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/removeStyleClass:" title="removeStyleClass:"></a>
 	<h3 class="subsubtitle method-title">removeStyleClass:</h3>
 	
@@ -2606,6 +3014,123 @@
 		<p>Selects the specified annotation and displays a callout view for it.</p>
 
 <p>If the specified annotation is not onscreen, this method has no effect.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setCamera:animated:" title="setCamera:animated:"></a>
+	<h3 class="subsubtitle method-title">setCamera:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Moves the viewpoint to a different location with respect to the map with an optional transition animation.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setCamera:(MGLMapCamera *)<em>camera</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>camera</em></dt>
+			<dd><p>The new viewpoint.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p>Specify <code>YES</code> if you want the map view to animate the change to the new viewpoint or <code>NO</code> if you want the map to display the new viewpoint immediately.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Moves the viewpoint to a different location with respect to the map with an optional transition animation.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setCamera:withDuration:animationTimingFunction:" title="setCamera:withDuration:animationTimingFunction:"></a>
+	<h3 class="subsubtitle method-title">setCamera:withDuration:animationTimingFunction:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Moves the viewpoint to a different location with respect to the map with an optional transition duration and timing function.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setCamera:(MGLMapCamera *)<em>camera</em> withDuration:(NSTimeInterval)<em>duration</em> animationTimingFunction:(nullable CAMediaTimingFunction *)<em>function</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>camera</em></dt>
+			<dd><p>The new viewpoint.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>duration</em></dt>
+			<dd><p>The amount of time, measured in seconds, that the transition animation should take. Specify <code>0</code> to jump to the new viewpoint instantaneously.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>function</em></dt>
+			<dd><p>A timing function used for the animation. Set this parameter to <code>nil</code> for a transition that matches most system animations. If the duration is <code>0</code>, this parameter is ignored.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Moves the viewpoint to a different location with respect to the map with an optional transition duration and timing function.</p>
 	</div>
 	
 	
@@ -3041,6 +3566,64 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/showAnnotations:animated:" title="showAnnotations:animated:"></a>
+	<h3 class="subsubtitle method-title">showAnnotations:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets the visible region so that the map displays the specified <a href="#//api/name/annotations">annotations</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)showAnnotations:(NSArray&lt;id&lt;MGLAnnotation&gt; &gt; *)<em>annotations</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>annotations</em></dt>
+			<dd><p>The <a href="#//api/name/annotations">annotations</a> that you want to be visible in the map.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p><code>YES</code> if you want the map region change to be animated, or <code>NO</code> if you want the map to display the new region immediately without animations.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sets the visible region so that the map displays the specified <a href="#//api/name/annotations">annotations</a>.</p>
+
+<p>Calling this method updates the value in the <a href="#//api/name/visibleCoordinateBounds">visibleCoordinateBounds</a> property and potentially other properties to reflect the new map region.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/toggleDebug" title="toggleDebug"></a>
 	<h3 class="subsubtitle method-title">toggleDebug</h3>
 	
@@ -3096,7 +3679,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 Mapbox. All rights reserved. (Last updated: 2015-08-24)</span><br />
+						<p><span class="copyright">&copy; 2015 Mapbox. All rights reserved. (Last updated: 2015-09-15)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

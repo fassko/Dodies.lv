@@ -15,12 +15,15 @@ class Details : UIViewController {
   
   @IBOutlet weak var pointTitle: UILabel!
   @IBOutlet weak var desc: UITextView!
+  @IBOutlet weak var closeButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     pointTitle.text = point.title
     desc.text = point.desc
+    
+    closeButton.layer.cornerRadius = 5
     
   }
   

@@ -1,25 +1,5 @@
 PODS:
-  - AFNetworking (2.6.0):
-    - AFNetworking/NSURLConnection (= 2.6.0)
-    - AFNetworking/NSURLSession (= 2.6.0)
-    - AFNetworking/Reachability (= 2.6.0)
-    - AFNetworking/Security (= 2.6.0)
-    - AFNetworking/Serialization (= 2.6.0)
-    - AFNetworking/UIKit (= 2.6.0)
-  - AFNetworking/NSURLConnection (2.6.0):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.0):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.0)
-  - AFNetworking/Security (2.6.0)
-  - AFNetworking/Serialization (2.6.0)
-  - AFNetworking/UIKit (2.6.0):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
+  - Alamofire (2.0.2)
   - CocoaLumberjack (2.0.1):
     - CocoaLumberjack/Default (= 2.0.1)
     - CocoaLumberjack/Extensions (= 2.0.1)
@@ -28,19 +8,32 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.1):
     - CocoaLumberjack/Default
-  - Mapbox-iOS-SDK (2.0.0)
+  - Mapbox-iOS-SDK (2.1.2)
+  - SwiftCSV (0.1.2)
   - SwiftyJSON (2.2.1)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.5)
+  - Alamofire (~> 2.0)
   - CocoaLumberjack (~> 2.0)
   - Mapbox-iOS-SDK (~> 2.0)
+  - SwiftCSV (from `https://github.com/naoty/SwiftCSV.git`, branch `swift-2.0`)
   - SwiftyJSON (~> 2.1)
 
+EXTERNAL SOURCES:
+  SwiftCSV:
+    :branch: swift-2.0
+    :git: https://github.com/naoty/SwiftCSV.git
+
+CHECKOUT OPTIONS:
+  SwiftCSV:
+    :commit: 3ee9b7e1121dba05e2436709c7f2fed3e40513d4
+    :git: https://github.com/naoty/SwiftCSV.git
+
 SPEC CHECKSUMS:
-  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   CocoaLumberjack: 019d1361244274a6138c788c6cb80baabc13fb8f
-  Mapbox-iOS-SDK: 07b84769693242f0e20eeed03d38515beca93c5b
+  Mapbox-iOS-SDK: f8a8fd3ccf918196d27a52ab1694414be20f2210
+  SwiftCSV: 02827538421b00b5af3fba80ed32f8918554c757
   SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33
 
 COCOAPODS: 0.38.2
