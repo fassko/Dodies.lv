@@ -12,14 +12,16 @@ import Mapbox
 import CoreLocation
 import SwiftyJSON
 
-class DodiesAnnotation : MGLPointAnnotation {
+class DodiesAnnotation:MGLPointAnnotation {
   
-  var symb : String = "taka-active"
-  var desc : String = ""
-  var name : String = ""
-  var statuss : String = ""
-  var latitude : String = ""
-  var longitude : String = ""
-  var id : String = ""
+  var symb:String = "taka-active"
+  var desc:String = ""
+  var name:String = ""
+  var statuss:String = ""
+  var latitude:String = ""
+  var longitude:String = ""
+  var id:String = ""
   var apraksts:String = ""
+  var garums:String = ""
+  var samaksa:String = ""
 }

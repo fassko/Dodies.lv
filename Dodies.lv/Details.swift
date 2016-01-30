@@ -18,6 +18,11 @@ class Details : UIViewController {
   @IBOutlet weak var closeButton: UIButton!
   @IBOutlet weak var descriptionLinkButton: UIButton!
   @IBOutlet weak var coordinatesButton: UIButton!
+  @IBOutlet weak var lenghtLabel: UILabel!
+  @IBOutlet weak var lenght: UILabel!
+  @IBOutlet weak var priceLabel: UILabel!
+  @IBOutlet weak var price: UILabel!
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,6 +33,17 @@ class Details : UIViewController {
     closeButton.layer.cornerRadius = 5
     descriptionLinkButton.layer.cornerRadius = 5
     coordinatesButton.titleLabel?.text = "   \(point.coordinate.latitude),\(point.coordinate.longitude)"
+    
+    if point.garums != "" {
+      lenght.text = "\(point.garums) km"
+      lenght.hidden = false
+      lenghtLabel.hidden = false
+    }
+    
+    if point.samaksa == "maksas" {
+      priceLabel.hidden = false
+      price.hidden = false
+    }
     
     if point.apraksts == "true" {
       descriptionLinkButton.hidden = false
