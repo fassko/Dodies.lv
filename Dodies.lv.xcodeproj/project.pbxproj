@@ -132,6 +132,7 @@
 		634073531C594A4300190BA4 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				63AFB7EB1C5D2973004A58E1 /* Images */,
 				636EA83B1BA5BDF40071397A /* Main.storyboard */,
 				636EA8401BA5BDF40071397A /* LaunchScreen.storyboard */,
 			);
@@ -159,22 +160,13 @@
 		636EA8341BA5BDF40071397A /* Dodies.lv */ = {
 			isa = PBXGroup;
 			children = (
-				63AFB7DF1C5CF75B004A58E1 /* dodies.png */,
-				63AFB7E01C5CF75B004A58E1 /* dodies@2x.png */,
-				63AFB7E11C5CF75B004A58E1 /* dodies@3x.png */,
-				63AFB7E51C5D100B004A58E1 /* location-pin.png */,
-				63AFB7E61C5D100B004A58E1 /* location-pin@2x.png */,
-				63AFB7E71C5D100B004A58E1 /* location-pin@3x.png */,
-				6388CC761BB72A850016184B /* icons */,
-				6304EAFE1BA5C25900B7CD49 /* Settings.bundle */,
 				636EA8351BA5BDF40071397A /* AppDelegate.swift */,
-				6304EB001BA5C2C700B7CD49 /* Map.swift */,
-				63CA57A61BA606B800A9F5DC /* Details.swift */,
-				63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */,
-				63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */,
+				63AFB7ED1C5D29B4004A58E1 /* Views */,
+				63AFB7EC1C5D29A7004A58E1 /* Objects */,
 				636EA8431BA5BDF40071397A /* Info.plist */,
 				634073531C594A4300190BA4 /* Interface */,
 				63AFB7DD1C5CF613004A58E1 /* Images.xcassets */,
+				6304EAFE1BA5C25900B7CD49 /* Settings.bundle */,
 			);
 			path = Dodies.lv;
 			sourceTree = "<group>";
@@ -214,6 +206,38 @@
 				63AFB7BE1C5CE04D004A58E1 /* velo-disabled@3x.png */,
 			);
 			path = icons;
+			sourceTree = "<group>";
+		};
+		63AFB7EB1C5D2973004A58E1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				63AFB7DF1C5CF75B004A58E1 /* dodies.png */,
+				63AFB7E01C5CF75B004A58E1 /* dodies@2x.png */,
+				63AFB7E11C5CF75B004A58E1 /* dodies@3x.png */,
+				63AFB7E51C5D100B004A58E1 /* location-pin.png */,
+				63AFB7E61C5D100B004A58E1 /* location-pin@2x.png */,
+				63AFB7E71C5D100B004A58E1 /* location-pin@3x.png */,
+				6388CC761BB72A850016184B /* icons */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		63AFB7EC1C5D29A7004A58E1 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */,
+				63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		63AFB7ED1C5D29B4004A58E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6304EB001BA5C2C700B7CD49 /* Map.swift */,
+				63CA57A61BA606B800A9F5DC /* Details.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		C8E9CB739CAB9EEC230E2649 /* Frameworks */ = {
