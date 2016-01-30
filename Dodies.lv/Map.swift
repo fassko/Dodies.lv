@@ -65,20 +65,20 @@ class Map: UIViewController, MGLMapViewDelegate {
     var annotation = ""
     
     switch selectedPoint.symb {
-      case "taka":
+      case "Trail Head":
         annotation = "taka"
         break
       
-      case "parks":
+      case "Park":
         annotation = "parks"
         break
       
-      case "tornis":
+      case "Oil Field":
         annotation = "tornis"
         break
       
-      case "piknins":
-        annotation = "piknins"
+      case "Campground":
+        annotation = "pikniks"
         break
       
       default:
@@ -172,7 +172,7 @@ class Map: UIViewController, MGLMapViewDelegate {
       realm = try! Realm()
     }
     
-    let points = realm!.objects(DodiesPoint)
+    let points = realm!.objects(DodiesPoint).filter("statuss in {'parbaudits', 'neparbaudits'}")
     
     for p:DodiesPoint in points {
       let point = DodiesAnnotation()
@@ -181,13 +181,9 @@ class Map: UIViewController, MGLMapViewDelegate {
 
         point.title = p.name
         point.desc = p.desc
-        point.tips = p.tips
-        point.samaksa = p.samaksa
         point.statuss = p.statuss
-        point.vertejums = p.vertejums
-        point.klase = p.klase
-        point.garums = p.garums
         point.symb = p.symb
+        point.apraksts = p.apraksts
         point.id = p.id
       
         self.mapView.addAnnotation(point)

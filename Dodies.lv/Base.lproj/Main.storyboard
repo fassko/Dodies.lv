@@ -40,8 +40,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2gb-wA-Mtu">
+                                <rect key="frame" x="20" y="78" width="560" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="cIs-X2-uXQ"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nk-kg-0Im">
+                                <rect key="frame" x="150" y="530" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.35686274509999999" green="0.75294117650000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="aUB-Jk-S48"/>
+                                    <constraint firstAttribute="height" constant="50" id="dOX-Zt-8SQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Aizvērt"/>
+                                <connections>
+                                    <action selector="done:" destination="yf8-5s-rxy" eventType="touchUpInside" id="ejA-gi-acr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmw-ij-cuL">
+                                <rect key="frame" x="150" y="455" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.42352941179999998" green="0.59607843140000005" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="9fs-HM-7n7"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ASu-IZ-IuC"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="KHN-Ux-FGz"/>
+                                    <constraint firstAttribute="height" constant="50" id="U1r-OH-n2b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Plašāka informācija"/>
+                                <connections>
+                                    <action selector="showDescription:" destination="yf8-5s-rxy" eventType="touchUpInside" id="esh-5l-LuA"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ogres zilie kalni" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="eRF-ih-N5P">
-                                <rect key="frame" x="20" y="47" width="560" height="50"/>
+                                <rect key="frame" x="20" y="20" width="560" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hi5-ar-xvk"/>
                                 </constraints>
@@ -52,33 +91,10 @@
                                     <rect key="frame" x="20" y="348" width="360" height="29"/>
                                 </variation>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2gb-wA-Mtu">
-                                <rect key="frame" x="20" y="105" width="560" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="cIs-X2-uXQ"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nk-kg-0Im">
-                                <rect key="frame" x="200" y="530" width="200" height="50"/>
-                                <color key="backgroundColor" red="0.35686274509999999" green="0.75294117650000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="aUB-Jk-S48"/>
-                                    <constraint firstAttribute="height" constant="50" id="dOX-Zt-8SQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Aizvērt"/>
-                                <connections>
-                                    <action selector="done:" destination="yf8-5s-rxy" eventType="touchUpInside" id="ejA-gi-acr"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eRF-ih-N5P" firstAttribute="top" secondItem="Q5p-p1-1d2" secondAttribute="bottom" constant="27" id="4AS-lu-Rm0"/>
+                            <constraint firstItem="eRF-ih-N5P" firstAttribute="top" secondItem="Q5p-p1-1d2" secondAttribute="bottom" id="7Zb-fU-F9g"/>
                             <constraint firstItem="eRF-ih-N5P" firstAttribute="centerX" secondItem="tUX-eg-LoV" secondAttribute="centerX" id="HNV-6q-L7Y"/>
                             <constraint firstItem="2gb-wA-Mtu" firstAttribute="leading" secondItem="tUX-eg-LoV" secondAttribute="leadingMargin" id="K1F-ZV-d2o"/>
                             <constraint firstItem="2gb-wA-Mtu" firstAttribute="trailing" secondItem="tUX-eg-LoV" secondAttribute="trailingMargin" id="M2Q-we-lgl"/>
@@ -87,11 +103,14 @@
                             <constraint firstItem="2gb-wA-Mtu" firstAttribute="top" secondItem="eRF-ih-N5P" secondAttribute="bottom" constant="8" id="Udt-Th-Yf9"/>
                             <constraint firstItem="Hpd-B5-Cpb" firstAttribute="top" secondItem="2Nk-kg-0Im" secondAttribute="bottom" constant="20" id="e9T-j3-2ab"/>
                             <constraint firstItem="2Nk-kg-0Im" firstAttribute="centerX" secondItem="tUX-eg-LoV" secondAttribute="centerX" id="fcC-wX-9SK"/>
+                            <constraint firstItem="2Nk-kg-0Im" firstAttribute="top" secondItem="Lmw-ij-cuL" secondAttribute="bottom" constant="25" id="j5E-um-hCX"/>
+                            <constraint firstItem="Lmw-ij-cuL" firstAttribute="centerX" secondItem="tUX-eg-LoV" secondAttribute="centerX" id="v8T-67-xGJ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="2Nk-kg-0Im" id="fJ3-06-XZj"/>
                         <outlet property="desc" destination="2gb-wA-Mtu" id="rIv-Oj-vmZ"/>
+                        <outlet property="descriptionLinkButton" destination="Lmw-ij-cuL" id="gcb-YD-yRC"/>
                         <outlet property="pointTitle" destination="eRF-ih-N5P" id="ylo-oN-BeW"/>
                     </connections>
                 </viewController>

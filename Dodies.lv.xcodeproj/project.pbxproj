@@ -47,6 +47,9 @@
 		63AFB7E21C5CF75C004A58E1 /* dodies.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7DF1C5CF75B004A58E1 /* dodies.png */; };
 		63AFB7E31C5CF75C004A58E1 /* dodies@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7E01C5CF75B004A58E1 /* dodies@2x.png */; };
 		63AFB7E41C5CF75C004A58E1 /* dodies@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7E11C5CF75B004A58E1 /* dodies@3x.png */; };
+		63AFB7E81C5D100B004A58E1 /* location-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7E51C5D100B004A58E1 /* location-pin.png */; };
+		63AFB7E91C5D100B004A58E1 /* location-pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7E61C5D100B004A58E1 /* location-pin@2x.png */; };
+		63AFB7EA1C5D100B004A58E1 /* location-pin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7E71C5D100B004A58E1 /* location-pin@3x.png */; };
 		63CA57A51BA5F41700A9F5DC /* DodiesAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */; };
 		63CA57A71BA606B800A9F5DC /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CA57A61BA606B800A9F5DC /* Details.swift */; };
 		938C3F666E7C9DAD3550E4AC /* Pods_Dodies_lv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F856ECAEB3B0E7E01A02654 /* Pods_Dodies_lv.framework */; };
@@ -97,6 +100,9 @@
 		63AFB7DF1C5CF75B004A58E1 /* dodies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies.png; sourceTree = "<group>"; };
 		63AFB7E01C5CF75B004A58E1 /* dodies@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies@2x.png"; sourceTree = "<group>"; };
 		63AFB7E11C5CF75B004A58E1 /* dodies@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies@3x.png"; sourceTree = "<group>"; };
+		63AFB7E51C5D100B004A58E1 /* location-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location-pin.png"; sourceTree = "<group>"; };
+		63AFB7E61C5D100B004A58E1 /* location-pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location-pin@2x.png"; sourceTree = "<group>"; };
+		63AFB7E71C5D100B004A58E1 /* location-pin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location-pin@3x.png"; sourceTree = "<group>"; };
 		63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DodiesAnnotation.swift; sourceTree = "<group>"; };
 		63CA57A61BA606B800A9F5DC /* Details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
 		AE84B0FEF323BCFE3487D08C /* Pods-Dodies.lv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dodies.lv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv.debug.xcconfig"; sourceTree = "<group>"; };
@@ -156,15 +162,18 @@
 				63AFB7DF1C5CF75B004A58E1 /* dodies.png */,
 				63AFB7E01C5CF75B004A58E1 /* dodies@2x.png */,
 				63AFB7E11C5CF75B004A58E1 /* dodies@3x.png */,
+				63AFB7E51C5D100B004A58E1 /* location-pin.png */,
+				63AFB7E61C5D100B004A58E1 /* location-pin@2x.png */,
+				63AFB7E71C5D100B004A58E1 /* location-pin@3x.png */,
 				6388CC761BB72A850016184B /* icons */,
 				6304EAFE1BA5C25900B7CD49 /* Settings.bundle */,
 				636EA8351BA5BDF40071397A /* AppDelegate.swift */,
 				6304EB001BA5C2C700B7CD49 /* Map.swift */,
 				63CA57A61BA606B800A9F5DC /* Details.swift */,
 				63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */,
+				63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */,
 				636EA8431BA5BDF40071397A /* Info.plist */,
 				634073531C594A4300190BA4 /* Interface */,
-				63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */,
 				63AFB7DD1C5CF613004A58E1 /* Images.xcassets */,
 			);
 			path = Dodies.lv;
@@ -311,8 +320,10 @@
 				63AFB7C41C5CE04D004A58E1 /* parks-disabled@3x.png in Resources */,
 				63AFB7CD1C5CE04D004A58E1 /* taka-active@3x.png in Resources */,
 				63AFB7C61C5CE04D004A58E1 /* pikniks-active@2x.png in Resources */,
+				63AFB7E81C5D100B004A58E1 /* location-pin.png in Resources */,
 				636EA83D1BA5BDF40071397A /* Main.storyboard in Resources */,
 				63AFB7E31C5CF75C004A58E1 /* dodies@2x.png in Resources */,
+				63AFB7E91C5D100B004A58E1 /* location-pin@2x.png in Resources */,
 				63AFB7CC1C5CE04D004A58E1 /* taka-active@2x.png in Resources */,
 				63AFB7CB1C5CE04D004A58E1 /* taka-active.png in Resources */,
 				63AFB7C11C5CE04D004A58E1 /* parks-active@3x.png in Resources */,
@@ -321,6 +332,7 @@
 				63AFB7CF1C5CE04D004A58E1 /* taka-disabled@2x.png in Resources */,
 				63AFB7D21C5CE04D004A58E1 /* tornis-active@2x.png in Resources */,
 				63AFB7D51C5CE04D004A58E1 /* tornis-disabled@2x.png in Resources */,
+				63AFB7EA1C5D100B004A58E1 /* location-pin@3x.png in Resources */,
 				63AFB7DC1C5CE04D004A58E1 /* velo-disabled@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

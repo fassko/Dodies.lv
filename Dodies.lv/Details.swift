@@ -16,6 +16,7 @@ class Details : UIViewController {
   @IBOutlet weak var pointTitle: UILabel!
   @IBOutlet weak var desc: UITextView!
   @IBOutlet weak var closeButton: UIButton!
+  @IBOutlet weak var descriptionLinkButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,6 +25,11 @@ class Details : UIViewController {
     desc.text = point.desc
     
     closeButton.layer.cornerRadius = 5
+    descriptionLinkButton.layer.cornerRadius = 5
+    
+    if point.apraksts == "true" {
+      descriptionLinkButton.hidden = false
+    }
     
   }
   
@@ -31,4 +37,7 @@ class Details : UIViewController {
     self.dismissViewControllerAnimated(true, completion: nil)
   }
   
+  @IBAction func showDescription(sender: AnyObject) {
+    UIApplication.sharedApplication().openURL(NSURL(string: "http://dodies.lv/info?taka=\(point.id)")!)
+  }
 }
