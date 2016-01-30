@@ -39,6 +39,7 @@ class Map: UIViewController, MGLMapViewDelegate {
 
     mapView.delegate = self
     mapView.showsUserLocation = true
+    mapView.rotateEnabled = false
     
     view.addSubview(mapView)
     
@@ -109,8 +110,8 @@ class Map: UIViewController, MGLMapViewDelegate {
   func mapView(mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
     selectedPoint = annotation as! DodiesAnnotation
     if selectedPoint != nil {
-      
       performSegueWithIdentifier("details", sender: self)
+      mapView.deselectAnnotation(annotation, animated: true)
     }
   }
   
