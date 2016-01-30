@@ -42,6 +42,7 @@ class Map: UIViewController, MGLMapViewDelegate {
     
     view.addSubview(mapView)
     
+    // print Realm database path
     print(Realm.Configuration.defaultConfiguration.path!)
     
     if (realm.objects(DodiesPoint).count == 0) {
