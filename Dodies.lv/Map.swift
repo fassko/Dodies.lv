@@ -11,34 +11,19 @@ import UIKit
 import Mapbox
 import CoreLocation
 import SwiftyJSON
-import SwiftCSV
 import Alamofire
+import RealmSwift
 
 class Map: UIViewController, MGLMapViewDelegate {
 
   var mapView: MGLMapView!
   let manager = CLLocationManager()
   var selectedPoint : DodiesAnnotation!
+  
+  var realm = try! Realm()
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    
-    
-    let destination = Alamofire.Request.suggestedDownloadDestination(directory: .DocumentDirectory, domain: .UserDomainMask)
-    
-    Alamofire.download(.GET, "http://dodies.lv/apraksti/dati.csv", destination: destination)
-         .progress { bytesRead, totalBytesRead, totalBytesExpectedToRead in
-             print(totalBytesRead)
-
-             // This closure is NOT called on the main queue for performance
-             // reasons. To update your ui, dispatch to the main queue.
-             dispatch_async(dispatch_get_main_queue()) {
-                 print("Total bytes read on main queue: \(totalBytesRead)")
-             }
-         }.responseString { response in
-          print(response)
-         }
     
     if CLLocationManager.authorizationStatus() == .NotDetermined {
       manager.requestAlwaysAuthorization()
@@ -52,84 +37,19 @@ class Map: UIViewController, MGLMapViewDelegate {
                                                            longitude: 24.961),
                                     zoomLevel: 5, animated: false)
 
-//    mapView.userTrackingMode = .Follow
+    mapView.delegate = self
+    mapView.showsUserLocation = true
     
     view.addSubview(mapView)
-    mapView.delegate = self
     
-    if CLLocationManager.locationServicesEnabled() {
-      mapView.showsUserLocation = true
-    }
+//    realm = try! Realm()
     
-    var dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
-        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            self.loadPlaces()
-        })
+    downloadData()
   }
   
   
-  func loadPlaces () {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-    
-      var csv: CSV!
-      var error: NSErrorPointer = nil
-    
-      let csvURL = NSBundle.mainBundle().URLForResource("dati", withExtension: "csv")
-      
-      do {
-        csv = try CSV(contentsOfURL: csvURL!)
-      } catch let error1 as NSError {
-        error.memory = error1
-        csv = nil
-      }
-
-    
-      for item in csv.rows {
-        let point = DodiesAnnotation()
-        
-        let latitude = NSNumberFormatter().numberFromString(self.replaceDoubleQuotes(item["\"latitude\""]!)!)?.doubleValue
-        let longitude = NSNumberFormatter().numberFromString(self.replaceDoubleQuotes(item["\"longitude\""]!)!)?.doubleValue
-
-        
-//        print(item)
-        
-        if (longitude != nil && latitude != nil) {
-          point.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
-        }
-        
-        point.title = self.replaceDoubleQuotes(item["\"name\""]!)
-        point.desc = self.replaceDoubleQuotes(item["\"desc\""]!)!
-        point.tips = self.replaceDoubleQuotes(item["\"tips\""]!)!
-        point.samaksa = self.replaceDoubleQuotes(item["\"samaksa\""]!)!
-        point.statuss = self.replaceDoubleQuotes(item["\"statuss\""]!)!
-        point.vertejums = self.replaceDoubleQuotes(item["\"vertejums\""]!)!
-        point.klase = self.replaceDoubleQuotes(item["\"klase\""]!)!
-        point.garums = self.replaceDoubleQuotes(item["\"garums\""]!)!
-        point.symb = self.replaceDoubleQuotes(item["\"symb\""]!)!
-        point.symb = self.replaceDoubleQuotes(item["\"symb\""]!)!
-        point.id = self.replaceDoubleQuotes(item["\"id\""]!)!
-        
-        dispatch_async(dispatch_get_main_queue(), {
-          [unowned self] in
-          self.mapView.addAnnotation(point)
-        })
-      }
-    })
-  }
+  // MARK: - Mapbox implementation
   
-  func replaceDoubleQuotes (value: String) -> String? {
-    return value.stringByReplacingOccurrencesOfString("\"", withString: "")
-  }
-  
-  func locationManager(manager: CLLocationManager!,
-                     didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-    if (status == .Authorized || status == .AuthorizedWhenInUse) {
-      mapView.showsUserLocation = true
-    }
-  }
- 
-  
-  // Mabox
   func mapView(mapView: MGLMapView, imageForAnnotation annotation: MGLAnnotation) -> MGLAnnotationImage? {
   
     selectedPoint = annotation as! DodiesAnnotation
@@ -181,6 +101,82 @@ class Map: UIViewController, MGLMapViewDelegate {
     }
   }
   
+
+  func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+    return true
+  }
+  
+  
+  // MARK: - Additonal methods
+  
+  func downloadData() {
+    Alamofire.request(.GET, "http://dodies.lv/apraksti/dati.geojson").responseJSON(completionHandler: {
+      response in
+      
+      let json = JSON(response.result.value!)
+      
+      try! self.realm.write {
+        self.realm.deleteAll()
+      }
+      
+      for feature in json["features"].arrayValue {
+        
+        let coordinates:Array<Double> = feature["geometry"].dictionaryValue["coordinates"]?.arrayObject as! Array<Double>
+        let properties = feature["properties"].dictionaryValue
+        
+        
+        let dodiesPoint = DodiesPoint()
+        dodiesPoint.latitude = coordinates[0]
+        dodiesPoint.longitude = coordinates[1]
+        
+        dodiesPoint.apraksts = properties["apraksts"]!.stringValue
+        dodiesPoint.datums = properties["datums"]!.stringValue
+        dodiesPoint.desc = properties["desc"]!.stringValue
+        dodiesPoint.garums = properties["garums"]!.stringValue
+        dodiesPoint.id = properties["id"]!.stringValue
+        dodiesPoint.klase = properties["klase"]!.stringValue
+        dodiesPoint.name = properties["name"]!.stringValue
+        dodiesPoint.samaksa = properties["samaksa"]!.stringValue
+        dodiesPoint.statuss = properties["statuss"]!.stringValue
+        dodiesPoint.symb = properties["symb"]!.stringValue
+        dodiesPoint.tips = properties["tips"]!.stringValue
+
+        try! self.realm.write {
+          self.realm.add(dodiesPoint)
+        }
+      }
+      
+      self.loadPoints()
+      
+      
+    })
+  }
+  
+  func loadPoints() {
+    
+    let points = realm.objects(DodiesPoint)
+    
+    for p:DodiesPoint in points {
+      let point = DodiesAnnotation()
+        
+        point.coordinate = CLLocationCoordinate2DMake(p.longitude, p.latitude)
+
+        point.title = p.name
+        point.desc = p.desc
+        point.tips = p.tips
+        point.samaksa = p.samaksa
+        point.statuss = p.statuss
+        point.vertejums = p.vertejums
+        point.klase = p.klase
+        point.garums = p.garums
+        point.symb = p.symb
+        point.id = p.id
+      
+        self.mapView.addAnnotation(point)
+    }
+    
+  }
+  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "details" {
     
@@ -190,11 +186,6 @@ class Map: UIViewController, MGLMapViewDelegate {
         selectedPoint = nil
       }
     }
-  }
-  
-  
-  func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-    return true
   }
 
 }

@@ -1,6 +1,0 @@
-framework module Mapbox {
-  umbrella header "Mapbox-iOS-SDK-umbrella.h"
-
-  export *
-  module * { export * }
-}

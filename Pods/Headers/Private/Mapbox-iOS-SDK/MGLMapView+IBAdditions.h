@@ -1,1 +1,0 @@
-../../../Mapbox-iOS-SDK/Headers/MGLMapView+IBAdditions.h

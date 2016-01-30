@@ -1,0 +1,1 @@
+../../../../Mapbox-iOS-SDK/Mapbox.framework/Headers/MGLPointAnnotation.h

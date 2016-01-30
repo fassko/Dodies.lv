@@ -1,1 +1,0 @@
-../../../Mapbox-iOS-SDK/Headers/MGLPolyline.h

@@ -1,39 +1,24 @@
 PODS:
-  - Alamofire (2.0.2)
-  - CocoaLumberjack (2.0.1):
-    - CocoaLumberjack/Default (= 2.0.1)
-    - CocoaLumberjack/Extensions (= 2.0.1)
-  - CocoaLumberjack/Core (2.0.1)
-  - CocoaLumberjack/Default (2.0.1):
-    - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.0.1):
-    - CocoaLumberjack/Default
-  - Mapbox-iOS-SDK (2.1.2)
-  - SwiftCSV (0.1.2)
-  - SwiftyJSON (2.2.1)
+  - Alamofire (3.1.5)
+  - Mapbox-iOS-SDK (3.0.1)
+  - Realm (0.97.1):
+    - Realm/Headers (= 0.97.1)
+  - Realm/Headers (0.97.1)
+  - RealmSwift (0.97.1):
+    - Realm (= 0.97.1)
+  - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 2.0)
-  - CocoaLumberjack (~> 2.0)
-  - Mapbox-iOS-SDK (~> 2.0)
-  - SwiftCSV (from `https://github.com/naoty/SwiftCSV.git`, branch `swift-2.0`)
-  - SwiftyJSON (~> 2.1)
-
-EXTERNAL SOURCES:
-  SwiftCSV:
-    :branch: swift-2.0
-    :git: https://github.com/naoty/SwiftCSV.git
-
-CHECKOUT OPTIONS:
-  SwiftCSV:
-    :commit: 3ee9b7e1121dba05e2436709c7f2fed3e40513d4
-    :git: https://github.com/naoty/SwiftCSV.git
+  - Alamofire
+  - Mapbox-iOS-SDK
+  - RealmSwift
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
-  CocoaLumberjack: 019d1361244274a6138c788c6cb80baabc13fb8f
-  Mapbox-iOS-SDK: f8a8fd3ccf918196d27a52ab1694414be20f2210
-  SwiftCSV: 02827538421b00b5af3fba80ed32f8918554c757
-  SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33
+  Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
+  Mapbox-iOS-SDK: 61e79f3dd8432617bd1a66b2d7273ab5ce923ca9
+  Realm: 6854f49cc788171573a0605fe5e55d3224bc39f9
+  RealmSwift: 21aa38ae5210a8e7d3ca2fd02a0ce82476672101
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0
