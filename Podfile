@@ -6,4 +6,5 @@ target 'Dodies.lv' do
   pod 'Mapbox-iOS-SDK'
   pod 'SwiftyJSON'
   pod 'RealmSwift'
+  pod 'Attributed'
 end

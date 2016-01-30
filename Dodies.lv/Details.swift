@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Attributed
 
 class Details : UIViewController {
 
@@ -28,7 +29,15 @@ class Details : UIViewController {
     super.viewDidLoad()
     
     pointTitle.text = point.title
-    desc.text = point.desc
+    
+    let baseFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+    let modifier = modifierWithBaseAttributes([NSFontAttributeName: baseFont], modifiers: [
+        selectMap("em", italic),
+        selectMap("b", bold),
+    ])
+
+    desc.attributedText = NSAttributedString.attributedStringFromMarkup(point.desc, withModifier: modifier)
+    
     
     closeButton.layer.cornerRadius = 5
     descriptionLinkButton.layer.cornerRadius = 5

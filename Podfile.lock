@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (3.1.5)
+  - Attributed (1.0.0)
   - Mapbox-iOS-SDK (3.0.1)
   - Realm (0.97.1):
     - Realm/Headers (= 0.97.1)
@@ -10,12 +11,14 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Attributed
   - Mapbox-iOS-SDK
   - RealmSwift
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
+  Attributed: da371412467100c017da8cfac808a66541edd76c
   Mapbox-iOS-SDK: 61e79f3dd8432617bd1a66b2d7273ab5ce923ca9
   Realm: 6854f49cc788171573a0605fe5e55d3224bc39f9
   RealmSwift: 21aa38ae5210a8e7d3ca2fd02a0ce82476672101
