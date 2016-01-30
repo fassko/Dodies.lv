@@ -45,7 +45,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hi5-ar-xvk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -53,30 +53,24 @@
                                 </variation>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2gb-wA-Mtu">
-                                <rect key="frame" x="20" y="105" width="560" height="160"/>
+                                <rect key="frame" x="20" y="105" width="560" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="95s-3T-Zl8"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="cIs-X2-uXQ"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nk-kg-0Im">
-                                <rect key="frame" x="250" y="520" width="100" height="40"/>
+                                <rect key="frame" x="200" y="530" width="200" height="50"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.75294117650000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="aUB-Jk-S48"/>
-                                    <constraint firstAttribute="height" constant="40" id="dOX-Zt-8SQ"/>
+                                    <constraint firstAttribute="width" constant="200" id="aUB-Jk-S48"/>
+                                    <constraint firstAttribute="height" constant="50" id="dOX-Zt-8SQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Aizvērt"/>
-                                <state key="disabled">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                                 <connections>
                                     <action selector="done:" destination="yf8-5s-rxy" eventType="touchUpInside" id="ejA-gi-acr"/>
                                 </connections>
@@ -91,7 +85,7 @@
                             <constraint firstItem="eRF-ih-N5P" firstAttribute="leading" secondItem="tUX-eg-LoV" secondAttribute="leadingMargin" id="N0v-iM-4YV"/>
                             <constraint firstItem="eRF-ih-N5P" firstAttribute="trailing" secondItem="tUX-eg-LoV" secondAttribute="trailingMargin" id="Ngd-ZF-tp3"/>
                             <constraint firstItem="2gb-wA-Mtu" firstAttribute="top" secondItem="eRF-ih-N5P" secondAttribute="bottom" constant="8" id="Udt-Th-Yf9"/>
-                            <constraint firstItem="Hpd-B5-Cpb" firstAttribute="top" secondItem="2Nk-kg-0Im" secondAttribute="bottom" constant="40" id="e9T-j3-2ab"/>
+                            <constraint firstItem="Hpd-B5-Cpb" firstAttribute="top" secondItem="2Nk-kg-0Im" secondAttribute="bottom" constant="20" id="e9T-j3-2ab"/>
                             <constraint firstItem="2Nk-kg-0Im" firstAttribute="centerX" secondItem="tUX-eg-LoV" secondAttribute="centerX" id="fcC-wX-9SK"/>
                         </constraints>
                     </view>

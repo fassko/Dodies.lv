@@ -42,9 +42,15 @@ class Map: UIViewController, MGLMapViewDelegate {
     
     view.addSubview(mapView)
     
-//    realm = try! Realm()
+    print(Realm.Configuration.defaultConfiguration.path!)
     
-    downloadData()
+    if (realm.objects(DodiesPoint).count == 0) {
+      downloadData()
+    } else {
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+        self.loadPoints()
+      })
+    }
   }
   
   
@@ -56,7 +62,7 @@ class Map: UIViewController, MGLMapViewDelegate {
 
     var annotation = ""
     
-    switch selectedPoint.tips {
+    switch selectedPoint.symb {
       case "taka":
         annotation = "taka"
         break
@@ -76,6 +82,12 @@ class Map: UIViewController, MGLMapViewDelegate {
       default:
         annotation = "taka"
         break
+    }
+    
+    if selectedPoint.statuss == "parbaudits" {
+      annotation = "\(annotation)-active"
+    } else {
+      annotation = "\(annotation)-disabled"
     }
     
   
@@ -146,15 +158,19 @@ class Map: UIViewController, MGLMapViewDelegate {
         }
       }
       
-      self.loadPoints()
+      self.loadPoints(self.realm)
       
       
     })
   }
   
-  func loadPoints() {
+  func loadPoints(var realm:Realm? = nil) {
+  
+    if realm == nil {
+      realm = try! Realm()
+    }
     
-    let points = realm.objects(DodiesPoint)
+    let points = realm!.objects(DodiesPoint)
     
     for p:DodiesPoint in points {
       let point = DodiesAnnotation()

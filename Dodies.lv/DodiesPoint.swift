@@ -26,4 +26,5 @@ class DodiesPoint: Object {
   dynamic var symb:String = ""
   dynamic var tips:String = ""
   dynamic var vertejums:String = ""
+  dynamic var whatjson:String = ""
 }
