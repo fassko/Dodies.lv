@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (3.1.5)
   - Attributed (1.0.0)
+  - Crashlytics (3.6.0):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.4)
   - Mapbox-iOS-SDK (3.0.1)
   - MBProgressHUD (0.9.2)
   - Realm (0.97.1):
@@ -13,6 +16,8 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Attributed
+  - Crashlytics
+  - Fabric
   - Mapbox-iOS-SDK
   - MBProgressHUD
   - RealmSwift
@@ -21,6 +26,8 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
   Attributed: da371412467100c017da8cfac808a66541edd76c
+  Crashlytics: e4e8d02914f2608fbc7bf42b1a7af838b0db67a2
+  Fabric: ed41fd62173c6bdea24ab02c9d7707161eabb750
   Mapbox-iOS-SDK: 61e79f3dd8432617bd1a66b2d7273ab5ce923ca9
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   Realm: 6854f49cc788171573a0605fe5e55d3224bc39f9

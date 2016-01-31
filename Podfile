@@ -8,4 +8,6 @@ target 'Dodies.lv' do
   pod 'RealmSwift'
   pod 'Attributed'
   pod 'MBProgressHUD'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end
