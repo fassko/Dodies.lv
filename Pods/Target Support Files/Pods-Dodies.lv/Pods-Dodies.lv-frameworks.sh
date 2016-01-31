@@ -86,6 +86,7 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Dodies.lv/Alamofire.framework"
   install_framework "Pods-Dodies.lv/Attributed.framework"
+  install_framework "Pods-Dodies.lv/MBProgressHUD.framework"
   install_framework "Pods-Dodies.lv/Realm.framework"
   install_framework "Pods-Dodies.lv/RealmSwift.framework"
   install_framework "Pods-Dodies.lv/SwiftyJSON.framework"
@@ -93,6 +94,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Dodies.lv/Alamofire.framework"
   install_framework "Pods-Dodies.lv/Attributed.framework"
+  install_framework "Pods-Dodies.lv/MBProgressHUD.framework"
   install_framework "Pods-Dodies.lv/Realm.framework"
   install_framework "Pods-Dodies.lv/RealmSwift.framework"
   install_framework "Pods-Dodies.lv/SwiftyJSON.framework"

@@ -7,4 +7,5 @@ target 'Dodies.lv' do
   pod 'SwiftyJSON'
   pod 'RealmSwift'
   pod 'Attributed'
+  pod 'MBProgressHUD'
 end

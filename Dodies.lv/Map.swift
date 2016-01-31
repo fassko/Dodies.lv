@@ -8,13 +8,14 @@
 
 import Foundation
 import UIKit
+
 import Mapbox
 import CoreLocation
 import SwiftyJSON
 import Alamofire
 import RealmSwift
 
-class Map: UIViewController, MGLMapViewDelegate {
+class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
 
   var mapView: MGLMapView!
   let manager = CLLocationManager()
@@ -33,9 +34,7 @@ class Map: UIViewController, MGLMapViewDelegate {
     mapView = MGLMapView(frame: view.bounds)
     mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
     
-    mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 57.166,
-                                                           longitude: 24.961),
-                                    zoomLevel: 5, animated: false)
+    mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 57.166, longitude: 24.961), zoomLevel: 5, animated: false)
 
     mapView.delegate = self
     mapView.showsUserLocation = true
@@ -46,6 +45,10 @@ class Map: UIViewController, MGLMapViewDelegate {
     // print Realm database path
     print(Realm.Configuration.defaultConfiguration.path!)
     
+    // show loading view
+    Helper.showGlobalProgressHUD()
+    
+    // check if need to update data
     if (realm.objects(DodiesPoint).count == 0) {
       downloadData()
     } else {
@@ -54,7 +57,6 @@ class Map: UIViewController, MGLMapViewDelegate {
       })
     }
   }
-  
   
   // MARK: - Mapbox implementation
   
@@ -92,12 +94,11 @@ class Map: UIViewController, MGLMapViewDelegate {
       annotation = "\(annotation)-disabled"
     }
     
-  
     var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier(annotation)
         
     if annotationImage == nil {
-        let image = UIImage(named: annotation)
-        annotationImage = MGLAnnotationImage(image: image!, reuseIdentifier: annotation)
+      let image = UIImage(named: annotation)
+      annotationImage = MGLAnnotationImage(image: image!, reuseIdentifier: annotation)
     }
     
     return annotationImage
@@ -115,7 +116,6 @@ class Map: UIViewController, MGLMapViewDelegate {
     }
   }
   
-
   func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
     return true
   }
@@ -123,6 +123,7 @@ class Map: UIViewController, MGLMapViewDelegate {
   
   // MARK: - Additonal methods
   
+  // download data from server
   func downloadData() {
     Alamofire.request(.GET, "http://dodies.lv/apraksti/dati.geojson").responseJSON(completionHandler: {
       response in
@@ -155,17 +156,17 @@ class Map: UIViewController, MGLMapViewDelegate {
         dodiesPoint.symb = properties["symb"]!.stringValue
         dodiesPoint.tips = properties["tips"]!.stringValue
 
+        // write in realm database
         try! self.realm.write {
           self.realm.add(dodiesPoint)
         }
       }
       
       self.loadPoints(self.realm)
-      
-      
     })
   }
   
+  // load points from realm database
   func loadPoints(var realm:Realm? = nil) {
   
     if realm == nil {
@@ -191,7 +192,10 @@ class Map: UIViewController, MGLMapViewDelegate {
       
         self.mapView.addAnnotation(point)
     }
-    
+
+    dispatch_async(dispatch_get_main_queue(),{
+      Helper.dismissGlobalHUD()
+    })
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
