@@ -187,6 +187,7 @@ class Map: UIViewController, MGLMapViewDelegate {
         point.id = p.id
         point.garums = p.garums
         point.samaksa = p.samaksa
+        point.datums = p.datums
       
         self.mapView.addAnnotation(point)
     }

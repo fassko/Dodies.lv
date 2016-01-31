@@ -17,15 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="dodies.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qdi-LH-fEa">
-                                <rect key="frame" x="204" y="164" width="192" height="272"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="272" id="Bvb-rs-o70"/>
-                                    <constraint firstAttribute="width" constant="192" id="iaK-e2-NEq"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dodies.lv" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yu-M2-Kgx">
-                                <rect key="frame" x="200" y="456" width="200" height="40"/>
+                                <rect key="frame" x="200" y="491" width="200" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="X7Y-AB-cG1"/>
                                     <constraint firstAttribute="width" constant="200" id="bFZ-0b-tFz"/>
@@ -34,13 +27,20 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="dodies.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wy0-ZI-47e">
+                                <rect key="frame" x="184" y="107" width="232" height="376"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="232" id="OpF-v2-rgM"/>
+                                    <constraint firstAttribute="height" constant="376" id="sDy-ig-yNc"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.42352941176470588" green="0.59607843137254901" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="0yu-M2-Kgx" firstAttribute="top" secondItem="Qdi-LH-fEa" secondAttribute="bottom" constant="20" id="3Jz-RX-mF2"/>
-                            <constraint firstItem="Qdi-LH-fEa" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="AfL-O6-Sfw"/>
                             <constraint firstItem="0yu-M2-Kgx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CL7-Y8-TGz"/>
-                            <constraint firstItem="Qdi-LH-fEa" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="HjH-eW-N6z"/>
+                            <constraint firstItem="Wy0-ZI-47e" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-5" id="JJz-z8-t00"/>
+                            <constraint firstItem="0yu-M2-Kgx" firstAttribute="top" secondItem="Wy0-ZI-47e" secondAttribute="bottom" constant="8" id="ajf-sd-eBL"/>
+                            <constraint firstItem="Wy0-ZI-47e" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qwp-bh-MRQ"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -50,6 +50,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dodies.png" width="452" height="735"/>
+        <image name="dodies.png" width="232" height="376"/>
     </resources>
 </document>

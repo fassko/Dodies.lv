@@ -23,6 +23,8 @@ class Details : UIViewController {
   @IBOutlet weak var lenght: UILabel!
   @IBOutlet weak var priceLabel: UILabel!
   @IBOutlet weak var price: UILabel!
+  @IBOutlet weak var checkedLabel: UILabel!
+  @IBOutlet weak var checked: UILabel!
   
   
   override func viewDidLoad() {
@@ -47,6 +49,14 @@ class Details : UIViewController {
       lenght.text = "\(point.garums) km"
       lenght.hidden = false
       lenghtLabel.hidden = false
+    }
+    
+    
+    
+    if (point.datums != "") {
+      checkedLabel.hidden = false
+      checked.hidden = false
+      checked.text = point.datums
     }
     
     if point.samaksa == "maksas" {

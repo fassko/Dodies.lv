@@ -24,4 +24,5 @@ class DodiesAnnotation:MGLPointAnnotation {
   var apraksts:String = ""
   var garums:String = ""
   var samaksa:String = ""
+  var datums:String = ""
 }

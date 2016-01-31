@@ -124,7 +124,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Garums: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LG-1R-pa1">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Garums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LG-1R-pa1">
                                 <rect key="frame" x="26" y="282" width="64" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="TXU-4G-QVb"/>
@@ -156,7 +156,7 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Samaksa:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFf-d8-Ebq">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Samaksa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFf-d8-Ebq">
                                 <rect key="frame" x="26" y="309" width="71" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="0KY-Ip-F9e"/>
@@ -173,6 +173,32 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apsekots" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvI-kK-8bv">
+                                <rect key="frame" x="26" y="338" width="82" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="DiZ-tM-EBj"/>
+                                    <constraint firstAttribute="height" constant="21" id="RKq-bI-j7r"/>
+                                    <constraint firstAttribute="width" constant="82" id="ZlW-Ox-rBX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="DiZ-tM-EBj"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02/08/2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kll-AW-Qrr">
+                                <rect key="frame" x="106" y="336" width="100" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="l4z-Ba-dNX"/>
+                                    <constraint firstAttribute="width" constant="100" id="wfg-3G-Jz8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -181,6 +207,7 @@
                             <constraint firstItem="aFF-dD-ZKk" firstAttribute="leading" secondItem="KPX-v9-GCL" secondAttribute="leading" id="3uZ-1t-FxG"/>
                             <constraint firstItem="aFF-dD-ZKk" firstAttribute="top" secondItem="KPX-v9-GCL" secondAttribute="bottom" constant="6" id="51J-We-d4v"/>
                             <constraint firstItem="eRF-ih-N5P" firstAttribute="top" secondItem="Q5p-p1-1d2" secondAttribute="bottom" id="7Zb-fU-F9g"/>
+                            <constraint firstItem="kll-AW-Qrr" firstAttribute="leading" secondItem="tUX-eg-LoV" secondAttribute="leadingMargin" constant="86" id="7gV-WX-UtY"/>
                             <constraint firstItem="Zu9-D8-Eqh" firstAttribute="top" secondItem="eRF-ih-N5P" secondAttribute="bottom" constant="8" id="9nq-gg-hv0"/>
                             <constraint firstItem="NFf-d8-Ebq" firstAttribute="leading" secondItem="tUX-eg-LoV" secondAttribute="leadingMargin" constant="6" id="C4K-NN-8pX"/>
                             <constraint firstItem="5LG-1R-pa1" firstAttribute="top" secondItem="2gb-wA-Mtu" secondAttribute="bottom" constant="8" id="CIk-AN-c2k"/>
@@ -192,7 +219,10 @@
                             <constraint firstItem="2gb-wA-Mtu" firstAttribute="trailing" secondItem="tUX-eg-LoV" secondAttribute="trailingMargin" id="M2Q-we-lgl"/>
                             <constraint firstItem="eRF-ih-N5P" firstAttribute="leading" secondItem="tUX-eg-LoV" secondAttribute="leadingMargin" id="N0v-iM-4YV"/>
                             <constraint firstItem="eRF-ih-N5P" firstAttribute="trailing" secondItem="tUX-eg-LoV" secondAttribute="trailingMargin" id="Ngd-ZF-tp3"/>
+                            <constraint firstItem="HvI-kK-8bv" firstAttribute="leading" secondItem="tUX-eg-LoV" secondAttribute="leadingMargin" constant="6" id="Qx1-qr-hJF"/>
+                            <constraint firstItem="kll-AW-Qrr" firstAttribute="top" secondItem="aFF-dD-ZKk" secondAttribute="bottom" constant="6" id="VBF-O9-8nX"/>
                             <constraint firstItem="2gb-wA-Mtu" firstAttribute="top" secondItem="Zu9-D8-Eqh" secondAttribute="bottom" constant="8" id="aEJ-yw-T1E"/>
+                            <constraint firstItem="HvI-kK-8bv" firstAttribute="top" secondItem="NFf-d8-Ebq" secondAttribute="bottom" constant="8" id="bEe-Vb-Q4L"/>
                             <constraint firstItem="Hpd-B5-Cpb" firstAttribute="top" secondItem="2Nk-kg-0Im" secondAttribute="bottom" constant="20" id="e9T-j3-2ab"/>
                             <constraint firstItem="2Nk-kg-0Im" firstAttribute="centerX" secondItem="tUX-eg-LoV" secondAttribute="centerX" id="fcC-wX-9SK"/>
                             <constraint firstItem="5LG-1R-pa1" firstAttribute="leading" secondItem="tUX-eg-LoV" secondAttribute="leadingMargin" constant="6" id="gZq-V5-L9h"/>
@@ -210,6 +240,8 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="checked" destination="kll-AW-Qrr" id="Se6-E7-ktN"/>
+                        <outlet property="checkedLabel" destination="HvI-kK-8bv" id="feA-Gl-IGE"/>
                         <outlet property="closeButton" destination="2Nk-kg-0Im" id="fJ3-06-XZj"/>
                         <outlet property="coordinatesButton" destination="Zu9-D8-Eqh" id="kKd-8m-dj5"/>
                         <outlet property="desc" destination="2gb-wA-Mtu" id="rIv-Oj-vmZ"/>
