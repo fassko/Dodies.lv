@@ -90,6 +90,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Dodies.lv/Realm.framework"
   install_framework "Pods-Dodies.lv/RealmSwift.framework"
   install_framework "Pods-Dodies.lv/SwiftyJSON.framework"
+  install_framework "Pods-Dodies.lv/SwiftyUserDefaults.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Dodies.lv/Alamofire.framework"
@@ -98,4 +99,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Dodies.lv/Realm.framework"
   install_framework "Pods-Dodies.lv/RealmSwift.framework"
   install_framework "Pods-Dodies.lv/SwiftyJSON.framework"
+  install_framework "Pods-Dodies.lv/SwiftyUserDefaults.framework"
 fi

@@ -10,4 +10,5 @@ target 'Dodies.lv' do
   pod 'MBProgressHUD'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'SwiftyUserDefaults', '~> 2.0'
 end

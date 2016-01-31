@@ -14,6 +14,7 @@ import CoreLocation
 import SwiftyJSON
 import Alamofire
 import RealmSwift
+import SwiftyUserDefaults
 
 class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
 
@@ -22,10 +23,13 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   var selectedPoint : DodiesAnnotation!
   
   var realm = try! Realm()
+  
+  let LastChangedTimestampKey = "LastChangedTimestamp"
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // ask user to allow location access
     if CLLocationManager.authorizationStatus() == .NotDetermined {
       manager.requestAlwaysAuthorization()
     }
@@ -43,7 +47,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     view.addSubview(mapView)
     
     // print Realm database path
-    print(Realm.Configuration.defaultConfiguration.path!)
+//    print(Realm.Configuration.defaultConfiguration.path!)
     
     // show loading view
     Helper.showGlobalProgressHUD()
@@ -53,7 +57,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
       downloadData()
     } else {
       dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-        self.loadPoints()
+        self.loadPoints(checkForUpdatedData: true)
       })
     }
   }
@@ -162,12 +166,13 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
         }
       }
       
+      self.updateLastChangedTimestamp()
       self.loadPoints(self.realm)
     })
   }
   
   // load points from realm database
-  func loadPoints(var realm:Realm? = nil) {
+  func loadPoints(var realm:Realm? = nil, checkForUpdatedData:Bool = false) {
   
     if realm == nil {
       realm = try! Realm()
@@ -195,9 +200,35 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
 
     dispatch_async(dispatch_get_main_queue(),{
       Helper.dismissGlobalHUD()
+      
+      if checkForUpdatedData {
+        self.checkIfNeedToUpdate()
+      }
     })
   }
   
+  // update last changed timestamp from server
+  func updateLastChangedTimestamp() {
+    Alamofire.request(.GET, "http://dodies.lv/apraksti/lastchanged.txt").responseString(completionHandler: {
+  response in
+      Defaults[self.LastChangedTimestampKey] = Int(response.result.value!.stringByReplacingOccurrencesOfString("\n", withString: ""))
+    })
+  }
+  
+  // check if need to update
+  func checkIfNeedToUpdate() {
+    Alamofire.request(.GET, "http://dodies.lv/apraksti/lastchanged.txt").responseString(completionHandler: {
+  response in
+      
+      let timestamp = Int(response.result.value!.stringByReplacingOccurrencesOfString("\n", withString: ""))
+
+      if timestamp > Defaults[self.LastChangedTimestampKey].int {
+        self.downloadData()
+      }
+    })
+  }
+  
+  // pass object to details view
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "details" {
     
