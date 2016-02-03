@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ExX-va-15z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ExX-va-15z">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -144,8 +144,8 @@
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="maksas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFF-dD-ZKk">
-                                <rect key="frame" x="106" y="309" width="100" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="maksas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFF-dD-ZKk">
+                                <rect key="frame" x="106" y="308" width="100" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Lpf-kK-J8h"/>
                                     <constraint firstAttribute="width" constant="100" id="WUX-DW-On7"/>
@@ -156,7 +156,7 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Samaksa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFf-d8-Ebq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Samaksa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFf-d8-Ebq">
                                 <rect key="frame" x="26" y="309" width="71" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="0KY-Ip-F9e"/>
@@ -173,7 +173,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apsekots" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvI-kK-8bv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apsekots" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvI-kK-8bv">
                                 <rect key="frame" x="26" y="338" width="82" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="DiZ-tM-EBj"/>
@@ -189,8 +189,8 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02/08/2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kll-AW-Qrr">
-                                <rect key="frame" x="106" y="336" width="100" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02/08/2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kll-AW-Qrr">
+                                <rect key="frame" x="106" y="338" width="100" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="l4z-Ba-dNX"/>
                                     <constraint firstAttribute="width" constant="100" id="wfg-3G-Jz8"/>
@@ -205,7 +205,7 @@
                             <constraint firstItem="aFF-dD-ZKk" firstAttribute="leading" secondItem="NFf-d8-Ebq" secondAttribute="trailing" constant="9" id="1aH-VM-x2A"/>
                             <constraint firstItem="KPX-v9-GCL" firstAttribute="leading" secondItem="5LG-1R-pa1" secondAttribute="trailing" constant="16" id="1aT-ab-hjo"/>
                             <constraint firstItem="aFF-dD-ZKk" firstAttribute="leading" secondItem="KPX-v9-GCL" secondAttribute="leading" id="3uZ-1t-FxG"/>
-                            <constraint firstItem="aFF-dD-ZKk" firstAttribute="top" secondItem="KPX-v9-GCL" secondAttribute="bottom" constant="6" id="51J-We-d4v"/>
+                            <constraint firstItem="aFF-dD-ZKk" firstAttribute="top" secondItem="KPX-v9-GCL" secondAttribute="bottom" constant="5" id="51J-We-d4v"/>
                             <constraint firstItem="eRF-ih-N5P" firstAttribute="top" secondItem="Q5p-p1-1d2" secondAttribute="bottom" id="7Zb-fU-F9g"/>
                             <constraint firstItem="kll-AW-Qrr" firstAttribute="leading" secondItem="tUX-eg-LoV" secondAttribute="leadingMargin" constant="86" id="7gV-WX-UtY"/>
                             <constraint firstItem="Zu9-D8-Eqh" firstAttribute="top" secondItem="eRF-ih-N5P" secondAttribute="bottom" constant="8" id="9nq-gg-hv0"/>
@@ -220,7 +220,7 @@
                             <constraint firstItem="eRF-ih-N5P" firstAttribute="leading" secondItem="tUX-eg-LoV" secondAttribute="leadingMargin" id="N0v-iM-4YV"/>
                             <constraint firstItem="eRF-ih-N5P" firstAttribute="trailing" secondItem="tUX-eg-LoV" secondAttribute="trailingMargin" id="Ngd-ZF-tp3"/>
                             <constraint firstItem="HvI-kK-8bv" firstAttribute="leading" secondItem="tUX-eg-LoV" secondAttribute="leadingMargin" constant="6" id="Qx1-qr-hJF"/>
-                            <constraint firstItem="kll-AW-Qrr" firstAttribute="top" secondItem="aFF-dD-ZKk" secondAttribute="bottom" constant="6" id="VBF-O9-8nX"/>
+                            <constraint firstItem="kll-AW-Qrr" firstAttribute="top" secondItem="aFF-dD-ZKk" secondAttribute="bottom" constant="9" id="VBF-O9-8nX"/>
                             <constraint firstItem="2gb-wA-Mtu" firstAttribute="top" secondItem="Zu9-D8-Eqh" secondAttribute="bottom" constant="8" id="aEJ-yw-T1E"/>
                             <constraint firstItem="HvI-kK-8bv" firstAttribute="top" secondItem="NFf-d8-Ebq" secondAttribute="bottom" constant="8" id="bEe-Vb-Q4L"/>
                             <constraint firstItem="Hpd-B5-Cpb" firstAttribute="top" secondItem="2Nk-kg-0Im" secondAttribute="bottom" constant="20" id="e9T-j3-2ab"/>
