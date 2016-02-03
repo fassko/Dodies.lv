@@ -32,13 +32,7 @@ class Details : UIViewController {
     
     pointTitle.text = point.title
     
-    let baseFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-    let modifier = modifierWithBaseAttributes([NSFontAttributeName: baseFont], modifiers: [
-        selectMap("em", italic),
-        selectMap("b", bold),
-    ])
-
-    desc.attributedText = NSAttributedString.attributedStringFromMarkup(point.desc, withModifier: modifier)
+    desc.text = point.desc
     
     
     closeButton.layer.cornerRadius = 5
