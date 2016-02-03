@@ -14,6 +14,7 @@
 		636EA8361BA5BDF40071397A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EA8351BA5BDF40071397A /* AppDelegate.swift */; };
 		636EA83D1BA5BDF40071397A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636EA83B1BA5BDF40071397A /* Main.storyboard */; };
 		636EA8421BA5BDF40071397A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636EA8401BA5BDF40071397A /* LaunchScreen.storyboard */; };
+		63A818C81C6294F9006F7F80 /* Valmiera.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 63A818C71C6294F9006F7F80 /* Valmiera.gpx */; };
 		63AFB7BF1C5CE04D004A58E1 /* parks-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7A11C5CE04D004A58E1 /* parks-active.png */; };
 		63AFB7C01C5CE04D004A58E1 /* parks-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7A21C5CE04D004A58E1 /* parks-active@2x.png */; };
 		63AFB7C11C5CE04D004A58E1 /* parks-active@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7A31C5CE04D004A58E1 /* parks-active@3x.png */; };
@@ -65,6 +66,7 @@
 		636EA83C1BA5BDF40071397A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		636EA8411BA5BDF40071397A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		636EA8431BA5BDF40071397A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63A818C71C6294F9006F7F80 /* Valmiera.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Valmiera.gpx; sourceTree = "<group>"; };
 		63AFB7A11C5CE04D004A58E1 /* parks-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "parks-active.png"; sourceTree = "<group>"; };
 		63AFB7A21C5CE04D004A58E1 /* parks-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "parks-active@2x.png"; sourceTree = "<group>"; };
 		63AFB7A31C5CE04D004A58E1 /* parks-active@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "parks-active@3x.png"; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				636EA8431BA5BDF40071397A /* Info.plist */,
 				634073531C594A4300190BA4 /* Interface */,
 				63AFB7DD1C5CF613004A58E1 /* Images.xcassets */,
+				63A818C71C6294F9006F7F80 /* Valmiera.gpx */,
 				6304EAFE1BA5C25900B7CD49 /* Settings.bundle */,
 			);
 			path = Dodies.lv;
@@ -358,6 +361,7 @@
 				63AFB7C51C5CE04D004A58E1 /* pikniks-active.png in Resources */,
 				63AFB7CF1C5CE04D004A58E1 /* taka-disabled@2x.png in Resources */,
 				63AFB7FD1C5E375D004A58E1 /* dodies@3x.png in Resources */,
+				63A818C81C6294F9006F7F80 /* Valmiera.gpx in Resources */,
 				63AFB7D21C5CE04D004A58E1 /* tornis-active@2x.png in Resources */,
 				63AFB7D51C5CE04D004A58E1 /* tornis-disabled@2x.png in Resources */,
 				63AFB7EA1C5D100B004A58E1 /* location-pin@3x.png in Resources */,

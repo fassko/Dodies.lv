@@ -121,7 +121,11 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   }
   
   func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-    return true
+    if annotation.isKindOfClass(DodiesAnnotation) {
+      return true
+    }
+    
+    return false
   }
   
   
