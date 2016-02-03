@@ -21,7 +21,7 @@ DEPENDENCIES:
   - Fabric
   - Mapbox-iOS-SDK
   - MBProgressHUD
-  - RealmSwift
+  - RealmSwift (~> 0.97)
   - SwiftyJSON
   - SwiftyUserDefaults (~> 2.0)
 

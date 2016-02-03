@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A5D8ADB41AD183565561775 /* Pods_Dodies_lv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9870F5E07E5B45042965F16A /* Pods_Dodies_lv.framework */; };
 		6304EAFF1BA5C25900B7CD49 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6304EAFE1BA5C25900B7CD49 /* Settings.bundle */; };
 		6304EB011BA5C2C700B7CD49 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304EB001BA5C2C700B7CD49 /* Map.swift */; };
 		63475FEC1C5CC95500A9A5E4 /* DodiesPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */; };
@@ -53,12 +54,9 @@
 		63AFB8011C5E3FFC004A58E1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AFB8001C5E3FFC004A58E1 /* Helper.swift */; };
 		63CA57A51BA5F41700A9F5DC /* DodiesAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */; };
 		63CA57A71BA606B800A9F5DC /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CA57A61BA606B800A9F5DC /* Details.swift */; };
-		938C3F666E7C9DAD3550E4AC /* Pods_Dodies_lv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F856ECAEB3B0E7E01A02654 /* Pods_Dodies_lv.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F856ECAEB3B0E7E01A02654 /* Pods_Dodies_lv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dodies_lv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2137807D854993494C6A97C5 /* Pods-Dodies.lv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dodies.lv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv.release.xcconfig"; sourceTree = "<group>"; };
 		6304EAFE1BA5C25900B7CD49 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6304EB001BA5C2C700B7CD49 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DodiesPoint.swift; sourceTree = "<group>"; };
@@ -107,7 +105,9 @@
 		63AFB8001C5E3FFC004A58E1 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DodiesAnnotation.swift; sourceTree = "<group>"; };
 		63CA57A61BA606B800A9F5DC /* Details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
-		AE84B0FEF323BCFE3487D08C /* Pods-Dodies.lv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dodies.lv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv.debug.xcconfig"; sourceTree = "<group>"; };
+		9870F5E07E5B45042965F16A /* Pods_Dodies_lv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dodies_lv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFDF0E6A92770D268F260866 /* Pods-Dodies.lv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dodies.lv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv.debug.xcconfig"; sourceTree = "<group>"; };
+		DE6B3018C8E57D8AE5F36751 /* Pods-Dodies.lv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dodies.lv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,22 +115,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				938C3F666E7C9DAD3550E4AC /* Pods_Dodies_lv.framework in Frameworks */,
+				0A5D8ADB41AD183565561775 /* Pods_Dodies_lv.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		349B00EC2AC442943D269D02 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AE84B0FEF323BCFE3487D08C /* Pods-Dodies.lv.debug.xcconfig */,
-				2137807D854993494C6A97C5 /* Pods-Dodies.lv.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		634073531C594A4300190BA4 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,8 +137,8 @@
 			children = (
 				636EA8341BA5BDF40071397A /* Dodies.lv */,
 				636EA8331BA5BDF40071397A /* Products */,
-				349B00EC2AC442943D269D02 /* Pods */,
-				C8E9CB739CAB9EEC230E2649 /* Frameworks */,
+				FFDCEC788E472458276E1856 /* Pods */,
+				F59EC6FA895C379FDDDE226E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,12 +234,21 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		C8E9CB739CAB9EEC230E2649 /* Frameworks */ = {
+		F59EC6FA895C379FDDDE226E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1F856ECAEB3B0E7E01A02654 /* Pods_Dodies_lv.framework */,
+				9870F5E07E5B45042965F16A /* Pods_Dodies_lv.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFDCEC788E472458276E1856 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CFDF0E6A92770D268F260866 /* Pods-Dodies.lv.debug.xcconfig */,
+				DE6B3018C8E57D8AE5F36751 /* Pods-Dodies.lv.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,13 +258,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 636EA8461BA5BDF40071397A /* Build configuration list for PBXNativeTarget "Dodies.lv" */;
 			buildPhases = (
-				2F178B45C46F09C7161E3225 /* Check Pods Manifest.lock */,
+				7607C31C27689BC6D1C293BE /* Check Pods Manifest.lock */,
 				636EA82E1BA5BDF40071397A /* Sources */,
 				636EA82F1BA5BDF40071397A /* Frameworks */,
 				636EA8301BA5BDF40071397A /* Resources */,
-				9C848D11FC71CC787CE20F5C /* Embed Pods Frameworks */,
-				F17EBFD066649FB391566F1A /* Copy Pods Resources */,
 				63AFB8021C5E4412004A58E1 /* ShellScript */,
+				674F922425F740D937DCE568 /* Embed Pods Frameworks */,
+				3B4948A10E1A31EDFF71AEC7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -368,19 +368,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F178B45C46F09C7161E3225 /* Check Pods Manifest.lock */ = {
+		3B4948A10E1A31EDFF71AEC7 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		63AFB8021C5E4412004A58E1 /* ShellScript */ = {
@@ -396,7 +396,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 34be06edc6f733a743335744b07a23f6a3e5b344 a9207ff06b3417aa4bf8c6408432761ca87c5b52dca8f2365b133eea61d407cc";
 		};
-		9C848D11FC71CC787CE20F5C /* Embed Pods Frameworks */ = {
+		674F922425F740D937DCE568 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -411,19 +411,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F17EBFD066649FB391566F1A /* Copy Pods Resources */ = {
+		7607C31C27689BC6D1C293BE /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -487,6 +487,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -507,6 +508,8 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -533,6 +536,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -545,18 +549,24 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 		636EA8471BA5BDF40071397A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE84B0FEF323BCFE3487D08C /* Pods-Dodies.lv.debug.xcconfig */;
+			baseConfigurationReference = CFDF0E6A92770D268F260866 /* Pods-Dodies.lv.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Dodies.lv/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -567,11 +577,15 @@
 		};
 		636EA8481BA5BDF40071397A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2137807D854993494C6A97C5 /* Pods-Dodies.lv.release.xcconfig */;
+			baseConfigurationReference = DE6B3018C8E57D8AE5F36751 /* Pods-Dodies.lv.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Dodies.lv/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
