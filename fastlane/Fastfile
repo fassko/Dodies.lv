@@ -11,6 +11,17 @@ platform :ios do
 
   end
 
+  desc "Travis lane"
+  lane :travis do
+    xctool :clean, :build, [
+      "--workspace", "Dodies.lv.xcworkspace",
+      "--scheme", "Dodies.lv",
+      "--configuration", "Debug",
+      "CODE_SIGN_IDENTITY=\"\"",
+      "CODE_SIGNING_REQUIRED=NO"
+    ].join(" ")
+  end
+
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
