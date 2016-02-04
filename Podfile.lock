@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (3.1.5)
+  - AsyncSwift (1.6.4)
   - Attributed (1.0.0)
   - Crashlytics (3.6.0):
     - Fabric (~> 1.6.3)
@@ -16,6 +17,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - AsyncSwift
   - Attributed
   - Crashlytics
   - Fabric
@@ -27,6 +29,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
+  AsyncSwift: 3c90beed237324f1b57e1f1c414dc5501985d208
   Attributed: da371412467100c017da8cfac808a66541edd76c
   Crashlytics: e4e8d02914f2608fbc7bf42b1a7af838b0db67a2
   Fabric: ed41fd62173c6bdea24ab02c9d7707161eabb750

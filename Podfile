@@ -11,4 +11,5 @@ target 'Dodies.lv' do
   pod 'Crashlytics'
   pod 'SwiftyUserDefaults', '~> 2.0'
   pod 'RealmSwift', '~> 0.97'
+  pod "AsyncSwift"
 end

@@ -15,6 +15,7 @@ import SwiftyJSON
 import Alamofire
 import RealmSwift
 import SwiftyUserDefaults
+import Async
 
 class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
 
@@ -56,9 +57,9 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     if (realm.objects(DodiesPoint).count == 0) {
       downloadData()
     } else {
-      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+      Async.background {
         self.loadPoints(checkForUpdatedData: true)
-      })
+      }
     }
   }
   
@@ -201,14 +202,14 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
       
         self.mapView.addAnnotation(point)
     }
-
-    dispatch_async(dispatch_get_main_queue(),{
+    
+    Async.main {
       Helper.dismissGlobalHUD()
       
       if checkForUpdatedData {
         self.checkIfNeedToUpdate()
       }
-    })
+    }
   }
   
   // update last changed timestamp from server
