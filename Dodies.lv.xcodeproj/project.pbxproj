@@ -265,9 +265,9 @@
 				636EA82E1BA5BDF40071397A /* Sources */,
 				636EA82F1BA5BDF40071397A /* Frameworks */,
 				636EA8301BA5BDF40071397A /* Resources */,
-				63AFB8021C5E4412004A58E1 /* ShellScript */,
 				674F922425F740D937DCE568 /* Embed Pods Frameworks */,
 				3B4948A10E1A31EDFF71AEC7 /* Copy Pods Resources */,
+				63AFB8021C5E4412004A58E1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -488,7 +488,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 12;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -536,9 +536,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 12;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

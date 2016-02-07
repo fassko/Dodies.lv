@@ -36,23 +36,29 @@ platform :ios do
       workspace: "Dodies.lv.xcworkspace",
       scheme: "Dodies.lv",
       clean: true,
-      output_name: "Dodies.lv.ipa"
+      output_name: "Dodies.lv.ipa",
+      include_symbols: true
     )
 
-    # dsym_zip
+    dsym_zip
 
-    crashlytics(
-      # crashlytics_path: 'Pods/Crashlytics/Crashlytics.framework',
-      api_token: '34be06edc6f733a743335744b07a23f6a3e5b344',
-      build_secret: 'a9207ff06b3417aa4bf8c6408432761ca87c5b52dca8f2365b133eea61d407cc',
-      ipa_path: 'Dodies.lv.ipa',
-      notes: "New version " + Time.new.strftime("%H:%M:%S %d.%m.%Y"),
-      notifications: true
+    copy_artifacts(
+      target_path: 'artifacts',
+      artifacts: ['*.dSYM.zip']
     )
 
-    pilot(
-      skip_submission: true
-    )
+    # crashlytics(
+    #   # crashlytics_path: 'Pods/Crashlytics/Crashlytics.framework',
+    #   api_token: '34be06edc6f733a743335744b07a23f6a3e5b344',
+    #   build_secret: 'a9207ff06b3417aa4bf8c6408432761ca87c5b52dca8f2365b133eea61d407cc',
+    #   ipa_path: 'Dodies.lv.ipa',
+    #   notes: "New version " + Time.new.strftime("%H:%M:%S %d.%m.%Y"),
+    #   notifications: true
+    # )
+    #
+    # pilot(
+    #   skip_submission: true
+    # )
   end
 
   lane :build do
