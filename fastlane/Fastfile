@@ -61,6 +61,30 @@ platform :ios do
     # )
   end
 
+  lane :appstore do
+    cert
+    sigh
+
+    increment_build_number
+
+    gym(
+      workspace: "Dodies.lv.xcworkspace",
+      scheme: "Dodies.lv",
+      clean: true,
+      output_name: "Dodies.lv.ipa",
+      include_symbols: true
+    )
+
+    dsym_zip
+
+    copy_artifacts(
+      target_path: 'artifacts',
+      artifacts: ['*.dSYM.zip']
+    )
+
+    deliver
+  end
+
   lane :build do
     gym(
       workspace: "Dodies.lv.xcworkspace",
@@ -69,15 +93,6 @@ platform :ios do
       output_name: "Dodies.lv.ipa",
       use_legacy_build_api: true
     )
-  end
-
-  desc "Deploy a new version to the App Store"
-  lane :appstore do
-    # match(type: "appstore")
-    # snapshot
-    gym(scheme: "Dodies.lv") # Build your app - more options available
-    deliver(force: true)
-    # frameit
   end
 
   after_all do |lane|

@@ -1,1 +1,1 @@
-../../../../Mapbox-iOS-SDK/Mapbox.framework/Headers/MGLMultiPoint.h
+../../../../Mapbox-iOS-SDK/dynamic/Mapbox.framework/Headers/MGLMultiPoint.h

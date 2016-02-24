@@ -1,1 +1,1 @@
-../../../../Mapbox-iOS-SDK/Mapbox.framework/Headers/MGLAnnotation.h
+../../../../Mapbox-iOS-SDK/dynamic/Mapbox.framework/Headers/MGLAnnotation.h

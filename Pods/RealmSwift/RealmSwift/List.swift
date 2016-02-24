@@ -153,6 +153,19 @@ public final class List<T: Object>: ListBase {
     }
 
     /**
+     Returns an Array containing the results of invoking `valueForKeyPath(_:)` using keyPath on each of the
+     collection's objects.
+
+     - parameter keyPath: The key path to the property.
+
+     - returns: Array containing the results of invoking `valueForKeyPath(_:)` using keyPath on each of the
+     collection's objects.
+     */
+    public override func valueForKeyPath(keyPath: String) -> AnyObject? {
+        return _rlmArray.valueForKeyPath(keyPath)
+    }
+
+    /**
     Invokes `setValue(_:forKey:)` on each of the collection's objects using the specified value and key.
 
     - warning: This method can only be called during a write transaction.
@@ -356,7 +369,6 @@ public final class List<T: Object>: ListBase {
         _rlmArray.replaceObjectAtIndex(UInt(index), withObject: unsafeBitCast(object, RLMObject.self))
     }
 
-    // swiftlint:disable variable_name_min_length
     /**
     Moves the object at the given source index to the given destination index.
 
@@ -367,8 +379,7 @@ public final class List<T: Object>: ListBase {
     - parameter from:  The index of the object to be moved.
     - parameter to:    index to which the object at `from` should be moved.
     */
-    public func move(from from: Int, to: Int) {
-        // swiftlint:enable variable_name_min_length
+    public func move(from from: Int, to: Int) { // swiftlint:disable:this variable_name
         throwForNegativeIndex(from)
         throwForNegativeIndex(to)
         _rlmArray.moveObjectAtIndex(UInt(from), toIndex: UInt(to))
@@ -387,6 +398,24 @@ public final class List<T: Object>: ListBase {
         throwForNegativeIndex(index1, parameterName: "index1")
         throwForNegativeIndex(index2, parameterName: "index2")
         _rlmArray.exchangeObjectAtIndex(UInt(index1), withObjectAtIndex: UInt(index2))
+    }
+
+    // MARK: Notifications
+
+    /**
+    Register a block to be called each time the List changes.
+
+    The block will be asynchronously called with the initial list, and then
+    called again after each write transaction which changes the list or any of
+    the items in the list. You must retain the returned token for as long as
+    you want the results to continue to be sent to the block. To stop receiving
+    updates, call stop() on the token.
+
+    - parameter block: The block to be called each time the list changes.
+    - returns: A token which must be held for as long as you want notifications to be delivered.
+    */
+    public func addNotificationBlock(block: (List<T>) -> ()) -> NotificationToken {
+        return _rlmArray.addNotificationBlock { _, _ in block(self) }
     }
 }
 
@@ -424,4 +453,10 @@ extension List: RealmCollectionType, RangeReplaceableCollectionType {
     /// endIndex is not a valid argument to subscript, and is always reachable from startIndex by
     /// zero or more applications of successor().
     public var endIndex: Int { return count }
+
+    /// :nodoc:
+    public func _addNotificationBlock(block: (AnyRealmCollection<T>?, NSError?) -> ()) -> NotificationToken {
+        let anyCollection = AnyRealmCollection(self)
+        return _rlmArray.addNotificationBlock { _, _ in block(anyCollection, nil) }
+    }
 }

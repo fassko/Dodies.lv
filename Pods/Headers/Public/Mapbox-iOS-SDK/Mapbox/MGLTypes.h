@@ -1,1 +1,1 @@
-../../../../Mapbox-iOS-SDK/Mapbox.framework/Headers/MGLTypes.h
+../../../../Mapbox-iOS-SDK/dynamic/Mapbox.framework/Headers/MGLTypes.h

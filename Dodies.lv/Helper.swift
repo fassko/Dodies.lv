@@ -26,7 +26,7 @@ class Helper {
   
   class func dismissGlobalHUD() {
     if let window = UIApplication.sharedApplication().delegate?.window  {
-      MBProgressHUD.hideHUDForView(window, animated: true)
+      MBProgressHUD.hideAllHUDsForView(window, animated: true)
     }
   }
 }

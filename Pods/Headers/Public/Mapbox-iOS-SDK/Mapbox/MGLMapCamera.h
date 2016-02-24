@@ -1,1 +1,1 @@
-../../../../Mapbox-iOS-SDK/Mapbox.framework/Headers/MGLMapCamera.h
+../../../../Mapbox-iOS-SDK/dynamic/Mapbox.framework/Headers/MGLMapCamera.h

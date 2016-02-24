@@ -1,1 +1,1 @@
-../../../../Mapbox-iOS-SDK/Mapbox.framework/Headers/MGLPolyline.h
+../../../../Mapbox-iOS-SDK/dynamic/Mapbox.framework/Headers/MGLPolyline.h

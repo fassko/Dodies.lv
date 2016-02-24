@@ -1,1 +1,1 @@
-../../../../Mapbox-iOS-SDK/Mapbox.framework/Headers/MGLPolygon.h
+../../../../Mapbox-iOS-SDK/dynamic/Mapbox.framework/Headers/MGLPolygon.h

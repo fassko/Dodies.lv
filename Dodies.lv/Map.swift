@@ -32,7 +32,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     
     // ask user to allow location access
     if CLLocationManager.authorizationStatus() == .NotDetermined {
-      manager.requestAlwaysAuthorization()
+      manager.requestWhenInUseAuthorization()
     }
     
     // initialize the map view

@@ -1,1 +1,1 @@
-../../../../Mapbox-iOS-SDK/Mapbox.framework/Headers/Mapbox.h
+../../../../Mapbox-iOS-SDK/dynamic/Mapbox.framework/Headers/Mapbox.h

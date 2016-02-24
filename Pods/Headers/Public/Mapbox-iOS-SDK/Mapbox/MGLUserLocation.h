@@ -1,1 +1,1 @@
-../../../../Mapbox-iOS-SDK/Mapbox.framework/Headers/MGLUserLocation.h
+../../../../Mapbox-iOS-SDK/dynamic/Mapbox.framework/Headers/MGLUserLocation.h

@@ -1,4 +1,4 @@
-platform :ios, '9.2'
+platform :ios, '8.0'
 use_frameworks!
 
 target 'Dodies.lv' do

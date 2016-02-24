@@ -1,1 +1,1 @@
-../../../../Mapbox-iOS-SDK/Mapbox.framework/Headers/MGLOverlay.h
+../../../../Mapbox-iOS-SDK/dynamic/Mapbox.framework/Headers/MGLOverlay.h
