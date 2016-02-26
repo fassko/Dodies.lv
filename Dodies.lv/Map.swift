@@ -224,11 +224,12 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   func checkIfNeedToUpdate() {
     Alamofire.request(.GET, "http://dodies.lv/apraksti/lastchanged.txt").responseString(completionHandler: {
   response in
-      
-      let timestamp = Int(response.result.value!.stringByReplacingOccurrencesOfString("\n", withString: ""))
-
-      if timestamp > Defaults[self.LastChangedTimestampKey].int {
-        self.downloadData()
+      if response.result.error == nil {
+        if let timestamp = Int(response.result.value!.stringByReplacingOccurrencesOfString("\n", withString: "")) {
+          if timestamp > Defaults[self.LastChangedTimestampKey].intValue {
+            self.downloadData()
+          }
+        }
       }
     })
   }
