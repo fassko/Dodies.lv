@@ -37,7 +37,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     }
     
     // initialize the map view
-    mapView = MGLMapView(frame: view.bounds)
+    mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.emeraldStyleURL())
     mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
     
     mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 57.166, longitude: 24.961), zoomLevel: 5, animated: false)
