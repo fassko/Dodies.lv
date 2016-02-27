@@ -1,0 +1,6 @@
+framework module GCD {
+  umbrella header "GCD-umbrella.h"
+
+  export *
+  module * { export * }
+}

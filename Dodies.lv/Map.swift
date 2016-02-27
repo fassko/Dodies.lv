@@ -16,6 +16,7 @@ import Alamofire
 import RealmSwift
 import SwiftyUserDefaults
 import Async
+import SDCAlertView
 
 class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
 
@@ -62,6 +63,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
       }
     }
   }
+  
   
   // MARK: - Mapbox implementation
   
@@ -137,42 +139,53 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     Alamofire.request(.GET, "http://dodies.lv/apraksti/dati.geojson").responseJSON(completionHandler: {
       response in
       
-      let json = JSON(response.result.value!)
+        Helper.dismissGlobalHUD()
       
-      try! self.realm.write {
-        self.realm.deleteAll()
-      }
-      
-      for feature in json["features"].arrayValue {
-        
-        let coordinates:Array<Double> = feature["geometry"].dictionaryValue["coordinates"]?.arrayObject as! Array<Double>
-        let properties = feature["properties"].dictionaryValue
-        
-        
-        let dodiesPoint = DodiesPoint()
-        dodiesPoint.latitude = coordinates[0]
-        dodiesPoint.longitude = coordinates[1]
-        
-        dodiesPoint.apraksts = properties["apraksts"]!.stringValue
-        dodiesPoint.datums = properties["datums"]!.stringValue
-        dodiesPoint.desc = properties["desc"]!.stringValue
-        dodiesPoint.garums = properties["garums"]!.stringValue
-        dodiesPoint.id = properties["id"]!.stringValue
-        dodiesPoint.klase = properties["klase"]!.stringValue
-        dodiesPoint.name = properties["name"]!.stringValue
-        dodiesPoint.samaksa = properties["samaksa"]!.stringValue
-        dodiesPoint.statuss = properties["statuss"]!.stringValue
-        dodiesPoint.symb = properties["symb"]!.stringValue
-        dodiesPoint.tips = properties["tips"]!.stringValue
-
-        // write in realm database
-        try! self.realm.write {
-          self.realm.add(dodiesPoint)
+        if response.result.isFailure {
+          self.showError()
         }
-      }
       
-      self.updateLastChangedTimestamp()
-      self.loadPoints(self.realm)
+        if response.result.isSuccess {
+        
+          if let value = response.result.value {
+            let json = JSON(value)
+          
+            try! self.realm.write {
+              self.realm.deleteAll()
+            }
+            
+            for feature in json["features"].arrayValue {
+              
+              let coordinates:Array<Double> = feature["geometry"].dictionaryValue["coordinates"]?.arrayObject as! Array<Double>
+              let properties = feature["properties"].dictionaryValue
+              
+              
+              let dodiesPoint = DodiesPoint()
+              dodiesPoint.latitude = coordinates[0]
+              dodiesPoint.longitude = coordinates[1]
+              
+              dodiesPoint.apraksts = properties["apraksts"]!.stringValue
+              dodiesPoint.datums = properties["datums"]!.stringValue
+              dodiesPoint.desc = properties["desc"]!.stringValue
+              dodiesPoint.garums = properties["garums"]!.stringValue
+              dodiesPoint.id = properties["id"]!.stringValue
+              dodiesPoint.klase = properties["klase"]!.stringValue
+              dodiesPoint.name = properties["name"]!.stringValue
+              dodiesPoint.samaksa = properties["samaksa"]!.stringValue
+              dodiesPoint.statuss = properties["statuss"]!.stringValue
+              dodiesPoint.symb = properties["symb"]!.stringValue
+              dodiesPoint.tips = properties["tips"]!.stringValue
+
+              // write in realm database
+              try! self.realm.write {
+                self.realm.add(dodiesPoint)
+              }
+            }
+            
+            self.updateLastChangedTimestamp()
+            self.loadPoints(self.realm)
+          }
+        }
     })
   }
   
@@ -215,8 +228,12 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   // update last changed timestamp from server
   func updateLastChangedTimestamp() {
     Alamofire.request(.GET, "http://dodies.lv/apraksti/lastchanged.txt").responseString(completionHandler: {
-  response in
-      Defaults[self.LastChangedTimestampKey] = Int(response.result.value!.stringByReplacingOccurrencesOfString("\n", withString: ""))
+      response in
+        if response.result.isSuccess {
+          if let timestamp = Int(response.result.value!.stringByReplacingOccurrencesOfString("\n", withString: "")) {
+            Defaults[self.LastChangedTimestampKey] = timestamp
+          }
+        }
     })
   }
   
@@ -224,7 +241,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   func checkIfNeedToUpdate() {
     Alamofire.request(.GET, "http://dodies.lv/apraksti/lastchanged.txt").responseString(completionHandler: {
   response in
-      if response.result.error == nil {
+      if response.result.isSuccess {
         if let timestamp = Int(response.result.value!.stringByReplacingOccurrencesOfString("\n", withString: "")) {
           if timestamp > Defaults[self.LastChangedTimestampKey].intValue {
             self.downloadData()
@@ -232,6 +249,13 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
         }
       }
     })
+  }
+  
+  // show error
+  func showError() {
+    let alert = AlertController(title: "Kļūda", message: "Neizdevās lejuplādēt datus, lūdzu pārbaudiet savus iestatījumus un mēģiniet vēlreiz!", preferredStyle: .Alert)
+          alert.addAction(AlertAction(title: "OK", style: .Preferred))
+          alert.present()
   }
   
   // pass object to details view
