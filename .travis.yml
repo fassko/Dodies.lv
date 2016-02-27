@@ -1,5 +1,5 @@
 before_install:
-  - gem update fastlane
+  - gem update fastlane --no-document
   - fastlane --version
   - gem cleanup
   - brew update
