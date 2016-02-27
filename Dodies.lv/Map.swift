@@ -46,6 +46,8 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     mapView.showsUserLocation = true
     mapView.rotateEnabled = false
     
+    mapView.attributionButton.hidden = true
+    
     view.addSubview(mapView)
     
     // print Realm database path
@@ -116,8 +118,9 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   }
   
   func mapView(mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
-    selectedPoint = annotation as! DodiesAnnotation
-    if selectedPoint != nil {
+    if let point = annotation as? DodiesAnnotation {
+      selectedPoint = point
+      
       performSegueWithIdentifier("details", sender: self)
       mapView.deselectAnnotation(annotation, animated: true)
     }
