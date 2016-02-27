@@ -40,7 +40,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.emeraldStyleURL())
     mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
     
-    mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 57.166, longitude: 24.961), zoomLevel: 5, animated: false)
+    mapView.setVisibleCoordinateBounds(MGLCoordinateBounds(sw: CLLocationCoordinate2D(latitude: 55.500, longitude: 20.500), ne: CLLocationCoordinate2D(latitude: 58.500, longitude: 28.500)), animated: false)
 
     mapView.delegate = self
     mapView.showsUserLocation = true
