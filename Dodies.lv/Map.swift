@@ -164,41 +164,44 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
         
           if let value = response.result.value {
             let json = JSON(value)
+            
+            if let features = json["features"].array {
           
-            try! self.realm.write {
-              self.realm.deleteAll()
-            }
-            
-            for feature in json["features"].arrayValue {
-              
-              let coordinates:Array<Double> = feature["geometry"].dictionaryValue["coordinates"]?.arrayObject as! Array<Double>
-              let properties = feature["properties"].dictionaryValue
-              
-              
-              let dodiesPoint = DodiesPoint()
-              dodiesPoint.latitude = coordinates[0]
-              dodiesPoint.longitude = coordinates[1]
-              
-              dodiesPoint.apraksts = properties["apraksts"]!.stringValue
-              dodiesPoint.datums = properties["datums"]!.stringValue
-              dodiesPoint.desc = properties["desc"]!.stringValue
-              dodiesPoint.garums = properties["garums"]!.stringValue
-              dodiesPoint.id = properties["id"]!.stringValue
-              dodiesPoint.klase = properties["klase"]!.stringValue
-              dodiesPoint.name = properties["name"]!.stringValue
-              dodiesPoint.samaksa = properties["samaksa"]!.stringValue
-              dodiesPoint.statuss = properties["statuss"]!.stringValue
-              dodiesPoint.symb = properties["symb"]!.stringValue
-              dodiesPoint.tips = properties["tips"]!.stringValue
-
-              // write in realm database
               try! self.realm.write {
-                self.realm.add(dodiesPoint)
+                self.realm.deleteAll()
               }
+              
+              for feature in features {
+                
+                let coordinates:Array<Double> = feature["geometry"].dictionaryValue["coordinates"]?.arrayObject as! Array<Double>
+                let properties = feature["properties"].dictionaryValue
+                
+                
+                let dodiesPoint = DodiesPoint()
+                dodiesPoint.latitude = coordinates[0]
+                dodiesPoint.longitude = coordinates[1]
+                
+                dodiesPoint.apraksts = properties["apraksts"]!.stringValue
+                dodiesPoint.datums = properties["datums"]!.stringValue
+                dodiesPoint.desc = properties["desc"]!.stringValue
+                dodiesPoint.garums = properties["garums"]!.stringValue
+                dodiesPoint.id = properties["id"]!.stringValue
+                dodiesPoint.klase = properties["klase"]!.stringValue
+                dodiesPoint.name = properties["name"]!.stringValue
+                dodiesPoint.samaksa = properties["samaksa"]!.stringValue
+                dodiesPoint.statuss = properties["statuss"]!.stringValue
+                dodiesPoint.symb = properties["symb"]!.stringValue
+                dodiesPoint.tips = properties["tips"]!.stringValue
+
+                // write in realm database
+                try! self.realm.write {
+                  self.realm.add(dodiesPoint)
+                }
+              }
+              
+              self.updateLastChangedTimestamp()
+              self.loadPoints(self.realm)
             }
-            
-            self.updateLastChangedTimestamp()
-            self.loadPoints(self.realm)
           }
         }
     })
