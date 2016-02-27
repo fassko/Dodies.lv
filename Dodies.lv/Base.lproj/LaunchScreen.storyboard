@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,16 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dodies.lv" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yu-M2-Kgx">
-                                <rect key="frame" x="200" y="491" width="200" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="X7Y-AB-cG1"/>
-                                    <constraint firstAttribute="width" constant="200" id="bFZ-0b-tFz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="dodies.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wy0-ZI-47e">
                                 <rect key="frame" x="184" y="107" width="232" height="376"/>
                                 <constraints>
@@ -34,13 +24,20 @@
                                     <constraint firstAttribute="height" constant="376" id="sDy-ig-yNc"/>
                                 </constraints>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="dodies_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="9eA-vz-Ojb">
+                                <rect key="frame" x="200" y="513" width="200" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="eij-Lz-tLQ"/>
+                                    <constraint firstAttribute="height" constant="59" id="qm1-uI-Fdm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.42352941176470588" green="0.59607843137254901" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="0yu-M2-Kgx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CL7-Y8-TGz"/>
+                            <constraint firstItem="9eA-vz-Ojb" firstAttribute="top" secondItem="Wy0-ZI-47e" secondAttribute="bottom" constant="30" id="HqB-sX-VVQ"/>
                             <constraint firstItem="Wy0-ZI-47e" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-5" id="JJz-z8-t00"/>
-                            <constraint firstItem="0yu-M2-Kgx" firstAttribute="top" secondItem="Wy0-ZI-47e" secondAttribute="bottom" constant="8" id="ajf-sd-eBL"/>
                             <constraint firstItem="Wy0-ZI-47e" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qwp-bh-MRQ"/>
+                            <constraint firstItem="9eA-vz-Ojb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ynr-Nf-fpc"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -51,5 +48,6 @@
     </scenes>
     <resources>
         <image name="dodies.png" width="232" height="376"/>
+        <image name="dodies_logo.png" width="200" height="59"/>
     </resources>
 </document>
