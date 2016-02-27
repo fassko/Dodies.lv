@@ -17,6 +17,8 @@ import RealmSwift
 import SwiftyUserDefaults
 import Async
 import SDCAlertView
+import Fabric
+import Crashlytics
 
 class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
 
@@ -64,6 +66,16 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
         self.loadPoints(checkForUpdatedData: true)
       }
     }
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    let tracker = GAI.sharedInstance().defaultTracker
+    tracker.set(kGAIScreenName, value: "Map")
+    
+    let builder = GAIDictionaryBuilder.createScreenView()
+    tracker.send(builder.build() as [NSObject : AnyObject])
+    
+    Answers.logContentViewWithName("Map", contentType: "Map", contentId: nil, customAttributes: nil)
   }
   
   
