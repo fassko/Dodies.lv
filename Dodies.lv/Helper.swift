@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import GCD
 
 import MBProgressHUD
 
@@ -17,16 +18,18 @@ class Helper {
   class func showGlobalProgressHUD() {
     if let window = UIApplication.sharedApplication().delegate?.window {
       let hud = MBProgressHUD.showHUDAddedTo(window, animated: true)
-      hud.labelText = "Ielādē datus"
+      hud.labelText = "Lejuplādē datus"
       hud.userInteractionEnabled = false
       hud.layer.zPosition = 2
-      hud.labelFont = UIFont(name: "HelveticaNeue-Medium", size: 18)
+      hud.labelFont = UIFont(name: "HelveticaNeue", size: 18)
     }
   }
   
   class func dismissGlobalHUD() {
-    if let window = UIApplication.sharedApplication().delegate?.window  {
-      MBProgressHUD.hideAllHUDsForView(window, animated: true)
+    if let window = UIApplication.sharedApplication().delegate?.window {
+      gcd.async(.Main, delay: 0.5, closure: {
+        MBProgressHUD.hideAllHUDsForView(window, animated: true)
+      })
     }
   }
 }
