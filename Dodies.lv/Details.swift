@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import Attributed
+import Fabric
+import Crashlytics
 
 class Details : UIViewController {
 
@@ -62,6 +64,26 @@ class Details : UIViewController {
       descriptionLinkButton.hidden = false
     }
     
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    let tracker = GAI.sharedInstance().defaultTracker
+    tracker.set(kGAIScreenName, value: "Details")
+    
+    let builder = GAIDictionaryBuilder.createScreenView()
+    tracker.send(builder.build() as [NSObject : AnyObject])
+    
+    let eventTracker: NSObject = GAIDictionaryBuilder.createEventWithCategory(
+                    "Details",
+                    action: "DodiesDetails",
+                    label: point.name,
+                    value: nil).build()
+    tracker.send(eventTracker as! [NSObject : AnyObject])
+    
+    Answers.logContentViewWithName("Details",
+                      contentType: "DodiesDetails",
+                      contentId: point.id,
+                      customAttributes: ["name": point.name, "description": point.description])    
   }
   
   @IBAction func done(sender: AnyObject) {

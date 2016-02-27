@@ -56,9 +56,9 @@ platform :ios do
     #   notifications: true
     # )
     #
-    # pilot(
-    #   skip_submission: true
-    # )
+    pilot(
+      skip_submission: true
+    )
   end
 
   lane :appstore do

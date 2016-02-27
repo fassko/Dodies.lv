@@ -17,6 +17,7 @@
 		639710851C8200F1003C3842 /* dodies_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710821C8200F1003C3842 /* dodies_logo.png */; };
 		639710861C8200F1003C3842 /* dodies_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710831C8200F1003C3842 /* dodies_logo@2x.png */; };
 		639710871C8200F1003C3842 /* dodies_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710841C8200F1003C3842 /* dodies_logo@3x.png */; };
+		639710891C821568003C3842 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 639710881C821568003C3842 /* GoogleService-Info.plist */; };
 		63A818C81C6294F9006F7F80 /* Valmiera.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 63A818C71C6294F9006F7F80 /* Valmiera.gpx */; };
 		63AFB7BF1C5CE04D004A58E1 /* parks-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7A11C5CE04D004A58E1 /* parks-active.png */; };
 		63AFB7C01C5CE04D004A58E1 /* parks-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7A21C5CE04D004A58E1 /* parks-active@2x.png */; };
@@ -72,6 +73,8 @@
 		639710821C8200F1003C3842 /* dodies_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies_logo.png; sourceTree = "<group>"; };
 		639710831C8200F1003C3842 /* dodies_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo@2x.png"; sourceTree = "<group>"; };
 		639710841C8200F1003C3842 /* dodies_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo@3x.png"; sourceTree = "<group>"; };
+		639710881C821568003C3842 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6397108A1C8215C8003C3842 /* Dodies-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Dodies-Bridging-Header.h"; sourceTree = "<group>"; };
 		63A818C71C6294F9006F7F80 /* Valmiera.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Valmiera.gpx; sourceTree = "<group>"; };
 		63AFB7A11C5CE04D004A58E1 /* parks-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "parks-active.png"; sourceTree = "<group>"; };
 		63AFB7A21C5CE04D004A58E1 /* parks-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "parks-active@2x.png"; sourceTree = "<group>"; };
@@ -169,6 +172,8 @@
 				634073531C594A4300190BA4 /* Interface */,
 				63AFB7DD1C5CF613004A58E1 /* Images.xcassets */,
 				63A818C71C6294F9006F7F80 /* Valmiera.gpx */,
+				639710881C821568003C3842 /* GoogleService-Info.plist */,
+				6397108A1C8215C8003C3842 /* Dodies-Bridging-Header.h */,
 				6304EAFE1BA5C25900B7CD49 /* Settings.bundle */,
 			);
 			path = Dodies.lv;
@@ -300,6 +305,7 @@
 				TargetAttributes = {
 					636EA8311BA5BDF40071397A = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 3SGNZQGS68;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -371,6 +377,7 @@
 				63AFB7C21C5CE04D004A58E1 /* parks-disabled.png in Resources */,
 				63AFB7C51C5CE04D004A58E1 /* pikniks-active.png in Resources */,
 				63AFB7CF1C5CE04D004A58E1 /* taka-disabled@2x.png in Resources */,
+				639710891C821568003C3842 /* GoogleService-Info.plist in Resources */,
 				63AFB7FD1C5E375D004A58E1 /* dodies@3x.png in Resources */,
 				63A818C81C6294F9006F7F80 /* Valmiera.gpx in Resources */,
 				63AFB7D21C5CE04D004A58E1 /* tornis-active@2x.png in Resources */,
@@ -497,11 +504,12 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 19;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -523,6 +531,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Dodies.lv/Dodies-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -547,11 +556,12 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 19;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -566,6 +576,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Dodies.lv/Dodies-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
@@ -579,8 +590,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -599,7 +610,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

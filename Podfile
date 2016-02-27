@@ -14,4 +14,5 @@ target 'Dodies.lv' do
   pod "AsyncSwift"
   pod 'GCD', '~> 0.2'
   pod 'SDCAlertView', '~> 4.0'
+  pod 'Google/Analytics'
 end
