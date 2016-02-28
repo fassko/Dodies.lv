@@ -18,40 +18,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZG-Fy-tMj">
-                                <rect key="frame" x="171" y="88" width="258" height="423"/>
+                                <rect key="frame" x="200" y="141" width="200" height="317"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="dodies.png" translatesAutoresizingMaskIntoConstraints="NO" id="PgO-Ev-SRt">
-                                        <rect key="frame" x="36" y="0.0" width="185" height="300"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="dodies_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="B9T-7v-hWL">
+                                        <rect key="frame" x="0.0" y="258" width="200" height="59"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="185" id="636-4U-MlT"/>
-                                            <constraint firstAttribute="height" constant="300" id="tPL-m1-Ja7"/>
+                                            <constraint firstAttribute="height" constant="59" id="ArC-CK-Hhd"/>
+                                            <constraint firstAttribute="width" constant="200" id="ofR-PZ-J7K"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="dodies_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="vjn-XD-fRa">
-                                        <rect key="frame" x="4" y="350" width="250" height="73"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="dodies.png" translatesAutoresizingMaskIntoConstraints="NO" id="ruu-nK-8XW">
+                                        <rect key="frame" x="38" y="8" width="124" height="200"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="0i8-6G-V0F"/>
-                                            <constraint firstAttribute="height" constant="73" id="KAa-b9-i3N"/>
+                                            <constraint firstAttribute="height" constant="200" id="Ato-sY-0EN"/>
+                                            <constraint firstAttribute="width" constant="124" id="cBZ-Oj-aHd"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="423" id="8kr-GG-qjA"/>
-                                    <constraint firstItem="vjn-XD-fRa" firstAttribute="top" secondItem="PgO-Ev-SRt" secondAttribute="bottom" constant="50" id="8uD-oQ-WIy"/>
-                                    <constraint firstAttribute="width" constant="258" id="CkC-zN-vIl"/>
-                                    <constraint firstItem="PgO-Ev-SRt" firstAttribute="centerX" secondItem="qZG-Fy-tMj" secondAttribute="centerX" id="O9c-17-efb"/>
-                                    <constraint firstItem="PgO-Ev-SRt" firstAttribute="top" secondItem="qZG-Fy-tMj" secondAttribute="top" id="aN9-tf-Iv3"/>
-                                    <constraint firstItem="vjn-XD-fRa" firstAttribute="centerX" secondItem="qZG-Fy-tMj" secondAttribute="centerX" id="l8w-DZ-sx7"/>
-                                    <constraint firstItem="vjn-XD-fRa" firstAttribute="top" secondItem="PgO-Ev-SRt" secondAttribute="bottom" constant="50" id="mv1-eR-6Y7"/>
-                                    <constraint firstAttribute="bottom" secondItem="vjn-XD-fRa" secondAttribute="bottom" id="vRc-fA-z9h"/>
+                                    <constraint firstItem="B9T-7v-hWL" firstAttribute="centerX" secondItem="qZG-Fy-tMj" secondAttribute="centerX" id="9Hf-he-bgk"/>
+                                    <constraint firstAttribute="height" constant="317" id="ACN-oi-cc2"/>
+                                    <constraint firstItem="B9T-7v-hWL" firstAttribute="top" secondItem="ruu-nK-8XW" secondAttribute="bottom" constant="50" id="Ojd-oM-yeS"/>
+                                    <constraint firstItem="ruu-nK-8XW" firstAttribute="centerX" secondItem="qZG-Fy-tMj" secondAttribute="centerX" id="Tvv-TR-cWG"/>
+                                    <constraint firstItem="ruu-nK-8XW" firstAttribute="top" secondItem="qZG-Fy-tMj" secondAttribute="top" constant="8" id="XYr-nY-osb"/>
+                                    <constraint firstAttribute="width" constant="200" id="iwJ-SY-bdR"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.42352941176470588" green="0.59607843137254901" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="qZG-Fy-tMj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="EsG-Il-uvm"/>
-                            <constraint firstItem="qZG-Fy-tMj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qpm-Xx-6KP"/>
+                            <constraint firstItem="qZG-Fy-tMj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="DUZ-ch-0sj"/>
+                            <constraint firstItem="qZG-Fy-tMj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="XMG-pl-IEM"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -61,7 +59,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dodies.png" width="185" height="300"/>
-        <image name="dodies_logo.png" width="250" height="74"/>
+        <image name="dodies.png" width="124" height="200"/>
+        <image name="dodies_logo.png" width="200" height="59"/>
     </resources>
 </document>
