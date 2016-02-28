@@ -38,7 +38,10 @@ class Details : UIViewController {
     
     self.navigationItem.titleView = titleLabel
     
+    desc.scrollEnabled = false
     desc.text = point.desc
+    
+
     self.automaticallyAdjustsScrollViewInsets = false
     
     descriptionLinkButton.layer.cornerRadius = 5
@@ -70,7 +73,13 @@ class Details : UIViewController {
     Answers.logContentViewWithName("Details",
                       contentType: "DodiesDetails",
                       contentId: point.id,
-                      customAttributes: ["name": point.name, "description": point.description])    
+                      customAttributes: ["name": point.name, "description": point.description])
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    desc.scrollEnabled = true
   }
   
   @IBAction func showDescription(sender: AnyObject) {
