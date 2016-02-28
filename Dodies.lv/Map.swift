@@ -19,6 +19,7 @@ import Async
 import SDCAlertView
 import Fabric
 import Crashlytics
+import FontAwesome_swift
 
 class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
 
@@ -29,9 +30,19 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   var realm = try! Realm()
   
   let LastChangedTimestampKey = "LastChangedTimestamp"
+  
+  @IBOutlet weak var aboutButton: UIBarButtonItem!
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    self.title = "Karte"
+    
+    navigationItem.titleView = UIImageView(image: UIImage(named: "dodies_nav_logo"))
+    
+    let attributes = [NSFontAttributeName: UIFont.fontAwesomeOfSize(20)] as Dictionary!
+    aboutButton.setTitleTextAttributes(attributes, forState: .Normal)
+    aboutButton.title = String.fontAwesomeIconWithName(.Info)
     
     // ask user to allow location access
     if CLLocationManager.authorizationStatus() == .NotDetermined {
