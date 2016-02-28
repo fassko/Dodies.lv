@@ -39,7 +39,9 @@
                                 <constraints>
                                     <constraint firstItem="B9T-7v-hWL" firstAttribute="centerX" secondItem="qZG-Fy-tMj" secondAttribute="centerX" id="9Hf-he-bgk"/>
                                     <constraint firstAttribute="height" constant="317" id="ACN-oi-cc2"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="317" id="OUK-8H-31k"/>
                                     <constraint firstItem="B9T-7v-hWL" firstAttribute="top" secondItem="ruu-nK-8XW" secondAttribute="bottom" constant="50" id="Ojd-oM-yeS"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="SEY-JT-q2p"/>
                                     <constraint firstItem="ruu-nK-8XW" firstAttribute="centerX" secondItem="qZG-Fy-tMj" secondAttribute="centerX" id="Tvv-TR-cWG"/>
                                     <constraint firstItem="ruu-nK-8XW" firstAttribute="top" secondItem="qZG-Fy-tMj" secondAttribute="top" constant="8" id="XYr-nY-osb"/>
                                     <constraint firstAttribute="width" constant="200" id="iwJ-SY-bdR"/>
