@@ -20,14 +20,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZG-Fy-tMj">
                                 <rect key="frame" x="200" y="141" width="200" height="317"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="dodies_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="B9T-7v-hWL">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="dodies_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="B9T-7v-hWL">
                                         <rect key="frame" x="0.0" y="258" width="200" height="59"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="59" id="ArC-CK-Hhd"/>
                                             <constraint firstAttribute="width" constant="200" id="ofR-PZ-J7K"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="dodies.png" translatesAutoresizingMaskIntoConstraints="NO" id="ruu-nK-8XW">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="dodies.png" translatesAutoresizingMaskIntoConstraints="NO" id="ruu-nK-8XW">
                                         <rect key="frame" x="38" y="8" width="124" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="Ato-sY-0EN"/>
@@ -39,9 +39,7 @@
                                 <constraints>
                                     <constraint firstItem="B9T-7v-hWL" firstAttribute="centerX" secondItem="qZG-Fy-tMj" secondAttribute="centerX" id="9Hf-he-bgk"/>
                                     <constraint firstAttribute="height" constant="317" id="ACN-oi-cc2"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="317" id="OUK-8H-31k"/>
                                     <constraint firstItem="B9T-7v-hWL" firstAttribute="top" secondItem="ruu-nK-8XW" secondAttribute="bottom" constant="50" id="Ojd-oM-yeS"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="SEY-JT-q2p"/>
                                     <constraint firstItem="ruu-nK-8XW" firstAttribute="centerX" secondItem="qZG-Fy-tMj" secondAttribute="centerX" id="Tvv-TR-cWG"/>
                                     <constraint firstItem="ruu-nK-8XW" firstAttribute="top" secondItem="qZG-Fy-tMj" secondAttribute="top" constant="8" id="XYr-nY-osb"/>
                                     <constraint firstAttribute="width" constant="200" id="iwJ-SY-bdR"/>
