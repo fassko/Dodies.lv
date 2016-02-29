@@ -16,49 +16,39 @@ class Details : UIViewController {
 
   var point : DodiesAnnotation!
   
-  @IBOutlet weak var pointTitle: UILabel!
   @IBOutlet weak var desc: UITextView!
-  @IBOutlet weak var closeButton: UIButton!
   @IBOutlet weak var descriptionLinkButton: UIButton!
   @IBOutlet weak var coordinatesButton: UIButton!
-  @IBOutlet weak var lenghtLabel: UILabel!
   @IBOutlet weak var lenght: UILabel!
-  @IBOutlet weak var priceLabel: UILabel!
-  @IBOutlet weak var price: UILabel!
-  @IBOutlet weak var checkedLabel: UILabel!
   @IBOutlet weak var checked: UILabel!
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    pointTitle.text = point.title
+    self.title = point.title
     
+    let titleLabel = UILabel(frame: CGRectMake(0, 0, view.frame.size.width - 120, 44))
+    titleLabel.backgroundColor = UIColor.clearColor()
+    titleLabel.font = UIFont(name: "HelveticaNeue-Medium",  size: 18)
+    titleLabel.textAlignment = NSTextAlignment.Center
+    titleLabel.text = self.title
+    titleLabel.textColor = UIColor.whiteColor()
+    titleLabel.adjustsFontSizeToFitWidth = true
+    
+    self.navigationItem.titleView = titleLabel
+    
+    desc.scrollEnabled = false
     desc.text = point.desc
     
+
+    self.automaticallyAdjustsScrollViewInsets = false
     
-    closeButton.layer.cornerRadius = 5
     descriptionLinkButton.layer.cornerRadius = 5
-    coordinatesButton.titleLabel?.text = "   \(point.coordinate.latitude),\(point.coordinate.longitude)"
+    coordinatesButton.titleLabel?.text = "\(point.coordinate.latitude),\(point.coordinate.longitude)"
     
-    if point.garums != "" {
-      lenght.text = "\(point.garums) km"
-      lenght.hidden = false
-      lenghtLabel.hidden = false
-    }
-    
-    
-    
-    if (point.datums != "") {
-      checkedLabel.hidden = false
-      checked.hidden = false
-      checked.text = point.datums
-    }
-    
-    if point.samaksa == "maksas" {
-      priceLabel.hidden = false
-      price.hidden = false
-    }
+    lenght.text = point.garums != "" ? "\(point.garums) km" : "-"
+    checked.text = point.datums != "" ? point.datums : "-"
     
     if point.apraksts == "true" {
       descriptionLinkButton.hidden = false
@@ -83,11 +73,13 @@ class Details : UIViewController {
     Answers.logContentViewWithName("Details",
                       contentType: "DodiesDetails",
                       contentId: point.id,
-                      customAttributes: ["name": point.name, "description": point.description])    
+                      customAttributes: ["name": point.name, "description": point.description])
   }
   
-  @IBAction func done(sender: AnyObject) {
-    self.dismissViewControllerAnimated(true, completion: nil)
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    desc.scrollEnabled = true
   }
   
   @IBAction func showDescription(sender: AnyObject) {

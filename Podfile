@@ -15,4 +15,5 @@ target 'Dodies.lv' do
   pod 'GCD', '~> 0.2'
   pod 'SDCAlertView', '~> 4.0'
   pod 'Google/Analytics'
+  pod 'FontAwesome.swift', '~> 0.7'
 end

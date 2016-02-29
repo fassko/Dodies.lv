@@ -29,7 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var gai = GAI.sharedInstance()
     gai.trackUncaughtExceptions = true  // report uncaught exceptions
     gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
-
+    
+    UIApplication.sharedApplication().statusBarStyle = .LightContent
+    UINavigationBar.appearance().barStyle = .Black
     
     return true
   }
