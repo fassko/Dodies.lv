@@ -94,46 +94,51 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
   func mapView(mapView: MGLMapView, imageForAnnotation annotation: MGLAnnotation) -> MGLAnnotationImage? {
   
-    selectedPoint = annotation as! DodiesAnnotation
+    do {
+  
+      selectedPoint = annotation as! DodiesAnnotation
 
-    var annotation = ""
-    
-    switch selectedPoint.symb {
-      case "Trail Head":
-        annotation = "taka"
-        break
+      var annotation = ""
       
-      case "Park":
-        annotation = "parks"
-        break
-      
-      case "Oil Field":
-        annotation = "tornis"
-        break
-      
-      case "Campground":
-        annotation = "pikniks"
-        break
-      
-      default:
-        annotation = "taka"
-        break
-    }
-    
-    if selectedPoint.statuss == "parbaudits" {
-      annotation = "\(annotation)-active"
-    } else {
-      annotation = "\(annotation)-disabled"
-    }
-    
-    var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier(annotation)
+      switch selectedPoint.symb {
+        case "Trail Head":
+          annotation = "taka"
+          break
         
-    if annotationImage == nil {
-      let image = UIImage(named: annotation)
-      annotationImage = MGLAnnotationImage(image: image!, reuseIdentifier: annotation)
+        case "Park":
+          annotation = "parks"
+          break
+        
+        case "Oil Field":
+          annotation = "tornis"
+          break
+        
+        case "Campground":
+          annotation = "pikniks"
+          break
+        
+        default:
+          annotation = "taka"
+          break
+      }
+      
+      if selectedPoint.statuss == "parbaudits" {
+        annotation = "\(annotation)-active"
+      } else {
+        annotation = "\(annotation)-disabled"
+      }
+      
+      var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier(annotation)
+          
+      if annotationImage == nil {
+        let image = UIImage(named: annotation)
+        annotationImage = MGLAnnotationImage(image: image!, reuseIdentifier: annotation)
+      }
+      
+      return annotationImage
+    } catch {
+      return nil
     }
-    
-    return annotationImage
   }
   
   func mapView(mapView: MGLMapView, rightCalloutAccessoryViewForAnnotation annotation: MGLAnnotation) -> UIView? {
@@ -242,7 +247,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
         point.samaksa = p.samaksa
         point.datums = p.datums
       
-        self.mapView.addAnnotation(point)
+      self.mapView.addAnnotation(point)
     }
     
     Async.main {
