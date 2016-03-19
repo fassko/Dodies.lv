@@ -48,37 +48,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBo-g3-o1q">
-                                <rect key="frame" x="200" y="72" width="200" height="59"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="8IL-60-46y"/>
-                                    <constraint firstAttribute="height" constant="59" id="uaK-3V-Qky"/>
-                                </constraints>
-                                <state key="normal" image="dodies_logo_green.png"/>
-                                <connections>
-                                    <action selector="openDodiesLv:" destination="WI0-B1-khR" eventType="touchUpInside" id="yPN-0r-tTf"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGn-JU-jG9">
-                                <rect key="frame" x="20" y="139" width="560" height="441"/>
+                                <rect key="frame" x="20" y="72" width="560" height="508"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Šī karte attēlo vietas, kur doties pastaigās pie dabas. Pārgājienu takas, piknika vietas, telts vietas un skatu torņi. Vairāk informācijas www.dodies.lv
+                                <mutableString key="text">Šī karte attēlo vietas, kur atpūsties svaigā gaisā: pārgājienu takas, piknika vietas, telts vietas un putnu torņi. 
+Mūsu kartē attēlotas visiem pieejami bezmaksas objekti, galvenokārt, vietas tuvāk dabai un tālāk no apdzīvotām vietām.
 
-Pelēkā krāsā iekrāsotas takas, kuras Dodies.lv vēl nav pārbaudījis dabā.</string>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+Pārsvarā ir iekļautas nekomerciālas vietas, izņemot, ja norādīts citādāk. Vietām, kuras esam apmeklējuši paši, ir arī bildes un plašāks apraksts. 
+Liela daļa ir pārbaudīta dzīvē, tās kartē un tabulā ir iekrāsotas zaļas, mūsu nepārbaudītās takas ir pelēkas.
+
+Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlestību pret dabu.</mutableString>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gGn-JU-jG9" firstAttribute="top" secondItem="cBo-g3-o1q" secondAttribute="bottom" constant="8" id="BxU-LM-cB1"/>
-                            <constraint firstItem="cBo-g3-o1q" firstAttribute="centerX" secondItem="3YZ-LH-glU" secondAttribute="centerX" id="USX-F4-btK"/>
                             <constraint firstItem="d6G-An-j9f" firstAttribute="top" secondItem="gGn-JU-jG9" secondAttribute="bottom" constant="20" id="ixi-d6-B4T"/>
-                            <constraint firstItem="gGn-JU-jG9" firstAttribute="top" secondItem="cBo-g3-o1q" secondAttribute="bottom" constant="8" id="lDJ-CA-WeU"/>
                             <constraint firstItem="gGn-JU-jG9" firstAttribute="leading" secondItem="3YZ-LH-glU" secondAttribute="leadingMargin" id="oXn-uN-bAc"/>
+                            <constraint firstItem="gGn-JU-jG9" firstAttribute="top" secondItem="D7s-pZ-MRS" secondAttribute="bottom" constant="8" id="taD-7f-h1l"/>
                             <constraint firstItem="gGn-JU-jG9" firstAttribute="trailing" secondItem="3YZ-LH-glU" secondAttribute="trailingMargin" id="ujO-zN-r9h"/>
-                            <constraint firstItem="cBo-g3-o1q" firstAttribute="top" secondItem="D7s-pZ-MRS" secondAttribute="bottom" constant="8" id="y2g-qI-dGQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OaH-jx-7aV"/>
@@ -221,7 +211,4 @@ Pelēkā krāsā iekrāsotas takas, kuras Dodies.lv vēl nav pārbaudījis dabā
             <point key="canvasLocation" x="1426" y="-362"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="dodies_logo_green.png" width="200" height="59"/>
-    </resources>
 </document>
