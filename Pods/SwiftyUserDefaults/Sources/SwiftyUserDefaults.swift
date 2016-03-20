@@ -1,7 +1,7 @@
 //
 // SwiftyUserDefaults
 //
-// Copyright (c) 2015 Radosław Pietruszewski
+// Copyright (c) 2015-2016 Radosław Pietruszewski
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -127,7 +127,10 @@ public extension NSUserDefaults {
     
     public subscript(key: String) -> Any? {
         get {
-            return self[key]
+            // return untyped Proxy
+            // (make sure we don't fall into infinite loop)
+            let proxy: Proxy = self[key]
+            return proxy
         }
         set {
             switch newValue {
@@ -152,6 +155,17 @@ public extension NSUserDefaults {
     
     public func remove(key: String) {
         removeObjectForKey(key)
+    }
+    
+    /// Removes all keys and values from user defaults
+    /// Use with caution!
+    /// - Note: This method only removes keys on the receiver `NSUserDefaults` object.
+    ///         System-defined keys will still be present afterwards.
+    
+    public func removeAll() {
+        for (key, _) in dictionaryRepresentation() {
+            removeObjectForKey(key)
+        }
     }
 }
 
@@ -425,7 +439,7 @@ extension NSUserDefaults {
         if let value: AnyObject = value as? AnyObject {
             set(key, NSKeyedArchiver.archivedDataWithRootObject(value))
         } else {
-            assertionFailure("Invalid value type")
+            assertionFailure("Invalid value type, needs to be a NSCoding-compliant type")
         }
     }
     
@@ -435,7 +449,7 @@ extension NSUserDefaults {
         } else if value == nil {
             remove(key)
         } else {
-            assertionFailure("Invalid value type")
+            assertionFailure("Invalid value type, needs to be a NSCoding-compliant type")
         }
     }
     

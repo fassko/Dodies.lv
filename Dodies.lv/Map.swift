@@ -50,7 +50,8 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     }
     
     // initialize the map view
-    mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.emeraldStyleURL())
+    let styleURL = NSURL(string: "mapbox://styles/normis/cilzp6g1h00grbjlwwsh52vig")
+    mapView = MGLMapView(frame: view.bounds, styleURL: styleURL)
     mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
     
     mapView.setVisibleCoordinateBounds(MGLCoordinateBounds(sw: CLLocationCoordinate2D(latitude: 55.500, longitude: 20.500), ne: CLLocationCoordinate2D(latitude: 58.500, longitude: 28.500)), animated: false)
