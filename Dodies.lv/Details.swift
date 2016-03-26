@@ -11,16 +11,21 @@ import UIKit
 import Attributed
 import Fabric
 import Crashlytics
+import LKAlertController
+import Alamofire
+import AlamofireImage
 
 class Details : UIViewController {
 
   var point : DodiesAnnotation!
   
   @IBOutlet weak var desc: UITextView!
-  @IBOutlet weak var descriptionLinkButton: UIButton!
   @IBOutlet weak var coordinatesButton: UIButton!
   @IBOutlet weak var lenght: UILabel!
   @IBOutlet weak var checked: UILabel!
+  @IBOutlet weak var details: UIBarButtonItem!
+  
+  @IBOutlet weak var image: UIImageView?
   
   
   override func viewDidLoad() {
@@ -44,16 +49,24 @@ class Details : UIViewController {
 
     self.automaticallyAdjustsScrollViewInsets = false
     
-    descriptionLinkButton.layer.cornerRadius = 5
-    coordinatesButton.titleLabel?.text = "\(point.coordinate.latitude),\(point.coordinate.longitude)"
+    coordinatesButton.setTitle("\(String(format: "%.5f",point.coordinate.latitude)), \(String(format: "%.5f",point.coordinate.longitude))", forState: UIControlState.Normal)
     
     lenght.text = point.garums != "" ? "\(point.garums) km" : "-"
     checked.text = point.datums != "" ? point.datums : "-"
     
-    if point.apraksts == "true" {
-      descriptionLinkButton.hidden = false
-    }
+    let attributes = [NSFontAttributeName: UIFont.fontAwesomeOfSize(20)] as Dictionary!
+    details.setTitleTextAttributes(attributes, forState: .Normal)
+    details.title = String.fontAwesomeIconWithName(.Info)
     
+    Alamofire.request(.GET, "http://dodies.lv/img/large/\(self.point.id)-01.jpg").responseImage {
+      response in
+
+        if let image = response.result.value {
+          let radius: CGFloat = 10.0
+
+          self.image?.image = image.af_imageWithRoundedCornerRadius(radius)
+        }
+    }
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -83,14 +96,69 @@ class Details : UIViewController {
   }
   
   @IBAction func showDescription(sender: AnyObject) {
-    UIApplication.sharedApplication().openURL(NSURL(string: "http://dodies.lv/info?taka=\(point.id)")!)
+    if point.apraksts == "true" {
+      performSegueWithIdentifier("showDescription", sender: self)
+    } else {
+      Alert(title: "Dodies.lv", message: "Diemžēl apraksts vēl nav izveidots.").addAction("OK").show()
+    }
   }
   
   @IBAction func openNavigation(sender: AnyObject) {
-    let u = "http://maps.apple.com/?daddr=\(point.coordinate.latitude),\(point.coordinate.longitude)"
-    print(u)
-    UIApplication.sharedApplication().openURL(NSURL(string: u)!)
+    let optionMenu = UIAlertController(title: nil, message: "Navigēt ar", preferredStyle: .ActionSheet)
 
+    let apple = UIAlertAction(title: "Apple Maps", style: .Default, handler: {
+      (alert: UIAlertAction!) -> Void in
+        let u = "http://maps.apple.com/?daddr=\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)"
+        UIApplication.sharedApplication().openURL(NSURL(string: u)!)
+    })
+    
+    let google = UIAlertAction(title: "Google Maps", style: .Default, handler: {
+      (alert: UIAlertAction!) -> Void in
+      
+        if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
+          UIApplication.sharedApplication().openURL(NSURL(string:
+                "comgooglemaps://?saddr=&daddr=\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)&directionsmode=driving")!)
+
+        } else {
+          let link = "http://itunes.apple.com/us/app/id585027354"
+          UIApplication.sharedApplication().openURL(NSURL(string: link)!)
+          UIApplication.sharedApplication().idleTimerDisabled = true
+        }
+    })
+    
+    let waze = UIAlertAction(title: "Waze", style: .Default, handler: {
+      (alert: UIAlertAction!) -> Void in
+
+        if UIApplication.sharedApplication().canOpenURL(NSURL(string: "waze://")!) {
+            UIApplication.sharedApplication().openURL(NSURL(string: "waze://?ll=\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)&navigate=yes")!)
+            UIApplication.sharedApplication().idleTimerDisabled = true
+        } else {
+            UIApplication.sharedApplication().openURL(NSURL(string: "http://itunes.apple.com/us/app/id323229106")!)
+            UIApplication.sharedApplication().idleTimerDisabled = true
+        }
+    })
+
+    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+      (alert: UIAlertAction!) -> Void in
+    })
+    
+    optionMenu.addAction(apple)
+    optionMenu.addAction(google)
+    optionMenu.addAction(waze)
+    optionMenu.addAction(cancelAction)
+    
+    self.presentViewController(optionMenu, animated: true, completion: nil)
+  }
+  
+  // pass object to details view
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showDescription" {
+    
+      if let description: DescriptionViewController = segue.destinationViewController as? DescriptionViewController {
+        navigationItem.title = ""
+        description.point = self.point
+      }
+    }
   }
   
 }

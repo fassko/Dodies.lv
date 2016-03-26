@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2</string>
+	<string>1.3</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -43,7 +43,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MGLMapboxAccessToken</key>
-	<string>sk.eyJ1Ijoia3Jpc3RhcHMiLCJhIjoiY2llaWx1aG9kMDAydXRlbHo1ZTgwazk5YiJ9.Vx8dPdWobZHh7_5c1XPXNA</string>
+	<string>sk.eyJ1Ijoibm9ybWlzIiwiYSI6ImNpbTBjZzQ5bTAwaTZ2OW00YXBlMjRpaDYifQ.QfD2KOVBvTqzu2AcQIOHTA</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -90,5 +90,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>waze</string>
+		<string>comgooglemaps</string>
+	</array>
+  <key>ITSAppUsesNonExemptEncryption</key><false/>
 </dict>
 </plist>

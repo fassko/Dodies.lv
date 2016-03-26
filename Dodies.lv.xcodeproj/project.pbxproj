@@ -14,6 +14,7 @@
 		636EA8361BA5BDF40071397A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EA8351BA5BDF40071397A /* AppDelegate.swift */; };
 		636EA83D1BA5BDF40071397A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636EA83B1BA5BDF40071397A /* Main.storyboard */; };
 		636EA8421BA5BDF40071397A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636EA8401BA5BDF40071397A /* LaunchScreen.storyboard */; };
+		638EB5111CA6FBC100FA7903 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638EB5101CA6FBC100FA7903 /* DescriptionViewController.swift */; };
 		639710851C8200F1003C3842 /* dodies_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710821C8200F1003C3842 /* dodies_logo.png */; };
 		639710861C8200F1003C3842 /* dodies_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710831C8200F1003C3842 /* dodies_logo@2x.png */; };
 		639710871C8200F1003C3842 /* dodies_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710841C8200F1003C3842 /* dodies_logo@3x.png */; };
@@ -77,6 +78,7 @@
 		636EA83C1BA5BDF40071397A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		636EA8411BA5BDF40071397A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		636EA8431BA5BDF40071397A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		638EB5101CA6FBC100FA7903 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		639710821C8200F1003C3842 /* dodies_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies_logo.png; sourceTree = "<group>"; };
 		639710831C8200F1003C3842 /* dodies_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo@2x.png"; sourceTree = "<group>"; };
 		639710841C8200F1003C3842 /* dodies_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo@3x.png"; sourceTree = "<group>"; };
@@ -266,8 +268,9 @@
 			isa = PBXGroup;
 			children = (
 				6304EB001BA5C2C700B7CD49 /* Map.swift */,
-				63CA57A61BA606B800A9F5DC /* Details.swift */,
 				63F5DC6D1C8358F200AEB195 /* AboutViewController.swift */,
+				63CA57A61BA606B800A9F5DC /* Details.swift */,
+				638EB5101CA6FBC100FA7903 /* DescriptionViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				63475FEC1C5CC95500A9A5E4 /* DodiesPoint.swift in Sources */,
 				63F5DC6E1C8358F200AEB195 /* AboutViewController.swift in Sources */,
 				63CA57A71BA606B800A9F5DC /* Details.swift in Sources */,
+				638EB5111CA6FBC100FA7903 /* DescriptionViewController.swift in Sources */,
 				6304EB011BA5C2C700B7CD49 /* Map.swift in Sources */,
 				63AFB8011C5E3FFC004A58E1 /* Helper.swift in Sources */,
 			);
@@ -535,7 +539,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 30;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -587,7 +591,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 30;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;

@@ -1,8 +1,64 @@
-# SwiftyUserDefaults 2.0
+# SwiftyUserDefaults
 
-**SwiftyUserDefaults** makes `NSUserDefaults` cleaner, nicer and easier to use in Swift. Its statically-typed API gives you extra safety and convenient compile-time checks for free.
+![Platforms](https://img.shields.io/badge/platforms-ios%20%7C%20osx%20%7C%20watchos%20%7C%20tvos-lightgrey.svg)
+[![CI Status](https://api.travis-ci.org/radex/SwiftyUserDefaults.svg?branch=master)](https://travis-ci.org/radex/SwiftyUserDefaults)
+[![CocoaPods](http://img.shields.io/cocoapods/v/SwiftyUserDefaults.svg)](https://cocoapods.org/pods/SwiftyUserDefaults)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
+![Swift version](https://img.shields.io/badge/swift-2.1-orange.svg)
 
-Read [Swifty APIs: NSUserDefaults](http://radex.io/swift/nsuserdefaults/) and [Statically-typed NSUserDefaults](http://radex.io/swift/nsuserdefaults/static) for more information about this project.
+#### Modern Swift API for `NSUserDefaults`
+###### SwiftyUserDefaults makes user defaults enjoyable to use by combining expressive Swifty API with the benefits of static typing. Define your keys in one place, use value types easily, and get extra safety and convenient compile-time checks for free.
+
+Read [Statically-typed NSUserDefaults](http://radex.io/swift/nsuserdefaults/static) for more information about this project.
+
+-------
+<p align="center">
+    <a href="#features">Features</a> &bull;
+    <a href="#usage">Usage</a> &bull;
+    <a href="#custom-types">Custom types</a> &bull;
+    <a href="#traditional-api">Traditional API</a> &bull; 
+    <a href="#installation">Installation</a> &bull; 
+    <a href="#more-like-this">More info</a>
+</p>
+-------
+
+## Features
+
+**There's only two steps to using SwiftyUserDefaults:**
+
+Step 1: Define your keys
+
+```swift
+extension DefaultsKeys {
+    static let username = DefaultsKey<String?>("username")
+    static let launchCount = DefaultsKey<Int>("launchCount")
+}
+```
+
+Step 2: Just use it!
+
+```swift
+// Get and set user defaults easily
+let username = Defaults[.username]
+Defaults[.hotkeyEnabled] = true
+
+// Modify value types in place
+Defaults[.launchCount]++
+Defaults[.volume] += 0.1
+Defaults[.strings] += "… can easily be extended!"
+
+// Use and modify typed arrays
+Defaults[.libraries].append("SwiftyUserDefaults")
+Defaults[.libraries][0] += " 2.0"
+
+// Easily work with custom serialized types
+Defaults[.color] = NSColor.whiteColor()
+Defaults[.color]?.whiteComponent // => 1.0
+```
+
+The convenient dot syntax is only available if you define your keys by extending magic `DefaultsKeys` class. You can also just pass the `DefaultsKey` value in square brackets, or use a more traditional string-based API. How? Keep reading.
+
+## Usage
 
 ### Define your keys
 
@@ -12,7 +68,7 @@ To get the most out of SwiftyUserDefaults, we recommend defining your user defau
 let colorKey = DefaultsKey<String>("color")
 ```
 
-Just create a `DefaultsKey` object, put the value type in square bracket and the key name in parentheses and you're good to go.
+Just create a `DefaultsKey` object, put the value type in angled brackets and the key name in parentheses and you're good to go.
 
 You can now use the global `Defaults` object:
 
@@ -135,9 +191,9 @@ if !Defaults.hasKey(.hotkey) {
 
 You can use the `hasKey` method to check for key's existence in the user defaults. `remove()` is an alias for `removeObjectForKey()`, that also works with `DefaultsKeys` shortcuts.
 
-## Legacy stringly-typed API
+## Traditional API
 
-There's also a more traditional string-based API available. This will be deprecated and removed in future versions of this library — it's recommended you use the new static keys API.
+There's also a more traditional string-based API available. This is considered legacy API, and it's recommended that you use statically defined keys instead.
 
 ```swift
 Defaults["color"].string            // returns String?
@@ -166,17 +222,21 @@ Defaults["hotkey"].dataValue             // defaults to NSData()
 
 ## Installation
 
-The simplest way to install this library is to copy `SwiftyUserDefaults/SwiftyUserDefaults.swift` to your project. There's no step two!
-
 #### CocoaPods
 
-You can also install this library using CocoaPods. Just add this line to your Podfile:
+If you're using CocoaPods, just add this line to your Podfile:
 
 ```ruby
 pod 'SwiftyUserDefaults'
 ```
 
-Then import library module like so:
+Install by running this command in your terminal:
+
+```sh
+pod install
+```
+
+Then import the library in all files where you use it:
 
 ```swift
 import SwiftyUserDefaults
@@ -189,6 +249,10 @@ Just add to your Cartfile:
 ```ruby
 github "radex/SwiftyUserDefaults"
 ```
+
+#### Manually
+
+Simply copy `Sources/SwiftyUserDefaults.swift` to your Xcode project.
 
 ## More like this
 

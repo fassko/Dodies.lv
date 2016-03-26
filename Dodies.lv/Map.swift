@@ -42,7 +42,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     
     let attributes = [NSFontAttributeName: UIFont.fontAwesomeOfSize(20)] as Dictionary!
     aboutButton.setTitleTextAttributes(attributes, forState: .Normal)
-    aboutButton.title = String.fontAwesomeIconWithName(.Info)
+    aboutButton.title = String.fontAwesomeIconWithName(.Question)
     
     // ask user to allow location access
     if CLLocationManager.authorizationStatus() == .NotDetermined {
@@ -50,7 +50,8 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     }
     
     // initialize the map view
-    mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.emeraldStyleURL())
+    let styleURL = NSURL(string: "mapbox://styles/normis/cilzp6g1h00grbjlwwsh52vig")
+    mapView = MGLMapView(frame: view.bounds, styleURL: styleURL)
     mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
     
     mapView.setVisibleCoordinateBounds(MGLCoordinateBounds(sw: CLLocationCoordinate2D(latitude: 55.500, longitude: 20.500), ne: CLLocationCoordinate2D(latitude: 58.500, longitude: 28.500)), animated: false)
@@ -94,46 +95,51 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
   func mapView(mapView: MGLMapView, imageForAnnotation annotation: MGLAnnotation) -> MGLAnnotationImage? {
   
-    selectedPoint = annotation as! DodiesAnnotation
+    do {
+  
+      selectedPoint = annotation as! DodiesAnnotation
 
-    var annotation = ""
-    
-    switch selectedPoint.symb {
-      case "Trail Head":
-        annotation = "taka"
-        break
+      var annotation = ""
       
-      case "Park":
-        annotation = "parks"
-        break
-      
-      case "Oil Field":
-        annotation = "tornis"
-        break
-      
-      case "Campground":
-        annotation = "pikniks"
-        break
-      
-      default:
-        annotation = "taka"
-        break
-    }
-    
-    if selectedPoint.statuss == "parbaudits" {
-      annotation = "\(annotation)-active"
-    } else {
-      annotation = "\(annotation)-disabled"
-    }
-    
-    var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier(annotation)
+      switch selectedPoint.symb {
+        case "Trail Head":
+          annotation = "taka"
+          break
         
-    if annotationImage == nil {
-      let image = UIImage(named: annotation)
-      annotationImage = MGLAnnotationImage(image: image!, reuseIdentifier: annotation)
+        case "Park":
+          annotation = "parks"
+          break
+        
+        case "Oil Field":
+          annotation = "tornis"
+          break
+        
+        case "Campground":
+          annotation = "pikniks"
+          break
+        
+        default:
+          annotation = "taka"
+          break
+      }
+      
+      if selectedPoint.statuss == "parbaudits" {
+        annotation = "\(annotation)-active"
+      } else {
+        annotation = "\(annotation)-disabled"
+      }
+      
+      var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier(annotation)
+          
+      if annotationImage == nil {
+        let image = UIImage(named: annotation)
+        annotationImage = MGLAnnotationImage(image: image!, reuseIdentifier: annotation)
+      }
+      
+      return annotationImage
+    } catch {
+      return nil
     }
-    
-    return annotationImage
   }
   
   func mapView(mapView: MGLMapView, rightCalloutAccessoryViewForAnnotation annotation: MGLAnnotation) -> UIView? {
@@ -144,7 +150,12 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     if let point = annotation as? DodiesAnnotation {
       selectedPoint = point
       
-      performSegueWithIdentifier("details", sender: self)
+      if point.apraksts == "true" {
+        performSegueWithIdentifier("detailsWithPicture", sender: self)
+      } else {
+        performSegueWithIdentifier("details", sender: self)
+      }
+      
       mapView.deselectAnnotation(annotation, animated: true)
     }
   }
@@ -242,7 +253,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
         point.samaksa = p.samaksa
         point.datums = p.datums
       
-        self.mapView.addAnnotation(point)
+      self.mapView.addAnnotation(point)
     }
     
     Async.main {
@@ -289,7 +300,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
   // pass object to details view
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "details" {
+    if segue.identifier == "details" || segue.identifier == "detailsWithPicture" {
     
       if let details: Details = segue.destinationViewController as? Details {
         details.point = selectedPoint

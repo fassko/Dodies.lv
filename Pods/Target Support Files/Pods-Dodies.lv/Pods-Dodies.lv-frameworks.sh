@@ -85,10 +85,12 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Dodies.lv/Alamofire.framework"
+  install_framework "Pods-Dodies.lv/AlamofireImage.framework"
   install_framework "Pods-Dodies.lv/Async.framework"
   install_framework "Pods-Dodies.lv/Attributed.framework"
   install_framework "Pods-Dodies.lv/FontAwesome_swift.framework"
   install_framework "Pods-Dodies.lv/GCD.framework"
+  install_framework "Pods-Dodies.lv/LKAlertController.framework"
   install_framework "Pods-Dodies.lv/MBProgressHUD.framework"
   install_framework "${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework"
   install_framework "Pods-Dodies.lv/Realm.framework"
@@ -99,10 +101,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Dodies.lv/Alamofire.framework"
+  install_framework "Pods-Dodies.lv/AlamofireImage.framework"
   install_framework "Pods-Dodies.lv/Async.framework"
   install_framework "Pods-Dodies.lv/Attributed.framework"
   install_framework "Pods-Dodies.lv/FontAwesome_swift.framework"
   install_framework "Pods-Dodies.lv/GCD.framework"
+  install_framework "Pods-Dodies.lv/LKAlertController.framework"
   install_framework "Pods-Dodies.lv/MBProgressHUD.framework"
   install_framework "${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework"
   install_framework "Pods-Dodies.lv/Realm.framework"
