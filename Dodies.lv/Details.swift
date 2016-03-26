@@ -12,6 +12,8 @@ import Attributed
 import Fabric
 import Crashlytics
 import LKAlertController
+import Alamofire
+import AlamofireImage
 
 class Details : UIViewController {
 
@@ -22,6 +24,8 @@ class Details : UIViewController {
   @IBOutlet weak var lenght: UILabel!
   @IBOutlet weak var checked: UILabel!
   @IBOutlet weak var details: UIBarButtonItem!
+  
+  @IBOutlet weak var image: UIImageView?
   
   
   override func viewDidLoad() {
@@ -48,7 +52,17 @@ class Details : UIViewController {
     coordinatesButton.setTitle("\(String(format: "%.5f",point.coordinate.latitude)), \(String(format: "%.5f",point.coordinate.longitude))", forState: UIControlState.Normal)
     
     lenght.text = point.garums != "" ? "\(point.garums) km" : "-"
-    checked.text = point.datums != "" ? point.datums : "-"    
+    checked.text = point.datums != "" ? point.datums : "-"
+    
+    Alamofire.request(.GET, "http://dodies.lv/img/large/\(self.point.id)-01.jpg").responseImage {
+      response in
+
+        if let image = response.result.value {
+          let radius: CGFloat = 10.0
+
+          self.image?.image = image.af_imageWithRoundedCornerRadius(radius)
+        }
+         }
   }
   
   override func viewWillAppear(animated: Bool) {

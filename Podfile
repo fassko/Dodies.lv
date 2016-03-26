@@ -17,4 +17,6 @@ target 'Dodies.lv' do
   pod 'Google/Analytics'
   pod 'FontAwesome.swift', '~> 0.7'
   pod 'LKAlertController', '~> 1.6'
+  pod 'AlamofireImage', '~> 2.4'
+  pod 'Alamofire'
 end

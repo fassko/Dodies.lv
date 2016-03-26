@@ -150,7 +150,12 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     if let point = annotation as? DodiesAnnotation {
       selectedPoint = point
       
-      performSegueWithIdentifier("details", sender: self)
+      if point.apraksts == "true" {
+        performSegueWithIdentifier("detailsWithPicture", sender: self)
+      } else {
+        performSegueWithIdentifier("details", sender: self)
+      }
+      
       mapView.deselectAnnotation(annotation, animated: true)
     }
   }
@@ -295,7 +300,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
   // pass object to details view
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "details" {
+    if segue.identifier == "details" || segue.identifier == "detailsWithPicture" {
     
       if let details: Details = segue.destinationViewController as? Details {
         details.point = selectedPoint

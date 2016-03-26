@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Dodies.lv/Alamofire.framework"
+  install_framework "Pods-Dodies.lv/AlamofireImage.framework"
   install_framework "Pods-Dodies.lv/Async.framework"
   install_framework "Pods-Dodies.lv/Attributed.framework"
   install_framework "Pods-Dodies.lv/FontAwesome_swift.framework"
@@ -100,6 +101,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Dodies.lv/Alamofire.framework"
+  install_framework "Pods-Dodies.lv/AlamofireImage.framework"
   install_framework "Pods-Dodies.lv/Async.framework"
   install_framework "Pods-Dodies.lv/Attributed.framework"
   install_framework "Pods-Dodies.lv/FontAwesome_swift.framework"
