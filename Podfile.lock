@@ -39,7 +39,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - AlamofireImage (~> 2.4)
+  - AlamofireImage
   - AsyncSwift
   - Attributed
   - Crashlytics
