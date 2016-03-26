@@ -54,6 +54,10 @@ class Details : UIViewController {
     lenght.text = point.garums != "" ? "\(point.garums) km" : "-"
     checked.text = point.datums != "" ? point.datums : "-"
     
+    let attributes = [NSFontAttributeName: UIFont.fontAwesomeOfSize(20)] as Dictionary!
+    details.setTitleTextAttributes(attributes, forState: .Normal)
+    details.title = String.fontAwesomeIconWithName(.Info)
+    
     Alamofire.request(.GET, "http://dodies.lv/img/large/\(self.point.id)-01.jpg").responseImage {
       response in
 
@@ -62,7 +66,7 @@ class Details : UIViewController {
 
           self.image?.image = image.af_imageWithRoundedCornerRadius(radius)
         }
-         }
+    }
   }
   
   override func viewWillAppear(animated: Bool) {
