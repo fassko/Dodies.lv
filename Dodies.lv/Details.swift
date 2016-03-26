@@ -48,11 +48,7 @@ class Details : UIViewController {
     coordinatesButton.setTitle("\(String(format: "%.5f",point.coordinate.latitude)), \(String(format: "%.5f",point.coordinate.longitude))", forState: UIControlState.Normal)
     
     lenght.text = point.garums != "" ? "\(point.garums) km" : "-"
-    checked.text = point.datums != "" ? point.datums : "-"
-    
-    let attributes = [NSFontAttributeName: UIFont.fontAwesomeOfSize(20)] as Dictionary!
-    details.setTitleTextAttributes(attributes, forState: .Normal)
-    details.title = String.fontAwesomeIconWithName(.Info)
+    checked.text = point.datums != "" ? point.datums : "-"    
   }
   
   override func viewWillAppear(animated: Bool) {

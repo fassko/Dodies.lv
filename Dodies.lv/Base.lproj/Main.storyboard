@@ -231,7 +231,7 @@ Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlest
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Z4m-Qh-dqt">
-                        <barButtonItem key="rightBarButtonItem" title="Plašāka informācija" id="8L2-Kc-rrG">
+                        <barButtonItem key="rightBarButtonItem" title="Plašāka info" id="8L2-Kc-rrG">
                             <connections>
                                 <action selector="showDescription:" destination="yf8-5s-rxy" id="Pbc-Gl-hTf"/>
                             </connections>
