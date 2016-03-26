@@ -83,7 +83,7 @@ class Details : UIViewController {
   
   @IBAction func showDescription(sender: AnyObject) {
     if point.apraksts == "true" {
-      UIApplication.sharedApplication().openURL(NSURL(string: "http://dodies.lv/info?taka=\(point.id)")!)
+      performSegueWithIdentifier("showDescription", sender: self)
     } else {
       Alert(title: "Dodies.lv", message: "Diemžēl apraksts vēl nav izveidots.").addAction("OK").show()
     }
@@ -134,6 +134,17 @@ class Details : UIViewController {
     optionMenu.addAction(cancelAction)
     
     self.presentViewController(optionMenu, animated: true, completion: nil)
+  }
+  
+  // pass object to details view
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showDescription" {
+    
+      if let description: DescriptionViewController = segue.destinationViewController as? DescriptionViewController {
+        navigationItem.title = ""
+        description.point = self.point
+      }
+    }
   }
   
 }

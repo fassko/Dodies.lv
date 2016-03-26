@@ -42,7 +42,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     
     let attributes = [NSFontAttributeName: UIFont.fontAwesomeOfSize(20)] as Dictionary!
     aboutButton.setTitleTextAttributes(attributes, forState: .Normal)
-    aboutButton.title = String.fontAwesomeIconWithName(.Info)
+    aboutButton.title = String.fontAwesomeIconWithName(.Question)
     
     // ask user to allow location access
     if CLLocationManager.authorizationStatus() == .NotDetermined {
