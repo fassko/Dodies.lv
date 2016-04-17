@@ -174,25 +174,26 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
               for feature in features {
                 
                 let coordinates:Array<Double> = feature["geometry"].dictionaryValue["coordinates"]?.arrayObject as! Array<Double>
-                let properties = feature["properties"].dictionaryValue
                 
+                if let properties = feature["properties"].dictionary {
                 
-                let dodiesPoint = DodiesPoint()
-                dodiesPoint.latitude = coordinates[0]
-                dodiesPoint.longitude = coordinates[1]
-                
-                dodiesPoint.apraksts = properties["apraksts"]!.stringValue
-                dodiesPoint.datums = properties["datums"]!.stringValue
-                dodiesPoint.desc = properties["desc"]!.stringValue
-                dodiesPoint.garums = properties["garums"]!.stringValue
-                dodiesPoint.id = properties["id"]!.stringValue
-                dodiesPoint.name = properties["name"]!.stringValue
-                dodiesPoint.statuss = properties["statuss"]!.stringValue
-                dodiesPoint.tips = properties["tips"]!.stringValue
+                  let dodiesPoint = DodiesPoint()
+                  dodiesPoint.latitude = coordinates[0]
+                  dodiesPoint.longitude = coordinates[1]
+                  
+                  dodiesPoint.apraksts = properties["apraksts"]!.stringValue
+                  dodiesPoint.datums = properties["datums"]!.stringValue
+                  dodiesPoint.desc = properties["desc"]!.stringValue
+                  dodiesPoint.garums = properties["garums"]!.stringValue
+                  dodiesPoint.id = properties["id"]!.stringValue
+                  dodiesPoint.name = properties["name"]!.stringValue
+                  dodiesPoint.statuss = properties["statuss"]!.stringValue
+                  dodiesPoint.tips = properties["tips"]!.stringValue
 
-                // write in realm database
-                try! self.realm.write {
-                  self.realm.add(dodiesPoint)
+                  // write in realm database
+                  try! self.realm.write {
+                    self.realm.add(dodiesPoint)
+                  }
                 }
               }
               
