@@ -4,7 +4,7 @@
 [![CI Status](https://api.travis-ci.org/radex/SwiftyUserDefaults.svg?branch=master)](https://travis-ci.org/radex/SwiftyUserDefaults)
 [![CocoaPods](http://img.shields.io/cocoapods/v/SwiftyUserDefaults.svg)](https://cocoapods.org/pods/SwiftyUserDefaults)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
-![Swift version](https://img.shields.io/badge/swift-2.1-orange.svg)
+![Swift version](https://img.shields.io/badge/swift-2.2-orange.svg)
 
 #### Modern Swift API for `NSUserDefaults`
 ###### SwiftyUserDefaults makes user defaults enjoyable to use by combining expressive Swifty API with the benefits of static typing. Define your keys in one place, use value types easily, and get extra safety and convenient compile-time checks for free.
@@ -62,26 +62,26 @@ The convenient dot syntax is only available if you define your keys by extending
 
 ### Define your keys
 
-To get the most out of SwiftyUserDefaults, we recommend defining your user defaults keys ahead of time:
+To get the most out of SwiftyUserDefaults, define your user defaults keys ahead of time:
 
 ```swift
 let colorKey = DefaultsKey<String>("color")
 ```
 
-Just create a `DefaultsKey` object, put the value type in angled brackets and the key name in parentheses and you're good to go.
+Just create a `DefaultsKey` object, put the type of the value you want to store in angle brackets, the key name in parentheses, and you're good to go.
 
-You can now use the global `Defaults` object:
+You can now use the `Defaults` shortcut to access those values:
 
 ```swift
 Defaults[colorKey] = "red"
 Defaults[colorKey] // => "red", typed as String
 ```
 
-The compiler won't let you set a wrong value type, and fetching conveniently returns `String` — no need for manual casting or special accessors.
+The compiler won't let you set a wrong value type, and fetching conveniently returns `String`.
 
 ### Take shortcuts
 
-For extra convenience, define your keys by extending `DefaultsKeys` and adding static properties:
+For extra convenience, define your keys by extending magic `DefaultsKeys` class and adding static properties:
 
 ```swift
 extension DefaultsKeys {
@@ -99,7 +99,7 @@ Defaults[.launchCount]
 
 ### Just use it!
 
-You can easily modify value types (strings, numbers, array) in place, without extra steps or magic operators, as if you were working with a plain old dictionary:
+You can easily modify value types (strings, numbers, array) in place, as if you were working with a plain old dictionary:
 
 ```swift
 // Modify value types in place
@@ -166,9 +166,9 @@ extension NSUserDefaults {
 }
 ```
 
-Just copy&paste this and change `NSColor` to your class name. If you want, you can also remove `?` marks and coalesce nils: `unarchive(key) ?? yourDefaultValue`.
+Just copy&paste this and change `NSColor` to your class name.
 
-Here's an example use:
+Here's a usage example:
 
 ```swift
 extension DefaultsKeys {
@@ -181,6 +181,38 @@ Defaults[.color] // => w 1.0, a 1.0
 Defaults[.color]?.whiteComponent // => 1.0
 ```
 
+#### Custom types with default values
+
+If you don't want to deal with `nil` when fetching a user default value, you can remove `?` marks and supply the default value, like so:
+
+```swift
+extension NSUserDefaults {
+    subscript(key: DefaultsKey<NSColor>) -> NSColor {
+        get { return unarchive(key) ?? NSColor.clearColor() }
+        set { archive(key, newValue) }
+    }
+}
+```
+
+#### Enums
+
+In addition to `NSCoding`, you can store `enum` values the same way:
+
+```swift
+enum MyEnum: String {
+    case A, B, C
+}
+
+extension NSUserDefaults {
+    subscript(key: DefaultsKey<MyEnum?>) -> MyEnum? {
+        get { return unarchive(key) }
+        set { archive(key, newValue) }
+    }
+}
+```
+
+The only requirement is that the enum has to be `RawRepresentable` by a simple type like `String` or `Int`.
+
 ### Existence
 
 ```swift
@@ -190,6 +222,14 @@ if !Defaults.hasKey(.hotkey) {
 ```
 
 You can use the `hasKey` method to check for key's existence in the user defaults. `remove()` is an alias for `removeObjectForKey()`, that also works with `DefaultsKeys` shortcuts.
+
+### Shared user defaults
+
+If you're sharing your user defaults between different apps or an app and its extensions, you can use SwiftyUserDefaults by overriding the `Defaults` shortcut with your own. Just add in your app:
+
+```swift
+var Defaults = NSUserDefaults(suiteName: "com.my.app")!
+```
 
 ## Traditional API
 

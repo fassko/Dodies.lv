@@ -14,7 +14,7 @@ set -o pipefail
 set -e
 
 # You can override the version of the core library
-: ${REALM_CORE_VERSION:=0.97.1} # set to "current" to always use the current build
+: ${REALM_CORE_VERSION:=0.97.4} # set to "current" to always use the current build
 
 # You can override the xcmode used
 : ${XCMODE:=xcodebuild} # must be one of: xcodebuild (default), xcpretty, xctool
@@ -239,7 +239,7 @@ build_docs() {
     local language="$1"
     local version=$(sh build.sh get-version)
 
-    local xcodebuild_arguments="--objc,Realm/Realm.h,-x,objective-c,-isysroot,$(xcrun --show-sdk-path),-I,$(pwd)"
+    local xcodebuild_arguments="--objc,Realm/Realm.h,--,-x,objective-c,-isysroot,$(xcrun --show-sdk-path),-I,$(pwd)"
     local module="Realm"
     local objc="--objc"
 
@@ -648,6 +648,7 @@ case "$COMMAND" in
         ;;
 
     "verify-cocoapods")
+        pod setup
         pod spec lint Realm.podspec
         # allow warnings in the Swift podspec because there's no way to
         # prevent the typealias->associatedtype deprecation warning without
