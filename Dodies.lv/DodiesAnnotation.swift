@@ -14,7 +14,6 @@ import SwiftyJSON
 
 class DodiesAnnotation:MGLPointAnnotation {
   
-  var symb:String = "taka-active"
   var desc:String = ""
   var name:String = ""
   var statuss:String = ""
@@ -23,6 +22,6 @@ class DodiesAnnotation:MGLPointAnnotation {
   var id:String = ""
   var apraksts:String = ""
   var garums:String = ""
-  var samaksa:String = ""
   var datums:String = ""
+  var tips:String = ""
 }

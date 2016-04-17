@@ -99,29 +99,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
       selectedPoint = annotation as! DodiesAnnotation
 
-      var annotation = ""
-      
-      switch selectedPoint.symb {
-        case "Trail Head":
-          annotation = "taka"
-          break
-        
-        case "Park":
-          annotation = "parks"
-          break
-        
-        case "Oil Field":
-          annotation = "tornis"
-          break
-        
-        case "Campground":
-          annotation = "pikniks"
-          break
-        
-        default:
-          annotation = "taka"
-          break
-      }
+      var annotation = selectedPoint.tips
       
       if selectedPoint.statuss == "parbaudits" {
         annotation = "\(annotation)-active"
@@ -208,11 +186,8 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
                 dodiesPoint.desc = properties["desc"]!.stringValue
                 dodiesPoint.garums = properties["garums"]!.stringValue
                 dodiesPoint.id = properties["id"]!.stringValue
-                dodiesPoint.klase = properties["klase"]!.stringValue
                 dodiesPoint.name = properties["name"]!.stringValue
-                dodiesPoint.samaksa = properties["samaksa"]!.stringValue
                 dodiesPoint.statuss = properties["statuss"]!.stringValue
-                dodiesPoint.symb = properties["symb"]!.stringValue
                 dodiesPoint.tips = properties["tips"]!.stringValue
 
                 // write in realm database
@@ -246,12 +221,11 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
         point.title = p.name
         point.desc = p.desc
         point.statuss = p.statuss
-        point.symb = p.symb
         point.apraksts = p.apraksts
         point.id = p.id
         point.garums = p.garums
-        point.samaksa = p.samaksa
         point.datums = p.datums
+        point.tips = p.tips
       
       self.mapView.addAnnotation(point)
     }
