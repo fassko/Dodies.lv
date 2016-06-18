@@ -19,4 +19,5 @@ target 'Dodies.lv' do
   pod 'LKAlertController', '~> 1.6'
   pod 'AlamofireImage'
   pod 'CocoaLumberjack/Swift'
+  pod 'SwiftDate', '~> 3.0'
 end

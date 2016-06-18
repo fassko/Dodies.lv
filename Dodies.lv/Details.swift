@@ -14,6 +14,7 @@ import Crashlytics
 import LKAlertController
 import Alamofire
 import AlamofireImage
+import SwiftDate
 
 class Details : UIViewController {
 
@@ -52,7 +53,14 @@ class Details : UIViewController {
     coordinatesButton.setTitle("\(String(format: "%.5f",point.coordinate.latitude)), \(String(format: "%.5f",point.coordinate.longitude))", forState: UIControlState.Normal)
     
     lenght.text = point.km != "" ? "\(point.km) km" : "-"
-    checked.text = point.dat != "" ? point.dat : "-"
+    
+    if point.dat != "" {
+      let checkedDate = point.dat.toDate(DateFormat.Custom("yyyy-MM-dd HH:mm:ss"))
+      
+      checked.text = checkedDate!.toString(DateFormat.Custom("MM.dd.YYYY"))
+    } else {
+      checked.text = "-"
+    }
     
     let attributes = [NSFontAttributeName: UIFont.fontAwesomeOfSize(20)] as Dictionary!
     details.setTitleTextAttributes(attributes, forState: .Normal)

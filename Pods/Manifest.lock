@@ -42,6 +42,7 @@ PODS:
   - RealmSwift (1.0.1):
     - Realm (= 1.0.1)
   - SDCAlertView (4.0.1)
+  - SwiftDate (3.0.8)
   - SwiftyJSON (2.3.2)
   - SwiftyUserDefaults (2.2.0)
 
@@ -61,6 +62,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - RealmSwift
   - SDCAlertView (~> 4.0)
+  - SwiftDate (~> 3.0)
   - SwiftyJSON
   - SwiftyUserDefaults (~> 2.0)
 
@@ -87,9 +89,10 @@ SPEC CHECKSUMS:
   Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
   RealmSwift: d73ea2af08c3676dbdd5e4b669651a0f492162a4
   SDCAlertView: 046bcf893b3585ffa2ecaba536dc3de334959d72
+  SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
 
-PODFILE CHECKSUM: c7af13c79b3fb261fe01c77c1e39516402232fec
+PODFILE CHECKSUM: da43ec4935363b1d9d81673c7f9cd3edb96becb5
 
 COCOAPODS: 1.0.1
