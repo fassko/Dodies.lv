@@ -58,7 +58,7 @@ class Details : UIViewController {
     details.setTitleTextAttributes(attributes, forState: .Normal)
     details.title = String.fontAwesomeIconWithName(.Info)
     
-    Alamofire.request(.GET, point.img2).responseImage {
+    Alamofire.request(.GET, point.img).responseImage {
       response in
 
         if let image = response.result.value {
