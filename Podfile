@@ -9,7 +9,7 @@ target 'Dodies.lv' do
   pod 'MBProgressHUD'
   pod 'Fabric'
   pod 'Crashlytics'
-  pod 'SwiftyUserDefaults', '~> 2.0'
+  pod 'SwiftyUserDefaults'
   pod 'RealmSwift'
   pod "AsyncSwift"
   pod 'GCD', '~> 0.2'

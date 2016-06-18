@@ -28,7 +28,9 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   var selectedPoint : DodiesAnnotation!
   
   let LastChangedTimestampKey = "LastChangedTimestamp"
+  let languageKey = "language"
   
+  @IBOutlet weak var settingsButton: UIBarButtonItem!
   @IBOutlet weak var aboutButton: UIBarButtonItem!
 
   override func viewDidLoad() {
@@ -41,6 +43,9 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     let attributes = [NSFontAttributeName: UIFont.fontAwesomeOfSize(20)] as Dictionary!
     aboutButton.setTitleTextAttributes(attributes, forState: .Normal)
     aboutButton.title = String.fontAwesomeIconWithName(.Question)
+    
+    settingsButton.setTitleTextAttributes(attributes, forState: .Normal)
+    settingsButton.title = String.fontAwesomeIconWithName(.Language)
     
     // ask user to allow location access
     if CLLocationManager.authorizationStatus() == .NotDetermined {
@@ -126,7 +131,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     if let point = annotation as? DodiesAnnotation {
       selectedPoint = point
       
-      if !point.txt.isEmpty {
+      if !point.img.isEmpty {
         performSegueWithIdentifier("detailsWithPicture", sender: self)
       } else {
         performSegueWithIdentifier("details", sender: self)
@@ -145,11 +150,55 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   }
   
   
+  // MARK: - Interface methods
+  
+  @IBAction func setLanguage(sender: AnyObject) {
+    let actionSheet: UIAlertController = UIAlertController(title: "Change the language", message: "Please select the language", preferredStyle: .ActionSheet)
+
+    let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+      
+    }
+    actionSheet.addAction(cancelActionButton)
+
+    let saveActionButton: UIAlertAction = UIAlertAction(title: "Latviešu", style: .Default){
+      action -> Void in
+        self.languageChanged("lv")
+    }
+    actionSheet.addAction(saveActionButton)
+
+    let deleteActionButton: UIAlertAction = UIAlertAction(title: "English", style: .Default){
+      action -> Void in
+        self.languageChanged("en")
+    }
+    actionSheet.addAction(deleteActionButton)
+    
+    self.presentViewController(actionSheet, animated: true, completion: nil)
+  }
+  
+  
+  
   // MARK: - Additonal methods
+  
+  func languageChanged(language:String) {
+    if language != Defaults[self.languageKey].stringValue {
+      Defaults[self.languageKey] = language
+      
+      Helper.showGlobalProgressHUD()
+      
+      self.downloadData()
+    }
+  }
   
   // download data from server
   func downloadData() {
-    Alamofire.request(.GET, "http://dodies.lv/json/lv.geojson").responseJSON(completionHandler: {
+  
+    var language = Defaults[self.languageKey].string
+    
+    if language == nil {
+      language = "lv"
+    }
+  
+    Alamofire.request(.GET, "http://dodies.lv/json/\(language!).geojson").responseJSON(completionHandler: {
       response in
       
         Helper.dismissGlobalHUD()
@@ -201,6 +250,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
               }
               
               self.updateLastChangedTimestamp()
+              self.removeAllAnnotations()
               self.loadPoints()
             }
           }
@@ -208,8 +258,18 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     })
   }
   
+  // remove all annotation from mapview
+  func removeAllAnnotations() {
+    if self.mapView.annotations != nil {
+      let annotations = self.mapView.annotations!.filter {
+          $0 !== self.mapView.userLocation
+      }
+      self.mapView.removeAnnotations(annotations)
+    }
+}
+  
   // load points from realm database
-    func loadPoints(checkForUpdatedData:Bool = false) {
+  func loadPoints(checkForUpdatedData:Bool = false) {
     
     let realm = try! Realm()
     
@@ -257,6 +317,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
   // check if need to update
   func checkIfNeedToUpdate() {
+
     Alamofire.request(.GET, "http://dodies.lv/apraksti/lastchanged.txt").responseString(completionHandler: {
   response in
       if response.result.isSuccess {
