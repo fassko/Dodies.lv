@@ -50,7 +50,7 @@ platform :ios do
     crashlytics(
       api_token: "34be06edc6f733a743335744b07a23f6a3e5b344",
       build_secret: "a9207ff06b3417aa4bf8c6408432761ca87c5b52dca8f2365b133eea61d407cc",
-      groups: "dodies",
+      group: "dodies",
       notes: "Automatic iOS Build"
     )
     
