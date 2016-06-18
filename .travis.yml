@@ -1,4 +1,5 @@
 before_install:
+  - gem update cocoapods --no-document
   - gem update fastlane --no-document
   - fastlane --version
   - gem cleanup
