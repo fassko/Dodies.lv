@@ -27,8 +27,6 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   let manager = CLLocationManager()
   var selectedPoint : DodiesAnnotation!
   
-  var realm = try! Realm()
-  
   let LastChangedTimestampKey = "LastChangedTimestamp"
   
   @IBOutlet weak var aboutButton: UIBarButtonItem!
@@ -70,12 +68,14 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     // show loading view
     Helper.showGlobalProgressHUD()
     
+    let realm = try! Realm()
+    
     // check if need to update data
     if (realm.objects(DodiesPoint).count == 0) {
       downloadData()
     } else {
       Async.background {
-        self.loadPoints(checkForUpdatedData: true)
+        self.loadPoints(true)
       }
     }
   }
@@ -101,7 +101,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
 
       var annotation = selectedPoint.tips
       
-      if selectedPoint.statuss == "parbaudits" {
+      if selectedPoint.st == "parbaudits" {
         annotation = "\(annotation)-active"
       } else {
         annotation = "\(annotation)-disabled"
@@ -115,8 +115,6 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
       }
       
       return annotationImage
-    } catch {
-      return nil
     }
   }
   
@@ -128,7 +126,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     if let point = annotation as? DodiesAnnotation {
       selectedPoint = point
       
-      if point.apraksts == "true" {
+      if !point.txt.isEmpty {
         performSegueWithIdentifier("detailsWithPicture", sender: self)
       } else {
         performSegueWithIdentifier("details", sender: self)
@@ -151,7 +149,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
   // download data from server
   func downloadData() {
-    Alamofire.request(.GET, "http://dodies.lv/apraksti/dati.geojson").responseJSON(completionHandler: {
+    Alamofire.request(.GET, "http://dodies.lv/json/lv.geojson").responseJSON(completionHandler: {
       response in
       
         Helper.dismissGlobalHUD()
@@ -166,9 +164,11 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
             let json = JSON(value)
             
             if let features = json["features"].array {
+            
+              let realm = try! Realm()
           
-              try! self.realm.write {
-                self.realm.deleteAll()
+              try! realm.write {
+                realm.deleteAll()
               }
               
               for feature in features {
@@ -181,24 +181,27 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
                   dodiesPoint.latitude = coordinates[0]
                   dodiesPoint.longitude = coordinates[1]
                   
-                  dodiesPoint.apraksts = properties["apraksts"]!.stringValue
-                  dodiesPoint.datums = properties["datums"]!.stringValue
-                  dodiesPoint.desc = properties["desc"]!.stringValue
-                  dodiesPoint.garums = properties["garums"]!.stringValue
-                  dodiesPoint.id = properties["id"]!.stringValue
                   dodiesPoint.name = properties["name"]!.stringValue
-                  dodiesPoint.statuss = properties["statuss"]!.stringValue
                   dodiesPoint.tips = properties["tips"]!.stringValue
+                  dodiesPoint.st = properties["st"]!.stringValue
+                  dodiesPoint.km = properties["km"]!.stringValue
+                  dodiesPoint.txt = properties["txt"]!.stringValue
+                  dodiesPoint.dat = properties["dat"]!.stringValue
+                  dodiesPoint.img = properties["img"]!.stringValue
+                  dodiesPoint.img2 = properties["img2"]!.stringValue
+                  dodiesPoint.url = properties["url"]!.stringValue
 
                   // write in realm database
-                  try! self.realm.write {
-                    self.realm.add(dodiesPoint)
+                  try! realm.write {
+                    realm.add(dodiesPoint)
                   }
+                } else {
+                  
                 }
               }
               
               self.updateLastChangedTimestamp()
-              self.loadPoints(self.realm)
+              self.loadPoints()
             }
           }
         }
@@ -206,27 +209,27 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   }
   
   // load points from realm database
-  func loadPoints(var realm:Realm? = nil, checkForUpdatedData:Bool = false) {
-  
-    if realm == nil {
-      realm = try! Realm()
-    }
+    func loadPoints(checkForUpdatedData:Bool = false) {
     
-    let points = realm!.objects(DodiesPoint).filter("statuss in {'parbaudits', 'neparbaudits'}")
+    let realm = try! Realm()
+    
+    let points = realm.objects(DodiesPoint)
     
     for p:DodiesPoint in points {
       let point = DodiesAnnotation()
         
         point.coordinate = CLLocationCoordinate2DMake(p.longitude, p.latitude)
-
         point.title = p.name
-        point.desc = p.desc
-        point.statuss = p.statuss
-        point.apraksts = p.apraksts
-        point.id = p.id
-        point.garums = p.garums
-        point.datums = p.datums
+
+        point.name = p.name
         point.tips = p.tips
+        point.st = p.st
+        point.km = p.km
+        point.txt = p.txt
+        point.dat = p.dat
+        point.img = p.img
+        point.img2 = p.img2
+        point.url = p.url
       
       self.mapView.addAnnotation(point)
     }

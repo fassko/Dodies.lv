@@ -44,21 +44,21 @@ class Details : UIViewController {
     self.navigationItem.titleView = titleLabel
     
     desc.scrollEnabled = false
-    desc.text = point.desc
+    desc.text = point.txt
     
 
     self.automaticallyAdjustsScrollViewInsets = false
     
     coordinatesButton.setTitle("\(String(format: "%.5f",point.coordinate.latitude)), \(String(format: "%.5f",point.coordinate.longitude))", forState: UIControlState.Normal)
     
-    lenght.text = point.garums != "" ? "\(point.garums) km" : "-"
-    checked.text = point.datums != "" ? point.datums : "-"
+    lenght.text = point.km != "" ? "\(point.km) km" : "-"
+    checked.text = point.dat != "" ? point.dat : "-"
     
     let attributes = [NSFontAttributeName: UIFont.fontAwesomeOfSize(20)] as Dictionary!
     details.setTitleTextAttributes(attributes, forState: .Normal)
     details.title = String.fontAwesomeIconWithName(.Info)
     
-    Alamofire.request(.GET, "http://dodies.lv/img/large/\(self.point.id)-01.jpg").responseImage {
+    Alamofire.request(.GET, point.img2).responseImage {
       response in
 
         if let image = response.result.value {
@@ -85,7 +85,7 @@ class Details : UIViewController {
     
     Answers.logContentViewWithName("Details",
                       contentType: "DodiesDetails",
-                      contentId: point.id,
+                      contentId: point.name,
                       customAttributes: ["name": point.name, "description": point.description])
   }
   
@@ -96,7 +96,7 @@ class Details : UIViewController {
   }
   
   @IBAction func showDescription(sender: AnyObject) {
-    if point.apraksts == "true" {
+    if !point.url.isEmpty {
       performSegueWithIdentifier("showDescription", sender: self)
     } else {
       Alert(title: "Dodies.lv", message: "Diemžēl apraksts vēl nav izveidots.").addAction("OK").show()

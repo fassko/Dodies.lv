@@ -10,7 +10,7 @@ target 'Dodies.lv' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'SwiftyUserDefaults', '~> 2.0'
-  pod 'RealmSwift', '~> 0.98'
+  pod 'RealmSwift'
   pod "AsyncSwift"
   pod 'GCD', '~> 0.2'
   pod 'SDCAlertView', '~> 4.0'
@@ -18,4 +18,5 @@ target 'Dodies.lv' do
   pod 'FontAwesome.swift', '~> 0.7'
   pod 'LKAlertController', '~> 1.6'
   pod 'AlamofireImage'
+  pod 'CocoaLumberjack/Swift'
 end
