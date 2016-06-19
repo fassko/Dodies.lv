@@ -104,19 +104,19 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
       selectedPoint = annotation as! DodiesAnnotation
 
-      var annotation = selectedPoint.tips
+      var icon = selectedPoint.tips
       
       if selectedPoint.st == "parbaudits" {
-        annotation = "\(annotation)-active"
+        icon = "\(icon)-active"
       } else {
-        annotation = "\(annotation)-disabled"
+        icon = "\(icon)-disabled"
       }
       
-      var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier(annotation)
+      var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier(icon)
           
       if annotationImage == nil {
-        let image = UIImage(named: annotation)
-        annotationImage = MGLAnnotationImage(image: image!, reuseIdentifier: annotation)
+        let image = UIImage(named: icon)
+        annotationImage = MGLAnnotationImage(image: image!, reuseIdentifier: icon)
       }
       
       return annotationImage
