@@ -204,6 +204,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
         Helper.dismissGlobalHUD()
       
         if response.result.isFailure {
+          Crashlytics.logEvent("CantDownloadData", attributes: ["url": "http://dodies.lv/json/\(language!).geojson", "error": (response.result.error?.localizedDescription)!])
           self.showError()
         }
       
