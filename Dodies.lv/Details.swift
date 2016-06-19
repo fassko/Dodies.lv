@@ -32,7 +32,7 @@ class Details : UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.title = point.title
+    self.title = point.name
     
     let titleLabel = UILabel(frame: CGRectMake(0, 0, view.frame.size.width - 120, 44))
     titleLabel.backgroundColor = UIColor.clearColor()
@@ -55,7 +55,7 @@ class Details : UIViewController {
     lenght.text = point.km != "" ? "\(point.km) km" : "-"
     
     if point.dat != "" {
-      let checkedDate = point.dat.toDate(DateFormat.Custom("yyyy-MM-dd HH:mm:ss"))
+      let checkedDate = point.dat.toDate(DateFormat.Custom("yyyy-MM-dd"))
       
       checked.text = checkedDate!.toString(DateFormat.Custom("MM.dd.YYYY"))
     } else {
