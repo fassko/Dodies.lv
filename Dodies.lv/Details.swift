@@ -113,6 +113,12 @@ class Details : UIViewController {
   
   @IBAction func openNavigation(sender: AnyObject) {
     let optionMenu = UIAlertController(title: nil, message: "Navigēt ar", preferredStyle: .ActionSheet)
+    
+    let copy = UIAlertAction(title: "Kopēt koordinātes", style: .Default, handler: {
+      (alert: UIAlertAction!) -> Void in
+        let pasteboard:UIPasteboard = UIPasteboard.generalPasteboard()
+        pasteboard.string = "\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)"
+    })
 
     let apple = UIAlertAction(title: "Apple Maps", style: .Default, handler: {
       (alert: UIAlertAction!) -> Void in
@@ -150,6 +156,7 @@ class Details : UIViewController {
       (alert: UIAlertAction!) -> Void in
     })
     
+    optionMenu.addAction(copy)
     optionMenu.addAction(apple)
     optionMenu.addAction(google)
     optionMenu.addAction(waze)
