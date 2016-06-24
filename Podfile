@@ -20,4 +20,5 @@ target 'Dodies.lv' do
   pod 'AlamofireImage'
   pod 'CocoaLumberjack/Swift'
   pod 'SwiftDate', '~> 3.0'
+  pod 'Localize-Swift', '~> 1.5'
 end

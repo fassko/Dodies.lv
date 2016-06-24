@@ -20,6 +20,7 @@ import SDCAlertView
 import Fabric
 import Crashlytics
 import FontAwesome_swift
+import Localize_Swift
 
 class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
 
@@ -36,7 +37,9 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.title = "Karte"
+    self.setLanguage()
+    
+    self.title = "Map".localized()
     
     navigationItem.titleView = UIImageView(image: UIImage(named: "dodies_nav_logo"))
     
@@ -153,20 +156,20 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   // MARK: - Interface methods
   
   @IBAction func setLanguage(sender: AnyObject) {
-    let actionSheet: UIAlertController = UIAlertController(title: "Change the language", message: "Please select the language", preferredStyle: .ActionSheet)
+    let actionSheet: UIAlertController = UIAlertController(title: "Change language".localized(), message: "Please select language".localized(), preferredStyle: .ActionSheet)
 
-    let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+    let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel".localized(), style: .Cancel) { action -> Void in
       
     }
     actionSheet.addAction(cancelActionButton)
 
-    let saveActionButton: UIAlertAction = UIAlertAction(title: "Latviešu", style: .Default){
+    let saveActionButton: UIAlertAction = UIAlertAction(title: "Latvian".localized(), style: .Default){
       action -> Void in
         self.languageChanged("lv")
     }
     actionSheet.addAction(saveActionButton)
 
-    let deleteActionButton: UIAlertAction = UIAlertAction(title: "English", style: .Default){
+    let deleteActionButton: UIAlertAction = UIAlertAction(title: "English".localized(), style: .Default){
       action -> Void in
         self.languageChanged("en")
     }
@@ -179,9 +182,20 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
   // MARK: - Additonal methods
   
+  func setLanguage() {
+    
+    if let language = Defaults[self.languageKey].string {
+      Localize.setCurrentLanguage(language)
+    } else {
+      Localize.setCurrentLanguage("lv")
+    }
+  }
+  
   func languageChanged(language:String) {
     if language != Defaults[self.languageKey].stringValue {
       Defaults[self.languageKey] = language
+      
+      Localize.setCurrentLanguage(language)
       
       Helper.showGlobalProgressHUD()
       
@@ -333,7 +347,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
   // show error
   func showError() {
-    let alert = AlertController(title: "Kļūda", message: "Neizdevās lejuplādēt datus, lūdzu pārbaudiet savus iestatījumus un mēģiniet vēlreiz!", preferredStyle: .Alert)
+    let alert = AlertController(title: "Error".localized(), message: "Can't download data. Please check your settings and try again.".localized(), preferredStyle: .Alert)
           alert.addAction(AlertAction(title: "OK", style: .Preferred))
           alert.present()
   }

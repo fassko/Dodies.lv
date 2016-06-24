@@ -107,14 +107,14 @@ class Details : UIViewController {
     if !point.url.isEmpty {
       performSegueWithIdentifier("showDescription", sender: self)
     } else {
-      Alert(title: "Dodies.lv", message: "Diemžēl apraksts vēl nav izveidots.").addAction("OK").show()
+      Alert(title: "Dodies.lv", message: "Sorry, but description isn't ready yet.".localized()).addAction("OK").show()
     }
   }
   
   @IBAction func openNavigation(sender: AnyObject) {
-    let optionMenu = UIAlertController(title: nil, message: "Navigēt ar", preferredStyle: .ActionSheet)
+    let optionMenu = UIAlertController(title: nil, message: "Navigate with".localized(), preferredStyle: .ActionSheet)
     
-    let copy = UIAlertAction(title: "Kopēt koordinātes", style: .Default, handler: {
+    let copy = UIAlertAction(title: "Copy coordiantes".localized(), style: .Default, handler: {
       (alert: UIAlertAction!) -> Void in
         let pasteboard:UIPasteboard = UIPasteboard.generalPasteboard()
         pasteboard.string = "\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)"
@@ -152,7 +152,7 @@ class Details : UIViewController {
         }
     })
 
-    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+    let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .Cancel, handler: {
       (alert: UIAlertAction!) -> Void in
     })
     

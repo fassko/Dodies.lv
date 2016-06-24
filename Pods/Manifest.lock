@@ -34,6 +34,7 @@ PODS:
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
   - LKAlertController (1.9.1)
+  - Localize-Swift (1.5)
   - Mapbox-iOS-SDK (3.2.3)
   - MBProgressHUD (0.9.2)
   - Realm (1.0.1):
@@ -58,6 +59,7 @@ DEPENDENCIES:
   - GCD (~> 0.2)
   - Google/Analytics
   - LKAlertController (~> 1.6)
+  - Localize-Swift (~> 1.5)
   - Mapbox-iOS-SDK
   - MBProgressHUD
   - RealmSwift
@@ -84,6 +86,7 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   LKAlertController: 1e85a645e0bd3223a8f79abb9b7b54fe10036f6f
+  Localize-Swift: 288aa763db72b0628d2cb111fbf5babc90529d0c
   Mapbox-iOS-SDK: 120e8a140e9cd4adae8227340dd89f5cc3850259
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
@@ -93,6 +96,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
 
-PODFILE CHECKSUM: 1efc40a45b546d73a6e248f115b099873f4822be
+PODFILE CHECKSUM: b1453edf1ab16e83c24b69173a523cb280e3fa5a
 
 COCOAPODS: 1.0.1

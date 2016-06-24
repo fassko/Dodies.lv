@@ -20,12 +20,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Nym-8i-f2e">
-                        <barButtonItem key="leftBarButtonItem" title="Uzstādījumi" id="AWE-G6-IA6">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="AWE-G6-IA6">
                             <connections>
                                 <action selector="setLanguage:" destination="ExX-va-15z" id="458-5E-2Z5"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Par" id="bQT-ha-IYa">
+                        <barButtonItem key="rightBarButtonItem" title="About" id="bQT-ha-IYa">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="WI0-B1-khR" kind="show" identifier="about" id="xtR-xe-g4V"/>
@@ -139,7 +139,7 @@ Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlest
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Garums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LG-1R-pa1">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LG-1R-pa1">
                                         <rect key="frame" x="8" y="34" width="75" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="j9f-6M-yMM"/>
@@ -158,7 +158,7 @@ Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlest
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apsekots" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvI-kK-8bv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvI-kK-8bv">
                                         <rect key="frame" x="8" y="62" width="75" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Kqr-Oh-Mw4"/>
@@ -238,7 +238,7 @@ Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlest
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Z4m-Qh-dqt">
-                        <barButtonItem key="rightBarButtonItem" title="Plašāka info" id="8L2-Kc-rrG">
+                        <barButtonItem key="rightBarButtonItem" title="More info" id="8L2-Kc-rrG">
                             <connections>
                                 <action selector="showDescription:" destination="yf8-5s-rxy" id="oVD-3z-BM3"/>
                             </connections>
@@ -316,7 +316,7 @@ Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlest
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Garums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vie-9I-NYa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vie-9I-NYa">
                                         <rect key="frame" x="8" y="34" width="75" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="3N6-dK-N7F"/>
@@ -335,7 +335,7 @@ Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlest
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apsekots" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgN-K2-OON">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgN-K2-OON">
                                         <rect key="frame" x="8" y="62" width="75" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="2rc-bC-Rr0"/>

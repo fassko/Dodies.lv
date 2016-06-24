@@ -14,6 +14,7 @@
 		636EA83D1BA5BDF40071397A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636EA83B1BA5BDF40071397A /* Main.storyboard */; };
 		636EA8421BA5BDF40071397A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636EA8401BA5BDF40071397A /* LaunchScreen.storyboard */; };
 		638EB5111CA6FBC100FA7903 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638EB5101CA6FBC100FA7903 /* DescriptionViewController.swift */; };
+		639026FC1D1D393C003BD31F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 639026FE1D1D393C003BD31F /* Localizable.strings */; };
 		639710851C8200F1003C3842 /* dodies_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710821C8200F1003C3842 /* dodies_logo.png */; };
 		639710861C8200F1003C3842 /* dodies_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710831C8200F1003C3842 /* dodies_logo@2x.png */; };
 		639710871C8200F1003C3842 /* dodies_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710841C8200F1003C3842 /* dodies_logo@3x.png */; };
@@ -81,6 +82,10 @@
 		636EA8411BA5BDF40071397A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		636EA8431BA5BDF40071397A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		638EB5101CA6FBC100FA7903 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		639026F81D1D368C003BD31F /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/Main.strings; sourceTree = "<group>"; };
+		639026F91D1D368C003BD31F /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		639026FD1D1D393C003BD31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		639027001D1D3DF7003BD31F /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		639710821C8200F1003C3842 /* dodies_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies_logo.png; sourceTree = "<group>"; };
 		639710831C8200F1003C3842 /* dodies_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo@2x.png"; sourceTree = "<group>"; };
 		639710841C8200F1003C3842 /* dodies_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo@3x.png"; sourceTree = "<group>"; };
@@ -190,6 +195,7 @@
 				63A818C71C6294F9006F7F80 /* Valmiera.gpx */,
 				639710881C821568003C3842 /* GoogleService-Info.plist */,
 				6397108A1C8215C8003C3842 /* Dodies-Bridging-Header.h */,
+				639026FE1D1D393C003BD31F /* Localizable.strings */,
 				6304EAFE1BA5C25900B7CD49 /* Settings.bundle */,
 			);
 			path = Dodies.lv;
@@ -348,6 +354,7 @@
 			knownRegions = (
 				en,
 				Base,
+				lv,
 			);
 			mainGroup = 636EA8291BA5BDF40071397A;
 			productRefGroup = 636EA8331BA5BDF40071397A /* Products */;
@@ -373,6 +380,7 @@
 				63C322B51C836C050033CE5D /* dodies_logo_green@3x.png in Resources */,
 				63AFB7FE1C5E375D004A58E1 /* dodies@2x.png in Resources */,
 				63C322B31C836C050033CE5D /* dodies_logo_green.png in Resources */,
+				639026FC1D1D393C003BD31F /* Localizable.strings in Resources */,
 				63AFB7D31C5CE04D004A58E1 /* tornis-active@3x.png in Resources */,
 				63F5DC681C8355BE00AEB195 /* dodies_nav_logo.png in Resources */,
 				63AFB7C71C5CE04D004A58E1 /* pikniks-active@3x.png in Resources */,
@@ -504,6 +512,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				636EA83C1BA5BDF40071397A /* Base */,
+				639026F81D1D368C003BD31F /* lv */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -512,8 +521,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				636EA8411BA5BDF40071397A /* Base */,
+				639026F91D1D368C003BD31F /* lv */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		639026FE1D1D393C003BD31F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				639026FD1D1D393C003BD31F /* Base */,
+				639027001D1D3DF7003BD31F /* lv */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
