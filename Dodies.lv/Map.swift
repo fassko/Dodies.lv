@@ -20,6 +20,7 @@ import SDCAlertView
 import Fabric
 import Crashlytics
 import FontAwesome_swift
+import Localize_Swift
 
 class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
 
@@ -27,22 +28,27 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   let manager = CLLocationManager()
   var selectedPoint : DodiesAnnotation!
   
-  var realm = try! Realm()
-  
   let LastChangedTimestampKey = "LastChangedTimestamp"
+  let languageKey = "language"
   
+  @IBOutlet weak var settingsButton: UIBarButtonItem!
   @IBOutlet weak var aboutButton: UIBarButtonItem!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.title = "Karte"
+    self.setLanguage()
+    
+    self.title = "Map".localized()
     
     navigationItem.titleView = UIImageView(image: UIImage(named: "dodies_nav_logo"))
     
     let attributes = [NSFontAttributeName: UIFont.fontAwesomeOfSize(20)] as Dictionary!
     aboutButton.setTitleTextAttributes(attributes, forState: .Normal)
     aboutButton.title = String.fontAwesomeIconWithName(.Question)
+    
+    settingsButton.setTitleTextAttributes(attributes, forState: .Normal)
+    settingsButton.title = String.fontAwesomeIconWithName(.Language)
     
     // ask user to allow location access
     if CLLocationManager.authorizationStatus() == .NotDetermined {
@@ -70,12 +76,14 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     // show loading view
     Helper.showGlobalProgressHUD()
     
+    let realm = try! Realm()
+    
     // check if need to update data
     if (realm.objects(DodiesPoint).count == 0) {
       downloadData()
     } else {
       Async.background {
-        self.loadPoints(checkForUpdatedData: true)
+        self.loadPoints(true)
       }
     }
   }
@@ -99,46 +107,22 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
       selectedPoint = annotation as! DodiesAnnotation
 
-      var annotation = ""
+      var icon = selectedPoint.tips
       
-      switch selectedPoint.symb {
-        case "Trail Head":
-          annotation = "taka"
-          break
-        
-        case "Park":
-          annotation = "parks"
-          break
-        
-        case "Oil Field":
-          annotation = "tornis"
-          break
-        
-        case "Campground":
-          annotation = "pikniks"
-          break
-        
-        default:
-          annotation = "taka"
-          break
-      }
-      
-      if selectedPoint.statuss == "parbaudits" {
-        annotation = "\(annotation)-active"
+      if selectedPoint.st == "parbaudits" {
+        icon = "\(icon)-active"
       } else {
-        annotation = "\(annotation)-disabled"
+        icon = "\(icon)-disabled"
       }
       
-      var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier(annotation)
+      var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier(icon)
           
       if annotationImage == nil {
-        let image = UIImage(named: annotation)
-        annotationImage = MGLAnnotationImage(image: image!, reuseIdentifier: annotation)
+        let image = UIImage(named: icon)
+        annotationImage = MGLAnnotationImage(image: image!, reuseIdentifier: icon)
       }
       
       return annotationImage
-    } catch {
-      return nil
     }
   }
   
@@ -150,7 +134,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     if let point = annotation as? DodiesAnnotation {
       selectedPoint = point
       
-      if point.apraksts == "true" {
+      if !point.img.isEmpty {
         performSegueWithIdentifier("detailsWithPicture", sender: self)
       } else {
         performSegueWithIdentifier("details", sender: self)
@@ -169,16 +153,72 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   }
   
   
+  // MARK: - Interface methods
+  
+  @IBAction func setLanguage(sender: AnyObject) {
+    let actionSheet: UIAlertController = UIAlertController(title: "Change language".localized(), message: "Please select language".localized(), preferredStyle: .ActionSheet)
+
+    let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel".localized(), style: .Cancel) { action -> Void in
+      
+    }
+    actionSheet.addAction(cancelActionButton)
+
+    let saveActionButton: UIAlertAction = UIAlertAction(title: "Latvian".localized(), style: .Default){
+      action -> Void in
+        self.languageChanged("lv")
+    }
+    actionSheet.addAction(saveActionButton)
+
+    let deleteActionButton: UIAlertAction = UIAlertAction(title: "English".localized(), style: .Default){
+      action -> Void in
+        self.languageChanged("en")
+    }
+    actionSheet.addAction(deleteActionButton)
+    
+    self.presentViewController(actionSheet, animated: true, completion: nil)
+  }
+  
+  
+  
   // MARK: - Additonal methods
+  
+  func setLanguage() {
+    
+    if let language = Defaults[self.languageKey].string {
+      Localize.setCurrentLanguage(language)
+    } else {
+      Localize.setCurrentLanguage("lv")
+    }
+  }
+  
+  func languageChanged(language:String) {
+    if language != Defaults[self.languageKey].stringValue {
+      Defaults[self.languageKey] = language
+      
+      Localize.setCurrentLanguage(language)
+      
+      Helper.showGlobalProgressHUD()
+      
+      self.downloadData()
+    }
+  }
   
   // download data from server
   func downloadData() {
-    Alamofire.request(.GET, "http://dodies.lv/apraksti/dati.geojson").responseJSON(completionHandler: {
+  
+    var language = Defaults[self.languageKey].string
+    
+    if language == nil {
+      language = "lv"
+    }
+  
+    Alamofire.request(.GET, "http://dodies.lv/json/\(language!).geojson").responseJSON(completionHandler: {
       response in
       
         Helper.dismissGlobalHUD()
       
         if response.result.isFailure {
+          Crashlytics.logEvent("CantDownloadData", attributes: ["url": "http://dodies.lv/json/\(language!).geojson", "error": (response.result.error?.localizedDescription)!])
           self.showError()
         }
       
@@ -188,70 +228,83 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
             let json = JSON(value)
             
             if let features = json["features"].array {
+            
+              let realm = try! Realm()
           
-              try! self.realm.write {
-                self.realm.deleteAll()
+              try! realm.write {
+                realm.deleteAll()
               }
               
               for feature in features {
                 
                 let coordinates:Array<Double> = feature["geometry"].dictionaryValue["coordinates"]?.arrayObject as! Array<Double>
-                let properties = feature["properties"].dictionaryValue
                 
+                if let properties = feature["properties"].dictionary {
                 
-                let dodiesPoint = DodiesPoint()
-                dodiesPoint.latitude = coordinates[0]
-                dodiesPoint.longitude = coordinates[1]
-                
-                dodiesPoint.apraksts = properties["apraksts"]!.stringValue
-                dodiesPoint.datums = properties["datums"]!.stringValue
-                dodiesPoint.desc = properties["desc"]!.stringValue
-                dodiesPoint.garums = properties["garums"]!.stringValue
-                dodiesPoint.id = properties["id"]!.stringValue
-                dodiesPoint.klase = properties["klase"]!.stringValue
-                dodiesPoint.name = properties["name"]!.stringValue
-                dodiesPoint.samaksa = properties["samaksa"]!.stringValue
-                dodiesPoint.statuss = properties["statuss"]!.stringValue
-                dodiesPoint.symb = properties["symb"]!.stringValue
-                dodiesPoint.tips = properties["tips"]!.stringValue
+                  let dodiesPoint = DodiesPoint()
+                  dodiesPoint.latitude = coordinates[0]
+                  dodiesPoint.longitude = coordinates[1]
+                  
+                  dodiesPoint.name = properties["name"]!.stringValue
+                  dodiesPoint.tips = properties["tips"]!.stringValue
+                  dodiesPoint.st = properties["st"]!.stringValue
+                  dodiesPoint.km = properties["km"]!.stringValue
+                  dodiesPoint.txt = properties["txt"]!.stringValue
+                  dodiesPoint.dat = properties["dat"]!.stringValue
+                  dodiesPoint.img = properties["img"]!.stringValue
+                  dodiesPoint.img2 = properties["img2"]!.stringValue
+                  dodiesPoint.url = properties["url"]!.stringValue
 
-                // write in realm database
-                try! self.realm.write {
-                  self.realm.add(dodiesPoint)
+                  // write in realm database
+                  try! realm.write {
+                    realm.add(dodiesPoint)
+                  }
+                } else {
+                  
                 }
               }
               
               self.updateLastChangedTimestamp()
-              self.loadPoints(self.realm)
+              self.removeAllAnnotations()
+              self.loadPoints()
             }
           }
         }
     })
   }
   
-  // load points from realm database
-  func loadPoints(var realm:Realm? = nil, checkForUpdatedData:Bool = false) {
-  
-    if realm == nil {
-      realm = try! Realm()
+  // remove all annotation from mapview
+  func removeAllAnnotations() {
+    if self.mapView.annotations != nil {
+      let annotations = self.mapView.annotations!.filter {
+          $0 !== self.mapView.userLocation
+      }
+      self.mapView.removeAnnotations(annotations)
     }
+}
+  
+  // load points from realm database
+  func loadPoints(checkForUpdatedData:Bool = false) {
     
-    let points = realm!.objects(DodiesPoint).filter("statuss in {'parbaudits', 'neparbaudits'}")
+    let realm = try! Realm()
+    
+    let points = realm.objects(DodiesPoint)
     
     for p:DodiesPoint in points {
       let point = DodiesAnnotation()
         
         point.coordinate = CLLocationCoordinate2DMake(p.longitude, p.latitude)
-
         point.title = p.name
-        point.desc = p.desc
-        point.statuss = p.statuss
-        point.symb = p.symb
-        point.apraksts = p.apraksts
-        point.id = p.id
-        point.garums = p.garums
-        point.samaksa = p.samaksa
-        point.datums = p.datums
+
+        point.name = p.name
+        point.tips = p.tips
+        point.st = p.st
+        point.km = p.km
+        point.txt = p.txt
+        point.dat = p.dat
+        point.img = p.img
+        point.img2 = p.img2
+        point.url = p.url
       
       self.mapView.addAnnotation(point)
     }
@@ -279,6 +332,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
   // check if need to update
   func checkIfNeedToUpdate() {
+
     Alamofire.request(.GET, "http://dodies.lv/apraksti/lastchanged.txt").responseString(completionHandler: {
   response in
       if response.result.isSuccess {
@@ -293,7 +347,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
   // show error
   func showError() {
-    let alert = AlertController(title: "Kļūda", message: "Neizdevās lejuplādēt datus, lūdzu pārbaudiet savus iestatījumus un mēģiniet vēlreiz!", preferredStyle: .Alert)
+    let alert = AlertController(title: "Error".localized(), message: "Can't download data. Please check your settings and try again.".localized(), preferredStyle: .Alert)
           alert.addAction(AlertAction(title: "OK", style: .Preferred))
           alert.present()
   }

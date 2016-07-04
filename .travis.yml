@@ -1,9 +1,12 @@
 before_install:
+  - gem update cocoapods --no-document
   - gem update fastlane --no-document
   - fastlane --version
   - gem cleanup
   - brew update
   - brew outdated xctool || brew upgrade xctool
+  - pod --version
+  - pod repo update
 language: objective-c
 osx_image: xcode7.3
 script:

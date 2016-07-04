@@ -11,6 +11,7 @@ import UIKit
 import GCD
 
 import MBProgressHUD
+import Localize_Swift
 
 class Helper {
   // MARK: - HUD functions
@@ -18,7 +19,7 @@ class Helper {
   class func showGlobalProgressHUD() {
     if let window = UIApplication.sharedApplication().delegate?.window {
       let hud = MBProgressHUD.showHUDAddedTo(window, animated: true)
-      hud.labelText = "Lejuplādē datus"
+      hud.labelText =  "Downloading data".localized()
       hud.userInteractionEnabled = false
       hud.layer.zPosition = 2
       hud.labelFont = UIFont(name: "HelveticaNeue", size: 18)

@@ -1,0 +1,4 @@
+Uzlabota lietotāja saskarne:
+* uzlabots kartes dizains
+* navigācija ar Apple Maps, Google Maps un Waze
+* taku attēli

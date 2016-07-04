@@ -169,7 +169,13 @@ public extension NSUserDefaults {
     }
 }
 
-/// Global shortcut for NSUserDefaults.standardUserDefaults()
+/// Global shortcut for `NSUserDefaults.standardUserDefaults()`
+///
+/// **Pro-Tip:** If you want to use shared user defaults, just
+///  redefine this global shortcut in your app target, like so:
+///  ~~~
+///  var Defaults = NSUserDefaults(suiteName: "com.my.app")!
+///  ~~~
 
 public let Defaults = NSUserDefaults.standardUserDefaults()
 
@@ -182,7 +188,7 @@ public class DefaultsKeys {
     private init() {}
 }
 
-/// Base class for static user defaults keys. Specialize with value type type
+/// Base class for static user defaults keys. Specialize with value type
 /// and pass key name to the initializer to create a key.
 
 public class DefaultsKey<ValueType>: DefaultsKeys {
@@ -214,7 +220,7 @@ extension NSUserDefaults {
     }
 }
 
-// MARK: Static subscripts for standard types
+// MARK: Subscripts for specific standard types
 
 // TODO: Use generic subscripts when they become available
 
@@ -430,7 +436,34 @@ extension NSUserDefaults {
     }
 }
 
-// MARK: Archiving complex types
+// MARK: - Archiving custom types
+
+// MARK: RawRepresentable
+
+extension NSUserDefaults {
+    // TODO: Ensure that T.RawValue is compatible
+    public func archive<T: RawRepresentable>(key: DefaultsKey<T>, _ value: T) {
+        set(key, value.rawValue)
+    }
+    
+    public func archive<T: RawRepresentable>(key: DefaultsKey<T?>, _ value: T?) {
+        if let value = value {
+            set(key, value.rawValue)
+        } else {
+            remove(key)
+        }
+    }
+    
+    public func unarchive<T: RawRepresentable>(key: DefaultsKey<T?>) -> T? {
+        return objectForKey(key._key).flatMap { T(rawValue: $0 as! T.RawValue) }
+    }
+    
+    public func unarchive<T: RawRepresentable>(key: DefaultsKey<T>) -> T? {
+        return objectForKey(key._key).flatMap { T(rawValue: $0 as! T.RawValue) }
+    }
+}
+
+// MARK: NSCoding
 
 extension NSUserDefaults {
     // TODO: Can we simplify this and ensure that T is NSCoding compliant?

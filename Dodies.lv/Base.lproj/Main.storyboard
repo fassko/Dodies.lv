@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2ne-Pp-ydF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2ne-Pp-ydF">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -20,7 +20,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Nym-8i-f2e">
-                        <barButtonItem key="rightBarButtonItem" title="Par" id="bQT-ha-IYa">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="AWE-G6-IA6">
+                            <connections>
+                                <action selector="setLanguage:" destination="ExX-va-15z" id="458-5E-2Z5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="About" id="bQT-ha-IYa">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="WI0-B1-khR" kind="show" identifier="about" id="xtR-xe-g4V"/>
@@ -29,6 +34,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="aboutButton" destination="bQT-ha-IYa" id="H1R-VE-jah"/>
+                        <outlet property="settingsButton" destination="AWE-G6-IA6" id="aCP-X6-Jnh"/>
                         <segue destination="yf8-5s-rxy" kind="show" identifier="details" id="wV4-cr-thH"/>
                         <segue destination="BR3-Qe-Xd0" kind="show" identifier="detailsWithPicture" id="hbk-3v-Ms7"/>
                     </connections>
@@ -52,13 +58,13 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGn-JU-jG9">
                                 <rect key="frame" x="20" y="72" width="560" height="508"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Šī karte attēlo vietas, kur atpūsties svaigā gaisā: pārgājienu takas, piknika vietas, telts vietas un putnu torņi. 
-Mūsu kartē attēlotas visiem pieejami bezmaksas objekti, galvenokārt, vietas tuvāk dabai un tālāk no apdzīvotām vietām.
+                                <mutableString key="text">Dodies.lv is a collection of free nature trails, hiking paths, birdwatching towers and picnic places in Latvia. 
+Would you like to spend some time in Latvian nature, make a fire, stay in a tent? Our map contains freely accessible places closer to nature, available at any time for anyone.  
 
-Pārsvarā ir iekļautas nekomerciālas vietas, izņemot, ja norādīts citādāk. Vietām, kuras esam apmeklējuši paši, ir arī bildes un plašāks apraksts. 
-Liela daļa ir pārbaudīta dzīvē, tās kartē un tabulā ir iekrāsotas zaļas, mūsu nepārbaudītās takas ir pelēkas.
+The green icons represent places which we have verified ourselves, they have photos and longer descriptions.
+The grey icons show places we have not yet given our approval. 
 
-Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlestību pret dabu.</string>
+Hiking in Latvia is now made simple, select a point of interest and use Google Maps, Waze or Apple Maps to navigate there. </mutableString>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -73,6 +79,9 @@ Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlest
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OaH-jx-7aV"/>
+                    <connections>
+                        <outlet property="aboutText" destination="gGn-JU-jG9" id="JVg-qC-mQg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTt-6e-Mfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -133,7 +142,7 @@ Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlest
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Garums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LG-1R-pa1">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LG-1R-pa1">
                                         <rect key="frame" x="8" y="34" width="75" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="j9f-6M-yMM"/>
@@ -152,7 +161,7 @@ Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlest
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apsekots" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvI-kK-8bv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvI-kK-8bv">
                                         <rect key="frame" x="8" y="62" width="75" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Kqr-Oh-Mw4"/>
@@ -232,7 +241,7 @@ Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlest
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Z4m-Qh-dqt">
-                        <barButtonItem key="rightBarButtonItem" title="Plašāka info" id="8L2-Kc-rrG">
+                        <barButtonItem key="rightBarButtonItem" title="More info" id="8L2-Kc-rrG">
                             <connections>
                                 <action selector="showDescription:" destination="yf8-5s-rxy" id="oVD-3z-BM3"/>
                             </connections>
@@ -240,10 +249,12 @@ Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlest
                     </navigationItem>
                     <connections>
                         <outlet property="checked" destination="kll-AW-Qrr" id="Se6-E7-ktN"/>
+                        <outlet property="checkedTitle" destination="HvI-kK-8bv" id="SoN-RL-fOM"/>
                         <outlet property="coordinatesButton" destination="2IM-7s-Xc2" id="MYf-SZ-Rqp"/>
                         <outlet property="desc" destination="2gb-wA-Mtu" id="rIv-Oj-vmZ"/>
                         <outlet property="details" destination="8L2-Kc-rrG" id="Mnj-yY-obC"/>
                         <outlet property="lenght" destination="KPX-v9-GCL" id="7Ie-KN-8ZL"/>
+                        <outlet property="lengthTitle" destination="5LG-1R-pa1" id="UqK-iJ-wtB"/>
                         <segue destination="Oe3-0f-KPq" kind="show" identifier="showDescription" id="qEx-0x-jH0"/>
                     </connections>
                 </viewController>
@@ -310,7 +321,7 @@ Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlest
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Garums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vie-9I-NYa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vie-9I-NYa">
                                         <rect key="frame" x="8" y="34" width="75" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="3N6-dK-N7F"/>
@@ -329,7 +340,7 @@ Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlest
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apsekots" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgN-K2-OON">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgN-K2-OON">
                                         <rect key="frame" x="8" y="62" width="75" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="2rc-bC-Rr0"/>
@@ -434,11 +445,13 @@ Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlest
                     </navigationItem>
                     <connections>
                         <outlet property="checked" destination="ff8-8e-mut" id="HtJ-fD-5Jr"/>
+                        <outlet property="checkedTitle" destination="ZgN-K2-OON" id="XfB-O7-Uw3"/>
                         <outlet property="coordinatesButton" destination="9l8-uD-mRh" id="MFJ-nb-yZc"/>
                         <outlet property="desc" destination="w9g-Bh-wwe" id="s59-7c-oKp"/>
                         <outlet property="details" destination="rEu-qP-2Ch" id="hhR-8L-Iom"/>
                         <outlet property="image" destination="qgA-DB-Kpa" id="WJX-Qg-Yyg"/>
                         <outlet property="lenght" destination="wpS-sY-dEy" id="EPc-Hv-Sst"/>
+                        <outlet property="lengthTitle" destination="vie-9I-NYa" id="xB7-QQ-b7S"/>
                         <segue destination="Oe3-0f-KPq" kind="show" identifier="showDescription" id="e0t-Py-lhk"/>
                     </connections>
                 </viewController>
@@ -448,6 +461,6 @@ Dodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlest
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="e0t-Py-lhk"/>
+        <segue reference="qEx-0x-jH0"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -39,7 +39,7 @@ class DescriptionViewController: UIViewController {
     
     self.automaticallyAdjustsScrollViewInsets = false
     
-    descriptionWebView.loadRequest(NSURLRequest(URL: NSURL(string: "http://dodies.lv/info?taka=\(point.id)")!))
+    descriptionWebView.loadRequest(NSURLRequest(URL: NSURL(string: "http://dodies.lv/obj/\(point.url)")!))
     descriptionWebView.scrollView.contentOffset = CGPoint(x: 0, y: 0)
     
   }

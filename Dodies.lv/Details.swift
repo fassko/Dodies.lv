@@ -14,6 +14,8 @@ import Crashlytics
 import LKAlertController
 import Alamofire
 import AlamofireImage
+import SwiftDate
+import Localize_Swift
 
 class Details : UIViewController {
 
@@ -25,13 +27,19 @@ class Details : UIViewController {
   @IBOutlet weak var checked: UILabel!
   @IBOutlet weak var details: UIBarButtonItem!
   
+  @IBOutlet weak var lengthTitle: UILabel!
+  @IBOutlet weak var checkedTitle: UILabel!
+  
   @IBOutlet weak var image: UIImageView?
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.title = point.title
+    self.title = point.name
+    
+    checkedTitle.text = "Checked".localized()
+    lengthTitle.text = "Length".localized()
     
     let titleLabel = UILabel(frame: CGRectMake(0, 0, view.frame.size.width - 120, 44))
     titleLabel.backgroundColor = UIColor.clearColor()
@@ -44,21 +52,28 @@ class Details : UIViewController {
     self.navigationItem.titleView = titleLabel
     
     desc.scrollEnabled = false
-    desc.text = point.desc
+    desc.text = point.txt
     
 
     self.automaticallyAdjustsScrollViewInsets = false
     
     coordinatesButton.setTitle("\(String(format: "%.5f",point.coordinate.latitude)), \(String(format: "%.5f",point.coordinate.longitude))", forState: UIControlState.Normal)
     
-    lenght.text = point.garums != "" ? "\(point.garums) km" : "-"
-    checked.text = point.datums != "" ? point.datums : "-"
+    lenght.text = point.km != "" ? "\(point.km) km" : "-"
+    
+    if point.dat != "" {
+      let checkedDate = point.dat.toDate(DateFormat.Custom("yyyy-MM-dd"))
+      
+      checked.text = checkedDate!.toString(DateFormat.Custom("MM.dd.YYYY"))
+    } else {
+      checked.text = "-"
+    }
     
     let attributes = [NSFontAttributeName: UIFont.fontAwesomeOfSize(20)] as Dictionary!
     details.setTitleTextAttributes(attributes, forState: .Normal)
     details.title = String.fontAwesomeIconWithName(.Info)
     
-    Alamofire.request(.GET, "http://dodies.lv/img/large/\(self.point.id)-01.jpg").responseImage {
+    Alamofire.request(.GET, point.img).responseImage {
       response in
 
         if let image = response.result.value {
@@ -85,7 +100,7 @@ class Details : UIViewController {
     
     Answers.logContentViewWithName("Details",
                       contentType: "DodiesDetails",
-                      contentId: point.id,
+                      contentId: point.name,
                       customAttributes: ["name": point.name, "description": point.description])
   }
   
@@ -96,15 +111,21 @@ class Details : UIViewController {
   }
   
   @IBAction func showDescription(sender: AnyObject) {
-    if point.apraksts == "true" {
+    if !point.url.isEmpty {
       performSegueWithIdentifier("showDescription", sender: self)
     } else {
-      Alert(title: "Dodies.lv", message: "Diemžēl apraksts vēl nav izveidots.").addAction("OK").show()
+      Alert(title: "Dodies.lv", message: "Sorry, but description isn't ready yet.".localized()).addAction("OK").show()
     }
   }
   
   @IBAction func openNavigation(sender: AnyObject) {
-    let optionMenu = UIAlertController(title: nil, message: "Navigēt ar", preferredStyle: .ActionSheet)
+    let optionMenu = UIAlertController(title: nil, message: "Navigate with".localized(), preferredStyle: .ActionSheet)
+    
+    let copy = UIAlertAction(title: "Copy coordiantes".localized(), style: .Default, handler: {
+      (alert: UIAlertAction!) -> Void in
+        let pasteboard:UIPasteboard = UIPasteboard.generalPasteboard()
+        pasteboard.string = "\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)"
+    })
 
     let apple = UIAlertAction(title: "Apple Maps", style: .Default, handler: {
       (alert: UIAlertAction!) -> Void in
@@ -138,10 +159,11 @@ class Details : UIViewController {
         }
     })
 
-    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+    let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .Cancel, handler: {
       (alert: UIAlertAction!) -> Void in
     })
     
+    optionMenu.addAction(copy)
     optionMenu.addAction(apple)
     optionMenu.addAction(google)
     optionMenu.addAction(waze)

@@ -9,6 +9,8 @@
 import UIKit
 import Fabric
 import Crashlytics
+import CocoaLumberjack
+import RealmSwift
 
 
 @UIApplicationMain
@@ -19,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
     Fabric.with([Crashlytics.self])
+    
+    DDLog.addLogger(DDTTYLogger.sharedInstance()) // TTY = Xcode console
+    DDLog.addLogger(DDASLLogger.sharedInstance()) // ASL = Apple System Logs
     
     // Configure tracker from GoogleService-Info.plist.
     var configureError:NSError?
@@ -32,6 +37,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     UIApplication.sharedApplication().statusBarStyle = .LightContent
     UINavigationBar.appearance().barStyle = .Black
+    
+    let config = Realm.Configuration(
+    schemaVersion: 1,
+
+    
+    migrationBlock: { migration, oldSchemaVersion in
+      
+      if (oldSchemaVersion < 1) {
+        migration.deleteData(DodiesPoint.className())
+      }
+    })
+
+    Realm.Configuration.defaultConfiguration = config
+
+    let realm = try! Realm()
     
     return true
   }

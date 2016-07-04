@@ -13,16 +13,17 @@ import CoreLocation
 import SwiftyJSON
 
 class DodiesAnnotation:MGLPointAnnotation {
-  
-  var symb:String = "taka-active"
-  var desc:String = ""
-  var name:String = ""
-  var statuss:String = ""
+
   var latitude:String = ""
   var longitude:String = ""
-  var id:String = ""
-  var apraksts:String = ""
-  var garums:String = ""
-  var samaksa:String = ""
-  var datums:String = ""
+
+  var name:String = ""
+  var tips:String = ""
+  var st:String = ""
+  var km:String = ""
+  var txt:String = ""
+  var dat:String = ""
+  var img:String = ""
+  var img2:String = ""
+  var url:String = ""
 }

@@ -48,16 +48,15 @@ platform :ios do
     )
 
     # crashlytics(
-    #   # crashlytics_path: 'Pods/Crashlytics/Crashlytics.framework',
-    #   api_token: '34be06edc6f733a743335744b07a23f6a3e5b344',
-    #   build_secret: 'a9207ff06b3417aa4bf8c6408432761ca87c5b52dca8f2365b133eea61d407cc',
-    #   ipa_path: 'Dodies.lv.ipa',
-    #   notes: "New version " + Time.new.strftime("%H:%M:%S %d.%m.%Y"),
-    #   notifications: true
+    #   api_token: "34be06edc6f733a743335744b07a23f6a3e5b344",
+    #   build_secret: "a9207ff06b3417aa4bf8c6408432761ca87c5b52dca8f2365b133eea61d407cc",
+    #   groups: "dodies",
+    #   emails: ["fassko@gmail.com","normis@normis.info"], 
+    #   notes: "Automatic iOS Build"
     # )
-    #
+    
     pilot(
-      skip_submission: true
+      skip_waiting_for_build_processing: true
     )
   end
 
