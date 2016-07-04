@@ -590,6 +590,7 @@
 		51806C3E830BAE25F67C4F7C71303CB4 /* RLMPlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMPlatform.h; path = include/RLMPlatform.h; sourceTree = "<group>"; };
 		52F03AA6C28A4D1DB2EE7EB216E370FD /* ActionCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ActionCell.xib; path = Source/Actions/ActionCell.xib; sourceTree = "<group>"; };
 		53DED3264084B43A41B24CD8888D55D1 /* Realm-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Realm-dummy.m"; sourceTree = "<group>"; };
+		54082927FCF5B1C6E7850B169B6D73B0 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		546E5187F3F38E68F1021C004C461F0C /* RLMRealmConfiguration_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMRealmConfiguration_Private.h; path = include/RLMRealmConfiguration_Private.h; sourceTree = "<group>"; };
 		5471CD36ACE815191B28B01D01B468F1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54B971E18DF258D1DB6D5F5A6BC11C2F /* Manager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = Source/Manager.swift; sourceTree = "<group>"; };
@@ -649,7 +650,6 @@
 		77F24F0609F1127E8BEB08ED4CC37BB7 /* UIImage+AlamofireImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+AlamofireImage.swift"; path = "Source/UIImage+AlamofireImage.swift"; sourceTree = "<group>"; };
 		780A2C2B45C6FD6632AB507937F62F87 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		781AD2FF7CF723636F97DC9895887773 /* RLMSwiftSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RLMSwiftSupport.m; path = Realm/RLMSwiftSupport.m; sourceTree = "<group>"; };
-		790DC10079436D8156611C301871E696 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		7A96B4A35941B177B1B8C346461EA06F /* ActionsCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionsCollectionViewFlowLayout.swift; path = Source/Actions/ActionsCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		7B967410637CE4A65483977713136F2D /* Property.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Property.swift; path = RealmSwift/Property.swift; sourceTree = "<group>"; };
 		7C2D5B1A14803FADF511C88246F0778C /* DDLog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLog.m; path = Classes/DDLog.m; sourceTree = "<group>"; };
@@ -1348,6 +1348,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		601CA44085910C125169A0FB8654EBFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				54082927FCF5B1C6E7850B169B6D73B0 /* FirebaseAnalytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		669BC498FEF40DF85F8DFD68B082BAA5 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1569,14 +1577,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8EA1D1AD58429E3B5079F23F0BBB6851 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				790DC10079436D8156611C301871E696 /* FirebaseAnalytics.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		9218969928B40572D089070A0278BB29 /* FontAwesome.swift */ = {
 			isa = PBXGroup;
 			children = (
@@ -1733,7 +1733,7 @@
 		CAD78EBE9DCED2AF0DA573CB87F1864D /* FirebaseAnalytics */ = {
 			isa = PBXGroup;
 			children = (
-				8EA1D1AD58429E3B5079F23F0BBB6851 /* Frameworks */,
+				601CA44085910C125169A0FB8654EBFB /* Frameworks */,
 			);
 			path = FirebaseAnalytics;
 			sourceTree = "<group>";

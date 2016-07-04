@@ -11,15 +11,15 @@ PODS:
     - CocoaLumberjack/Default
   - CocoaLumberjack/Swift (2.3.0):
     - CocoaLumberjack/Extensions
-  - Crashlytics (3.7.1):
+  - Crashlytics (3.7.2):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.7)
-  - FirebaseAnalytics (3.2.0):
+  - FirebaseAnalytics (3.2.1):
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleUtilities (~> 1.3)
-  - FirebaseInstanceID (1.0.6)
+  - FirebaseInstanceID (1.0.7)
   - FontAwesome.swift (0.7.3)
   - GCD (0.2.1)
   - Google/Analytics (3.0.3):
@@ -74,10 +74,10 @@ SPEC CHECKSUMS:
   AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
   Attributed: 8fc1975bbd48748dd622c254d5d20df68eabc40d
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
-  Crashlytics: 3cdd4c9655be68032a0cf0379e0fb5ef6af22cad
+  Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
-  FirebaseAnalytics: 6f75b04e6bfb8e0b6e9ef298e04c24eea3b13863
-  FirebaseInstanceID: d014d574053a2fe84478f12f7bae96979e7051bb
+  FirebaseAnalytics: 0fd6532cb2c3d03cd5cf26ad295ccb091efd3104
+  FirebaseInstanceID: a9d923f3d0b6fbf9fac89310860357aaadc34be5
   FontAwesome.swift: f694fe0f667d6d3390b5919cdb0556a27b75d427
   GCD: 57d557822cff42c0b55e021ead82e6c67a3b330e
   Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e

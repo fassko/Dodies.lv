@@ -13,6 +13,9 @@
 /* Class = "UILabel"; text = "GPS"; ObjectID = "AeQ-hL-0m2"; */
 "AeQ-hL-0m2.text" = "GPS";
 
+/* Class = "UIViewController"; title = "Map"; ObjectID = "ExX-va-15z"; */
+"ExX-va-15z.title" = "Map";
+
 /* Class = "UILabel"; text = "Apsekots"; ObjectID = "HvI-kK-8bv"; */
 "HvI-kK-8bv.text" = "Apsekots";
 
@@ -21,6 +24,9 @@
 
 /* Class = "UIBarButtonItem"; title = "Par"; ObjectID = "bQT-ha-IYa"; */
 "bQT-ha-IYa.title" = "Par";
+
+/* Class = "UITextView"; text = "Šī karte attēlo vietas, kur atpūsties svaigā gaisā: pārgājienu takas, piknika vietas, telts vietas un putnu torņi. \nMūsu kartē attēlotas visiem pieejami bezmaksas objekti, galvenokārt, vietas tuvāk dabai un tālāk no apdzīvotām vietām.\n\nPārsvarā ir iekļautas nekomerciālas vietas, izņemot, ja norādīts citādāk. Vietām, kuras esam apmeklējuši paši, ir arī bildes un plašāks apraksts. \nLiela daļa ir pārbaudīta dzīvē, tās kartē un tabulā ir iekrāsotas zaļas, mūsu nepārbaudītās takas ir pelēkas.\n\nDodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlestību pret dabu."; ObjectID = "gGn-JU-jG9"; */
+"gGn-JU-jG9.text" = "Šī karte attēlo vietas, kur atpūsties svaigā gaisā: pārgājienu takas, piknika vietas, telts vietas un putnu torņi. \nMūsu kartē attēlotas visiem pieejami bezmaksas objekti, galvenokārt, vietas tuvāk dabai un tālāk no apdzīvotām vietām.\n\nPārsvarā ir iekļautas nekomerciālas vietas, izņemot, ja norādīts citādāk. Vietām, kuras esam apmeklējuši paši, ir arī bildes un plašāks apraksts. \nLiela daļa ir pārbaudīta dzīvē, tās kartē un tabulā ir iekrāsotas zaļas, mūsu nepārbaudītās takas ir pelēkas.\n\nDodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlestību pret dabu.";
 
 /* Class = "UIBarButtonItem"; title = "Plašāka info"; ObjectID = "rEu-qP-2Ch"; */
 "rEu-qP-2Ch.title" = "Plašāka info";
