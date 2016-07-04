@@ -48,7 +48,7 @@ PODS:
   - SwiftyUserDefaults (2.2.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.4)
+  - Alamofire
   - AlamofireImage
   - AsyncSwift
   - Attributed
@@ -96,6 +96,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
 
-PODFILE CHECKSUM: b1453edf1ab16e83c24b69173a523cb280e3fa5a
+PODFILE CHECKSUM: d7e3049611ccc3ee2bfdb0a3a90ef96d58ed385b
 
 COCOAPODS: 1.0.1

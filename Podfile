@@ -2,7 +2,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'Dodies.lv' do
-  pod 'Alamofire', '~> 3.4'
+  pod 'Alamofire'
   pod 'Mapbox-iOS-SDK'
   pod 'SwiftyJSON'
   pod 'Attributed'
