@@ -64,7 +64,7 @@ Would you like to spend some time in Latvian nature, make a fire, stay in a tent
 The green icons represent places which we have verified ourselves, they have photos and longer descriptions.
 The grey icons show places we have not yet given our approval. 
 
-Hiking in Latvia is now made simple, select a point of interest and use Google Maps, Waze or Apple Maps to navigate there.</mutableString>
+Hiking in Latvia is now made simple, select a point of interest and use Google Maps, Waze or Apple Maps to navigate there. </mutableString>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -79,6 +79,9 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OaH-jx-7aV"/>
+                    <connections>
+                        <outlet property="aboutText" destination="gGn-JU-jG9" id="JVg-qC-mQg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTt-6e-Mfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -246,10 +249,12 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                     </navigationItem>
                     <connections>
                         <outlet property="checked" destination="kll-AW-Qrr" id="Se6-E7-ktN"/>
+                        <outlet property="checkedTitle" destination="HvI-kK-8bv" id="SoN-RL-fOM"/>
                         <outlet property="coordinatesButton" destination="2IM-7s-Xc2" id="MYf-SZ-Rqp"/>
                         <outlet property="desc" destination="2gb-wA-Mtu" id="rIv-Oj-vmZ"/>
                         <outlet property="details" destination="8L2-Kc-rrG" id="Mnj-yY-obC"/>
                         <outlet property="lenght" destination="KPX-v9-GCL" id="7Ie-KN-8ZL"/>
+                        <outlet property="lengthTitle" destination="5LG-1R-pa1" id="UqK-iJ-wtB"/>
                         <segue destination="Oe3-0f-KPq" kind="show" identifier="showDescription" id="qEx-0x-jH0"/>
                     </connections>
                 </viewController>
@@ -440,11 +445,13 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                     </navigationItem>
                     <connections>
                         <outlet property="checked" destination="ff8-8e-mut" id="HtJ-fD-5Jr"/>
+                        <outlet property="checkedTitle" destination="ZgN-K2-OON" id="XfB-O7-Uw3"/>
                         <outlet property="coordinatesButton" destination="9l8-uD-mRh" id="MFJ-nb-yZc"/>
                         <outlet property="desc" destination="w9g-Bh-wwe" id="s59-7c-oKp"/>
                         <outlet property="details" destination="rEu-qP-2Ch" id="hhR-8L-Iom"/>
                         <outlet property="image" destination="qgA-DB-Kpa" id="WJX-Qg-Yyg"/>
                         <outlet property="lenght" destination="wpS-sY-dEy" id="EPc-Hv-Sst"/>
+                        <outlet property="lengthTitle" destination="vie-9I-NYa" id="xB7-QQ-b7S"/>
                         <segue destination="Oe3-0f-KPq" kind="show" identifier="showDescription" id="e0t-Py-lhk"/>
                     </connections>
                 </viewController>

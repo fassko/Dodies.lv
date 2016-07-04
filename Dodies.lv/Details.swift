@@ -15,6 +15,7 @@ import LKAlertController
 import Alamofire
 import AlamofireImage
 import SwiftDate
+import Localize_Swift
 
 class Details : UIViewController {
 
@@ -26,6 +27,9 @@ class Details : UIViewController {
   @IBOutlet weak var checked: UILabel!
   @IBOutlet weak var details: UIBarButtonItem!
   
+  @IBOutlet weak var lengthTitle: UILabel!
+  @IBOutlet weak var checkedTitle: UILabel!
+  
   @IBOutlet weak var image: UIImageView?
   
   
@@ -33,6 +37,9 @@ class Details : UIViewController {
     super.viewDidLoad()
     
     self.title = point.name
+    
+    checkedTitle.text = "Checked".localized()
+    lengthTitle.text = "Length".localized()
     
     let titleLabel = UILabel(frame: CGRectMake(0, 0, view.frame.size.width - 120, 44))
     titleLabel.backgroundColor = UIColor.clearColor()

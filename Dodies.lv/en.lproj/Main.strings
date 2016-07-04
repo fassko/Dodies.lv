@@ -1,0 +1,60 @@
+
+/* Class = "UIButton"; normalTitle = "56.9197, 24.73025"; ObjectID = "2IM-7s-Xc2"; */
+"2IM-7s-Xc2.normalTitle" = "56.9197, 24.73025";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "2gb-wA-Mtu"; */
+"2gb-wA-Mtu.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Length"; ObjectID = "5LG-1R-pa1"; */
+"5LG-1R-pa1.text" = "Length";
+
+/* Class = "UILabel"; text = "GPS"; ObjectID = "6hU-cK-460"; */
+"6hU-cK-460.text" = "GPS";
+
+/* Class = "UIBarButtonItem"; title = "More info"; ObjectID = "8L2-Kc-rrG"; */
+"8L2-Kc-rrG.title" = "More info";
+
+/* Class = "UIButton"; normalTitle = "56.9197, 24.73025"; ObjectID = "9l8-uD-mRh"; */
+"9l8-uD-mRh.normalTitle" = "56.9197, 24.73025";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "AWE-G6-IA6"; */
+"AWE-G6-IA6.title" = "Settings";
+
+/* Class = "UILabel"; text = "GPS"; ObjectID = "AeQ-hL-0m2"; */
+"AeQ-hL-0m2.text" = "GPS";
+
+/* Class = "UIViewController"; title = "Map"; ObjectID = "ExX-va-15z"; */
+"ExX-va-15z.title" = "Map";
+
+/* Class = "UILabel"; text = "Checked"; ObjectID = "HvI-kK-8bv"; */
+"HvI-kK-8bv.text" = "Checked";
+
+/* Class = "UILabel"; text = "10,2 km"; ObjectID = "KPX-v9-GCL"; */
+"KPX-v9-GCL.text" = "10,2 km";
+
+/* Class = "UILabel"; text = "Checked"; ObjectID = "ZgN-K2-OON"; */
+"ZgN-K2-OON.text" = "Checked";
+
+/* Class = "UIBarButtonItem"; title = "About"; ObjectID = "bQT-ha-IYa"; */
+"bQT-ha-IYa.title" = "About";
+
+/* Class = "UILabel"; text = "02/08/2015"; ObjectID = "ff8-8e-mut"; */
+"ff8-8e-mut.text" = "02/08/2015";
+
+/* Class = "UITextView"; text = "Šī karte attēlo vietas, kur atpūsties svaigā gaisā: pārgājienu takas, piknika vietas, telts vietas un putnu torņi. \nMūsu kartē attēlotas visiem pieejami bezmaksas objekti, galvenokārt, vietas tuvāk dabai un tālāk no apdzīvotām vietām.\n\nPārsvarā ir iekļautas nekomerciālas vietas, izņemot, ja norādīts citādāk. Vietām, kuras esam apmeklējuši paši, ir arī bildes un plašāks apraksts. \nLiela daļa ir pārbaudīta dzīvē, tās kartē un tabulā ir iekrāsotas zaļas, mūsu nepārbaudītās takas ir pelēkas.\n\nDodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlestību pret dabu."; ObjectID = "gGn-JU-jG9"; */
+"gGn-JU-jG9.text" = "Šī karte attēlo vietas, kur atpūsties svaigā gaisā: pārgājienu takas, piknika vietas, telts vietas un putnu torņi. \nMūsu kartē attēlotas visiem pieejami bezmaksas objekti, galvenokārt, vietas tuvāk dabai un tālāk no apdzīvotām vietām.\n\nPārsvarā ir iekļautas nekomerciālas vietas, izņemot, ja norādīts citādāk. Vietām, kuras esam apmeklējuši paši, ir arī bildes un plašāks apraksts. \nLiela daļa ir pārbaudīta dzīvē, tās kartē un tabulā ir iekrāsotas zaļas, mūsu nepārbaudītās takas ir pelēkas.\n\nDodies.lv ir nekomerciāls ģimenes projekts, balstīts uz entuziasmu un mīlestību pret dabu.";
+
+/* Class = "UILabel"; text = "02/08/2015"; ObjectID = "kll-AW-Qrr"; */
+"kll-AW-Qrr.text" = "02/08/2015";
+
+/* Class = "UIBarButtonItem"; title = "Plašāka info"; ObjectID = "rEu-qP-2Ch"; */
+"rEu-qP-2Ch.title" = "Plašāka info";
+
+/* Class = "UILabel"; text = "Length"; ObjectID = "vie-9I-NYa"; */
+"vie-9I-NYa.text" = "Length";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "w9g-Bh-wwe"; */
+"w9g-Bh-wwe.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "10,2 km"; ObjectID = "wpS-sY-dEy"; */
+"wpS-sY-dEy.text" = "10,2 km";
