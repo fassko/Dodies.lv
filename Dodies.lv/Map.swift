@@ -43,30 +43,30 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     
     navigationItem.titleView = UIImageView(image: UIImage(named: "dodies_nav_logo"))
     
-    let attributes = [NSFontAttributeName: UIFont.fontAwesomeOfSize(20)] as Dictionary!
-    aboutButton.setTitleTextAttributes(attributes, forState: .Normal)
-    aboutButton.title = String.fontAwesomeIconWithName(.Question)
+    let attributes = [NSFontAttributeName: UIFont.fontAwesome(ofSize: 20)] as Dictionary!
+    aboutButton.setTitleTextAttributes(attributes, for: .normal)
+    aboutButton.title = String.fontAwesomeIcon(name: .question)
     
-    settingsButton.setTitleTextAttributes(attributes, forState: .Normal)
-    settingsButton.title = String.fontAwesomeIconWithName(.Language)
+    settingsButton.setTitleTextAttributes(attributes, for: .normal)
+    settingsButton.title = String.fontAwesomeIcon(name: .language)
     
     // ask user to allow location access
-    if CLLocationManager.authorizationStatus() == .NotDetermined {
+    if CLLocationManager.authorizationStatus() == .notDetermined {
       manager.requestWhenInUseAuthorization()
     }
     
     // initialize the map view
     let styleURL = NSURL(string: "mapbox://styles/normis/cilzp6g1h00grbjlwwsh52vig")
-    mapView = MGLMapView(frame: view.bounds, styleURL: styleURL)
-    mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+    mapView = MGLMapView(frame: view.bounds, styleURL: styleURL as URL?)
+    mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     
     mapView.setVisibleCoordinateBounds(MGLCoordinateBounds(sw: CLLocationCoordinate2D(latitude: 55.500, longitude: 20.500), ne: CLLocationCoordinate2D(latitude: 58.500, longitude: 28.500)), animated: false)
 
     mapView.delegate = self
     mapView.showsUserLocation = true
-    mapView.rotateEnabled = false
+    mapView.isRotateEnabled = false
     
-    mapView.attributionButton.hidden = true
+    mapView.attributionButton.isHidden = true
     
     view.addSubview(mapView)
     
@@ -79,29 +79,29 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     let realm = try! Realm()
     
     // check if need to update data
-    if (realm.objects(DodiesPoint).count == 0) {
+    if (realm.objects(DodiesPoint.self).count == 0) {
       downloadData()
     } else {
       Async.background {
-        self.loadPoints(true)
+        self.loadPoints(checkForUpdatedData: true)
       }
     }
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     let tracker = GAI.sharedInstance().defaultTracker
-    tracker.set(kGAIScreenName, value: "Map")
+    tracker?.set(kGAIScreenName, value: "Map")
     
-    let builder = GAIDictionaryBuilder.createScreenView()
-    tracker.send(builder.build() as [NSObject : AnyObject])
+    var eventTracker: NSObject = GAIDictionaryBuilder.createScreenView().build()
+    tracker?.send(eventTracker as! [NSObject : AnyObject])
     
-    Answers.logContentViewWithName("Map", contentType: "Map", contentId: nil, customAttributes: nil)
+    Answers.logContentView(withName: "Map", contentType: "Map", contentId: nil, customAttributes: nil)
   }
   
   
   // MARK: - Mapbox implementation
   
-  func mapView(mapView: MGLMapView, imageForAnnotation annotation: MGLAnnotation) -> MGLAnnotationImage? {
+  func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
   
     do {
   
@@ -115,7 +115,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
         icon = "\(icon)-disabled"
       }
       
-      var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier(icon)
+      var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: icon)
           
       if annotationImage == nil {
         let image = UIImage(named: icon)
@@ -126,26 +126,26 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     }
   }
   
-  func mapView(mapView: MGLMapView, rightCalloutAccessoryViewForAnnotation annotation: MGLAnnotation) -> UIView? {
-    return UIButton.init(type: UIButtonType.InfoLight)
+  func mapView(_ mapView: MGLMapView, rightCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
+    return UIButton.init(type: UIButtonType.infoLight)
   }
   
-  func mapView(mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
+  func mapView(_ mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
     if let point = annotation as? DodiesAnnotation {
       selectedPoint = point
       
       if !point.img.isEmpty {
-        performSegueWithIdentifier("detailsWithPicture", sender: self)
+        performSegue(withIdentifier: "detailsWithPicture", sender: self)
       } else {
-        performSegueWithIdentifier("details", sender: self)
+        performSegue(withIdentifier: "details", sender: self)
       }
       
       mapView.deselectAnnotation(annotation, animated: true)
     }
   }
   
-  func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-    if annotation.isKindOfClass(DodiesAnnotation) {
+  func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+    if annotation.isKind(of: DodiesAnnotation.self) {
       return true
     }
     
@@ -156,26 +156,26 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   // MARK: - Interface methods
   
   @IBAction func setLanguage(sender: AnyObject) {
-    let actionSheet: UIAlertController = UIAlertController(title: "Change language".localized(), message: "Please select language".localized(), preferredStyle: .ActionSheet)
+    let actionSheet: UIAlertController = UIAlertController(title: "Change language".localized(), message: "Please select language".localized(), preferredStyle: .actionSheet)
 
-    let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel".localized(), style: .Cancel) { action -> Void in
+    let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel".localized(), style: .cancel) { action -> Void in
       
     }
     actionSheet.addAction(cancelActionButton)
 
-    let saveActionButton: UIAlertAction = UIAlertAction(title: "Latvian".localized(), style: .Default){
+    let saveActionButton: UIAlertAction = UIAlertAction(title: "Latvian".localized(), style: .default){
       action -> Void in
-        self.languageChanged("lv")
+        self.languageChanged(language: "lv")
     }
     actionSheet.addAction(saveActionButton)
 
-    let deleteActionButton: UIAlertAction = UIAlertAction(title: "English".localized(), style: .Default){
+    let deleteActionButton: UIAlertAction = UIAlertAction(title: "English".localized(), style: .default){
       action -> Void in
-        self.languageChanged("en")
+        self.languageChanged(language: "en")
     }
     actionSheet.addAction(deleteActionButton)
     
-    self.presentViewController(actionSheet, animated: true, completion: nil)
+    self.present(actionSheet, animated: true, completion: nil)
   }
   
   
@@ -212,7 +212,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
       language = "lv"
     }
   
-    Alamofire.request(.GET, "http://dodies.lv/json/\(language!).geojson").responseJSON(completionHandler: {
+    Alamofire.request("http://dodies.lv/json/\(language!).geojson").responseJSON(completionHandler: {
       response in
       
         Helper.dismissGlobalHUD()
@@ -288,7 +288,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     
     let realm = try! Realm()
     
-    let points = realm.objects(DodiesPoint)
+    let points = realm.objects(DodiesPoint.self)
     
     for p:DodiesPoint in points {
       let point = DodiesAnnotation()
@@ -320,10 +320,9 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
   // update last changed timestamp from server
   func updateLastChangedTimestamp() {
-    Alamofire.request(.GET, "http://dodies.lv/apraksti/lastchanged.txt").responseString(completionHandler: {
-      response in
-        if response.result.isSuccess {
-          if let timestamp = Int(response.result.value!.stringByReplacingOccurrencesOfString("\n", withString: "")) {
+    Alamofire.request("http://dodies.lv/apraksti/lastchanged.txt").responseString(completionHandler: {response in
+      if response.result.isSuccess {
+          if let timestamp = Int(response.result.value!.replacingOccurrences(of: "\n", with: "")) {
             Defaults[self.LastChangedTimestampKey] = timestamp
           }
         }
@@ -333,10 +332,10 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   // check if need to update
   func checkIfNeedToUpdate() {
 
-    Alamofire.request(.GET, "http://dodies.lv/apraksti/lastchanged.txt").responseString(completionHandler: {
+    Alamofire.request("http://dodies.lv/apraksti/lastchanged.txt").responseString(completionHandler: {
   response in
       if response.result.isSuccess {
-        if let timestamp = Int(response.result.value!.stringByReplacingOccurrencesOfString("\n", withString: "")) {
+        if let timestamp = Int(response.result.value!.replacingOccurrences(of: "\n", with: "")) {
           if timestamp > Defaults[self.LastChangedTimestampKey].intValue {
             self.downloadData()
           }
@@ -347,16 +346,16 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
   // show error
   func showError() {
-    let alert = AlertController(title: "Error".localized(), message: "Can't download data. Please check your settings and try again.".localized(), preferredStyle: .Alert)
-          alert.addAction(AlertAction(title: "OK", style: .Preferred))
+    let alert = AlertController(title: "Error".localized(), message: "Can't download data. Please check your settings and try again.".localized(), preferredStyle: .alert)
+          alert.add(AlertAction(title: "OK", style: .preferred))
           alert.present()
   }
   
   // pass object to details view
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "details" || segue.identifier == "detailsWithPicture" {
     
-      if let details: Details = segue.destinationViewController as? Details {
+      if let details: Details = segue.destination as? Details {
         details.point = selectedPoint
         
         selectedPoint = nil

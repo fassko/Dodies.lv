@@ -24,7 +24,7 @@ class AboutViewController: UIViewController {
   }
   
   @IBAction func openDodiesLv(sender: AnyObject) {
-    UIApplication.sharedApplication().openURL(NSURL(string: "http://dodies.lv/par.php")!)
+    UIApplication.shared.openURL(NSURL(string: "http://dodies.lv/par.php")! as URL)
   }
   
 }

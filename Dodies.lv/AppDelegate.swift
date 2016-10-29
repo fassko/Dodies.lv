@@ -18,12 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-  func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+  private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
     Fabric.with([Crashlytics.self])
     
-    DDLog.addLogger(DDTTYLogger.sharedInstance()) // TTY = Xcode console
-    DDLog.addLogger(DDASLLogger.sharedInstance()) // ASL = Apple System Logs
+    DDLog.add(DDTTYLogger.sharedInstance()) // TTY = Xcode console
+    DDLog.add(DDASLLogger.sharedInstance()) // ASL = Apple System Logs
     
     // Configure tracker from GoogleService-Info.plist.
     var configureError:NSError?
@@ -31,12 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     assert(configureError == nil, "Error configuring Google services: \(configureError)")
 
     // Optional: configure GAI options.
-    var gai = GAI.sharedInstance()
-    gai.trackUncaughtExceptions = true  // report uncaught exceptions
-    gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
+    let gai = GAI.sharedInstance()
+    gai?.trackUncaughtExceptions = true  // report uncaught exceptions
+    gai?.logger.logLevel = GAILogLevel.verbose  // remove before app release
     
-    UIApplication.sharedApplication().statusBarStyle = .LightContent
-    UINavigationBar.appearance().barStyle = .Black
+    UIApplication.shared.statusBarStyle = .lightContent
+    UINavigationBar.appearance().barStyle = .black
     
     let config = Realm.Configuration(
     schemaVersion: 1,
@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     migrationBlock: { migration, oldSchemaVersion in
       
       if (oldSchemaVersion < 1) {
-        migration.deleteData(DodiesPoint.className())
+        migration.deleteData(forType: DodiesPoint.className())
       }
     })
 

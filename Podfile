@@ -1,24 +1,24 @@
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target 'Dodies.lv' do
-  pod 'Alamofire', '~> 3.4'
+  pod 'Alamofire'
   pod 'Mapbox-iOS-SDK'
   pod 'SwiftyJSON'
   pod 'Attributed'
-  pod 'MBProgressHUD'
+  pod 'SwiftSpinner'
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'SwiftyUserDefaults'
   pod 'RealmSwift'
   pod "AsyncSwift"
-  pod 'GCD', '~> 0.2'
-  pod 'SDCAlertView', '~> 4.0'
+  pod 'GCDKit', :git => 'https://github.com/JohnEstropia/GCDKit.git', :branch => 'swift3_develop'
+  pod 'SDCAlertView'
   pod 'Google/Analytics'
-  pod 'FontAwesome.swift', '~> 0.7'
-  pod 'LKAlertController', '~> 1.6'
+  pod 'FontAwesome.swift'
+  pod 'LKAlertController'
   pod 'AlamofireImage'
   pod 'CocoaLumberjack/Swift'
-  pod 'SwiftDate', '~> 3.0'
-  pod 'Localize-Swift', '~> 1.5'
+  pod 'SwiftDate'
+  pod 'Localize-Swift'
 end

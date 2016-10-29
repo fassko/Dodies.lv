@@ -25,12 +25,12 @@ class DescriptionViewController: UIViewController {
     
     self.title = point.title
     
-    let titleLabel = UILabel(frame: CGRectMake(0, 0, view.frame.size.width - 120, 44))
-    titleLabel.backgroundColor = UIColor.clearColor()
+    let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width - 120, height: 44))
+    titleLabel.backgroundColor = UIColor.clear
     titleLabel.font = UIFont(name: "HelveticaNeue-Medium",  size: 18)
-    titleLabel.textAlignment = NSTextAlignment.Center
+    titleLabel.textAlignment = NSTextAlignment.center
     titleLabel.text = self.title
-    titleLabel.textColor = UIColor.whiteColor()
+    titleLabel.textColor = UIColor.white
     titleLabel.adjustsFontSizeToFitWidth = true
     
     self.navigationItem.titleView = titleLabel
@@ -39,7 +39,7 @@ class DescriptionViewController: UIViewController {
     
     self.automaticallyAdjustsScrollViewInsets = false
     
-    descriptionWebView.loadRequest(NSURLRequest(URL: NSURL(string: "http://dodies.lv/obj/\(point.url)")!))
+    descriptionWebView.loadRequest(NSURLRequest(url: NSURL(string: "http://dodies.lv/obj/\(point.url)")! as URL) as URLRequest)
     descriptionWebView.scrollView.contentOffset = CGPoint(x: 0, y: 0)
     
   }
