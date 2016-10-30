@@ -13,7 +13,6 @@ platform :ios do
   
   desc "Certs"
   lane :certificates do
-    match(type: "adhoc")
     match(type: "appstore")
     match(type: "development")
   end
