@@ -1,4 +1,5 @@
 before_install:
+  - echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
   - gem update cocoapods --no-document --pre
   - gem update fastlane --no-document
   - fastlane --version
