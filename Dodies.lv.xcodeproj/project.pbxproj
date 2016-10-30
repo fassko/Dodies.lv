@@ -78,6 +78,7 @@
 		63224DB81D2AF4DA0015596F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63224DBA1D2AFA9F0015596F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DodiesPoint.swift; sourceTree = "<group>"; };
+		6356E2FC1DC5FC980072540C /* Dodies.lv.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dodies.lv.entitlements; sourceTree = "<group>"; };
 		636EA8321BA5BDF40071397A /* Dodies.lv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dodies.lv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		636EA8351BA5BDF40071397A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		636EA8411BA5BDF40071397A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -184,6 +185,7 @@
 		636EA8341BA5BDF40071397A /* Dodies.lv */ = {
 			isa = PBXGroup;
 			children = (
+				6356E2FC1DC5FC980072540C /* Dodies.lv.entitlements */,
 				636EA8351BA5BDF40071397A /* AppDelegate.swift */,
 				63AFB8001C5E3FFC004A58E1 /* Helper.swift */,
 				63AFB7ED1C5D29B4004A58E1 /* Views */,
@@ -341,6 +343,9 @@
 								enabled = 1;
 							};
 							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+							com.apple.Push = {
 								enabled = 0;
 							};
 						};

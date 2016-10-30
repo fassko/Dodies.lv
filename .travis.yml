@@ -9,5 +9,6 @@ before_install:
 language: objective-c
 osx_image: xcode8
 script:
-  - fastlane travis
+  # - fastlane travis
+  - xcodebuild -workspace "Dodies.lv.xcworkspace" -scheme "Dodies.lv" -configuration "Debug" clean build CODE_SIGNING_REQUIRED="NO" CODE_SIGN_IDENTITY="" CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
 notifications: change
