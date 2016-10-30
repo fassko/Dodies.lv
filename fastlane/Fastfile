@@ -13,13 +13,31 @@ platform :ios do
 
   desc "Travis lane"
   lane :travis do
-    gym(
-      clean: true,
+    # xctool :clean, :build, [
+    #   "--workspace", "Dodies.lv.xcworkspace",
+    #   "--scheme", "Dodies.lv",
+    #   "--configuration", "Debug",
+    #   "CODE_SIGN_IDENTITY=\"\"",
+    #   "CODE_SIGNING_REQUIRED=NO"
+    # ].join(" ")
+    
+    # gym(
+    #   clean: true,
+    #   workspace: "Dodies.lv.xcworkspace",
+    #   scheme: "Dodies.lv",
+    #   configuration: "Debug",
+    #   codesigning_identity: "",
+    #   skip_build_archive: "NO"
+    #   xcargs: "CODE_SIGNING_REQUIRED=NO"
+    # )
+    
+    xcodebuild(
       workspace: "Dodies.lv.xcworkspace",
       scheme: "Dodies.lv",
       configuration: "Debug",
-      codesigning_identity: "",
-      xcargs: "CODE_SIGNING_REQUIRED=NO"
+      clean: true,
+      build: true,
+      xcconfig: "CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=''"
     )
   end
 
