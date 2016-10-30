@@ -6,7 +6,7 @@ before_install:
   - gem cleanup
   - brew outdated xctool || brew upgrade xctool
   - pod --version
-  # - pod repo update --silent
+  - pod repo update --silent
 language: objective-c
 osx_image: xcode8
 script:
