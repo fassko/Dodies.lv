@@ -1,51 +1,56 @@
 PODS:
-  - Alamofire (3.4.1)
-  - AlamofireImage (2.4.0):
-    - Alamofire (~> 3.3)
-  - AsyncSwift (1.7.2)
-  - Attributed (1.1.0)
-  - CocoaLumberjack/Core (2.3.0)
-  - CocoaLumberjack/Default (2.3.0):
+  - Alamofire (4.0.1)
+  - AlamofireImage (3.1.0):
+    - Alamofire (~> 4.0)
+  - AsyncSwift (2.0.0)
+  - Attributed (2.0.0)
+  - CocoaLumberjack/Core (3.0.0)
+  - CocoaLumberjack/Default (3.0.0):
     - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.3.0):
+  - CocoaLumberjack/Extensions (3.0.0):
     - CocoaLumberjack/Default
-  - CocoaLumberjack/Swift (2.3.0):
+  - CocoaLumberjack/Swift (3.0.0):
     - CocoaLumberjack/Extensions
-  - Crashlytics (3.7.2):
+  - Crashlytics (3.8.3):
     - Fabric (~> 1.6.3)
-  - Fabric (1.6.7)
-  - FirebaseAnalytics (3.2.1):
+  - Fabric (1.6.11)
+  - FirebaseAnalytics (3.5.1):
+    - FirebaseCore (~> 3.4)
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
-    - GoogleUtilities (~> 1.3)
-  - FirebaseInstanceID (1.0.7)
-  - FontAwesome.swift (0.7.3)
-  - GCD (0.2.1)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (3.4.4):
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (1.0.8)
+  - FontAwesome.swift (1.0.0)
+  - GCDKit (2.0.0)
   - Google/Analytics (3.0.3):
     - Google/Core
     - GoogleAnalytics (~> 3.12)
   - Google/Core (3.0.3):
     - FirebaseAnalytics (~> 3.2)
-  - GoogleAnalytics (3.14.0)
-  - GoogleInterchangeUtilities (1.2.1):
-    - GoogleSymbolUtilities (~> 1.0)
-  - GoogleSymbolUtilities (1.1.1)
-  - GoogleUtilities (1.3.1):
-    - GoogleSymbolUtilities (~> 1.0)
-  - LKAlertController (1.9.1)
-  - Localize-Swift (1.5)
-  - Mapbox-iOS-SDK (3.2.3)
-  - MBProgressHUD (0.9.2)
-  - Realm (1.0.1):
-    - Realm/Headers (= 1.0.1)
-  - Realm/Headers (1.0.1)
-  - RealmSwift (1.0.1):
-    - Realm (= 1.0.1)
-  - SDCAlertView (4.0.1)
-  - SwiftDate (3.0.8)
-  - SwiftyJSON (2.3.2)
-  - SwiftyUserDefaults (2.2.0)
+  - GoogleAnalytics (3.17.0)
+  - GoogleInterchangeUtilities (1.2.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleSymbolUtilities (1.1.2)
+  - GoogleToolboxForMac/Defines (2.1.0)
+  - GoogleToolboxForMac/NSData+zlib (2.1.0):
+    - GoogleToolboxForMac/Defines (= 2.1.0)
+  - LKAlertController (1.11.1)
+  - Localize-Swift (1.6)
+  - Mapbox-iOS-SDK (3.3.4)
+  - Realm (2.0.3):
+    - Realm/Headers (= 2.0.3)
+  - Realm/Headers (2.0.3)
+  - RealmSwift (2.0.3):
+    - Realm (= 2.0.3)
+  - SDCAlertView (7.0.1)
+  - SwiftDate (4.0.7)
+  - SwiftSpinner (1.0.2)
+  - SwiftyJSON (3.1.1)
+  - SwiftyUserDefaults (3.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -55,47 +60,58 @@ DEPENDENCIES:
   - CocoaLumberjack/Swift
   - Crashlytics
   - Fabric
-  - FontAwesome.swift (~> 0.7)
-  - GCD (~> 0.2)
+  - FontAwesome.swift
+  - GCDKit (from `https://github.com/JohnEstropia/GCDKit.git`, branch `swift3_develop`)
   - Google/Analytics
-  - LKAlertController (~> 1.6)
-  - Localize-Swift (~> 1.5)
+  - LKAlertController
+  - Localize-Swift
   - Mapbox-iOS-SDK
-  - MBProgressHUD
   - RealmSwift
-  - SDCAlertView (~> 4.0)
-  - SwiftDate (~> 3.0)
+  - SDCAlertView
+  - SwiftDate
+  - SwiftSpinner
   - SwiftyJSON
   - SwiftyUserDefaults
 
+EXTERNAL SOURCES:
+  GCDKit:
+    :branch: swift3_develop
+    :git: https://github.com/JohnEstropia/GCDKit.git
+
+CHECKOUT OPTIONS:
+  GCDKit:
+    :commit: 7a71c379e1031cc457cd20836ada11b6d87dff7e
+    :git: https://github.com/JohnEstropia/GCDKit.git
+
 SPEC CHECKSUMS:
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
-  AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
-  Attributed: 8fc1975bbd48748dd622c254d5d20df68eabc40d
-  CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
-  Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
-  FirebaseAnalytics: 0fd6532cb2c3d03cd5cf26ad295ccb091efd3104
-  FirebaseInstanceID: a9d923f3d0b6fbf9fac89310860357aaadc34be5
-  FontAwesome.swift: f694fe0f667d6d3390b5919cdb0556a27b75d427
-  GCD: 57d557822cff42c0b55e021ead82e6c67a3b330e
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  AlamofireImage: bb8c8351c51cb1633bb6be69b6dbbaff37ce65b7
+  AsyncSwift: 6ba6ed9ecb51344458063f7c86fe447ab824e313
+  Attributed: fbb05f7bcb6db1ad34f66e141a7ecbf6519992b8
+  CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
+  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
+  FirebaseCore: d0ed25f27b6f9158eccc439f1be6f92e81207e28
+  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  FontAwesome.swift: 2d32a3d62195343c2004b7c9043294ed2948553a
+  GCDKit: 9a9216a4b4fa00e01ed829208e3811cc347a8f74
   Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
-  GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
-  GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
-  GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
-  GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
-  LKAlertController: 1e85a645e0bd3223a8f79abb9b7b54fe10036f6f
-  Localize-Swift: 288aa763db72b0628d2cb111fbf5babc90529d0c
-  Mapbox-iOS-SDK: 120e8a140e9cd4adae8227340dd89f5cc3850259
-  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
-  RealmSwift: d73ea2af08c3676dbdd5e4b669651a0f492162a4
-  SDCAlertView: 046bcf893b3585ffa2ecaba536dc3de334959d72
-  SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
-  SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
+  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
+  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
+  LKAlertController: 0df7cf5551b829c81e48f3c688d8fd0d01dc6ff9
+  Localize-Swift: d34c70b34ffb1468b2942c3f0b5c1dfd9119877e
+  Mapbox-iOS-SDK: b22da0d9703fcfb0a8b592b6a7f6a21264fe44b0
+  Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
+  RealmSwift: 5afb451f65b682242f272dbb52d5c6f6e343c980
+  SDCAlertView: e04c5a8985e4490768cc9608bf0a13c44215fcf2
+  SwiftDate: 0efb04a6751b1ab804049b2b09a69848cd304c12
+  SwiftSpinner: 1c80ff6ea1c47e2faa1dfce0fcd5e6b39a47fd51
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
+  SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
-PODFILE CHECKSUM: d7e3049611ccc3ee2bfdb0a3a90ef96d58ed385b
+PODFILE CHECKSUM: 0ecd51806033379b9ea0a3ef3c85850f5d43238c
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.0.beta.1

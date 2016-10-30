@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2ne-Pp-ydF">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2ne-Pp-ydF">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Map-->
@@ -15,20 +18,20 @@
                         <viewControllerLayoutGuide type="bottom" id="6GV-jd-Bin"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MBT-y7-dyg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Nym-8i-f2e">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="AWE-G6-IA6">
                             <connections>
-                                <action selector="setLanguage:" destination="ExX-va-15z" id="458-5E-2Z5"/>
+                                <action selector="setLanguageWithSender:" destination="ExX-va-15z" id="JJN-NI-bue"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="About" id="bQT-ha-IYa">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="WI0-B1-khR" kind="show" identifier="about" id="xtR-xe-g4V"/>
+                                <segue destination="WI0-B1-khR" kind="show" id="1qd-ok-JBP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -52,25 +55,25 @@
                         <viewControllerLayoutGuide type="bottom" id="d6G-An-j9f"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3YZ-LH-glU">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGn-JU-jG9">
-                                <rect key="frame" x="20" y="72" width="560" height="508"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Dodies.lv is a collection of free nature trails, hiking paths, birdwatching towers and picnic places in Latvia. 
+                                <rect key="frame" x="20" y="72" width="374" height="644"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <string key="text">Dodies.lv is a collection of free nature trails, hiking paths, birdwatching towers and picnic places in Latvia. 
 Would you like to spend some time in Latvian nature, make a fire, stay in a tent? Our map contains freely accessible places closer to nature, available at any time for anyone.  
 
 The green icons represent places which we have verified ourselves, they have photos and longer descriptions.
 The grey icons show places we have not yet given our approval. 
 
-Hiking in Latvia is now made simple, select a point of interest and use Google Maps, Waze or Apple Maps to navigate there. </mutableString>
+Hiking in Latvia is now made simple, select a point of interest and use Google Maps, Waze or Apple Maps to navigate there. </string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="d6G-An-j9f" firstAttribute="top" secondItem="gGn-JU-jG9" secondAttribute="bottom" constant="20" id="ixi-d6-B4T"/>
                             <constraint firstItem="gGn-JU-jG9" firstAttribute="leading" secondItem="3YZ-LH-glU" secondAttribute="leadingMargin" id="oXn-uN-bAc"/>
@@ -92,14 +95,14 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
             <objects>
                 <navigationController id="2ne-Pp-ydF" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QFt-d7-cWG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QFt-d7-cWG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.42352941179999998" green="0.59607843140000005" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.42352941179999998" green="0.59607843140000005" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -119,18 +122,18 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                         <viewControllerLayoutGuide type="bottom" id="Hpd-B5-Cpb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tUX-eg-LoV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gb-wA-Mtu">
-                                <rect key="frame" x="20" y="64" width="560" height="432"/>
+                                <rect key="frame" x="20" y="64" width="374" height="568"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O3q-Ve-LGy">
-                                <rect key="frame" x="20" y="504" width="560" height="88"/>
+                                <rect key="frame" x="20" y="640" width="374" height="88"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeQ-hL-0m2">
                                         <rect key="frame" x="8" y="6" width="75" height="20"/>
@@ -139,7 +142,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                             <constraint firstAttribute="width" constant="75" id="ecR-VU-uRV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LG-1R-pa1">
@@ -149,16 +152,16 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                             <constraint firstAttribute="width" constant="75" id="jvX-u9-8lu"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,2 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPX-v9-GCL">
-                                        <rect key="frame" x="91" y="33" width="461" height="21"/>
+                                        <rect key="frame" x="91" y="33" width="275" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="kjH-cN-hF3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvI-kK-8bv">
@@ -168,29 +171,29 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                             <constraint firstAttribute="width" constant="75" id="Puv-cb-Dpc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02/08/2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kll-AW-Qrr">
-                                        <rect key="frame" x="91" y="62" width="461" height="20"/>
+                                        <rect key="frame" x="91" y="62" width="275" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="n50-Ur-AZr"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2IM-7s-Xc2">
-                                        <rect key="frame" x="91" y="6" width="461" height="20"/>
+                                        <rect key="frame" x="91" y="6" width="275" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="KVY-59-xOh"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                         <state key="normal" title="56.9197, 24.73025">
-                                            <color key="titleColor" red="0.42352941179999998" green="0.59607843140000005" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.42352941179999998" green="0.59607843140000005" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="openNavigation:" destination="yf8-5s-rxy" eventType="touchUpInside" id="532-EQ-Uxz"/>
+                                            <action selector="openNavigationWithSender:" destination="yf8-5s-rxy" eventType="touchUpInside" id="vTf-9Q-ETd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -228,7 +231,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2gb-wA-Mtu" firstAttribute="leading" secondItem="tUX-eg-LoV" secondAttribute="leadingMargin" id="1fW-hB-TfW"/>
                             <constraint firstItem="O3q-Ve-LGy" firstAttribute="top" secondItem="2gb-wA-Mtu" secondAttribute="bottom" constant="8" id="Ajk-Hl-R8r"/>
@@ -243,7 +246,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                     <navigationItem key="navigationItem" id="Z4m-Qh-dqt">
                         <barButtonItem key="rightBarButtonItem" title="More info" id="8L2-Kc-rrG">
                             <connections>
-                                <action selector="showDescription:" destination="yf8-5s-rxy" id="oVD-3z-BM3"/>
+                                <action selector="showDescriptionWithSender:" destination="yf8-5s-rxy" id="uMX-DK-ulQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -271,16 +274,16 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                         <viewControllerLayoutGuide type="bottom" id="wCL-5v-Z6w"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="k7G-xD-yNl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wml-tv-9HU">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wCL-5v-Z6w" firstAttribute="top" secondItem="wml-tv-9HU" secondAttribute="bottom" id="91q-cC-fjn"/>
                             <constraint firstItem="wml-tv-9HU" firstAttribute="top" secondItem="Pqc-i0-GZl" secondAttribute="bottom" id="HdT-to-dlk"/>
@@ -305,11 +308,11 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                         <viewControllerLayoutGuide type="bottom" id="w8C-Dk-3Rl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="juK-v4-TKP">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FzO-VM-IXs">
-                                <rect key="frame" x="20" y="504" width="560" height="88"/>
+                                <rect key="frame" x="20" y="640" width="374" height="88"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hU-cK-460">
                                         <rect key="frame" x="8" y="6" width="75" height="20"/>
@@ -318,7 +321,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                             <constraint firstAttribute="width" constant="75" id="q19-Rh-OxB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vie-9I-NYa">
@@ -328,16 +331,16 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                             <constraint firstAttribute="height" constant="20" id="ObI-0A-ud0"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,2 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpS-sY-dEy">
-                                        <rect key="frame" x="91" y="33" width="461" height="21"/>
+                                        <rect key="frame" x="91" y="33" width="275" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="fnf-30-CPd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgN-K2-OON">
@@ -347,29 +350,29 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                             <constraint firstAttribute="width" constant="75" id="98K-2g-Ark"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02/08/2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ff8-8e-mut">
-                                        <rect key="frame" x="91" y="62" width="461" height="20"/>
+                                        <rect key="frame" x="91" y="62" width="275" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="3DP-xn-ysD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9l8-uD-mRh">
-                                        <rect key="frame" x="91" y="6" width="461" height="20"/>
+                                        <rect key="frame" x="91" y="6" width="275" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="ozP-im-vVz"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                         <state key="normal" title="56.9197, 24.73025">
-                                            <color key="titleColor" red="0.42352941179999998" green="0.59607843140000005" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.42352941179999998" green="0.59607843140000005" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="openNavigation:" destination="BR3-Qe-Xd0" eventType="touchUpInside" id="qij-vH-sIZ"/>
+                                            <action selector="openNavigationWithSender:" destination="BR3-Qe-Xd0" eventType="touchUpInside" id="DAn-PU-doL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -407,20 +410,20 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                 </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qgA-DB-Kpa">
-                                <rect key="frame" x="20" y="72" width="560" height="180"/>
+                                <rect key="frame" x="20" y="72" width="374" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="1nM-0V-FZv"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9g-Bh-wwe">
-                                <rect key="frame" x="20" y="260" width="560" height="236"/>
+                                <rect key="frame" x="20" y="260" width="374" height="372"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qgA-DB-Kpa" firstAttribute="top" secondItem="fTD-Cx-dN6" secondAttribute="bottom" constant="8" id="2bO-GC-WMI"/>
                             <constraint firstItem="w8C-Dk-3Rl" firstAttribute="top" secondItem="FzO-VM-IXs" secondAttribute="bottom" constant="8" id="4AQ-JE-1al"/>
@@ -439,7 +442,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                     <navigationItem key="navigationItem" id="2ev-lh-uin">
                         <barButtonItem key="rightBarButtonItem" title="Plašāka info" id="rEu-qP-2Ch">
                             <connections>
-                                <action selector="showDescription:" destination="BR3-Qe-Xd0" id="nCa-xv-8Je"/>
+                                <action selector="showDescriptionWithSender:" destination="BR3-Qe-Xd0" id="Sww-gQ-eXJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -461,6 +464,6 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qEx-0x-jH0"/>
+        <segue reference="e0t-Py-lhk"/>
     </inferredMetricsTieBreakers>
 </document>

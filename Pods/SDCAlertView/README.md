@@ -28,7 +28,7 @@
 
 # Requirements
 
- - Xcode 7 or higher
+ - Swift 3
  - iOS 8 or higher
 
 If you want to use the library on iOS 7, please use version 2.5.4 (the latest 2.x release). SDCAlertView is not available on iOS 6.1 or below.
@@ -43,7 +43,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'SDCAlertView', '~> 4.0'
+  pod 'SDCAlertView', '~> 7.0'
 end
 ```
 
@@ -53,38 +53,25 @@ Then run `pod install`.
 To install with Carthage, add the following line to your `Cartfile`:
 
 ```ruby
-"sberrevoets/SDCAlertView" ~> 4.0
+github "sberrevoets/SDCAlertView" ~> 7.0
 ```
 
 Run `carthage update` and drag `SDCAlertView.framework` in the `Build` folder into your project.
 
 ## Swift Package Manager
-To use the Swift Package Manager, add the following to your `Package.swift` file: 
-
-```swift
-import PackageDescription
-
-let package = Package(
-    name: "<your project name>"
-    dependencies: [
-        .Package(url: "https://github.com/sberrevoets/SDCAlertView/SDCAlertView.git", majorVersion: 4.0)
-    ])
-```
+SPM does not yet support iOS, but SDCAlertView will be available there once it does.
 
 # Alerts vs. Action Sheets
 
-Starting with version 4.0, `SDCAlertController` also supports the presentation of action sheets. Some things to keep in mind when using action sheets:
+`SDCAlertController` supports the presentation of action sheets, but there are some limitations and things to keep in mind when using action sheets:
 
 - It does not properly adapt on iPad. This is because iOS doesn't support `UIModalPresentationStyle.Custom` for adaptive presentations (such as when presenting an action sheet from a bar button item).
 - The new `AlertBehaviors` is, due to limitations in the Swift/Objective-C interop, not available when using `SDCAlertController` from Swift. This affects `AlertControllerStyle.Alert` as well.
 - When adding subviews to the custom content view, that view will replace the title and message labels.
 
 # Usage
-`SDCAlertView` is written in Swift, but can be used in both Swift and
-Objective-C. Classes in Objective-C have the same name they do in Swift, but
-with an `SDC` prefix. Once Swift [supports prefixing enums](https://github.com/apple/swift/pull/618) they will also get the `SDC` prefix.
+`SDCAlertView` is written in Swift, but can be used in both Swift and Objective-C. Corresponding types in Objective-C have the same name they do in Swift, but with an `SDC` prefix.
 
-Unfortunately the Swift/Objective-C interop is not perfect, so not all functionality that's available in Swift is available in Objective-C.
 ## Basic
 
 ```swift
@@ -130,7 +117,7 @@ alert.present()
 
 `SDCAlertController` is a normal view controller, so applying a `tintColor` to its `view` will color the buttons and any subviews you add to the `contentView`.
 
-If you are looking for more customizations, create a type that conforms to `VisualStyle` and use `visualStyle` on the `AlertController` instance. You can also subclass `DefaultVisualStyle` for a set of default values that you can then override as needed.
+If you are looking for more customizations, create a subclass of `AlertVisualStyle` and use `visualStyle` on the `AlertController` instance. You can also create an instance of `AlertVisualStyle` and overwrite the attributes you need (this is mainly intended to be used from Objective-C). Note that after an alert has been presented, changing any of these settings is ignored.
 
 # Support
 I'm pretty active on [Stack Overflow](http://stackoverflow.com/users/751268/scott-berrevoets), so please use that if you have any questions. You can also use [Twitter](http://twitter.com/ScottBerrevoets) to contact me directly.

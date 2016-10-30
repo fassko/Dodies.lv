@@ -8,29 +8,20 @@
 
 import Foundation
 import UIKit
-import GCD
+import GCDKit
 
-import MBProgressHUD
+import SwiftSpinner
 import Localize_Swift
 
 class Helper {
   // MARK: - HUD functions
   
   class func showGlobalProgressHUD() {
-    if let window = UIApplication.sharedApplication().delegate?.window {
-      let hud = MBProgressHUD.showHUDAddedTo(window, animated: true)
-      hud.labelText =  "Downloading data".localized()
-      hud.userInteractionEnabled = false
-      hud.layer.zPosition = 2
-      hud.labelFont = UIFont(name: "HelveticaNeue", size: 18)
-    }
+    SwiftSpinner.setTitleFont(UIFont(name: "HelveticaNeue", size: 18)!)
+    SwiftSpinner.show("Downloading data".localized())
   }
   
   class func dismissGlobalHUD() {
-    if let window = UIApplication.sharedApplication().delegate?.window {
-      gcd.async(.Main, delay: 0.5, closure: {
-        MBProgressHUD.hideAllHUDsForView(window, animated: true)
-      })
-    }
+    SwiftSpinner.hide()
   }
 }
