@@ -238,7 +238,7 @@ THE SOFTWARE.
 			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
-Copyright &#169; 2014 John Rommel Estropia
+Copyright © 2014 John Rommel Estropia
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -719,7 +719,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 Mapbox GL uses portions of CSS Color Parser.
 
 (c) Dean McNamee &lt;dean@gmail.com&gt;, 2012.
-C++ port by Konstantin K&#228;fer &lt;mail@kkaefer.com&gt;, 2014.
+C++ port by Konstantin Käfer &lt;mail@kkaefer.com&gt;, 2014.
 
 https://github.com/deanm/css-color-parser-js
 https://github.com/kkaefer/css-color-parser-cpp
@@ -1049,7 +1049,7 @@ The externally maintained libraries used by libuv are:
 
 - android-ifaddrs.h, android-ifaddrs.c, copyright Berkeley Software Design
   Inc, Kenneth MacKay and Emergya (Cloud4all, FP7/2007-2013, grant agreement
-  n&#176; 289016). Three clause BSD license.
+  n° 289016). Three clause BSD license.
 
 ===========================================================================
 
@@ -1760,13 +1760,13 @@ EXPORT COMPLIANCE
 You understand that the Software may contain cryptographic functions that may be
 subject to export restrictions, and you represent and warrant that you are not
 (i) located in a jurisdiction that is subject to United States economic
-sanctions (&#8220;Prohibited Jurisdiction&#8221;), including Cuba, Iran, North Korea,
+sanctions (“Prohibited Jurisdiction”), including Cuba, Iran, North Korea,
 Sudan, Syria or the Crimea region, (ii) a person listed on any U.S. government
 blacklist (to include the List of Specially Designated Nationals and Blocked
 Persons or the Consolidated Sanctions List administered by the U.S. Department
-of the Treasury&#8217;s Office of Foreign Assets Control, or the Denied Persons List
+of the Treasury’s Office of Foreign Assets Control, or the Denied Persons List
 or Entity List administered by the U.S. Department of Commerce)
-(&#8220;Sanctioned Person&#8221;), or (iii) controlled or 50% or more owned by a Sanctioned
+(“Sanctioned Person”), or (iii) controlled or 50% or more owned by a Sanctioned
 Person.
 
 You agree to comply with all export, re-export and import restrictions and
@@ -2014,13 +2014,13 @@ EXPORT COMPLIANCE
 You understand that the Software may contain cryptographic functions that may be
 subject to export restrictions, and you represent and warrant that you are not
 (i) located in a jurisdiction that is subject to United States economic
-sanctions (&#8220;Prohibited Jurisdiction&#8221;), including Cuba, Iran, North Korea,
+sanctions (“Prohibited Jurisdiction”), including Cuba, Iran, North Korea,
 Sudan, Syria or the Crimea region, (ii) a person listed on any U.S. government
 blacklist (to include the List of Specially Designated Nationals and Blocked
 Persons or the Consolidated Sanctions List administered by the U.S. Department
-of the Treasury&#8217;s Office of Foreign Assets Control, or the Denied Persons List
+of the Treasury’s Office of Foreign Assets Control, or the Denied Persons List
 or Entity List administered by the U.S. Department of Commerce)
-(&#8220;Sanctioned Person&#8221;), or (iii) controlled or 50% or more owned by a Sanctioned
+(“Sanctioned Person”), or (iii) controlled or 50% or more owned by a Sanctioned
 Person.
 
 You agree to comply with all export, re-export and import restrictions and
@@ -2159,7 +2159,7 @@ THE SOFTWARE.
 			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
-Copyright (c) 2015-2016 Rados&#322;aw Pietruszewski
+Copyright (c) 2015-2016 Radosław Pietruszewski
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

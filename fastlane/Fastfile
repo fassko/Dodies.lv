@@ -60,7 +60,7 @@ platform :ios do
     )
   end
 
-  lane :appstore do
+  lane :release do
     cert
     sigh
 
