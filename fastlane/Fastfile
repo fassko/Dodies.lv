@@ -10,6 +10,13 @@ platform :ios do
   lane :test do
 
   end
+  
+  desc "Certs"
+  lane :certificates do
+    match(type: "adhoc")
+    match(type: "appstore")
+    match(type: "development")
+  end
 
   desc "Travis lane"
   lane :travis do
@@ -31,19 +38,37 @@ platform :ios do
     #   xcargs: "CODE_SIGNING_REQUIRED=NO"
     # )
     
-    xcodebuild(
-      workspace: "Dodies.lv.xcworkspace",
-      scheme: "Dodies.lv",
-      configuration: "Debug",
-      clean: true,
-      build: true,
-      build_settings: {
-        "CODE_SIGNING_REQUIRED" => "NO",
-        "CODE_SIGN_IDENTITY" => "",
-        "CODE_SIGN_ENTITLEMENTS" => "",
-        "CODE_SIGNING_ALLOWED" => "NO"
-      }
+    # xcodebuild(
+    #   workspace: "Dodies.lv.xcworkspace",
+    #   scheme: "Dodies.lv",
+    #   configuration: "Debug",
+    #   clean: true,
+    #   build: true,
+    #   build_settings: {
+    #     "CODE_SIGNING_REQUIRED" => "NO",
+    #     "CODE_SIGN_IDENTITY" => "",
+    #     "CODE_SIGN_ENTITLEMENTS" => "",
+    #     "CODE_SIGNING_ALLOWED" => "NO"
+    #   }
+    # )
+    
+    certificates
+    sigh
+    
+    increment_build_number(
+      build_number: Time.new.strftime("%Y%m%d.%H%M%S")
     )
+
+    clear_derived_data
+
+    # build
+    gym(
+			workspace: "Dodies.lv.xcworkspace",
+			scheme: "Dodies.lv",
+			clean: true,
+			output_name: "Dodies.lv.ipa",
+      verbose: true,
+      toolchain: "com.apple.dt.toolchain.Swift_3_0")
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"

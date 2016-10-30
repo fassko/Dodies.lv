@@ -661,8 +661,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.Dodies-lv";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e199f0dc-895b-4465-a033-3e9f7286fe9e";
-				PROVISIONING_PROFILE_SPECIFIER = "DodiesLV-Development";
+				PROVISIONING_PROFILE = "6ce7d206-45f0-4e73-8a20-310adbcbce4b";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.fassko.Dodies-lv";
 				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
@@ -685,8 +685,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.Dodies-lv";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1cf42835-785c-4d2c-8e28-2c71a03a12ba";
-				PROVISIONING_PROFILE_SPECIFIER = "DodiesLV-Distribution";
+				PROVISIONING_PROFILE = "334705a6-af7c-42ae-8215-32bf7fe3481d";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.fassko.Dodies-lv";
 				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
