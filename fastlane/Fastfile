@@ -13,13 +13,14 @@ platform :ios do
 
   desc "Travis lane"
   lane :travis do
-    xctool :clean, :build, [
-      "--workspace", "Dodies.lv.xcworkspace",
-      "--scheme", "Dodies.lv",
-      "--configuration", "Debug",
-      "CODE_SIGN_IDENTITY=\"\"",
-      "CODE_SIGNING_REQUIRED=NO"
-    ].join(" ")
+    gym(
+      clean: true,
+      workspace: "Dodies.lv.xcworkspace",
+      scheme: "Dodies.lv",
+      configuration: "Debug",
+      codesigning_identity: "",
+      xcargs: "CODE_SIGNING_REQUIRED=NO"
+    )
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
