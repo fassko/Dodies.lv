@@ -1,4 +1,3 @@
-Uzlabota lietotāja saskarne:
-* uzlabots kartes dizains
-* navigācija ar Apple Maps, Google Maps un Waze
-* taku attēli
+Kļūdu labojumi.
+
+Paldies, ka izmantojat Dodies.lv mobilo lietotni!
