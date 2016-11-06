@@ -40,13 +40,13 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.0)
   - LKAlertController (1.11.1)
   - Localize-Swift (1.6)
-  - Mapbox-iOS-SDK (3.3.4)
+  - Mapbox-iOS-SDK (3.3.5)
   - Realm (2.0.3):
     - Realm/Headers (= 2.0.3)
   - Realm/Headers (2.0.3)
   - RealmSwift (2.0.3):
     - Realm (= 2.0.3)
-  - SDCAlertView (7.0.1)
+  - SDCAlertView (7.1)
   - SwiftDate (4.0.7)
   - SwiftSpinner (1.0.2)
   - SwiftyJSON (3.1.1)
@@ -103,10 +103,10 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   LKAlertController: 0df7cf5551b829c81e48f3c688d8fd0d01dc6ff9
   Localize-Swift: d34c70b34ffb1468b2942c3f0b5c1dfd9119877e
-  Mapbox-iOS-SDK: b22da0d9703fcfb0a8b592b6a7f6a21264fe44b0
+  Mapbox-iOS-SDK: a3ceda9e2a38b11a18a3d09645d34826e0ea1757
   Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
   RealmSwift: 5afb451f65b682242f272dbb52d5c6f6e343c980
-  SDCAlertView: e04c5a8985e4490768cc9608bf0a13c44215fcf2
+  SDCAlertView: b92fd1f00e522e18a062005e15a16c1e8295c5b5
   SwiftDate: 0efb04a6751b1ab804049b2b09a69848cd304c12
   SwiftSpinner: 1c80ff6ea1c47e2faa1dfce0fcd5e6b39a47fd51
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
@@ -114,4 +114,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 0ecd51806033379b9ea0a3ef3c85850f5d43238c
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.1.1
