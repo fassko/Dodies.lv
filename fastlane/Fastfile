@@ -66,9 +66,7 @@ platform :ios do
 			scheme: "Dodies.lv",
 			clean: true,
 			output_name: "Dodies.lv.ipa",
-      verbose: true,
-      toolchain: "com.apple.dt.toolchain.Swift_3_0",
-      configuration: "Debug")
+      include_symbols: true)
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"

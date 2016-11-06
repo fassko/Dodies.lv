@@ -1,14 +1,11 @@
 before_install:
   - echo -e "machine bitbucket.org\n  login fassko\n  password $CI_USER_PASSWORD" >> ~/.netrc
-  # - gem update cocoapods --no-document --pre
+  - gem update cocoapods
   - gem update fastlane --no-document
   - fastlane --version
-  # - gem cleanup
-  # - brew outdated xctool || brew upgrade xctool
-  # - pod --version
-  # - pod repo update --silent
+  - gem cleanup
+  - pod --version
 language: objective-c
 osx_image: xcode8
 script:
   - fastlane travis --verbose
-notifications: change
