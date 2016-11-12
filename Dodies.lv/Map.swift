@@ -16,7 +16,6 @@ import Alamofire
 import RealmSwift
 import SwiftyUserDefaults
 import Async
-import SDCAlertView
 import Fabric
 import Crashlytics
 import FontAwesome_swift
@@ -346,9 +345,9 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
   // show error
   func showError() {
-    let alert = AlertController(title: "Error".localized(), message: "Can't download data. Please check your settings and try again.".localized(), preferredStyle: .alert)
-          alert.add(AlertAction(title: "OK", style: .preferred))
-          alert.present()
+    let alert = UIAlertController(title: "Error".localized(), message: "Can't download data. Please check your settings and try again.".localized(), preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+    self.present(alert, animated: true, completion: nil)
   }
   
   // pass object to details view

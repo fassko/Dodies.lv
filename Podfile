@@ -13,7 +13,6 @@ target 'Dodies.lv' do
   pod 'RealmSwift'
   pod "AsyncSwift"
   pod 'GCDKit', :git => 'https://github.com/JohnEstropia/GCDKit.git', :branch => 'swift3_develop'
-  pod 'SDCAlertView'
   pod 'Google/Analytics'
   pod 'FontAwesome.swift'
   pod 'LKAlertController'
