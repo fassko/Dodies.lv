@@ -15,6 +15,7 @@ language: objective-c
 osx_image: xcode8
 script:
   - fastlane travis --verbose
+  - xcodebuild -workspace Dodies.lv.xcworkspace -scheme Dodies.lv
 env:
   - FASTLANE_XCODE_LIST_TIMEOUT=120
 notifications:
