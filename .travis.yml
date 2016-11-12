@@ -16,3 +16,5 @@ script:
   - fastlane travis --verbose
 env:
   - FASTLANE_XCODE_LIST_TIMEOUT=120
+notifications:
+  email: false
