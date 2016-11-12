@@ -3,7 +3,6 @@ use_frameworks!
 
 target 'Dodies.lv' do
   pod 'Alamofire'
-  pod 'Mapbox-iOS-SDK'
   pod 'SwiftyJSON'
   pod 'Attributed'
   pod 'SwiftSpinner'

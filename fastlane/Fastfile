@@ -29,21 +29,21 @@ platform :ios do
     clear_derived_data
 
     # build
-    # gym(
-		# 	workspace: "Dodies.lv.xcworkspace",
-		# 	scheme: "Dodies.lv",
-		# 	clean: true,
-		# 	output_name: "Dodies.lv.ipa"
-    # )
-    # 
-    # changelog_from_git_commits
-    # 
-    # if is_ci? && ENV["TRAVIS_PULL_REQUEST"] != "false"
-    #   testflight(
-    #     skip_waiting_for_build_processing: true,
-    #     changelog: last_git_commit["message"]
-    #   )
-    # end
+    gym(
+			workspace: "Dodies.lv.xcworkspace",
+			scheme: "Dodies.lv",
+			clean: true,
+			output_name: "Dodies.lv.ipa"
+    )
+    
+    changelog_from_git_commits
+    
+    if is_ci? && ENV["TRAVIS_PULL_REQUEST"] != "false"
+      testflight(
+        skip_waiting_for_build_processing: true,
+        changelog: last_git_commit["message"]
+      )
+    end
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"

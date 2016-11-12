@@ -65,6 +65,8 @@
 		63C322B51C836C050033CE5D /* dodies_logo_green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B21C836C050033CE5D /* dodies_logo_green@3x.png */; };
 		63CA57A51BA5F41700A9F5DC /* DodiesAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */; };
 		63CA57A71BA606B800A9F5DC /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CA57A61BA606B800A9F5DC /* Details.swift */; };
+		63EE49D91DD78FA600E1F676 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EE49D81DD78FA600E1F676 /* Mapbox.framework */; };
+		63EE49DA1DD78FA600E1F676 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63EE49D81DD78FA600E1F676 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		63F5DC681C8355BE00AEB195 /* dodies_nav_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F5DC651C8355BE00AEB195 /* dodies_nav_logo.png */; };
 		63F5DC691C8355BE00AEB195 /* dodies_nav_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F5DC661C8355BE00AEB195 /* dodies_nav_logo@2x.png */; };
 		63F5DC6A1C8355BE00AEB195 /* dodies_nav_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F5DC671C8355BE00AEB195 /* dodies_nav_logo@3x.png */; };
@@ -81,6 +83,20 @@
 			remoteInfo = Dodies.lv;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		63EE49DB1DD78FA600E1F676 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				63EE49DA1DD78FA600E1F676 /* Mapbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1AE186A438C85C4E3F9554EE /* Pods-Dodies.lv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dodies.lv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +167,7 @@
 		63C322B21C836C050033CE5D /* dodies_logo_green@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo_green@3x.png"; sourceTree = "<group>"; };
 		63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DodiesAnnotation.swift; sourceTree = "<group>"; };
 		63CA57A61BA606B800A9F5DC /* Details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
+		63EE49D81DD78FA600E1F676 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		63F5DC651C8355BE00AEB195 /* dodies_nav_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies_nav_logo.png; sourceTree = "<group>"; };
 		63F5DC661C8355BE00AEB195 /* dodies_nav_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_nav_logo@2x.png"; sourceTree = "<group>"; };
 		63F5DC671C8355BE00AEB195 /* dodies_nav_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_nav_logo@3x.png"; sourceTree = "<group>"; };
@@ -171,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D287D980B694B6B5EDF31116 /* Pods_Dodies_lv.framework in Frameworks */,
+				63EE49D91DD78FA600E1F676 /* Mapbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +218,7 @@
 		636EA8291BA5BDF40071397A = {
 			isa = PBXGroup;
 			children = (
+				63EE49D81DD78FA600E1F676 /* Mapbox.framework */,
 				636EA8341BA5BDF40071397A /* Dodies.lv */,
 				63330EC31DCF7B8F002194A3 /* Dodies.lvUITests */,
 				636EA8331BA5BDF40071397A /* Products */,
@@ -366,6 +385,8 @@
 				63AFB8021C5E4412004A58E1 /* ShellScript */,
 				82AB2DA75AE43AF288FF62CF /* [CP] Embed Pods Frameworks */,
 				CB4E5E4E85FD07582AA18416 /* [CP] Copy Pods Resources */,
+				63EE49DB1DD78FA600E1F676 /* Embed Frameworks */,
+				63EE49DC1DD78FC700E1F676 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -527,6 +548,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 34be06edc6f733a743335744b07a23f6a3e5b344 a9207ff06b3417aa4bf8c6408432761ca87c5b52dca8f2365b133eea61d407cc";
+		};
+		63EE49DC1DD78FC700E1F676 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework/strip-frameworks.sh\"";
 		};
 		82AB2DA75AE43AF288FF62CF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
