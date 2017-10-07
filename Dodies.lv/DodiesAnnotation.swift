@@ -7,12 +7,10 @@
 //
 
 import Foundation
-import UIKit
-import Mapbox
-import CoreLocation
-import SwiftyJSON
 
-class DodiesAnnotation:MGLPointAnnotation {
+import Mapbox
+
+class DodiesAnnotation: MGLPointAnnotation {
 
   var latitude:String = ""
   var longitude:String = ""

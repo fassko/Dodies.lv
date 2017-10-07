@@ -7,10 +7,11 @@
 //
 
 import UIKit
+
 import Fabric
 import Crashlytics
-import CocoaLumberjack
 import RealmSwift
+import CocoaLumberjack
 
 
 @UIApplicationMain
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
       schemaVersion: 1,
       migrationBlock: { migration, oldSchemaVersion in
@@ -37,24 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     Fabric.with([Crashlytics.self])
     
-    DDLog.add(DDTTYLogger.sharedInstance()) // TTY = Xcode console
-    DDLog.add(DDASLLogger.sharedInstance()) // ASL = Apple System Logs
-    
-    // Configure tracker from GoogleService-Info.plist.
-    var configureError:NSError?
-    GGLContext.sharedInstance().configureWithError(&configureError)
-    assert(configureError == nil, "Error configuring Google services: \(configureError)")
-
-    // Optional: configure GAI options.
-    let gai = GAI.sharedInstance()
-    gai?.trackUncaughtExceptions = true  // report uncaught exceptions
-    gai?.logger.logLevel = GAILogLevel.verbose  // remove before app release
-    
-    UIApplication.shared.statusBarStyle = .lightContent
-    UINavigationBar.appearance().barStyle = .black
-    
+    DDLog.add(DDTTYLogger.sharedInstance) // TTY = Xcode console
+    DDLog.add(DDASLLogger.sharedInstance) // ASL = Apple System Logs
+        
     return true
   }
-
 
 }

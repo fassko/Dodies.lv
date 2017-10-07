@@ -10,21 +10,13 @@ target 'Dodies.lv' do
   pod 'Crashlytics'
   pod 'SwiftyUserDefaults'
   pod 'RealmSwift'
-  pod "AsyncSwift"
-  pod 'GCDKit', :git => 'https://github.com/JohnEstropia/GCDKit.git', :branch => 'swift3_develop'
-  pod 'Google/Analytics'
   pod 'FontAwesome.swift'
-  pod 'LKAlertController'
-  pod 'AlamofireImage'
   pod 'CocoaLumberjack/Swift'
-  pod 'SwiftDate'
+  pod 'Timepiece'
   pod 'Localize-Swift'
-end
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['SWIFT_VERSION'] = '3.0'
-    end
-  end
+  pod 'Mapbox-iOS-SDK'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'NSObject+Rx'
+  pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher.git', :tag => '3.13.1'
 end

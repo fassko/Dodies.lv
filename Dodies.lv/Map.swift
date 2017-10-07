@@ -8,14 +8,13 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 import Mapbox
-import CoreLocation
 import SwiftyJSON
 import Alamofire
 import RealmSwift
 import SwiftyUserDefaults
-import Async
 import Fabric
 import Crashlytics
 import FontAwesome_swift
@@ -35,6 +34,8 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    print(Realm.Configuration.defaultConfiguration.fileURL!)
     
     self.setLanguage()
     
@@ -81,19 +82,14 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     if (realm.objects(DodiesPoint.self).count == 0) {
       downloadData()
     } else {
-      Async.background {
+      
+      DispatchQueue.global(qos: .background).async {
         self.loadPoints(checkForUpdatedData: true)
       }
     }
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    let tracker = GAI.sharedInstance().defaultTracker
-    tracker?.set(kGAIScreenName, value: "Map")
-    
-    var eventTracker: NSObject = GAIDictionaryBuilder.createScreenView().build()
-    tracker?.send(eventTracker as! [NSObject : AnyObject])
-    
     Answers.logContentView(withName: "Map", contentType: "Map", contentId: nil, customAttributes: nil)
   }
   
@@ -133,11 +129,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     if let point = annotation as? DodiesAnnotation {
       selectedPoint = point
       
-      if !point.img.isEmpty {
-        performSegue(withIdentifier: "detailsWithPicture", sender: self)
-      } else {
-        performSegue(withIdentifier: "details", sender: self)
-      }
+      performSegue(withIdentifier: "details", sender: self)
       
       mapView.deselectAnnotation(annotation, animated: true)
     }
@@ -287,7 +279,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     
     let realm = try! Realm()
     
-    let points = realm.objects(DodiesPoint.self)
+    let points = realm.objects(DodiesPoint.self) //.filter("name = %@" ,"Ķirbižu meža taka")
     
     for p:DodiesPoint in points {
       let point = DodiesAnnotation()
@@ -305,10 +297,11 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
         point.img2 = p.img2
         point.url = p.url
       
+      
       self.mapView.addAnnotation(point)
     }
     
-    Async.main {
+    DispatchQueue.main.async {
       Helper.dismissGlobalHUD()
       
       if checkForUpdatedData {

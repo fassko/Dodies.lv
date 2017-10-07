@@ -8,22 +8,21 @@
 
 import UIKit
 import Foundation
+
 import Attributed
-import Fabric
 import Crashlytics
-import LKAlertController
 
 
 class DescriptionViewController: UIViewController {
 
-  var point : DodiesAnnotation!
+  var point: DodiesAnnotation?
 
   @IBOutlet weak var descriptionWebView: UIWebView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.title = point.title
+    self.title = point?.title
     
     let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width - 120, height: 44))
     titleLabel.backgroundColor = UIColor.clear
@@ -35,12 +34,13 @@ class DescriptionViewController: UIViewController {
     
     self.navigationItem.titleView = titleLabel
 
-    
-    
     self.automaticallyAdjustsScrollViewInsets = false
     
-    descriptionWebView.loadRequest(NSURLRequest(url: NSURL(string: "http://dodies.lv/obj/\(point.url)")! as URL) as URLRequest)
-    descriptionWebView.scrollView.contentOffset = CGPoint(x: 0, y: 0)
+    guard let objectUrl = point?.url else { return }
+    guard let url = URL.init(string: "http://dodies.lv/obj/\(objectUrl)") else { return }
     
+    let request = URLRequest(url: url)
+    descriptionWebView.loadRequest(request)
+    descriptionWebView.scrollView.contentOffset = CGPoint(x: 0, y: 0)
   }
 }

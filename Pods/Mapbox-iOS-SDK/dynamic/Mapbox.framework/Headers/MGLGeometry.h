@@ -2,12 +2,12 @@
 #import <CoreLocation/CoreLocation.h>
 #import <CoreGraphics/CGBase.h>
 
-#import "MGLTypes.h"
+#import "MGLFoundation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /** Defines the area spanned by an `MGLCoordinateBounds`. */
-typedef struct MGLCoordinateSpan {
+typedef struct __attribute__((objc_boxable)) MGLCoordinateSpan {
     /** Latitudes spanned by an `MGLCoordinateBounds`. */
     CLLocationDegrees latitudeDelta;
     /** Longitudes spanned by an `MGLCoordinateBounds`. */
@@ -35,10 +35,10 @@ NS_INLINE BOOL MGLCoordinateSpanEqualToCoordinateSpan(MGLCoordinateSpan span1, M
 }
 
 /** An area of zero width and zero height. */
-extern const MGLCoordinateSpan MGLCoordinateSpanZero;
+extern MGL_EXPORT const MGLCoordinateSpan MGLCoordinateSpanZero;
 
 /** A rectangular area as measured on a two-dimensional map projection. */
-typedef struct MGLCoordinateBounds {
+typedef struct __attribute__((objc_boxable)) MGLCoordinateBounds {
     /** Coordinate at the southwest corner. */
     CLLocationCoordinate2D sw;
     /** Coordinate at the northeast corner. */
@@ -62,6 +62,14 @@ NS_INLINE BOOL MGLCoordinateBoundsEqualToCoordinateBounds(MGLCoordinateBounds bo
             bounds1.sw.longitude == bounds2.sw.longitude &&
             bounds1.ne.latitude == bounds2.ne.latitude &&
             bounds1.ne.longitude == bounds2.ne.longitude);
+}
+
+/** Returns `YES` if the two coordinate bounds intersect. */
+NS_INLINE BOOL MGLCoordinateBoundsIntersectsCoordinateBounds(MGLCoordinateBounds bounds1, MGLCoordinateBounds bounds2) {
+    return (bounds1.ne.latitude  > bounds2.sw.latitude  &&
+            bounds1.sw.latitude  < bounds2.ne.latitude  &&
+            bounds1.ne.longitude > bounds2.sw.longitude &&
+            bounds1.sw.longitude < bounds2.ne.longitude);
 }
 
 /** Returns `YES` if the coordinate is within the coordinate bounds. */
@@ -93,7 +101,7 @@ NS_INLINE MGLCoordinateBounds MGLCoordinateBoundsOffset(MGLCoordinateBounds boun
 
 /**
  Returns `YES` if the coordinate bounds covers no area.
- 
+
  @note A bounds may be empty but have a non-zero coordinate span (e.g., when its
     northeast point lies due north of its southwest point).
  */
@@ -118,12 +126,5 @@ NS_INLINE CGFloat MGLRadiansFromDegrees(CLLocationDegrees degrees) {
 NS_INLINE CLLocationDegrees MGLDegreesFromRadians(CGFloat radians) {
     return radians * 180 / M_PI;
 }
-
-/**
- Methods for round-tripping Mapbox geometry structure values.
- */
-@interface NSValue (MGLGeometryAdditions)
-
-@end
 
 NS_ASSUME_NONNULL_END

@@ -3,62 +3,62 @@
   <testsuite name="fastlane.lanes">
     
       
-      <testcase classname="fastlane.lanes" name="0: update_fastlane" time="2.094125">
+      <testcase classname="fastlane.lanes" name="0: update_fastlane" time="2.9251">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.00025">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000376">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: Switch to ios certificates lane" time="0.000268">
+      <testcase classname="fastlane.lanes" name="2: cocoapods" time="5.27036">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: match" time="16.629442">
+      <testcase classname="fastlane.lanes" name="3: Switch to ios certificates lane" time="0.000316">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: match" time="9.762238">
+      <testcase classname="fastlane.lanes" name="4: match" time="11.98187">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: sigh" time="10.926113">
+      <testcase classname="fastlane.lanes" name="5: match" time="10.871266">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: increment_build_number" time="2.50268">
+      <testcase classname="fastlane.lanes" name="6: sigh" time="11.707608">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: clear_derived_data" time="2.086462">
+      <testcase classname="fastlane.lanes" name="7: increment_build_number" time="3.954215">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="8: gym" time="475.989231">
+      <testcase classname="fastlane.lanes" name="8: clear_derived_data" time="1.762935">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="9: dsym_zip" time="0.096977">
+      <testcase classname="fastlane.lanes" name="9: gym" time="475.971688">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="10: copy_artifacts" time="0.111856">
+      <testcase classname="fastlane.lanes" name="10: changelog_from_git_commits" time="0.098687">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="11: deliver" time="430.974245">
+      <testcase classname="fastlane.lanes" name="11: is_ci" time="0.000428">
         
       </testcase>
     

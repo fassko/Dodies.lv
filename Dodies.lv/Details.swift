@@ -8,14 +8,14 @@
 
 import Foundation
 import UIKit
-import Attributed
+
 import Fabric
 import Crashlytics
-import LKAlertController
-import Alamofire
-import AlamofireImage
-import SwiftDate
+import Kingfisher
 import Localize_Swift
+import RxSwift
+import RxCocoa
+import NSObject_Rx
 
 class Details : UIViewController {
 
@@ -32,6 +32,11 @@ class Details : UIViewController {
   
   @IBOutlet weak var image: UIImageView?
   
+  @IBOutlet var descHeight: NSLayoutConstraint!
+  
+  @IBOutlet weak var lenghtStackView: UIStackView!
+  
+  @IBOutlet weak var checkedStackView: UIStackView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -54,6 +59,10 @@ class Details : UIViewController {
     desc.isScrollEnabled = false
     desc.text = point.txt
     
+    desc.sizeToFit()
+    desc.layoutIfNeeded()
+    descHeight.constant = desc.sizeThatFits(CGSize(width: desc.frame.size.width, height: CGFloat.greatestFiniteMagnitude)).height
+    
 
     self.automaticallyAdjustsScrollViewInsets = false
     
@@ -61,44 +70,24 @@ class Details : UIViewController {
     
     lenght.text = point.km != "" ? "\(point.km) km" : "-"
     
-    if point.dat != "" {
-      
-      let checkedDate = try! point.dat.date(format: DateFormat.custom("yyyy-MM-dd"))
-      
-      checked.text = checkedDate.string(format: DateFormat.custom("MM.dd.YYYY"))
+    
+    let formatterFrom = DateFormatter()
+    formatterFrom.dateFormat = "yyyy-MM-dd"
+    
+    if let date = formatterFrom.date(from: point.dat) {
+      let formatter = DateFormatter()
+      formatter.dateFormat = "mm.dd.yyyy"
+      checked.text = formatter.string(from: date)
     } else {
-      checked.text = "-"
+      checkedStackView.isHidden = true
     }
     
-    let attributes = [NSFontAttributeName: UIFont.fontAwesome(ofSize: 20)] as Dictionary!
-    details.setTitleTextAttributes(attributes, for: .normal)
-    details.title = String.fontAwesomeIcon(name: .info)
-    
-    Alamofire.request(point.img).responseImage {
-      response in
-
-        if let image = response.result.value {
-          let radius: CGFloat = 10.0
-
-          self.image?.image = image.af_imageRounded(withCornerRadius: radius)
-        }
-    }
+    image?.kf.indicatorType = .activity
+    let processor = RoundCornerImageProcessor(cornerRadius: 10)
+    image?.kf.setImage(with: URL(string: point.img), options: [.transition(.fade(0.2)), .processor(processor)])
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    let tracker = GAI.sharedInstance().defaultTracker
-    tracker?.set(kGAIScreenName, value: "Details")
-    
-    var eventTracker: NSObject = GAIDictionaryBuilder.createScreenView().build()
-    tracker?.send(eventTracker as! [NSObject : AnyObject])
-    
-    eventTracker = GAIDictionaryBuilder.createEvent(
-      withCategory: "Details",
-                    action: "DodiesDetails",
-                    label: point.name,
-                    value: nil).build()
-    tracker?.send(eventTracker as! [NSObject : AnyObject])
-    
     Answers.logContentView(withName: "Details",
                       contentType: "DodiesDetails",
                       contentId: point.name,
@@ -107,19 +96,19 @@ class Details : UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    
-    desc.isScrollEnabled = true
   }
   
-  @IBAction func showDescription(sender: AnyObject) {
+  @IBAction func showDescription(_ sender: Any) {
     if !point.url.isEmpty {
       performSegue(withIdentifier: "showDescription", sender: self)
     } else {
-      Alert(title: "Dodies.lv", message: "Sorry, but description isn't ready yet.".localized()).addAction("OK").show()
+      let alert = UIAlertController(title: "Dodies.lv", message: "Sorry, but description isn't ready yet.".localized(), preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
     }
   }
   
-  @IBAction func openNavigation(sender: AnyObject) {
+  @IBAction func openNavigation(_ sender: Any) {
     let optionMenu = UIAlertController(title: nil, message: "Navigate with".localized(), preferredStyle: .actionSheet)
     
     let copy = UIAlertAction(title: "Copy coordiantes".localized(), style: .default, handler: {
@@ -182,6 +171,20 @@ class Details : UIViewController {
         description.point = self.point
       }
     }
+  }
+  
+  override func viewDidLayoutSubviews() {
+    caluclateTextViewHeight()
+  }
+  
+  override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+    caluclateTextViewHeight()
+  }
+  
+  fileprivate func caluclateTextViewHeight() {
+    let size: CGSize = desc.sizeThatFits(CGSize(width: desc.frame.size.width, height: CGFloat.greatestFiniteMagnitude))
+    let insets: UIEdgeInsets = desc.textContainerInset
+    descHeight.constant = size.height + insets.top + insets.bottom
   }
   
 }
