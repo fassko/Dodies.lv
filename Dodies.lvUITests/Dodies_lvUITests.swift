@@ -20,7 +20,7 @@ class Dodies_lvUITests: XCTestCase {
   
   func testExample() {
     sleep(3)
-    XCUIApplication().alerts["Allow “Dodies.lv” to access your location while you use the app?"].buttons["Allow"].tap()
+//    XCUIApplication().alerts["Allow “Dodies.lv” to access your location while you use the app?"].buttons["Allow"].tap()
     
   }
     
