@@ -185,7 +185,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
       if let error = error {
         DDLogError("Can't download data \(error) \(language)")
         Answers.logCustomEvent(withName: "CantDownloadData", customAttributes: ["language": language, "error": error])
-        self.showError()
+        self.showError(withMessage: "Can't download data. Please check your settings and try again.".localized())
       } else {
         guard let data = data else { return }
         
@@ -319,8 +319,8 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   }
   
   // show error
-  func showError() {
-    let alert = UIAlertController(title: "Error".localized(), message: "Can't download data. Please check your settings and try again.".localized(), preferredStyle: .alert)
+  func showError(withMessage message: String) {
+    let alert = UIAlertController(title: "Dodies.lv", message: message, preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
     self.present(alert, animated: true, completion: nil)
   }

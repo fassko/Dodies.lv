@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -75,10 +74,10 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gGn-JU-jG9" firstAttribute="bottom" secondItem="2bE-vK-aGj" secondAttribute="bottom" constant="-20" id="Myv-HB-00s"/>
-                            <constraint firstItem="gGn-JU-jG9" firstAttribute="top" secondItem="2bE-vK-aGj" secondAttribute="top" constant="20" id="Owh-0d-zBO"/>
-                            <constraint firstItem="gGn-JU-jG9" firstAttribute="trailing" secondItem="2bE-vK-aGj" secondAttribute="trailing" constant="-20" id="cln-8T-B74"/>
-                            <constraint firstItem="gGn-JU-jG9" firstAttribute="leading" secondItem="2bE-vK-aGj" secondAttribute="leading" constant="20" id="iCG-wl-Dd8"/>
+                            <constraint firstItem="gGn-JU-jG9" firstAttribute="trailing" secondItem="2bE-vK-aGj" secondAttribute="trailing" constant="-20" id="6u9-2l-NXg"/>
+                            <constraint firstItem="gGn-JU-jG9" firstAttribute="leading" secondItem="2bE-vK-aGj" secondAttribute="leading" constant="20" id="OLC-Ff-yyY"/>
+                            <constraint firstItem="gGn-JU-jG9" firstAttribute="top" secondItem="2bE-vK-aGj" secondAttribute="top" constant="20" id="aL3-5D-mpr"/>
+                            <constraint firstItem="gGn-JU-jG9" firstAttribute="bottom" secondItem="2bE-vK-aGj" secondAttribute="bottom" constant="-20" id="liv-TO-yE5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2bE-vK-aGj"/>
                     </view>
@@ -123,17 +122,17 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wml-tv-9HU">
-                                <rect key="frame" x="-4" y="64" width="383" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="B3h-wJ-fsu" firstAttribute="bottom" secondItem="wml-tv-9HU" secondAttribute="bottom" id="91q-cC-fjn"/>
-                            <constraint firstItem="wml-tv-9HU" firstAttribute="top" secondItem="B3h-wJ-fsu" secondAttribute="top" id="HdT-to-dlk"/>
-                            <constraint firstItem="wml-tv-9HU" firstAttribute="leading" secondItem="k7G-xD-yNl" secondAttribute="leadingMargin" constant="-20" id="IHc-11-0wR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="wml-tv-9HU" secondAttribute="trailing" constant="-20" id="xMK-Qs-TGc"/>
+                            <constraint firstItem="wml-tv-9HU" firstAttribute="leading" secondItem="B3h-wJ-fsu" secondAttribute="leading" id="0AL-CG-ntg"/>
+                            <constraint firstItem="wml-tv-9HU" firstAttribute="bottom" secondItem="B3h-wJ-fsu" secondAttribute="bottom" id="DXi-tO-0pQ"/>
+                            <constraint firstItem="wml-tv-9HU" firstAttribute="top" secondItem="B3h-wJ-fsu" secondAttribute="top" id="abO-cR-ylb"/>
+                            <constraint firstItem="wml-tv-9HU" firstAttribute="trailing" secondItem="B3h-wJ-fsu" secondAttribute="trailing" id="npr-9z-EPI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B3h-wJ-fsu"/>
                     </view>
@@ -178,7 +177,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vMr-Cx-CAr" userLabel="GPS Stack View">
                                                 <rect key="frame" x="0.0" y="300" width="335" height="20"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rN-n4-RcB">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0rN-n4-RcB">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="75" id="P7G-EQ-4a2"/>
@@ -206,7 +205,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OjF-rJ-EHt" userLabel="Lenght Stack View">
                                                 <rect key="frame" x="0.0" y="330" width="335" height="21"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTP-eY-xpv">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZTP-eY-xpv">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="75" id="JEQ-IX-vED"/>
@@ -230,7 +229,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0s5-kM-2hn" userLabel="Checked Stack View">
                                                 <rect key="frame" x="0.0" y="361" width="335" height="20"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Gg-Ed-dw3">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7Gg-Ed-dw3">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="75" id="BkW-aX-89g"/>
