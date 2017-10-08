@@ -117,7 +117,6 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
         <!--Description View Controller-->
         <scene sceneID="g3c-qt-zin">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9nZ-Hz-D5A" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Oe3-0f-KPq" customClass="DescriptionViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k7G-xD-yNl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -142,6 +141,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                         <outlet property="descriptionWebView" destination="wml-tv-9HU" id="5eS-rY-8OK"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9nZ-Hz-D5A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2380" y="-362"/>
         </scene>

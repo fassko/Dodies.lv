@@ -12,16 +12,14 @@ import Mapbox
 
 class DodiesAnnotation: MGLPointAnnotation {
 
-  var latitude:String = ""
-  var longitude:String = ""
-
-  var name:String = ""
-  var tips:String = ""
-  var st:String = ""
-  var km:String = ""
-  var txt:String = ""
-  var dat:String = ""
-  var img:String = ""
-  var img2:String = ""
-  var url:String = ""
+  var latitude = ""
+  var longitude = ""
+  var name = ""
+  var tips = ""
+  var st = ""
+  var km = ""
+  var txt = ""
+  var dat = ""
+  var img = ""
+  var url = ""
 }

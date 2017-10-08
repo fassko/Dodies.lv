@@ -11,23 +11,23 @@ import UIKit
 import CoreLocation
 
 import Mapbox
-import SwiftyJSON
-import Alamofire
 import RealmSwift
-import SwiftyUserDefaults
 import Fabric
 import Crashlytics
-import FontAwesome_swift
 import Localize_Swift
+import CocoaLumberjack
+import SwiftSpinner
 
 class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
 
+  /// Map View
   var mapView: MGLMapView!
-  let manager = CLLocationManager()
-  var selectedPoint : DodiesAnnotation!
   
-  let LastChangedTimestampKey = "LastChangedTimestamp"
-  let languageKey = "language"
+  /// Location manager
+  let locationManager = CLLocationManager()
+  
+  /// Selected point
+  var selectedPoint : DodiesAnnotation!
   
   @IBOutlet weak var settingsButton: UIBarButtonItem!
   @IBOutlet weak var aboutButton: UIBarButtonItem!
@@ -37,44 +37,38 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     
     print(Realm.Configuration.defaultConfiguration.fileURL!)
     
-    self.setLanguage()
+    if let language = UserDefaults.standard.string(forKey: Constants.languageKey) {
+      Localize.setCurrentLanguage(language)
+    } else {
+      Localize.setCurrentLanguage("lv")
+    }
     
-    self.title = "Map".localized()
+    title = "Map".localized()
+    
+    settingsButton.title = "Settings".localized()
+    aboutButton.title = "About".localized()
     
     navigationItem.titleView = UIImageView(image: UIImage(named: "dodies_nav_logo"))
     
-    let attributes = [NSFontAttributeName: UIFont.fontAwesome(ofSize: 20)] as Dictionary!
-    aboutButton.setTitleTextAttributes(attributes, for: .normal)
-    aboutButton.title = String.fontAwesomeIcon(name: .question)
-    
-    settingsButton.setTitleTextAttributes(attributes, for: .normal)
-    settingsButton.title = String.fontAwesomeIcon(name: .language)
-    
     // ask user to allow location access
     if CLLocationManager.authorizationStatus() == .notDetermined {
-      manager.requestWhenInUseAuthorization()
+      locationManager.requestWhenInUseAuthorization()
     }
     
     // initialize the map view
     let styleURL = NSURL(string: "mapbox://styles/normis/cilzp6g1h00grbjlwwsh52vig")
     mapView = MGLMapView(frame: view.bounds, styleURL: styleURL as URL?)
     mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    
     mapView.setVisibleCoordinateBounds(MGLCoordinateBounds(sw: CLLocationCoordinate2D(latitude: 55.500, longitude: 20.500), ne: CLLocationCoordinate2D(latitude: 58.500, longitude: 28.500)), animated: false)
-
     mapView.delegate = self
     mapView.showsUserLocation = true
     mapView.isRotateEnabled = false
-    
     mapView.attributionButton.isHidden = true
-    
     view.addSubview(mapView)
     
-    // print Realm database path
-//    print(Realm.Configuration.defaultConfiguration.path!)
-    
     // show loading view
-    Helper.showGlobalProgressHUD()
+    SwiftSpinner.setTitleFont(UIFont(name: "HelveticaNeue", size: 18)!)
+    SwiftSpinner.show("Downloading data".localized())
     
     let realm = try! Realm()
     
@@ -82,7 +76,6 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     if (realm.objects(DodiesPoint.self).count == 0) {
       downloadData()
     } else {
-      
       DispatchQueue.global(qos: .background).async {
         self.loadPoints(checkForUpdatedData: true)
       }
@@ -147,22 +140,18 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   // MARK: - Interface methods
   
   @IBAction func setLanguage(sender: AnyObject) {
-    let actionSheet: UIAlertController = UIAlertController(title: "Change language".localized(), message: "Please select language".localized(), preferredStyle: .actionSheet)
+    let actionSheet = UIAlertController(title: "Change language".localized(), message: "Please select language".localized(), preferredStyle: .actionSheet)
 
-    let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel".localized(), style: .cancel) { action -> Void in
-      
-    }
+    let cancelActionButton = UIAlertAction(title: "Cancel".localized(), style: .cancel)
     actionSheet.addAction(cancelActionButton)
 
-    let saveActionButton: UIAlertAction = UIAlertAction(title: "Latvian".localized(), style: .default){
-      action -> Void in
-        self.languageChanged(language: "lv")
+    let saveActionButton: UIAlertAction = UIAlertAction(title: "Latvian".localized(), style: .default) { action in
+      self.languageChanged(language: "lv")
     }
     actionSheet.addAction(saveActionButton)
 
-    let deleteActionButton: UIAlertAction = UIAlertAction(title: "English".localized(), style: .default){
-      action -> Void in
-        self.languageChanged(language: "en")
+    let deleteActionButton: UIAlertAction = UIAlertAction(title: "English".localized(), style: .default){ action in
+      self.languageChanged(language: "en")
     }
     actionSheet.addAction(deleteActionButton)
     
@@ -173,95 +162,71 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
   // MARK: - Additonal methods
   
-  func setLanguage() {
-    
-    if let language = Defaults[self.languageKey].string {
-      Localize.setCurrentLanguage(language)
-    } else {
-      Localize.setCurrentLanguage("lv")
-    }
-  }
-  
   func languageChanged(language:String) {
-    if language != Defaults[self.languageKey].stringValue {
-      Defaults[self.languageKey] = language
+    if language != UserDefaults.standard.string(forKey: Constants.languageKey) {
+      UserDefaults.standard.set(language, forKey: Constants.languageKey)
       
       Localize.setCurrentLanguage(language)
       
-      Helper.showGlobalProgressHUD()
+      SwiftSpinner.hide()
       
-      self.downloadData()
+      downloadData()
     }
   }
   
   // download data from server
   func downloadData() {
   
-    var language = Defaults[self.languageKey].string
-    
-    if language == nil {
-      language = "lv"
-    }
+    let language = UserDefaults.getValue(forKey: Constants.languageKey, default: "lv")
   
-    Alamofire.request("http://dodies.lv/json/\(language!).geojson").responseJSON(completionHandler: {
-      response in
-      
-        Helper.dismissGlobalHUD()
-      
-        if response.result.isFailure {
-          Crashlytics.logEvent("CantDownloadData", attributes: ["url": "http://dodies.lv/json/\(language!).geojson", "error": (response.result.error?.localizedDescription)!])
-          self.showError()
-        }
-      
-        if response.result.isSuccess {
+    guard let url = URL(string: "http://dodies.lv/json/\(language).geojson") else { return }
+    
+    let task = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
+      if let error = error {
+        DDLogError("Can't download data \(error) \(language)")
+        Answers.logCustomEvent(withName: "CantDownloadData", customAttributes: ["language": language, "error": error])
+        self.showError()
+      } else {
+        guard let data = data else { return }
         
-          if let value = response.result.value {
-            let json = JSON(value)
-            
-            if let features = json["features"].array {
-            
-              let realm = try! Realm()
-          
-              try! realm.write {
-                realm.deleteAll()
-              }
-              
-              for feature in features {
-                
-                let coordinates:Array<Double> = feature["geometry"].dictionaryValue["coordinates"]?.arrayObject as! Array<Double>
-                
-                if let properties = feature["properties"].dictionary {
-                
-                  let dodiesPoint = DodiesPoint()
-                  dodiesPoint.latitude = coordinates[0]
-                  dodiesPoint.longitude = coordinates[1]
-                  
-                  dodiesPoint.name = properties["name"]!.stringValue
-                  dodiesPoint.tips = properties["tips"]!.stringValue
-                  dodiesPoint.st = properties["st"]!.stringValue
-                  dodiesPoint.km = properties["km"]!.stringValue
-                  dodiesPoint.txt = properties["txt"]!.stringValue
-                  dodiesPoint.dat = properties["dat"]!.stringValue
-                  dodiesPoint.img = properties["img"]!.stringValue
-                  dodiesPoint.img2 = properties["img2"]!.stringValue
-                  dodiesPoint.url = properties["url"]!.stringValue
-
-                  // write in realm database
-                  try! realm.write {
-                    realm.add(dodiesPoint)
-                  }
-                } else {
-                  
-                }
-              }
-              
-              self.updateLastChangedTimestamp()
-              self.removeAllAnnotations()
-              self.loadPoints()
-            }
-          }
+        guard let features = try? JSONDecoder().decode(FeatureCollection.self, from: data).features else { return }
+        
+        let realm = try! Realm()
+        
+        try! realm.write {
+          realm.deleteAll()
         }
+        
+        features.forEach({ feature in
+          let dodiesPoint = DodiesPoint()
+          dodiesPoint.latitude = feature.geometry.coordinates[0]
+          dodiesPoint.longitude = feature.geometry.coordinates[1]
+
+          let properties = feature.properties
+          dodiesPoint.name = properties.name
+          dodiesPoint.tips = properties.tips
+          dodiesPoint.st = properties.st
+          dodiesPoint.km = properties.km
+          dodiesPoint.txt = properties.txt
+          dodiesPoint.dat = properties.dat
+          dodiesPoint.img = properties.img
+          dodiesPoint.url = properties.url
+
+          // write in realm database
+          try! realm.write {
+            realm.add(dodiesPoint)
+          }
+        })
+        
+        SwiftSpinner.hide()
+        
+        self.updateLastChangedTimestamp()
+        self.removeAllAnnotations()
+        self.loadPoints()
+      }
     })
+    
+    task.resume()
   }
   
   // remove all annotation from mapview
@@ -281,28 +246,26 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
     
     let points = realm.objects(DodiesPoint.self) //.filter("name = %@" ,"Ķirbižu meža taka")
     
-    for p:DodiesPoint in points {
+    points.forEach({ p in
       let point = DodiesAnnotation()
-        
-        point.coordinate = CLLocationCoordinate2DMake(p.longitude, p.latitude)
-        point.title = p.name
-
-        point.name = p.name
-        point.tips = p.tips
-        point.st = p.st
-        point.km = p.km
-        point.txt = p.txt
-        point.dat = p.dat
-        point.img = p.img
-        point.img2 = p.img2
-        point.url = p.url
       
+      point.coordinate = CLLocationCoordinate2DMake(p.longitude, p.latitude)
+      point.title = p.name
+
+      point.name = p.name
+      point.tips = p.tips
+      point.st = p.st
+      point.km = p.km
+      point.txt = p.txt
+      point.dat = p.dat
+      point.img = p.img
+      point.url = p.url
       
       self.mapView.addAnnotation(point)
-    }
+    })
     
     DispatchQueue.main.async {
-      Helper.dismissGlobalHUD()
+      SwiftSpinner.hide()
       
       if checkForUpdatedData {
         self.checkIfNeedToUpdate()
@@ -312,28 +275,47 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   
   // update last changed timestamp from server
   func updateLastChangedTimestamp() {
-    Alamofire.request("http://dodies.lv/apraksti/lastchanged.txt").responseString(completionHandler: {response in
-      if response.result.isSuccess {
-          if let timestamp = Int(response.result.value!.replacingOccurrences(of: "\n", with: "")) {
-            Defaults[self.LastChangedTimestampKey] = timestamp
-          }
-        }
+    guard let url = URL(string: "http://dodies.lv/apraksti/lastchanged.txt") else { return }
+    
+    let task = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
+      if let error = error {
+        DDLogError("Can't get last changed date \(error)")
+      }
+      
+      guard let data = data else { return }
+      
+      guard let lastChangedDate = String(data: data, encoding: .utf8) else { return }
+      
+      if let timestamp = Int(lastChangedDate.replacingOccurrences(of: "\n", with: "")) {
+        UserDefaults.standard.set(timestamp, forKey: Constants.LastChangedTimestampKey)
+      }
+      
     })
+    
+    task.resume()
   }
   
   // check if need to update
   func checkIfNeedToUpdate() {
-
-    Alamofire.request("http://dodies.lv/apraksti/lastchanged.txt").responseString(completionHandler: {
-  response in
-      if response.result.isSuccess {
-        if let timestamp = Int(response.result.value!.replacingOccurrences(of: "\n", with: "")) {
-          if timestamp > Defaults[self.LastChangedTimestampKey].intValue {
-            self.downloadData()
-          }
+    guard let url = URL(string: "http://dodies.lv/apraksti/lastchanged.txt") else { return }
+    
+    let task = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
+      if let error = error {
+        DDLogError("Can't get last changed date \(error)")
+      }
+      
+      guard let data = data else { return }
+      
+      guard let lastChangedDate = String(data: data, encoding: .utf8) else { return }
+      
+      if let timestamp = Int(lastChangedDate.replacingOccurrences(of: "\n", with: "")) {
+        if timestamp > UserDefaults.standard.integer(forKey: Constants.LastChangedTimestampKey) {
+          self.downloadData()
         }
       }
     })
+    
+    task.resume()
   }
   
   // show error

@@ -21,6 +21,7 @@
 		639710861C8200F1003C3842 /* dodies_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710831C8200F1003C3842 /* dodies_logo@2x.png */; };
 		639710871C8200F1003C3842 /* dodies_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710841C8200F1003C3842 /* dodies_logo@3x.png */; };
 		639710891C821568003C3842 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 639710881C821568003C3842 /* GoogleService-Info.plist */; };
+		63A1D5731F89704200DA6132 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A1D5721F89704200DA6132 /* Constants.swift */; };
 		63A818C81C6294F9006F7F80 /* Valmiera.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 63A818C71C6294F9006F7F80 /* Valmiera.gpx */; };
 		63AFB7BF1C5CE04D004A58E1 /* parks-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7A11C5CE04D004A58E1 /* parks-active.png */; };
 		63AFB7C01C5CE04D004A58E1 /* parks-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7A21C5CE04D004A58E1 /* parks-active@2x.png */; };
@@ -59,7 +60,6 @@
 		63AFB7FD1C5E375D004A58E1 /* dodies@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7FA1C5E375D004A58E1 /* dodies@3x.png */; };
 		63AFB7FE1C5E375D004A58E1 /* dodies@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7FB1C5E375D004A58E1 /* dodies@2x.png */; };
 		63AFB7FF1C5E375D004A58E1 /* dodies.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7FC1C5E375D004A58E1 /* dodies.png */; };
-		63AFB8011C5E3FFC004A58E1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AFB8001C5E3FFC004A58E1 /* Helper.swift */; };
 		63C322B31C836C050033CE5D /* dodies_logo_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B01C836C050033CE5D /* dodies_logo_green.png */; };
 		63C322B41C836C050033CE5D /* dodies_logo_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B11C836C050033CE5D /* dodies_logo_green@2x.png */; };
 		63C322B51C836C050033CE5D /* dodies_logo_green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B21C836C050033CE5D /* dodies_logo_green@3x.png */; };
@@ -69,6 +69,7 @@
 		63F5DC691C8355BE00AEB195 /* dodies_nav_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F5DC661C8355BE00AEB195 /* dodies_nav_logo@2x.png */; };
 		63F5DC6A1C8355BE00AEB195 /* dodies_nav_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F5DC671C8355BE00AEB195 /* dodies_nav_logo@3x.png */; };
 		63F5DC6E1C8358F200AEB195 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5DC6D1C8358F200AEB195 /* AboutViewController.swift */; };
+		63FB43D11F8A20DF002033CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB43D01F8A20DF002033CE /* Extensions.swift */; };
 		D287D980B694B6B5EDF31116 /* Pods_Dodies_lv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327B1D6E038E71252FC315F2 /* Pods_Dodies_lv.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +120,7 @@
 		639710831C8200F1003C3842 /* dodies_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo@2x.png"; sourceTree = "<group>"; };
 		639710841C8200F1003C3842 /* dodies_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo@3x.png"; sourceTree = "<group>"; };
 		639710881C821568003C3842 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		63A1D5721F89704200DA6132 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		63A818C71C6294F9006F7F80 /* Valmiera.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Valmiera.gpx; sourceTree = "<group>"; };
 		63AFB7A11C5CE04D004A58E1 /* parks-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "parks-active.png"; sourceTree = "<group>"; };
 		63AFB7A21C5CE04D004A58E1 /* parks-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "parks-active@2x.png"; sourceTree = "<group>"; };
@@ -157,7 +159,6 @@
 		63AFB7FA1C5E375D004A58E1 /* dodies@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies@3x.png"; sourceTree = "<group>"; };
 		63AFB7FB1C5E375D004A58E1 /* dodies@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies@2x.png"; sourceTree = "<group>"; };
 		63AFB7FC1C5E375D004A58E1 /* dodies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies.png; sourceTree = "<group>"; };
-		63AFB8001C5E3FFC004A58E1 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		63C322B01C836C050033CE5D /* dodies_logo_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies_logo_green.png; sourceTree = "<group>"; };
 		63C322B11C836C050033CE5D /* dodies_logo_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo_green@2x.png"; sourceTree = "<group>"; };
 		63C322B21C836C050033CE5D /* dodies_logo_green@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo_green@3x.png"; sourceTree = "<group>"; };
@@ -167,6 +168,7 @@
 		63F5DC661C8355BE00AEB195 /* dodies_nav_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_nav_logo@2x.png"; sourceTree = "<group>"; };
 		63F5DC671C8355BE00AEB195 /* dodies_nav_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_nav_logo@3x.png"; sourceTree = "<group>"; };
 		63F5DC6D1C8358F200AEB195 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		63FB43D01F8A20DF002033CE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ED19996CECD90575DEF355FB /* Pods-Dodies.lv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dodies.lv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,9 +236,10 @@
 			children = (
 				6356E2FC1DC5FC980072540C /* Dodies.lv.entitlements */,
 				636EA8351BA5BDF40071397A /* AppDelegate.swift */,
-				63AFB8001C5E3FFC004A58E1 /* Helper.swift */,
+				63A1D5721F89704200DA6132 /* Constants.swift */,
+				63FB43D01F8A20DF002033CE /* Extensions.swift */,
 				63AFB7ED1C5D29B4004A58E1 /* Views */,
-				63AFB7EC1C5D29A7004A58E1 /* Objects */,
+				63AFB7EC1C5D29A7004A58E1 /* Models */,
 				636EA8431BA5BDF40071397A /* Info.plist */,
 				634073531C594A4300190BA4 /* Interface */,
 				63AFB7DD1C5CF613004A58E1 /* Images.xcassets */,
@@ -308,13 +311,13 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		63AFB7EC1C5D29A7004A58E1 /* Objects */ = {
+		63AFB7EC1C5D29A7004A58E1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */,
 				63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */,
+				63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */,
 			);
-			name = Objects;
+			name = Models;
 			sourceTree = "<group>";
 		};
 		63AFB7ED1C5D29B4004A58E1 /* Views */ = {
@@ -564,43 +567,25 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Attributed/Attributed.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
-				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
-				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
-				"${BUILT_PRODUCTS_DIR}/Timepiece/Timepiece.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Attributed.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Timepiece.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -639,13 +624,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				636EA8361BA5BDF40071397A /* AppDelegate.swift in Sources */,
+				63FB43D11F8A20DF002033CE /* Extensions.swift in Sources */,
 				63CA57A51BA5F41700A9F5DC /* DodiesAnnotation.swift in Sources */,
 				63475FEC1C5CC95500A9A5E4 /* DodiesPoint.swift in Sources */,
 				63F5DC6E1C8358F200AEB195 /* AboutViewController.swift in Sources */,
 				63CA57A71BA606B800A9F5DC /* Details.swift in Sources */,
 				638EB5111CA6FBC100FA7903 /* DescriptionViewController.swift in Sources */,
 				6304EB011BA5C2C700B7CD49 /* Map.swift in Sources */,
-				63AFB8011C5E3FFC004A58E1 /* Helper.swift in Sources */,
+				63A1D5731F89704200DA6132 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,7 +690,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "334705a6-af7c-42ae-8215-32bf7fe3481d";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Dodies.lv;
 			};
 			name = Debug;
@@ -724,7 +710,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "334705a6-af7c-42ae-8215-32bf7fe3481d";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Dodies.lv;
 			};
 			name = Release;
@@ -778,7 +764,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -826,7 +812,7 @@
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
@@ -856,7 +842,7 @@
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -882,7 +868,7 @@
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

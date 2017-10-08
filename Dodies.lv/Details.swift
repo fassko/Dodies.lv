@@ -13,9 +13,6 @@ import Fabric
 import Crashlytics
 import Kingfisher
 import Localize_Swift
-import RxSwift
-import RxCocoa
-import NSObject_Rx
 
 class Details : UIViewController {
 

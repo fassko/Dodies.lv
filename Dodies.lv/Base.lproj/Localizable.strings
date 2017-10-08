@@ -6,6 +6,8 @@
   Copyright © 2016 fassko. All rights reserved.
 */
 
+"Settings" = "Settings";
+"About" = "About";
 "Map" = "Map";
 "Downloading data" = "Downloading data";
 "Length" = "Length";
