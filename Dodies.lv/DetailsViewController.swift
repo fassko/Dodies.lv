@@ -14,9 +14,9 @@ import Crashlytics
 import Kingfisher
 import Localize_Swift
 
-class Details : UIViewController {
+class DetailsViewController: UIViewController {
 
-  var point : DodiesAnnotation!
+  var point: DodiesAnnotation!
   
   @IBOutlet weak var desc: UITextView!
   @IBOutlet weak var coordinatesButton: UIButton!
@@ -79,9 +79,13 @@ class Details : UIViewController {
       checkedStackView.isHidden = true
     }
     
-    image?.kf.indicatorType = .activity
-    let processor = RoundCornerImageProcessor(cornerRadius: 10)
-    image?.kf.setImage(with: URL(string: point.img), options: [.transition(.fade(0.2)), .processor(processor)])
+    if point.img != "" {
+      image?.kf.indicatorType = .activity
+      let processor = RoundCornerImageProcessor(cornerRadius: 10)
+      image?.kf.setImage(with: URL(string: point.img), options: [.transition(.fade(0.2)), .processor(processor)])
+    } else {
+      image?.isHidden = true
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {

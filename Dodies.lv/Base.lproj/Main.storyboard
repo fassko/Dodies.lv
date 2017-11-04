@@ -19,7 +19,7 @@
         <!--Map-->
         <scene sceneID="Y8y-QB-Xur">
             <objects>
-                <viewController title="Map" id="ExX-va-15z" customClass="Map" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Map" id="ExX-va-15z" customClass="MapViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MBT-y7-dyg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,10 +144,10 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
             </objects>
             <point key="canvasLocation" x="2380" y="-362"/>
         </scene>
-        <!--Details-->
+        <!--Details View Controller-->
         <scene sceneID="Shr-GK-ODT">
             <objects>
-                <viewController id="OhH-yB-PB6" customClass="Details" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OhH-yB-PB6" customClass="DetailsViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hKQ-HV-Qt4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

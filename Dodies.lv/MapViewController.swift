@@ -18,7 +18,7 @@ import Localize_Swift
 import CocoaLumberjack
 import SwiftSpinner
 
-class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
 
   /// Map View
   var mapView: MGLMapView!
@@ -220,7 +220,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
         
         SwiftSpinner.hide()
         
-        self.updateLastChangedTimestamp()
+        self.checkLastChangedDate(update: false)
         self.removeAllAnnotations()
         self.loadPoints()
       }
@@ -268,35 +268,13 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
       SwiftSpinner.hide()
       
       if checkForUpdatedData {
-        self.checkIfNeedToUpdate()
+        self.checkLastChangedDate(update: true)
       }
     }
   }
   
-  // update last changed timestamp from server
-  func updateLastChangedTimestamp() {
-    guard let url = URL(string: "http://dodies.lv/apraksti/lastchanged.txt") else { return }
-    
-    let task = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
-      if let error = error {
-        DDLogError("Can't get last changed date \(error)")
-      }
-      
-      guard let data = data else { return }
-      
-      guard let lastChangedDate = String(data: data, encoding: .utf8) else { return }
-      
-      if let timestamp = Int(lastChangedDate.replacingOccurrences(of: "\n", with: "")) {
-        UserDefaults.standard.set(timestamp, forKey: Constants.LastChangedTimestampKey)
-      }
-      
-    })
-    
-    task.resume()
-  }
-  
   // check if need to update
-  func checkIfNeedToUpdate() {
+  func checkLastChangedDate(update: Bool) {
     guard let url = URL(string: "http://dodies.lv/apraksti/lastchanged.txt") else { return }
     
     let task = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
@@ -308,10 +286,12 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
       
       guard let lastChangedDate = String(data: data, encoding: .utf8) else { return }
       
-      if let timestamp = Int(lastChangedDate.replacingOccurrences(of: "\n", with: "")) {
-        if timestamp > UserDefaults.standard.integer(forKey: Constants.LastChangedTimestampKey) {
-          self.downloadData()
-        }
+      guard let timestamp = Int(lastChangedDate.replacingOccurrences(of: "\n", with: "")) else { return }
+      
+      if update, timestamp > UserDefaults.standard.integer(forKey: Constants.LastChangedTimestampKey) {
+        self.downloadData()
+      } else {
+        UserDefaults.standard.set(timestamp, forKey: Constants.LastChangedTimestampKey)
       }
     })
     
@@ -329,7 +309,7 @@ class Map: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "details" || segue.identifier == "detailsWithPicture" {
     
-      if let details: Details = segue.destination as? Details {
+      if let details: DetailsViewController = segue.destination as? DetailsViewController {
         details.point = selectedPoint
         
         selectedPoint = nil
