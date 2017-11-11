@@ -6,8 +6,8 @@ target 'Dodies.lv' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'RealmSwift'
-  pod 'CocoaLumberjack/Swift'
   pod 'Localize-Swift'
   pod 'Mapbox-iOS-SDK'
   pod 'Kingfisher'
+  pod 'XCGLogger'
 end

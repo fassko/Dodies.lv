@@ -15,7 +15,6 @@ import RealmSwift
 import Fabric
 import Crashlytics
 import Localize_Swift
-import CocoaLumberjack
 import SwiftSpinner
 
 class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
@@ -43,10 +42,9 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
       Localize.setCurrentLanguage("lv")
     }
     
-    title = "Map".localized()
+    NotificationCenter.default.addObserver(self, selector: #selector(setUpButtons), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
     
-    settingsButton.title = "Settings".localized()
-    aboutButton.title = "About".localized()
+    setUpButtons()
     
     navigationItem.titleView = UIImageView(image: UIImage(named: "dodies_nav_logo"))
     
@@ -80,6 +78,12 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
         self.loadPoints(checkForUpdatedData: true)
       }
     }
+  }
+  
+  @objc func setUpButtons() {
+    title = "Map".localized()
+    settingsButton.title = "Settings".localized()
+    aboutButton.title = "About".localized()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -167,8 +171,8 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
       UserDefaults.standard.set(language, forKey: Constants.languageKey)
       
       Localize.setCurrentLanguage(language)
-      
-      SwiftSpinner.hide()
+    
+      SwiftSpinner.show("Downloading data".localized())
       
       downloadData()
     }
@@ -183,7 +187,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     
     let task = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
       if let error = error {
-        DDLogError("Can't download data \(error) \(language)")
+        log.error("Can't download data \(error) \(language)")
         Answers.logCustomEvent(withName: "CantDownloadData", customAttributes: ["language": language, "error": error])
         self.showError(withMessage: "Can't download data. Please check your settings and try again.".localized())
       } else {
@@ -218,11 +222,12 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
           }
         })
         
-        SwiftSpinner.hide()
-        
         self.checkLastChangedDate(update: false)
-        self.removeAllAnnotations()
-        self.loadPoints()
+        
+        DispatchQueue.main.async {
+          self.removeAllAnnotations()
+          self.loadPoints()
+        }
       }
     })
     
@@ -231,12 +236,9 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   
   // remove all annotation from mapview
   func removeAllAnnotations() {
-    if self.mapView.annotations != nil {
-      let annotations = self.mapView.annotations!.filter {
-          $0 !== self.mapView.userLocation
-      }
-      self.mapView.removeAnnotations(annotations)
-    }
+    guard let annotations = mapView.annotations else { return }
+    
+    mapView.removeAnnotations(annotations)
 }
   
   // load points from realm database
@@ -244,7 +246,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     
     let realm = try! Realm()
     
-    let points = realm.objects(DodiesPoint.self) //.filter("name = %@" ,"Ķirbižu meža taka")
+    let points = realm.objects(DodiesPoint.self)
     
     points.forEach({ p in
       let point = DodiesAnnotation()
@@ -279,7 +281,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     
     let task = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
       if let error = error {
-        DDLogError("Can't get last changed date \(error)")
+        log.error("Can't get last changed date \(error)")
       }
       
       guard let data = data else { return }

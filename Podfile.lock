@@ -1,22 +1,25 @@
 PODS:
-  - CocoaLumberjack/Default (3.3.0)
-  - CocoaLumberjack/Swift (3.3.0):
-    - CocoaLumberjack/Default
   - Crashlytics (3.9.3):
     - Fabric (~> 1.7.2)
   - Fabric (1.7.2)
   - Kingfisher (4.2.0)
   - Localize-Swift (2.0.0)
   - Mapbox-iOS-SDK (3.6.4)
-  - Realm (3.0.1):
-    - Realm/Headers (= 3.0.1)
-  - Realm/Headers (3.0.1)
-  - RealmSwift (3.0.1):
-    - Realm (= 3.0.1)
-  - SwiftSpinner (1.4.1)
+  - ObjcExceptionBridging (1.0.1):
+    - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
+  - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
+  - Realm (3.0.2):
+    - Realm/Headers (= 3.0.2)
+  - Realm/Headers (3.0.2)
+  - RealmSwift (3.0.2):
+    - Realm (= 3.0.2)
+  - SwiftSpinner (1.5.0)
+  - XCGLogger (6.0.1):
+    - XCGLogger/Core (= 6.0.1)
+  - XCGLogger/Core (6.0.1):
+    - ObjcExceptionBridging
 
 DEPENDENCIES:
-  - CocoaLumberjack/Swift
   - Crashlytics
   - Fabric
   - Kingfisher
@@ -24,18 +27,20 @@ DEPENDENCIES:
   - Mapbox-iOS-SDK
   - RealmSwift
   - SwiftSpinner
+  - XCGLogger
 
 SPEC CHECKSUMS:
-  CocoaLumberjack: 3c8c74683302f9012bb168e1c4b7ae3c0b558431
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
   Mapbox-iOS-SDK: 47847dd44285477e0dfffd0130f65c8a52823ada
-  Realm: ba6144c74f835f7497791f6599d63a7755377b83
-  RealmSwift: 7d13b1ac4b6022a13f841e3143e7789c9e40ad0d
-  SwiftSpinner: bf7c13332ad008952a09358cadf24a186510ae31
+  ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
+  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
+  RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
+  SwiftSpinner: 4c058c7a1d6b444dd2e1d70988ead40783097133
+  XCGLogger: b4ca980580108cfeaf221afe158f5d89c1be22e0
 
-PODFILE CHECKSUM: 2c4046682b9a5cb01228f2e765136d8ea7356aa9
+PODFILE CHECKSUM: 3f0ae2b04a6eff67ad52a58816b6572833a8753a
 
 COCOAPODS: 1.3.1
