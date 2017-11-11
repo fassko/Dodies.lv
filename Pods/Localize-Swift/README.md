@@ -1,5 +1,6 @@
 [![Platform](https://img.shields.io/cocoapods/p/Localize-Swift.svg?maxAge=2592000)](http://cocoapods.org/?q=Localize-Swift)
-[![Build Status](https://travis-ci.org/marmelroy/Localize-Swift.svg?branch=master)](https://travis-ci.org/marmelroy/Localize-Swift) [![Version](http://img.shields.io/cocoapods/v/Localize-Swift.svg)](http://cocoapods.org/?q=Localize-Swift)
+[![Version](http://img.shields.io/cocoapods/v/Localize-Swift.svg)](http://cocoapods.org/?q=Localize-Swift)
+[![Build Status](https://travis-ci.org/marmelroy/Localize-Swift.svg?branch=master)](https://travis-ci.org/marmelroy/Localize-Swift)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 # Localize-Swift
@@ -19,32 +20,32 @@ Localize-Swift is a simple framework that improves i18n and localization in Swif
 Import Localize at the top of each Swift file that will contain localized text.
 
 If CocoaPods -
-```
+```swift
 import Localize_Swift
 ```
 
-Add .localized() following any String object you want translated:
-```
+Add `.localized()` following any `String` object you want translated:
+```swift
 textLabel.text = "Hello World".localized()
 ```
 
 To get an array of available localizations:
-```
+```swift
 Localize.availableLanguages()
 ```
 
 To change the current language:
-```
+```swift
 Localize.setCurrentLanguage("fr")
 ```
 
 To update the UI in the view controller where a language change can take place, observe LCLLanguageChangeNotification:
-```
+```swift
 NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
 ```
 
 To reset back to the default app language:
-```
+```swift
 Localize.resetCurrentLanguageToDefault()
 ```
 
@@ -54,7 +55,7 @@ To support this new i18n syntax, Localize-Swift includes custom genstrings swift
 
 Copy the genstrings.swift file into your project's root folder and run with
 
-```
+```bash
 ./genstrings.swift
 ```
 
@@ -80,7 +81,7 @@ github "marmelroy/Localize-Swift"
 ```
 
 ### Setting up with [CocoaPods](http://cocoapods.org/?q=Localize-Swift)
-```
+```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-pod 'Localize-Swift', '~> 1.6'
+pod 'Localize-Swift', '~> 2.0'
 ```

@@ -1,7 +1,5 @@
 #import <Foundation/Foundation.h>
 
-#import "MGLTypes.h"
-
 @class MGLMapView;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -43,6 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) IBInspectable BOOL allowsRotating;
 @property (nonatomic) IBInspectable BOOL allowsTilting;
 @property (nonatomic) IBInspectable BOOL showsUserLocation;
+@property (nonatomic) IBInspectable BOOL showsHeading;
 
 @end
 

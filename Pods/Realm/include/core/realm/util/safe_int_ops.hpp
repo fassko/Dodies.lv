@@ -19,11 +19,15 @@
 #ifndef REALM_UTIL_SAFE_INT_OPS_HPP
 #define REALM_UTIL_SAFE_INT_OPS_HPP
 
+#ifdef _WIN32
+#undef max // collides with numeric_limits::max called later in this header file
+#undef min // collides with numeric_limits::min called later in this header file
+#endif
+
 #include <limits>
 
 #include <realm/util/features.h>
 #include <realm/util/assert.hpp>
-#include <realm/util/meta.hpp>
 #include <realm/util/type_traits.hpp>
 
 namespace realm {
@@ -155,7 +159,9 @@ inline bool int_multiply_with_overflow_detect(L& lval, R rval) noexcept;
 /// can be used.
 ///
 /// \param i Must be non-negative and such that <tt>L(1)>>i</tt> has a
-/// value that is defined by the C++03 standard.
+/// value that is defined by the C++03 standard. In particular, the
+/// value of i must not exceed the number of bits of storage type T as
+/// shifting by this amount is not defined by the standard.
 ///
 /// This function makes absolutely no assumptions about the platform
 /// except that it complies with at least C++03.
@@ -550,7 +556,7 @@ inline bool int_multiply_with_overflow_detect(L& lval, R rval) noexcept
     static_assert(lim_l::is_integer && lim_r::is_integer, "Both types must be integers");
     REALM_ASSERT(int_greater_than_or_equal(lval, 0));
     REALM_ASSERT(int_greater_than(rval, 0));
-    if (int_less_than(lim_r::max() / rval, lval))
+    if (int_less_than(lim_l::max() / rval, lval))
         return true;
     lval = L(lval * rval);
     return false;

@@ -1,7 +1,9 @@
 #import <Foundation/Foundation.h>
 
 #import "MGLGeometry.h"
+#import "MGLLight.h"
 #import "MGLOfflinePack.h"
+#import "MGLTypes.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Creates a new value object containing the specified Core Location geographic
  coordinate structure.
- 
+
  @param coordinate The value for the new object.
  @return A new value object that contains the geographic coordinate information.
  */
@@ -29,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Creates a new value object containing the specified Mapbox coordinate span
  structure.
- 
+
  @param span The value for the new object.
  @return A new value object that contains the coordinate span information.
  */
@@ -43,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Creates a new value object containing the specified Mapbox coordinate bounds
  structure.
- 
+
  @param bounds The value for the new object.
  @return A new value object that contains the coordinate bounds information.
  */
@@ -59,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Creates a new value object containing the given `MGLOfflinePackProgress`
  structure.
- 
+
  @param progress The value for the new object.
  @return A new value object that contains the offline pack progress information.
  */
@@ -69,6 +71,50 @@ NS_ASSUME_NONNULL_BEGIN
  The `MGLOfflinePackProgress` structure representation of the value.
  */
 @property (readonly) MGLOfflinePackProgress MGLOfflinePackProgressValue;
+
+#pragma mark Working with Transition Values
+
+/**
+ Creates a new value object containing the given `MGLTransition`
+ structure.
+ 
+ @param transition The value for the new object.
+ @return A new value object that contains the transition information.
+ */
++ (NSValue *)valueWithMGLTransition:(MGLTransition)transition;
+
+/**
+ The `MGLTransition` structure representation of the value.
+ */
+@property (readonly) MGLTransition MGLTransitionValue;
+
+/**
+ Creates a new value object containing the given `MGLSphericalPosition`
+ structure.
+ 
+ @param lightPosition The value for the new object.
+ @return A new value object that contains the light position information.
+ */
++ (instancetype)valueWithMGLSphericalPosition:(MGLSphericalPosition)lightPosition;
+
+/**
+ The `MGLSphericalPosition` structure representation of the value.
+ */
+@property (readonly) MGLSphericalPosition MGLSphericalPositionValue;
+
+/**
+ Creates a new value object containing the given `MGLLightAnchor`
+ enum.
+ 
+ @param lightAnchor The value for the new object.
+ @return A new value object that contains the light anchor information.
+ */
++ (NSValue *)valueWithMGLLightAnchor:(MGLLightAnchor)lightAnchor;
+
+/**
+ The `MGLLightAnchor` enum representation of the value.
+ */
+@property (readonly) MGLLightAnchor MGLLightAnchorValue;
 
 @end
 

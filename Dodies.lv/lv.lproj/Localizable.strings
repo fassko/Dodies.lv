@@ -6,6 +6,8 @@
   Copyright © 2016 fassko. All rights reserved.
 */
 
+"Settings" = "Iestatījumi";
+"About" = "Par";
 "Map" = "Karte";
 "Downloading data" = "Lejupielādē datus";
 "Length" = "Garums";
@@ -13,6 +15,7 @@
 "Change language" = "Mainīt valodu";
 "Please select language" = "Lūdzu, izvēlieties valodu";
 "Cancel" = "Atcelt";
+"Info" = "Informācija";
 "Navigate with" = "Navigēt ar";
 "Copy coordiantes" = "Kopēt koordinātas";
 "Latvian" = "Latviešu";
