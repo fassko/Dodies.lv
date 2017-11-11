@@ -145,6 +145,8 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   
   @IBAction func setLanguage(sender: AnyObject) {
     let actionSheet = UIAlertController(title: "Change language".localized(), message: "Please select language".localized(), preferredStyle: .actionSheet)
+    
+    actionSheet.popoverPresentationController?.barButtonItem = settingsButton
 
     let cancelActionButton = UIAlertAction(title: "Cancel".localized(), style: .cancel)
     actionSheet.addAction(cancelActionButton)

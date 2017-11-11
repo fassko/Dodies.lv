@@ -112,6 +112,8 @@ class DetailsViewController: UIViewController {
   @IBAction func openNavigation(_ sender: Any) {
     let optionMenu = UIAlertController(title: nil, message: "Navigate with".localized(), preferredStyle: .actionSheet)
     
+    optionMenu.popoverPresentationController?.sourceView = coordinatesButton
+    
     let copy = UIAlertAction(title: "Copy coordiantes".localized(), style: .default, handler: {
       (alert: UIAlertAction!) -> Void in
         let pasteboard:UIPasteboard = UIPasteboard.general
@@ -123,10 +125,10 @@ class DetailsViewController: UIViewController {
         let u = "http://maps.apple.com/?daddr=\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)"
         UIApplication.shared.openURL(NSURL(string: u)! as URL)
     })
-    
+
     let google = UIAlertAction(title: "Google Maps", style: .default, handler: {
       (alert: UIAlertAction!) -> Void in
-      
+
         if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
           UIApplication.shared.openURL(NSURL(string:
                 "comgooglemaps://?saddr=&daddr=\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)&directionsmode=driving")! as URL)
@@ -137,7 +139,7 @@ class DetailsViewController: UIViewController {
           UIApplication.shared.isIdleTimerDisabled = true
         }
     })
-    
+
     let waze = UIAlertAction(title: "Waze", style: .default, handler: {
       (alert: UIAlertAction!) -> Void in
 
