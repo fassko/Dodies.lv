@@ -36,7 +36,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     
     debugPrint(Realm.Configuration.defaultConfiguration.fileURL!)
     
-    if let language = UserDefaults.standard.string(forKey: Constants.languageKey) {
+    if let language = UserDefaults.standard.string(forKey: Constants.languageKey.rawValue) {
       Localize.setCurrentLanguage(language)
     } else {
       Localize.setCurrentLanguage("lv")
@@ -167,8 +167,8 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   // MARK: - Additonal methods
   
   func languageChanged(language:String) {
-    if language != UserDefaults.standard.string(forKey: Constants.languageKey) {
-      UserDefaults.standard.set(language, forKey: Constants.languageKey)
+    if language != UserDefaults.standard.string(forKey: Constants.languageKey.rawValue) {
+      UserDefaults.standard.set(language, forKey: Constants.languageKey.rawValue)
       
       Localize.setCurrentLanguage(language)
     
@@ -181,7 +181,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   // download data from server
   func downloadData() {
   
-    let language = UserDefaults.getValue(forKey: Constants.languageKey, default: "lv")
+    let language = UserDefaults.getValue(forKey: Constants.languageKey.rawValue, default: "lv")
   
     guard let url = URL(string: "http://dodies.lv/json/\(language).geojson") else { return }
     
@@ -290,10 +290,10 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
       
       guard let timestamp = Int(lastChangedDate.replacingOccurrences(of: "\n", with: "")) else { return }
       
-      if update, timestamp > UserDefaults.standard.integer(forKey: Constants.LastChangedTimestampKey) {
+      if update, timestamp > UserDefaults.standard.integer(forKey: Constants.lastChangedTimestampKey.rawValue) {
         self.downloadData()
       } else {
-        UserDefaults.standard.set(timestamp, forKey: Constants.LastChangedTimestampKey)
+        UserDefaults.standard.set(timestamp, forKey: Constants.lastChangedTimestampKey.rawValue)
       }
     })
     

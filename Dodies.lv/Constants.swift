@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Constants {
-  static let LastChangedTimestampKey = "LastChangedTimestamp"
-  static let languageKey = "language"
+enum Constants: String {
+  case lastChangedTimestampKey = "LastChangedTimestamp"
+  case languageKey = "language"
 }
