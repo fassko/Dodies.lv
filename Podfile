@@ -9,5 +9,4 @@ target 'Dodies.lv' do
   pod 'Localize-Swift'
   pod 'Mapbox-iOS-SDK'
   pod 'Kingfisher'
-  pod 'XCGLogger'
 end

@@ -34,7 +34,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    print(Realm.Configuration.defaultConfiguration.fileURL!)
+    debugPrint(Realm.Configuration.defaultConfiguration.fileURL!)
     
     if let language = UserDefaults.standard.string(forKey: Constants.languageKey) {
       Localize.setCurrentLanguage(language)
@@ -187,7 +187,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     
     let task = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
       if let error = error {
-        log.error("Can't download data \(error) \(language)")
+        debugPrint("Can't download data \(error) \(language)")
         Answers.logCustomEvent(withName: "CantDownloadData", customAttributes: ["language": language, "error": error])
         self.showError(withMessage: "Can't download data. Please check your settings and try again.".localized())
       } else {
@@ -281,7 +281,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     
     let task = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
       if let error = error {
-        log.error("Can't get last changed date \(error)")
+        debugPrint("Can't get last changed date \(error)")
       }
       
       guard let data = data else { return }
