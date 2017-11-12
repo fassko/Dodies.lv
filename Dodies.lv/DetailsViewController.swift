@@ -31,10 +31,6 @@ class DetailsViewController: UIViewController {
   
   @IBOutlet var descHeight: NSLayoutConstraint!
   
-  @IBOutlet weak var lenghtStackView: UIStackView!
-  
-  @IBOutlet weak var checkedStackView: UIStackView!
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -65,8 +61,13 @@ class DetailsViewController: UIViewController {
     
     coordinatesButton.setTitle("\(String(format: "%.5f",point.coordinate.latitude)), \(String(format: "%.5f",point.coordinate.longitude))", for: UIControlState.normal)
     
-    lenght.text = point.km != "" ? "\(point.km) km" : "-"
     
+    if point.km == "" {
+      lenght.isHidden = true
+      lengthTitle.isHidden = true
+    } else {
+      lenght.text = "\(point.km) km"
+    }
     
     let formatterFrom = DateFormatter()
     formatterFrom.dateFormat = "yyyy-MM-dd"
@@ -76,7 +77,8 @@ class DetailsViewController: UIViewController {
       formatter.dateFormat = "mm.dd.yyyy"
       checked.text = formatter.string(from: date)
     } else {
-      checkedStackView.isHidden = true
+      checkedTitle.isHidden = true
+      checked.isHidden = true
     }
     
     if point.img != "" {
