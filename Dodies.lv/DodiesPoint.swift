@@ -57,6 +57,9 @@ struct Property: Codable {
   /// Picture
   var img: String
   
+  /// Large picture
+  var img2: String
+  
   /// Url of description
   var url: String
 }
@@ -73,15 +76,16 @@ struct Geometry: Codable {
 // MARK: - Realm
 class DodiesPoint: Object {
 
-  @objc dynamic var latitude:Double = 0
-  @objc dynamic var longitude:Double = 0
+  @objc dynamic var latitude: Double = 0
+  @objc dynamic var longitude: Double = 0
   
-  @objc dynamic var name:String = ""
-  @objc dynamic var tips:String = ""
-  @objc dynamic var st:String = ""
-  @objc dynamic var km:String = ""
-  @objc dynamic var txt:String = ""
-  @objc dynamic var dat:String = ""
-  @objc dynamic var img:String = ""
-  @objc dynamic var url:String = ""
+  @objc dynamic var name: String = ""
+  @objc dynamic var tips: String = ""
+  @objc dynamic var st: String = ""
+  @objc dynamic var km: String = ""
+  @objc dynamic var txt: String = ""
+  @objc dynamic var dat: String = ""
+  @objc dynamic var img: String = ""
+  @objc dynamic var img2: String = ""
+  @objc dynamic var url: String = ""
 }

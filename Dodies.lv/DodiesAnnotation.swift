@@ -21,5 +21,6 @@ class DodiesAnnotation: MGLPointAnnotation {
   var txt = ""
   var dat = ""
   var img = ""
+  var img2 = ""
   var url = ""
 }

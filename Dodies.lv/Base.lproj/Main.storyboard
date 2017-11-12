@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2ne-Pp-ydF">
-    <device id="retina5_9" orientation="landscape">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,7 +21,7 @@
             <objects>
                 <viewController title="Map" id="ExX-va-15z" customClass="MapViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MBT-y7-dyg">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="UET-gh-G5d"/>
@@ -54,11 +54,11 @@
             <objects>
                 <viewController id="WI0-B1-khR" customClass="AboutViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3YZ-LH-glU">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGn-JU-jG9">
-                                <rect key="frame" x="64" y="52" width="684" height="282"/>
+                                <rect key="frame" x="20" y="84" width="374" height="632"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Dodies.lv is a collection of free nature trails, hiking paths, birdwatching towers and picnic places in Latvia. 
 Would you like to spend some time in Latvian nature, make a fire, stay in a tent? Our map contains freely accessible places closer to nature, available at any time for anyone.  
@@ -96,7 +96,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                 <navigationController id="2ne-Pp-ydF" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QFt-d7-cWG">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="32"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.42352941179999998" green="0.59607843140000005" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -118,11 +118,11 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
             <objects>
                 <viewController id="Oe3-0f-KPq" customClass="DescriptionViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k7G-xD-yNl">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wml-tv-9HU">
-                                <rect key="frame" x="44" y="32" width="724" height="322"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
@@ -149,23 +149,23 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
             <objects>
                 <viewController id="OhH-yB-PB6" customClass="DetailsViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hKQ-HV-Qt4">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LeQ-1N-P4W">
-                                <rect key="frame" x="44" y="32" width="724" height="322"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="y5U-FN-NYu">
-                                        <rect key="frame" x="20" y="20" width="684" height="381"/>
+                                        <rect key="frame" x="20" y="20" width="374" height="410"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZjF-Fo-wlD">
-                                                <rect key="frame" x="0.0" y="0.0" width="684" height="180"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="aMc-Fg-SgM"/>
                                                 </constraints>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12D-Pe-Nql">
-                                                <rect key="frame" x="0.0" y="190" width="684" height="100"/>
+                                                <rect key="frame" x="0.0" y="190" width="374" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="d44-ur-3Bg"/>
                                                 </constraints>
@@ -174,81 +174,75 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                             </textView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vMr-Cx-CAr" userLabel="GPS Stack View">
-                                                <rect key="frame" x="0.0" y="300" width="684" height="20"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GEa-ga-V2u">
+                                                <rect key="frame" x="0.0" y="300" width="374" height="110"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0rN-n4-RcB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="20"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6b6-gs-tBW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="110"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Vw7-kb-Vh7">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="cUn-h6-3zv"/>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="pk8-71-Yuw"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KLv-1y-xYh">
+                                                                <rect key="frame" x="0.0" y="40" width="75" height="30"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nun-25-ZGM">
+                                                                <rect key="frame" x="0.0" y="80" width="75" height="30"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="75" id="P7G-EQ-4a2"/>
-                                                            <constraint firstAttribute="height" constant="20" id="ZlG-ss-ITJ"/>
+                                                            <constraint firstItem="KLv-1y-xYh" firstAttribute="height" secondItem="Vw7-kb-Vh7" secondAttribute="height" id="5Jh-lz-78I"/>
+                                                            <constraint firstItem="KLv-1y-xYh" firstAttribute="width" secondItem="Vw7-kb-Vh7" secondAttribute="width" id="AhI-z2-aD5"/>
+                                                            <constraint firstItem="nun-25-ZGM" firstAttribute="width" secondItem="Vw7-kb-Vh7" secondAttribute="width" id="FG7-Yi-c0U"/>
+                                                            <constraint firstItem="nun-25-ZGM" firstAttribute="height" secondItem="Vw7-kb-Vh7" secondAttribute="height" id="mn1-p2-o0w"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEC-n5-fNx">
-                                                        <rect key="frame" x="80" y="0.0" width="604" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="mt7-eV-gnx"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                        <state key="normal" title="56.9197, 24.73025">
-                                                            <color key="titleColor" red="0.42352941179999998" green="0.59607843140000005" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="openNavigation:" destination="OhH-yB-PB6" eventType="touchUpInside" id="AA5-iY-jLF"/>
-                                                        </connections>
-                                                    </button>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ais-uT-cSi">
+                                                        <rect key="frame" x="85" y="0.0" width="289" height="110"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gk-HT-kfi">
+                                                                <rect key="frame" x="0.0" y="0.0" width="289" height="30"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                <state key="normal" title="56.9197, 24.73025">
+                                                                    <color key="titleColor" red="0.42352941179999998" green="0.59607843140000005" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="openNavigation:" destination="OhH-yB-PB6" eventType="touchUpInside" id="tvu-xN-wOb"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,2 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXa-kG-NMX">
+                                                                <rect key="frame" x="0.0" y="40" width="289" height="30"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02/08/2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8j-Sp-39T">
+                                                                <rect key="frame" x="0.0" y="80" width="289" height="30"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OjF-rJ-EHt" userLabel="Lenght Stack View">
-                                                <rect key="frame" x="0.0" y="330" width="684" height="21"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZTP-eY-xpv">
-                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="21"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="75" id="JEQ-IX-vED"/>
-                                                            <constraint firstAttribute="height" constant="21" id="zfr-Hf-9KV"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,2 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J20-PF-dLk">
-                                                        <rect key="frame" x="80" y="0.0" width="604" height="21"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="21" id="VVo-nC-eF8"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0s5-kM-2hn" userLabel="Checked Stack View">
-                                                <rect key="frame" x="0.0" y="361" width="684" height="20"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7Gg-Ed-dw3">
-                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="75" id="BkW-aX-89g"/>
-                                                            <constraint firstAttribute="height" constant="20" id="TWr-se-ewc"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02/08/2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8w-eG-LER">
-                                                        <rect key="frame" x="80" y="0.0" width="604" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="nRA-KB-Ayf"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="B8j-Sp-39T" firstAttribute="height" secondItem="Vw7-kb-Vh7" secondAttribute="height" id="1zj-iY-Mh6"/>
+                                                    <constraint firstItem="HXa-kG-NMX" firstAttribute="height" secondItem="Vw7-kb-Vh7" secondAttribute="height" id="3tY-2Z-aIN"/>
+                                                    <constraint firstItem="0gk-HT-kfi" firstAttribute="height" secondItem="Vw7-kb-Vh7" secondAttribute="height" id="KvE-Xl-jwt"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>
@@ -279,17 +273,15 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="checked" destination="V8w-eG-LER" id="HHv-JG-LED"/>
-                        <outlet property="checkedStackView" destination="0s5-kM-2hn" id="KuN-yE-e38"/>
-                        <outlet property="checkedTitle" destination="7Gg-Ed-dw3" id="QH7-ru-YRu"/>
-                        <outlet property="coordinatesButton" destination="lEC-n5-fNx" id="ahv-xi-h1g"/>
+                        <outlet property="checked" destination="B8j-Sp-39T" id="edI-cD-4pg"/>
+                        <outlet property="checkedTitle" destination="nun-25-ZGM" id="F6C-6d-ywD"/>
+                        <outlet property="coordinatesButton" destination="0gk-HT-kfi" id="6Yv-nj-ePN"/>
                         <outlet property="desc" destination="12D-Pe-Nql" id="8GP-t1-e8c"/>
                         <outlet property="descHeight" destination="d44-ur-3Bg" id="LO5-z4-N2U"/>
                         <outlet property="details" destination="yl9-Ox-0hF" id="A9j-6c-Utu"/>
                         <outlet property="image" destination="ZjF-Fo-wlD" id="CI1-Y1-la2"/>
-                        <outlet property="lenght" destination="J20-PF-dLk" id="1fI-nr-bhp"/>
-                        <outlet property="lenghtStackView" destination="OjF-rJ-EHt" id="bwF-EU-AbS"/>
-                        <outlet property="lengthTitle" destination="ZTP-eY-xpv" id="Gdc-9F-2fq"/>
+                        <outlet property="lenght" destination="HXa-kG-NMX" id="Y1e-Jq-tqi"/>
+                        <outlet property="lengthTitle" destination="KLv-1y-xYh" id="TA4-Dp-obu"/>
                         <segue destination="Oe3-0f-KPq" kind="show" identifier="showDescription" id="MaO-rc-y36"/>
                     </connections>
                 </viewController>

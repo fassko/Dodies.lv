@@ -216,6 +216,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
           dodiesPoint.txt = properties.txt
           dodiesPoint.dat = properties.dat
           dodiesPoint.img = properties.img
+          dodiesPoint.img2 = properties.img2
           dodiesPoint.url = properties.url
 
           // write in realm database
@@ -263,6 +264,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
       point.txt = p.txt
       point.dat = p.dat
       point.img = p.img
+      point.img2 = p.img2
       point.url = p.url
       
       self.mapView.addAnnotation(point)

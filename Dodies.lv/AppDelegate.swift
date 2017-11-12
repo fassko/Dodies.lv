@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
     
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 2,
+      schemaVersion: 3,
       migrationBlock: { migration, oldSchemaVersion in
       
         if (oldSchemaVersion < 1) {
@@ -35,9 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    BuddyBuildSDK.setup()
     
-
     Fabric.with([Crashlytics.self])
         
     return true
