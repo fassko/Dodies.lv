@@ -13,6 +13,7 @@ import Fabric
 import Crashlytics
 import Kingfisher
 import Localize_Swift
+import Lightbox
 
 class DetailsViewController: UIViewController {
 
@@ -85,9 +86,16 @@ class DetailsViewController: UIViewController {
       image?.kf.indicatorType = .activity
       let processor = RoundCornerImageProcessor(cornerRadius: 10)
       image?.kf.setImage(with: URL(string: point.img), options: [.transition(.fade(0.2)), .processor(processor)])
+      
+      let singleTap = UITapGestureRecognizer(target: self, action: #selector(showImage(_:)))
+      singleTap.numberOfTapsRequired = 1
+      image?.isUserInteractionEnabled = true
+      image?.addGestureRecognizer(singleTap)
     } else {
       image?.isHidden = true
     }
+    
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -190,6 +198,16 @@ class DetailsViewController: UIViewController {
     let size: CGSize = desc.sizeThatFits(CGSize(width: desc.frame.size.width, height: CGFloat.greatestFiniteMagnitude))
     let insets: UIEdgeInsets = desc.textContainerInset
     descHeight.constant = size.height + insets.top + insets.bottom
+  }
+  
+  @objc func showImage(_ sender: UITapGestureRecognizer) {
+  
+    guard let imageURL = URL(string: point.img2.isEmpty ? point.img : point.img2), let pointTitle = point.title else { return }
+  
+    let controller = LightboxController(images: [LightboxImage(imageURL: imageURL, text: pointTitle)])
+    controller.dynamicBackground = true
+    
+    present(controller, animated: true, completion: nil)
   }
   
 }
