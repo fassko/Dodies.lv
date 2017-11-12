@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A1701DD013F5E257D849F81 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AF73FE2269A626C5FB6864 /* AVFoundation.framework */; };
-		32BB1BC04C8459BEB4B1C47F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA100D0445174EEB4D06F4F /* CoreText.framework */; };
 		6304EAFF1BA5C25900B7CD49 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6304EAFE1BA5C25900B7CD49 /* Settings.bundle */; };
 		6304EB011BA5C2C700B7CD49 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304EB001BA5C2C700B7CD49 /* MapViewController.swift */; };
 		63330EC51DCF7B8F002194A3 /* Dodies_lvUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63330EC41DCF7B8F002194A3 /* Dodies_lvUITests.swift */; };
@@ -202,11 +200,9 @@
 			files = (
 				D287D980B694B6B5EDF31116 /* Pods_Dodies_lv.framework in Frameworks */,
 				B0A6015EEB563D5CE1632337 /* AssetsLibrary.framework in Frameworks */,
-				32BB1BC04C8459BEB4B1C47F /* CoreText.framework in Frameworks */,
 				B3657DB1D51808CC9F398BAD /* CoreTelephony.framework in Frameworks */,
 				DCA640AAC54F50636DE9CA48 /* SystemConfiguration.framework in Frameworks */,
 				E85A8E3394C58810FCB21913 /* QuartzCore.framework in Frameworks */,
-				0A1701DD013F5E257D849F81 /* AVFoundation.framework in Frameworks */,
 				E9DE3C02EFB5BBC2D2729C40 /* CoreMedia.framework in Frameworks */,
 				85C729650F800A83805648BF /* CoreVideo.framework in Frameworks */,
 			);
@@ -437,7 +433,7 @@
 				TargetAttributes = {
 					63330EC11DCF7B8F002194A3 = {
 						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 636EA8311BA5BDF40071397A;
 					};
 					636EA8311BA5BDF40071397A = {
@@ -713,12 +709,14 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3SGNZQGS68;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Dodies.lvUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.Dodies-lvUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "334705a6-af7c-42ae-8215-32bf7fe3481d";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Dodies.lv;
@@ -733,12 +731,14 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3SGNZQGS68;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Dodies.lvUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.Dodies-lvUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "334705a6-af7c-42ae-8215-32bf7fe3481d";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Dodies.lv;
