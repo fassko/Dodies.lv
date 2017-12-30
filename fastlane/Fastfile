@@ -16,6 +16,14 @@ platform :ios do
     match(type: "appstore")
     match(type: "development")
   end
+  
+  lane :register_test_devices do
+    register_devices(
+      devices: {
+        "iPhone X" => "9db4805265d01046d7303a6e70d03e223456b9a7"
+      }
+    )
+  end
 
   desc "Travis lane"
   lane :travis do

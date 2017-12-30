@@ -32,51 +32,14 @@ NS_ASSUME_NONNULL_BEGIN
 static MGL_EXPORT const NSInteger MGLStyleDefaultVersion = 10;
 
 /**
- An `MGLStyle` object represents the active map style of an `MGLMapView`. A
- style defines both the map’s content and every aspect of its appearance. Styles
- can be designed in
- <a href="https://www.mapbox.com/studio/">Mapbox Studio</a> and hosted on
- mapbox.com. `MGLStyle` provides methods for inspecting and manipulating a style
- dynamically, with classes and properties that parallel the style JSON format
- defined by the
- <a href="https://www.mapbox.com/mapbox-gl-js/style-spec/">Mapbox Style Specification</a>.
- 
- You set a map view’s active style using the `MGLMapView.styleURL` property.
- `MGLStyle` provides a set of convenience methods that return the URLs of
- <a href="https://www.mapbox.com/maps/">popular Mapbox-designed styles</a>.
- Once the `-[MGLMapViewDelegate mapView:didFinishLoadingStyle:]` or
- `-[MGLMapViewDelegate mapViewDidFinishLoadingMap:]` method is called, signaling
- that the style has finished loading, you can use the `MGLMapView.style`
- property to obtain the map view’s `MGLStyle`.
- 
- A style primarily consists of the following components:
- 
- * _Content sources_ supply content to be shown on the map. Use methods such as
-   `-sourceWithIdentifier:` and `-addSource:` to configure the style’s content
-   sources, which are represented by `MGLSource` objects.
- * _Style layers_ manage the layout and appearance of content at specific
-   z-indices in the style. Most kinds of style layers display content provided
-   by a content source. Use methods such as `-layerWithIdentifier:` and
-   `-addLayer:` to configure the style’s layers, which are represented by
-   `MGLStyleLayer` objects.
- * _Style images_ are used as icons and patterns in style layers. Use the
-   `-setImage:forName:` method to register an image as a style image.
-   (Annotations are represented by annotation images rather than style images.
-   To configure an annotation’s appearance, use the
-   `-[MGLMapViewDelegate mapView:imageForAnnotation:]` method.)
- * The style’s _light_ is the light source affecting any 3D extruded fills.
-   Use the `light` property to configure the style’s light, which is represented
-   by an `MGLLight` object.
- 
- The `MGLStyle`, `MGLSource`, `MGLStyleLayer`, and `MGLLight` classes are
- collectively known as the _runtime styling API_. The active style influences a
- related API, visible feature querying, which is available through methods such
- as `-[MGLMapView visibleFeaturesInRect:]`.
- 
- Some terminology differs between the Mapbox Style Specification and the various
- classes associated with `MGLStyle`. Consult the
- “[Information for Style Authors](../for-style-authors.html)” guide for an
- overview of these differences.
+ The proxy object for the current map style.
+
+ MGLStyle provides a set of convenience methods for changing Mapbox
+ default styles using `-[MGLMapView styleURL]`.
+ <a href="https://www.mapbox.com/maps/">Learn more about Mapbox default styles</a>.
+
+ It is also possible to directly manipulate the current map style
+ via `-[MGLMapView style]` by updating the style's data sources or layers.
 
  @note Wait until the map style has finished loading before modifying a map's
     style via any of the `MGLStyle` instance methods below. You can use the
@@ -493,40 +456,24 @@ MGL_EXPORT
 #pragma mark Managing Style Classes
 
 /**
- Currently active style classes, represented as an array of string identifiers.
+ Support for style classes has been removed. This property always returns an empty array.
  */
-@property (nonatomic) NS_ARRAY_OF(NSString *) *styleClasses __attribute__((deprecated("This property will be removed in a future release.")));
+@property (nonatomic) NS_ARRAY_OF(NSString *) *styleClasses __attribute__((deprecated("This property is non-functional.")));
 
 /**
- Returns a Boolean value indicating whether the style class with the given
- identifier is currently active.
-
- @param styleClass The style class to query for.
- @return Whether the style class is currently active.
+ Support for style classes has been removed. This method always returns NO.
  */
-- (BOOL)hasStyleClass:(NSString *)styleClass __attribute__((deprecated("This method will be removed in a future release.")));
+- (BOOL)hasStyleClass:(NSString *)styleClass __attribute__((deprecated("This method is non-functional.")));
 
 /**
- Activates the style class with the given identifier.
-
- @param styleClass The style class to activate.
+ Support for style classes has been removed. This method is a no-op.
  */
-- (void)addStyleClass:(NSString *)styleClass __attribute__((deprecated("This method will be removed in a future release.")));
+- (void)addStyleClass:(NSString *)styleClass __attribute__((deprecated("This method is non-functional.")));
 
 /**
- Deactivates the style class with the given identifier.
-
- @note Style class names are not guaranteed to exist across styles or different
-    versions of the same style. Applications that use this API must first set the
-    style URL to an explicitly versioned style using a convenience method like
-    `+[MGLStyle outdoorsStyleURLWithVersion:]`, `MGLMapView`’s “Style URL”
-    inspectable in Interface Builder, or a manually constructed `NSURL`. This
-    approach also avoids style class name changes that will occur in the default
-    style over time.
-
- @param styleClass The style class to deactivate.
+ Support for style classes has been removed. This method is a no-op.
  */
-- (void)removeStyleClass:(NSString *)styleClass __attribute__((deprecated("This method will be removed in a future release.")));
+- (void)removeStyleClass:(NSString *)styleClass __attribute__((deprecated("This method is non-functional.")));
 
 #pragma mark Managing a Style’s Images
 

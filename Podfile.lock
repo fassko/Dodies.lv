@@ -3,15 +3,15 @@ PODS:
   - Crashlytics (3.9.3):
     - Fabric (~> 1.7.2)
   - Fabric (1.7.2)
-  - Hue (3.0.0)
+  - Hue (3.0.1)
   - Imaginary (3.0.2):
     - Cache (~> 4.0)
-  - Kingfisher (4.2.0)
-  - Lightbox (2.0.1):
+  - Kingfisher (4.6.1)
+  - Lightbox (2.1.1):
     - Hue (~> 3.0)
     - Imaginary (~> 3.0)
   - Localize-Swift (2.0.0)
-  - Mapbox-iOS-SDK (3.6.4)
+  - Mapbox-iOS-SDK (3.7.2)
   - Realm (3.0.2):
     - Realm/Headers (= 3.0.2)
   - Realm/Headers (3.0.2)
@@ -33,12 +33,12 @@ SPEC CHECKSUMS:
   Cache: bd0233fc688b5e83a27bcd87807db7e6f23adcc5
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
-  Hue: b8fe1e43eef13631331eebecb2198b68e2622f95
+  Hue: 93e852fa6211ab35922ad8c293f51c43d6c79eb2
   Imaginary: d675200546110e305d6a26db6267c0622ffe5e6b
-  Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
-  Lightbox: b72d18d05b57ba55dbac2eb0d7dafdc934205cf3
+  Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
+  Lightbox: 30dc3540527e03194a10ee51be8ad5e039a1893f
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
-  Mapbox-iOS-SDK: 47847dd44285477e0dfffd0130f65c8a52823ada
+  Mapbox-iOS-SDK: d882f53debc26649b728755df5b7a160d9086367
   Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
   RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
   SwiftSpinner: 4c058c7a1d6b444dd2e1d70988ead40783097133
