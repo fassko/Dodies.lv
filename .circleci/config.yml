@@ -22,7 +22,7 @@ jobs:
           name: Update CocoaPods
           command: |
             pod repo update --silent
-            pod cache clear --all
+            pod cache clean --all
 
       # Build the app and run tests
       - run:
