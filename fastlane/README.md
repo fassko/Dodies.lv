@@ -33,6 +33,16 @@ Certs
 fastlane ios register_test_devices
 ```
 
+### ios ci_build
+```
+fastlane ios ci_build
+```
+CI build
+### ios circleci
+```
+fastlane ios circleci
+```
+Circle CI lane
 ### ios travis
 ```
 fastlane ios travis

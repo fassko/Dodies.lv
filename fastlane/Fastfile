@@ -25,15 +25,10 @@ platform :ios do
     )
   end
   
-  desc "Circle CI lane"
-  lane :circleci do
-    setup_circle_ci
-    
+  desc "CI build"
+  lane :ci_build do
     certificates
-    
     increment_build_number build_number: get_version_number + "." + Time.new.strftime("%y%m%d.%H%M")
-
-    clear_derived_data
 
     # build
     gym(
@@ -43,54 +38,31 @@ platform :ios do
 			output_name: "Dodies.lv.ipa"
     )
     
-    changelog_from_git_commits
-    
-    if is_ci? && ENV["CIRCLE_PULL_REQUEST"] != "false"
+    if is_ci? && (ENV["CIRCLE_PULL_REQUEST"] != "false" || ENV["TRAVIS_PULL_REQUEST"] != "false")
       testflight(
-        skip_waiting_for_build_processing: true,
-        changelog: last_git_commit["message"]
+        skip_waiting_for_build_processing: true
       )
     end
+  end
+  
+  desc "Circle CI lane"
+  lane :circleci do
+    setup_circle_ci
+    ci_build
   end
 
   desc "Travis lane"
   lane :travis do
     setup_travis
-    certificates
-    
-    increment_build_number build_number: get_version_number + "." + Time.new.strftime("%y%m%d.%H%M")
-
-    clear_derived_data
-
-    # build
-    gym(
-			workspace: "Dodies.lv.xcworkspace",
-			scheme: "Dodies.lv",
-			clean: true,
-			output_name: "Dodies.lv.ipa"
-    )
-    
-    changelog_from_git_commits
-    
-    if is_ci? && ENV["TRAVIS_PULL_REQUEST"] != "false"
-      testflight(
-        skip_waiting_for_build_processing: true,
-        changelog: last_git_commit["message"]
-      )
-    end
+    ci_build
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
-    # match(type: "appstore") # more information: https://codesigning.guide
-
     certificates
-    sigh
     
-    increment_build_number(
-      build_number: Time.new.strftime("%Y%m%d.%H%M%S")
-    )
+    increment_build_number build_number: get_version_number + "." + Time.new.strftime("%y%m%d.%H%M")
 
     clear_derived_data
     
