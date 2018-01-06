@@ -13,6 +13,7 @@ platform :ios do
   
   desc "Certs"
   lane :certificates do
+    unlock_keychain(path: "login")
     match(type: "appstore")
     match(type: "development")
   end
