@@ -20,7 +20,9 @@ jobs:
       # Install CocoaPods
       - run:
           name: Update CocoaPods
-          command: pod update
+          command: |
+            pod repo update --silent
+            pod cache clear --all
 
       # Build the app and run tests
       - run:

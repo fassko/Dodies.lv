@@ -8,7 +8,8 @@ before_install:
   - gem list
   - instruments -s devices
   - xcodebuild -showsdks
-  - pod update
+  - pod repo update --silent
+  - pod cache clean --all
   - pod --version
 language: objective-c
 osx_image: xcode9.2
