@@ -16,6 +16,12 @@ jobs:
       - run:
           name: Before Install
           command: echo -e "machine bitbucket.org\n  login fassko\n  password $CI_USER_PASSWORD" >> ~/.netrc  
+          
+      - run:
+          name: Install
+          command: |
+            gem install fastlane --no-doc
+            gem cleanup
 
       # Install CocoaPods
       - run:
