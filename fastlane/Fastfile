@@ -30,7 +30,6 @@ platform :ios do
     setup_circle_ci
     
     certificates
-    sigh
     
     increment_build_number build_number: get_version_number + "." + Time.new.strftime("%y%m%d.%H%M")
 
@@ -58,7 +57,6 @@ platform :ios do
   lane :travis do
     setup_travis
     certificates
-    sigh
     
     increment_build_number build_number: get_version_number + "." + Time.new.strftime("%y%m%d.%H%M")
 
