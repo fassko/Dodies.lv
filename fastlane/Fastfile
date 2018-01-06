@@ -14,6 +14,7 @@ platform :ios do
   desc "Certs"
   lane :certificates do
     match(type: "appstore")
+    match(type: "adhoc")
     match(type: "development")
   end
   
@@ -35,7 +36,8 @@ platform :ios do
 			workspace: "Dodies.lv.xcworkspace",
 			scheme: "Dodies.lv",
 			clean: true,
-			output_name: "Dodies.lv.ipa"
+			output_name: "Dodies.lv.ipa",
+      export_method: "ad-hoc"
     )
     
     if is_ci? && (ENV["CIRCLE_PULL_REQUEST"] != "false" || ENV["TRAVIS_PULL_REQUEST"] != "false")
