@@ -34,7 +34,7 @@ platform :ios do
       workspace: "Dodies.lv.xcworkspace",
 			scheme: "Dodies.lv",
 			clean: true,
-      devices: ["iPhone X"]
+      devices: ["iPhone X", "iPad (5th generation)"]
     ) 
   end
   
