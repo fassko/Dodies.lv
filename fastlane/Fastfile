@@ -14,7 +14,6 @@ platform :ios do
   desc "Certs"
   lane :certificates do
     match(type: "appstore")
-    match(type: "adhoc")
     match(type: "development")
   end
   
@@ -28,29 +27,15 @@ platform :ios do
   
   desc "CI build"
   lane :ci_build do
-    certificates
-    increment_build_number build_number: get_version_number + "." + Time.new.strftime("%y%m%d.%H%M")
-
-    # build
-    gym(
-			workspace: "Dodies.lv.xcworkspace",
+    # certificates
+    
+    # Test
+    scan(
+      workspace: "Dodies.lv.xcworkspace",
 			scheme: "Dodies.lv",
 			clean: true,
-			output_name: "Dodies.lv.ipa",
-      export_options: {
-        method: "ad-hoc",
-        provisioningProfiles: { 
-          "com.fassko.Dodies-lv" => "match AdHoc com.fassko.Dodies-lv"
-        }
-      }
-    )
-    
-    if is_ci? && (ENV["CIRCLE_PULL_REQUEST"] != "false" || ENV["TRAVIS_PULL_REQUEST"] != "false")
-      testflight(
-        skip_waiting_for_build_processing: true
-      )
-    end
-    
+      devices: ["iPhone X"]
+    ) 
   end
   
   desc "Circle CI lane"
@@ -104,11 +89,8 @@ platform :ios do
 
   lane :release do
     certificates
-    sigh
     
-    increment_build_number(
-      build_number: Time.new.strftime("%Y%m%d.%H%M%S")
-    )
+    increment_build_number build_number: get_version_number + "." + Time.new.strftime("%y%m%d.%H%M")
 
     clear_derived_data
 
