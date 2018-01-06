@@ -37,7 +37,12 @@ platform :ios do
 			scheme: "Dodies.lv",
 			clean: true,
 			output_name: "Dodies.lv.ipa",
-      export_method: "ad-hoc"
+      export_options: {
+        method: "ad-hoc",
+        provisioningProfiles: { 
+          "com.fassko.Dodies-lv" => "match AdHoc com.fassko.Dodies-lv"
+        }
+      }
     )
     
     if is_ci? && (ENV["CIRCLE_PULL_REQUEST"] != "false" || ENV["TRAVIS_PULL_REQUEST"] != "false")
