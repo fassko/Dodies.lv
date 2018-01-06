@@ -23,6 +23,7 @@ jobs:
           command: |
             pod repo update --silent
             pod cache clean --all
+            pod install
 
       # Build the app and run tests
       - run:
