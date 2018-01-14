@@ -23,7 +23,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>2017111114.21</string>
+	<string>1.7.180108.2219</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -57,9 +57,9 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Please allow to use your location!</string>
+	<string>Please allow to use your location to show the Dodies.lv hiking trails.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Please allow to use your location!</string>
+	<string>Please allow to use your location to show the Dodies.lv hiking trails.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
