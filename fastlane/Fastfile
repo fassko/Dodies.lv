@@ -10,13 +10,13 @@ platform :ios do
   lane :test do
 
   end
-  
+
   desc "Certs"
   lane :certificates do
     match(type: "appstore")
     match(type: "development")
   end
-  
+
   lane :register_test_devices do
     register_devices(
       devices: {
@@ -24,20 +24,20 @@ platform :ios do
       }
     )
   end
-  
+
   desc "CI build"
   lane :ci_build do
     # certificates
-    
+
     # Test
     scan(
       workspace: "Dodies.lv.xcworkspace",
 			scheme: "Dodies.lv",
 			clean: true,
       devices: ["iPhone X", "iPad (5th generation)"]
-    ) 
+    )
   end
-  
+
   desc "Circle CI lane"
   lane :circleci do
     setup_circle_ci
@@ -62,10 +62,21 @@ platform :ios do
       output_name: "Dodies.lv.ipa",
       include_symbols: true
     )
-    
+
     testflight(
       skip_waiting_for_build_processing: true
     )
+  end
+
+  desc "Download dSYMs and upload to Testflight"
+  lane :dsyms do
+    download_dsyms(
+      version: "latest"
+    )
+    upload_symbols_to_crashlytics(
+      api_token: "e8586ed0363ddcd4fc38b8f3aff4d3e095de5f07"
+    )
+    clean_build_artifacts
   end
 
   error do |lane, exception|

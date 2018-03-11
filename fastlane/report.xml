@@ -5,37 +5,27 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: update_fastlane" time="3.564211">
+      <testcase classname="fastlane.lanes" name="0: update_fastlane" time="0.396301">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.002564">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.00192">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: get_version_number" time="1.055783">
+      <testcase classname="fastlane.lanes" name="2: download_dsyms" time="12.96828">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: increment_build_number" time="3.056964">
+      <testcase classname="fastlane.lanes" name="3: upload_symbols_to_crashlytics" time="57.578034">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: clear_derived_data" time="3.613616">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="5: gym" time="304.425363">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="6: testflight" time="115.823874">
+      <testcase classname="fastlane.lanes" name="4: clean_build_artifacts" time="0.005225">
         
       </testcase>
     

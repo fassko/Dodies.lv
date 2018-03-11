@@ -11,7 +11,6 @@ import Foundation
 
 import Crashlytics
 
-
 class DescriptionViewController: UIViewController {
 
   var point: DodiesAnnotation?
@@ -25,7 +24,7 @@ class DescriptionViewController: UIViewController {
     
     let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width - 120, height: 44))
     titleLabel.backgroundColor = UIColor.clear
-    titleLabel.font = UIFont(name: "HelveticaNeue-Medium",  size: 18)
+    titleLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 18)
     titleLabel.textAlignment = NSTextAlignment.center
     titleLabel.text = self.title
     titleLabel.textColor = UIColor.white

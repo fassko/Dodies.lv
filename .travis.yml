@@ -6,9 +6,6 @@ before_install:
   - gem update xcodeproj --no-document
   - gem install cocoapods
   - gem cleanup
-  - gem list
-  - instruments -s devices
-  - xcodebuild -showsdks
   - pod cache clean --all
   - pod install --repo-update
 language: objective-c
