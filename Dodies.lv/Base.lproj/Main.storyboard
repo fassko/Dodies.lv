@@ -130,7 +130,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wml-tv-9HU" firstAttribute="leading" secondItem="B3h-wJ-fsu" secondAttribute="leading" id="0AL-CG-ntg"/>
-                            <constraint firstItem="wml-tv-9HU" firstAttribute="bottom" secondItem="B3h-wJ-fsu" secondAttribute="bottom" id="DXi-tO-0pQ"/>
+                            <constraint firstItem="wml-tv-9HU" firstAttribute="bottom" secondItem="k7G-xD-yNl" secondAttribute="bottom" id="DXi-tO-0pQ"/>
                             <constraint firstItem="wml-tv-9HU" firstAttribute="top" secondItem="B3h-wJ-fsu" secondAttribute="top" id="abO-cR-ylb"/>
                             <constraint firstItem="wml-tv-9HU" firstAttribute="trailing" secondItem="B3h-wJ-fsu" secondAttribute="trailing" id="npr-9z-EPI"/>
                         </constraints>
