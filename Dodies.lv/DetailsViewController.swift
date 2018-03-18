@@ -32,7 +32,6 @@ class DetailsViewController: UIViewController {
   
   @IBOutlet var descHeight: NSLayoutConstraint!
   
-  //swiftlint:disable function_body_length
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -40,14 +39,6 @@ class DetailsViewController: UIViewController {
     
     checkedTitle.text = "Checked".localized()
     lengthTitle.text = "Length".localized()
-    
-    let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width - 120, height: 44))
-    titleLabel.backgroundColor = UIColor.clear
-    titleLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 18)
-    titleLabel.textAlignment = NSTextAlignment.center
-    titleLabel.text = self.title
-    titleLabel.textColor = UIColor.white
-    titleLabel.adjustsFontSizeToFitWidth = true
     
     self.navigationItem.titleView = titleLabel
     

@@ -98,52 +98,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     Answers.logContentView(withName: "Map", contentType: "Map", contentId: nil, customAttributes: nil)
   }
   
-  // MARK: - Mapbox implementation
-  func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
-  
-    do {
-      guard let selectedPoint = annotation as? DodiesAnnotation else { return nil }
-
-      var icon = selectedPoint.tips
-      
-      if selectedPoint.st == "parbaudits" {
-        icon = "\(icon)-active"
-      } else {
-        icon = "\(icon)-disabled"
-      }
-      
-      var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: icon)
-      
-      if annotationImage == nil, let image = UIImage(named: icon) {
-        annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: icon)
-      }
-      
-      return annotationImage
-    }
-  }
-  
-  func mapView(_ mapView: MGLMapView, rightCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
-    return UIButton.init(type: UIButtonType.infoLight)
-  }
-  
-  func mapView(_ mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
-    if let point = annotation as? DodiesAnnotation {
-      selectedPoint = point
-      
-      performSegue(withIdentifier: "details", sender: self)
-      
-      mapView.deselectAnnotation(annotation, animated: true)
-    }
-  }
-  
-  func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-    if annotation.isKind(of: DodiesAnnotation.self) {
-      return true
-    }
-    
-    return false
-  }
-  
   // MARK: - Interface methods
   @IBAction func setLanguage(sender: AnyObject) {
     let actionSheet = UIAlertController(title: "Change language".localized(),
@@ -188,11 +142,11 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   
     guard let url = URL(string: "http://dodies.lv/json/\(language).geojson") else { return }
     
-    let task = URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+    let task = URLSession.shared.dataTask(with: url, completionHandler: {[weak self] data, _, error in
       if let error = error {
         debugPrint("Can't download data \(error) \(language)")
         Answers.logCustomEvent(withName: "CantDownloadData", customAttributes: ["language": language, "error": error])
-        self.showError(withMessage: "Can't download data. Please check your settings and try again.".localized())
+        self?.showError(withMessage: "Can't download data. Please check your settings and try again.".localized())
       } else {
         guard let data = data else { return }
         
@@ -205,7 +159,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
             realm.deleteAll()
           }
           
-          try features.forEach({ feature in
+          let realmObjects = features.map({ feature -> DodiesPoint in
             let dodiesPoint = DodiesPoint()
             dodiesPoint.latitude = feature.geometry.coordinates[0]
             dodiesPoint.longitude = feature.geometry.coordinates[1]
@@ -221,17 +175,18 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
             dodiesPoint.img2 = properties.img2
             dodiesPoint.url = properties.url
             
-            // write in realm database
-            try realm.write {
-              realm.add(dodiesPoint)
-            }
+            return dodiesPoint
           })
           
-          self.checkLastChangedDate(update: false)
+          try realm.write {
+            realm.add(realmObjects)
+          }
+          
+          self?.checkLastChangedDate(update: false)
           
           DispatchQueue.main.async {
-            self.removeAllAnnotations()
-            self.loadPoints()
+            self?.removeAllAnnotations()
+            self?.loadPoints()
           }
         } catch {
           print("Can't update points in Realm")
@@ -247,7 +202,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     guard let annotations = mapView.annotations else { return }
     
     mapView.removeAnnotations(annotations)
-}
+  }
   
   // load points from realm database
   func loadPoints(checkForUpdatedData: Bool = false) {
@@ -257,21 +212,14 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
       
       let points = realm.objects(DodiesPoint.self)
       
-      let mapAnnotations = points.toArray(ofType: DodiesPoint.self).map({ item -> DodiesAnnotation in
-        let point = DodiesAnnotation()
-        
+      let mapAnnotations = points.toArray(type: DodiesPoint.self).map({ item -> DodiesAnnotation in
+        let point = DodiesAnnotation(latitude: item.latitude, longitude: item.longitude,
+                                     name: item.name, tips: item.tips,
+                                     st: item.st, km: item.km,
+                                     txt: item.txt, dat: item.dat,
+                                     img: item.img, img2: item.img2, url: item.url)
         point.coordinate = CLLocationCoordinate2DMake(item.longitude, item.latitude)
         point.title = item.name
-        
-        point.name = item.name
-        point.tips = item.tips
-        point.st = item.st
-        point.km = item.km
-        point.txt = item.txt
-        point.dat = item.dat
-        point.img = item.img
-        point.img2 = item.img2
-        point.url = item.url
         
         return point
       })
@@ -295,7 +243,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   func checkLastChangedDate(update: Bool) {
     guard let url = URL(string: "http://dodies.lv/apraksti/lastchanged.txt") else { return }
     
-    let task = URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+    let task = URLSession.shared.dataTask(with: url, completionHandler: {[weak self] data, _, error in
       if let error = error {
         debugPrint("Can't get last changed date \(error)")
       }
@@ -307,20 +255,13 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
       guard let timestamp = Int(lastChangedDate.replacingOccurrences(of: "\n", with: "")) else { return }
       
       if update, timestamp > UserDefaults.standard.integer(forKey: Constants.lastChangedTimestampKey.rawValue) {
-        self.downloadData()
+        self?.downloadData()
       } else {
         UserDefaults.standard.set(timestamp, forKey: Constants.lastChangedTimestampKey.rawValue)
       }
     })
     
     task.resume()
-  }
-  
-  // show error
-  func showError(withMessage message: String) {
-    let alert = UIAlertController(title: "Dodies.lv", message: message, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-    self.present(alert, animated: true, completion: nil)
   }
   
   // pass object to details view
@@ -335,4 +276,52 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     }
   }
 
+}
+
+// MARK: - Mapbox implementation
+extension MapViewController {
+  
+  func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
+    do {
+      guard let selectedPoint = annotation as? DodiesAnnotation else { return nil }
+      
+      var icon = selectedPoint.tips
+      
+      if selectedPoint.st == "parbaudits" {
+        icon = "\(icon)-active"
+      } else {
+        icon = "\(icon)-disabled"
+      }
+      
+      var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: icon)
+      
+      if annotationImage == nil, let image = UIImage(named: icon) {
+        annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: icon)
+      }
+      
+      return annotationImage
+    }
+  }
+  
+  func mapView(_ mapView: MGLMapView, rightCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
+    return UIButton.init(type: UIButtonType.infoLight)
+  }
+  
+  func mapView(_ mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
+    if let point = annotation as? DodiesAnnotation {
+      selectedPoint = point
+      
+      performSegue(withIdentifier: "details", sender: self)
+      
+      mapView.deselectAnnotation(annotation, animated: true)
+    }
+  }
+  
+  func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+    if annotation.isKind(of: DodiesAnnotation.self) {
+      return true
+    }
+    
+    return false
+  }
 }

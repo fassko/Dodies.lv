@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
       schemaVersion: 4,
       migrationBlock: { migration, oldSchemaVersion in
-        
         if oldSchemaVersion < 1 {
           migration.deleteData(forType: DodiesPoint.className())
         }
