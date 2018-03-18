@@ -78,7 +78,7 @@ class DetailsViewController: UIViewController {
     
     if let date = formatterFrom.date(from: point.dat) {
       let formatter = DateFormatter()
-      formatter.dateFormat = "mm.dd.yyyy"
+      formatter.dateFormat = "dd.MM.yyyy"
       checked.text = formatter.string(from: date)
     } else {
       checkedTitle.isHidden = true

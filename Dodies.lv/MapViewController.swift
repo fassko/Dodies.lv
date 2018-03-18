@@ -55,8 +55,8 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     }
     
     // initialize the map view
-    let styleURL = NSURL(string: "mapbox://styles/normis/cilzp6g1h00grbjlwwsh52vig")
-    mapView = MGLMapView(frame: view.bounds, styleURL: styleURL as URL?)
+    let styleURL = URL(string: "mapbox://styles/normis/cilzp6g1h00grbjlwwsh52vig")
+    mapView = MGLMapView(frame: view.bounds, styleURL: styleURL)
     mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     let swCoordinate = CLLocationCoordinate2D(latitude: 55.500, longitude: 20.500)
     let neCoordinate = CLLocationCoordinate2D(latitude: 58.500, longitude: 28.500)
@@ -257,25 +257,27 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
       
       let points = realm.objects(DodiesPoint.self)
       
-      points.forEach({
+      let mapAnnotations = points.toArray(ofType: DodiesPoint.self).map({ item -> DodiesAnnotation in
         let point = DodiesAnnotation()
         
-        point.coordinate = CLLocationCoordinate2DMake($0.longitude, $0.latitude)
-        point.title = $0.name
+        point.coordinate = CLLocationCoordinate2DMake(item.longitude, item.latitude)
+        point.title = item.name
         
-        point.name = $0.name
-        point.tips = $0.tips
-        point.st = $0.st
-        point.km = $0.km
-        point.txt = $0.txt
-        point.dat = $0.dat
-        point.img = $0.img
-        point.img2 = $0.img2
-        point.url = $0.url
+        point.name = item.name
+        point.tips = item.tips
+        point.st = item.st
+        point.km = item.km
+        point.txt = item.txt
+        point.dat = item.dat
+        point.img = item.img
+        point.img2 = item.img2
+        point.url = item.url
         
-        self.mapView.addAnnotation(point)
+        return point
       })
       
+      mapView.addAnnotations(mapAnnotations)
+
       DispatchQueue.main.async {
         SwiftSpinner.hide()
         
