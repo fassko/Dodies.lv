@@ -28,6 +28,8 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   /// Selected point
   var selectedPoint : DodiesAnnotation!
   
+  var pointDetails: DodiesPointDetails!
+  
   @IBOutlet weak var settingsButton: UIBarButtonItem!
   @IBOutlet weak var aboutButton: UIBarButtonItem!
 
@@ -126,7 +128,16 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     if let point = annotation as? DodiesAnnotation {
       selectedPoint = point
       
-      performSegue(withIdentifier: "details", sender: self)
+      DetailsProvider.getDetails(url: point.url) {[weak self] details in
+        guard let pointDetails = details else { return }
+        
+        self?.pointDetails = pointDetails
+        
+        DispatchQueue.main.async {
+          self?.performSegue(withIdentifier: "details", sender: self)
+        }
+      }
+//      performSegue(withIdentifier: "details", sender: self)
       
       mapView.deselectAnnotation(annotation, animated: true)
     }
@@ -313,10 +324,11 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   
   // pass object to details view
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "details" || segue.identifier == "detailsWithPicture" {
+    if segue.identifier == "details" {
     
       if let details: DetailsViewController = segue.destination as? DetailsViewController {
         details.point = selectedPoint
+        details.dodiesPointDetails = pointDetails
         
         selectedPoint = nil
       }

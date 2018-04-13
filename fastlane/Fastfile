@@ -68,6 +68,18 @@ platform :ios do
     )
   end
 
+  desc "Download dSYMs and upload to Testflight"
+  lane :dsyms do
+    download_dsyms(
+      platform: "ios",
+      version: "latest"
+    )
+    upload_symbols_to_crashlytics(
+      api_token: "e8586ed0363ddcd4fc38b8f3aff4d3e095de5f07"
+    )
+    clean_build_artifacts
+  end
+
   error do |lane, exception|
 
   end

@@ -63,6 +63,8 @@
 		63C322B31C836C050033CE5D /* dodies_logo_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B01C836C050033CE5D /* dodies_logo_green.png */; };
 		63C322B41C836C050033CE5D /* dodies_logo_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B11C836C050033CE5D /* dodies_logo_green@2x.png */; };
 		63C322B51C836C050033CE5D /* dodies_logo_green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B21C836C050033CE5D /* dodies_logo_green@3x.png */; };
+		63C86AC6208148C100588CE0 /* DodiesPointDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C86AC5208148C100588CE0 /* DodiesPointDetails.swift */; };
+		63C86AC8208149DD00588CE0 /* DetailsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C86AC7208149DD00588CE0 /* DetailsProvider.swift */; };
 		63CA57A51BA5F41700A9F5DC /* DodiesAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */; };
 		63CA57A71BA606B800A9F5DC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CA57A61BA606B800A9F5DC /* DetailsViewController.swift */; };
 		63F5DC681C8355BE00AEB195 /* dodies_nav_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F5DC651C8355BE00AEB195 /* dodies_nav_logo.png */; };
@@ -172,6 +174,8 @@
 		63C322B01C836C050033CE5D /* dodies_logo_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies_logo_green.png; sourceTree = "<group>"; };
 		63C322B11C836C050033CE5D /* dodies_logo_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo_green@2x.png"; sourceTree = "<group>"; };
 		63C322B21C836C050033CE5D /* dodies_logo_green@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo_green@3x.png"; sourceTree = "<group>"; };
+		63C86AC5208148C100588CE0 /* DodiesPointDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DodiesPointDetails.swift; sourceTree = "<group>"; };
+		63C86AC7208149DD00588CE0 /* DetailsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsProvider.swift; sourceTree = "<group>"; };
 		63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DodiesAnnotation.swift; sourceTree = "<group>"; };
 		63CA57A61BA606B800A9F5DC /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		63F5DC651C8355BE00AEB195 /* dodies_nav_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies_nav_logo.png; sourceTree = "<group>"; };
@@ -335,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */,
+				63C86AC5208148C100588CE0 /* DodiesPointDetails.swift */,
 				63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */,
 			);
 			name = Models;
@@ -344,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				6304EB001BA5C2C700B7CD49 /* MapViewController.swift */,
+				63C86AC7208149DD00588CE0 /* DetailsProvider.swift */,
 				63F5DC6D1C8358F200AEB195 /* AboutViewController.swift */,
 				63CA57A61BA606B800A9F5DC /* DetailsViewController.swift */,
 				638EB5101CA6FBC100FA7903 /* DescriptionViewController.swift */,
@@ -407,7 +413,6 @@
 				636EA8301BA5BDF40071397A /* Resources */,
 				63AFB8021C5E4412004A58E1 /* ShellScript */,
 				82AB2DA75AE43AF288FF62CF /* [CP] Embed Pods Frameworks */,
-				CB4E5E4E85FD07582AA18416 /* [CP] Copy Pods Resources */,
 				63EE49DB1DD78FA600E1F676 /* Embed Frameworks */,
 				63EE49DC1DD78FC700E1F676 /* ShellScript */,
 			);
@@ -626,21 +631,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CB4E5E4E85FD07582AA18416 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -657,7 +647,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C86AC8208149DD00588CE0 /* DetailsProvider.swift in Sources */,
 				636EA8361BA5BDF40071397A /* AppDelegate.swift in Sources */,
+				63C86AC6208148C100588CE0 /* DodiesPointDetails.swift in Sources */,
 				63FB43D11F8A20DF002033CE /* Extensions.swift in Sources */,
 				63CA57A51BA5F41700A9F5DC /* DodiesAnnotation.swift in Sources */,
 				63475FEC1C5CC95500A9A5E4 /* DodiesPoint.swift in Sources */,

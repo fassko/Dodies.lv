@@ -18,6 +18,7 @@ import Lightbox
 class DetailsViewController: UIViewController {
 
   var point: DodiesAnnotation!
+  var dodiesPointDetails: DodiesPointDetails!
   
   @IBOutlet weak var desc: UITextView!
   @IBOutlet weak var coordinatesButton: UIButton!
@@ -82,10 +83,10 @@ class DetailsViewController: UIViewController {
       checked.isHidden = true
     }
     
-    if point.img != "" {
+    if let detailsImage = dodiesPointDetails.image, let imgURL = URL(string: detailsImage) {
       image?.kf.indicatorType = .activity
       let processor = RoundCornerImageProcessor(cornerRadius: 10)
-      image?.kf.setImage(with: URL(string: point.img), options: [.transition(.fade(0.2)), .processor(processor)])
+      image?.kf.setImage(with: imgURL, options: [.transition(.fade(0.2)), .processor(processor)])
       
       let singleTap = UITapGestureRecognizer(target: self, action: #selector(showImage(_:)))
       singleTap.numberOfTapsRequired = 1
@@ -94,6 +95,19 @@ class DetailsViewController: UIViewController {
     } else {
       image?.isHidden = true
     }
+    
+//    if point.img != "" {
+//      image?.kf.indicatorType = .activity
+//      let processor = RoundCornerImageProcessor(cornerRadius: 10)
+//      image?.kf.setImage(with: URL(string: point.img), options: [.transition(.fade(0.2)), .processor(processor)])
+//
+//      let singleTap = UITapGestureRecognizer(target: self, action: #selector(showImage(_:)))
+//      singleTap.numberOfTapsRequired = 1
+//      image?.isUserInteractionEnabled = true
+//      image?.addGestureRecognizer(singleTap)
+//    } else {
+//      image?.isHidden = true
+//    }
     
     
   }
@@ -202,9 +216,13 @@ class DetailsViewController: UIViewController {
   
   @objc func showImage(_ sender: UITapGestureRecognizer) {
   
-    guard let imageURL = URL(string: point.img2.isEmpty ? point.img : point.img2), let pointTitle = point.title else { return }
+    guard let images = dodiesPointDetails.images, let pointTitle = point.title else { return }
+
+    let imageURLs = images.map { LightboxImage(imageURL: URL(string: $0)!, text: pointTitle) }
+    
+//    guard let imageURL = URL(string: point.img2.isEmpty ? point.img : point.img2), let pointTitle = point.title else { return }
   
-    let controller = LightboxController(images: [LightboxImage(imageURL: imageURL, text: pointTitle)])
+    let controller = LightboxController(images: imageURLs)
     controller.dynamicBackground = true
     
     present(controller, animated: true, completion: nil)
