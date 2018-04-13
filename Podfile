@@ -10,4 +10,5 @@ target 'Dodies.lv' do
   pod 'Kingfisher'
   pod 'Lightbox'
   pod 'RealmSwift'
+  pod 'SwiftLint'
 end

@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63008FE42055988A00B4869B /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63008FE32055988A00B4869B /* SnapshotHelper.swift */; };
 		6304EAFF1BA5C25900B7CD49 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6304EAFE1BA5C25900B7CD49 /* Settings.bundle */; };
 		6304EB011BA5C2C700B7CD49 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304EB001BA5C2C700B7CD49 /* MapViewController.swift */; };
 		63330EC51DCF7B8F002194A3 /* Dodies_lvUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63330EC41DCF7B8F002194A3 /* Dodies_lvUITests.swift */; };
-		63330ECD1DCF7BF0002194A3 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63330ECC1DCF7BF0002194A3 /* SnapshotHelper.swift */; };
 		63475FEC1C5CC95500A9A5E4 /* DodiesPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */; };
 		636EA8361BA5BDF40071397A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EA8351BA5BDF40071397A /* AppDelegate.swift */; };
 		636EA83D1BA5BDF40071397A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636EA83B1BA5BDF40071397A /* Main.storyboard */; };
@@ -60,6 +60,10 @@
 		63AFB7FD1C5E375D004A58E1 /* dodies@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7FA1C5E375D004A58E1 /* dodies@3x.png */; };
 		63AFB7FE1C5E375D004A58E1 /* dodies@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7FB1C5E375D004A58E1 /* dodies@2x.png */; };
 		63AFB7FF1C5E375D004A58E1 /* dodies.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7FC1C5E375D004A58E1 /* dodies.png */; };
+		63B5218F205EE13600850E41 /* FeatureCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5218E205EE13600850E41 /* FeatureCollection.swift */; };
+		63B52192205EE16400850E41 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B52191205EE16400850E41 /* Feature.swift */; };
+		63B52194205EE17A00850E41 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B52193205EE17A00850E41 /* Property.swift */; };
+		63B52196205EE18600850E41 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B52195205EE18600850E41 /* Geometry.swift */; };
 		63C322B31C836C050033CE5D /* dodies_logo_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B01C836C050033CE5D /* dodies_logo_green.png */; };
 		63C322B41C836C050033CE5D /* dodies_logo_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B11C836C050033CE5D /* dodies_logo_green@2x.png */; };
 		63C322B51C836C050033CE5D /* dodies_logo_green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B21C836C050033CE5D /* dodies_logo_green@3x.png */; };
@@ -109,6 +113,7 @@
 		327B1D6E038E71252FC315F2 /* Pods_Dodies_lv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dodies_lv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA100D0445174EEB4D06F4F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		51BD83EEEE8577C71768DA2A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		63008FE32055988A00B4869B /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		6304EAFE1BA5C25900B7CD49 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6304EB001BA5C2C700B7CD49 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		63224DB81D2AF4DA0015596F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,7 +121,6 @@
 		63330EC21DCF7B8F002194A3 /* Dodies.lvUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Dodies.lvUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63330EC41DCF7B8F002194A3 /* Dodies_lvUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dodies_lvUITests.swift; sourceTree = "<group>"; };
 		63330EC61DCF7B8F002194A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63330ECC1DCF7BF0002194A3 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DodiesPoint.swift; sourceTree = "<group>"; };
 		6356E2FC1DC5FC980072540C /* Dodies.lv.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dodies.lv.entitlements; sourceTree = "<group>"; };
 		636EA8321BA5BDF40071397A /* Dodies.lv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dodies.lv.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +173,10 @@
 		63AFB7FA1C5E375D004A58E1 /* dodies@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies@3x.png"; sourceTree = "<group>"; };
 		63AFB7FB1C5E375D004A58E1 /* dodies@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies@2x.png"; sourceTree = "<group>"; };
 		63AFB7FC1C5E375D004A58E1 /* dodies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies.png; sourceTree = "<group>"; };
+		63B5218E205EE13600850E41 /* FeatureCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCollection.swift; sourceTree = "<group>"; };
+		63B52191205EE16400850E41 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		63B52193205EE17A00850E41 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		63B52195205EE18600850E41 /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		63C322B01C836C050033CE5D /* dodies_logo_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies_logo_green.png; sourceTree = "<group>"; };
 		63C322B11C836C050033CE5D /* dodies_logo_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo_green@2x.png"; sourceTree = "<group>"; };
 		63C322B21C836C050033CE5D /* dodies_logo_green@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo_green@3x.png"; sourceTree = "<group>"; };
@@ -214,7 +222,7 @@
 		63330EC31DCF7B8F002194A3 /* Dodies.lvUITests */ = {
 			isa = PBXGroup;
 			children = (
-				63330ECC1DCF7BF0002194A3 /* SnapshotHelper.swift */,
+				63008FE32055988A00B4869B /* SnapshotHelper.swift */,
 				63330EC41DCF7B8F002194A3 /* Dodies_lvUITests.swift */,
 				63330EC61DCF7B8F002194A3 /* Info.plist */,
 			);
@@ -334,6 +342,7 @@
 		63AFB7EC1C5D29A7004A58E1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				63B52190205EE15800850E41 /* Feature */,
 				63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */,
 				63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */,
 			);
@@ -349,6 +358,17 @@
 				638EB5101CA6FBC100FA7903 /* DescriptionViewController.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		63B52190205EE15800850E41 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				63B5218E205EE13600850E41 /* FeatureCollection.swift */,
+				63B52191205EE16400850E41 /* Feature.swift */,
+				63B52193205EE17A00850E41 /* Property.swift */,
+				63B52195205EE18600850E41 /* Geometry.swift */,
+			);
+			name = Feature;
 			sourceTree = "<group>";
 		};
 		8C2F2D88B0A6E2B639989CBF /* Frameworks */ = {
@@ -405,11 +425,12 @@
 				636EA82E1BA5BDF40071397A /* Sources */,
 				636EA82F1BA5BDF40071397A /* Frameworks */,
 				636EA8301BA5BDF40071397A /* Resources */,
-				63AFB8021C5E4412004A58E1 /* ShellScript */,
 				82AB2DA75AE43AF288FF62CF /* [CP] Embed Pods Frameworks */,
 				CB4E5E4E85FD07582AA18416 /* [CP] Copy Pods Resources */,
 				63EE49DB1DD78FA600E1F676 /* Embed Frameworks */,
 				63EE49DC1DD78FC700E1F676 /* ShellScript */,
+				63008FE22055972E00B4869B /* Swiftlint */,
+				63AFB8021C5E4412004A58E1 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -562,13 +583,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		63AFB8021C5E4412004A58E1 /* ShellScript */ = {
+		63008FE22055972E00B4869B /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    \"${PODS_ROOT}/SwiftLint/swiftlint\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		63AFB8021C5E4412004A58E1 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -649,7 +685,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63330EC51DCF7B8F002194A3 /* Dodies_lvUITests.swift in Sources */,
-				63330ECD1DCF7BF0002194A3 /* SnapshotHelper.swift in Sources */,
+				63008FE42055988A00B4869B /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,8 +697,12 @@
 				63FB43D11F8A20DF002033CE /* Extensions.swift in Sources */,
 				63CA57A51BA5F41700A9F5DC /* DodiesAnnotation.swift in Sources */,
 				63475FEC1C5CC95500A9A5E4 /* DodiesPoint.swift in Sources */,
+				63B52196205EE18600850E41 /* Geometry.swift in Sources */,
 				63F5DC6E1C8358F200AEB195 /* AboutViewController.swift in Sources */,
+				63B52192205EE16400850E41 /* Feature.swift in Sources */,
+				63B52194205EE17A00850E41 /* Property.swift in Sources */,
 				63CA57A71BA606B800A9F5DC /* DetailsViewController.swift in Sources */,
+				63B5218F205EE13600850E41 /* FeatureCollection.swift in Sources */,
 				638EB5111CA6FBC100FA7903 /* DescriptionViewController.swift in Sources */,
 				6304EB011BA5C2C700B7CD49 /* MapViewController.swift in Sources */,
 				63A1D5731F89704200DA6132 /* Constants.swift in Sources */,
@@ -774,7 +814,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.7.180108.2219;
+				CURRENT_PROJECT_VERSION = 1.8.180318.2052;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -830,7 +870,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.7.180108.2219;
+				CURRENT_PROJECT_VERSION = 1.8.180318.2052;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -865,6 +905,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3SGNZQGS68;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
