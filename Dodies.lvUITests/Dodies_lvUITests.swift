@@ -8,7 +8,7 @@
 
 import XCTest
 
-class Dodies_lvUITests: XCTestCase {
+class DodiesLVUITests: XCTestCase {
         
   override func setUp() {
     super.setUp()

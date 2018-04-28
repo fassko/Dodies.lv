@@ -41,28 +41,24 @@ class DetailsViewController: UIViewController {
     checkedTitle.text = "Checked".localized()
     lengthTitle.text = "Length".localized()
     
-    let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width - 120, height: 44))
-    titleLabel.backgroundColor = UIColor.clear
-    titleLabel.font = UIFont(name: "HelveticaNeue-Medium",  size: 18)
-    titleLabel.textAlignment = NSTextAlignment.center
-    titleLabel.text = self.title
-    titleLabel.textColor = UIColor.white
-    titleLabel.adjustsFontSizeToFitWidth = true
-    
     self.navigationItem.titleView = titleLabel
+    
+    image?.layer.cornerRadius = 10
     
     desc.isScrollEnabled = false
     desc.text = point.txt
     
     desc.sizeToFit()
     desc.layoutIfNeeded()
-    descHeight.constant = desc.sizeThatFits(CGSize(width: desc.frame.size.width, height: CGFloat.greatestFiniteMagnitude)).height
+    descHeight.constant = desc.sizeThatFits(CGSize(width: desc.frame.size.width,
+                                                   height: CGFloat.greatestFiniteMagnitude)).height
     
-
     self.automaticallyAdjustsScrollViewInsets = false
     
-    coordinatesButton.setTitle("\(String(format: "%.5f",point.coordinate.latitude)), \(String(format: "%.5f",point.coordinate.longitude))", for: UIControlState.normal)
-    
+    let latitude = String(format: "%.5f", point.coordinate.latitude)
+    let longitude = String(format: "%.5f", point.coordinate.longitude)
+    coordinatesButton.setTitle("\(latitude), \(longitude)",
+      for: UIControlState.normal)
     
     if point.km == "" {
       lenght.isHidden = true
@@ -72,11 +68,11 @@ class DetailsViewController: UIViewController {
     }
     
     let formatterFrom = DateFormatter()
-    formatterFrom.dateFormat = "yyyy-MM-dd"
+    formatterFrom.dateFormat = "yyyy-MM-dd HH:mm:ss"
     
     if let date = formatterFrom.date(from: point.dat) {
       let formatter = DateFormatter()
-      formatter.dateFormat = "mm.dd.yyyy"
+      formatter.dateFormat = "dd.MM.yyyy"
       checked.text = formatter.string(from: date)
     } else {
       checkedTitle.isHidden = true
@@ -87,7 +83,7 @@ class DetailsViewController: UIViewController {
       image?.kf.indicatorType = .activity
       let processor = RoundCornerImageProcessor(cornerRadius: 10)
       image?.kf.setImage(with: imgURL, options: [.transition(.fade(0.2)), .processor(processor)])
-      
+
       let singleTap = UITapGestureRecognizer(target: self, action: #selector(showImage(_:)))
       singleTap.numberOfTapsRequired = 1
       image?.isUserInteractionEnabled = true
@@ -95,21 +91,6 @@ class DetailsViewController: UIViewController {
     } else {
       image?.isHidden = true
     }
-    
-//    if point.img != "" {
-//      image?.kf.indicatorType = .activity
-//      let processor = RoundCornerImageProcessor(cornerRadius: 10)
-//      image?.kf.setImage(with: URL(string: point.img), options: [.transition(.fade(0.2)), .processor(processor)])
-//
-//      let singleTap = UITapGestureRecognizer(target: self, action: #selector(showImage(_:)))
-//      singleTap.numberOfTapsRequired = 1
-//      image?.isUserInteractionEnabled = true
-//      image?.addGestureRecognizer(singleTap)
-//    } else {
-//      image?.isHidden = true
-//    }
-    
-    
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -127,7 +108,9 @@ class DetailsViewController: UIViewController {
     if !point.url.isEmpty {
       performSegue(withIdentifier: "showDescription", sender: self)
     } else {
-      let alert = UIAlertController(title: "Dodies.lv", message: "Sorry, but description isn't ready yet.".localized(), preferredStyle: .alert)
+      let alert = UIAlertController(title: "Dodies.lv",
+                                    message: "Sorry, but description isn't ready yet.".localized(),
+                                    preferredStyle: .alert)
       alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
       self.present(alert, animated: true, completion: nil)
     }
@@ -138,47 +121,42 @@ class DetailsViewController: UIViewController {
     
     optionMenu.popoverPresentationController?.sourceView = coordinatesButton
     
-    let copy = UIAlertAction(title: "Copy coordiantes".localized(), style: .default, handler: {
-      (alert: UIAlertAction!) -> Void in
-        let pasteboard:UIPasteboard = UIPasteboard.general
-        pasteboard.string = "\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)"
-    })
+    let copy = UIAlertAction(title: "Copy coordiantes".localized(), style: .default) { _ in
+      let pasteboard = UIPasteboard.general
+      pasteboard.string = "\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)"
+    }
 
-    let apple = UIAlertAction(title: "Apple Maps", style: .default, handler: {
-      (alert: UIAlertAction!) -> Void in
-        let u = "http://maps.apple.com/?daddr=\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)"
-        UIApplication.shared.openURL(NSURL(string: u)! as URL)
-    })
+    let apple = UIAlertAction(title: "Apple Maps", style: .default) { _ in
+      let path = "http://maps.apple.com/?daddr=\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)"
+      UIApplication.shared.openURL(URL(string: path)!)
+    }
+    
+    let latitude = point.coordinate.latitude
+    let longitude = point.coordinate.longitude
 
-    let google = UIAlertAction(title: "Google Maps", style: .default, handler: {
-      (alert: UIAlertAction!) -> Void in
+    let google = UIAlertAction(title: "Google Maps", style: .default) { _ in
+      if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
+        UIApplication.shared.openURL(URL(string:
+              "comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving")!)
 
-        if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
-          UIApplication.shared.openURL(NSURL(string:
-                "comgooglemaps://?saddr=&daddr=\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)&directionsmode=driving")! as URL)
+      } else {
+        let link = "http://itunes.apple.com/us/app/id585027354"
+        UIApplication.shared.openURL(URL(string: link)!)
+        UIApplication.shared.isIdleTimerDisabled = true
+      }
+    }
 
-        } else {
-          let link = "http://itunes.apple.com/us/app/id585027354"
-          UIApplication.shared.openURL(NSURL(string: link)! as URL)
-          UIApplication.shared.isIdleTimerDisabled = true
-        }
-    })
+    let waze = UIAlertAction(title: "Waze", style: .default) { _ in
+      if UIApplication.shared.canOpenURL(URL(string: "waze://")!) {
+        UIApplication.shared.openURL(URL(string: "waze://?ll=\(latitude),\(longitude)&navigate=yes")!)
+        UIApplication.shared.isIdleTimerDisabled = true
+      } else {
+        UIApplication.shared.openURL(NSURL(string: "http://itunes.apple.com/us/app/id323229106")! as URL)
+        UIApplication.shared.isIdleTimerDisabled = true
+      }
+    }
 
-    let waze = UIAlertAction(title: "Waze", style: .default, handler: {
-      (alert: UIAlertAction!) -> Void in
-
-        if UIApplication.shared.canOpenURL(NSURL(string: "waze://")! as URL) {
-            UIApplication.shared.openURL(NSURL(string: "waze://?ll=\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)&navigate=yes")! as URL)
-            UIApplication.shared.isIdleTimerDisabled = true
-        } else {
-            UIApplication.shared.openURL(NSURL(string: "http://itunes.apple.com/us/app/id323229106")! as URL)
-            UIApplication.shared.isIdleTimerDisabled = true
-        }
-    })
-
-    let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: {
-      (alert: UIAlertAction!) -> Void in
-    })
+    let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel)
     
     optionMenu.addAction(copy)
     optionMenu.addAction(apple)

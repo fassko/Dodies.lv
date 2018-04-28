@@ -11,11 +11,8 @@ import Foundation
 /// Dodies point details
 struct DodiesPointDetails: Codable {
   
-  /// Image
-  let image: String?
-  
   /// Title
-  let title: String
+  let title: String?
   
   /// Description
   let description: String
@@ -24,9 +21,14 @@ struct DodiesPointDetails: Codable {
   let images: [String]?
   
   enum CodingKeys: String, CodingKey {
-    case image
     case title
     case description = "desc-short"
     case images
+  }
+}
+
+extension DodiesPointDetails {
+  var image: String? {
+    return images?.first
   }
 }

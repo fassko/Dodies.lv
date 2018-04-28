@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct DetailsProvider {
+enum DetailsProvider {
   
-  static func getDetails(url: String, completion: @escaping (DodiesPointDetails?) -> Void) {
+  static func getFor(_ url: String, completion: @escaping (DodiesPointDetails?) -> Void) {
     
-    let url = URL(string: "http://dodies.lv\(url)?json=1")!
-    
+    guard let url = URL(string: "https://dodies.lv\(url)?json=1") else { return }
+
     URLSession.shared.dataTask(with: url) { data, _, error in
       if let error = error {
         print(error)

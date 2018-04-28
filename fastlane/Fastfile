@@ -2,21 +2,18 @@ update_fastlane
 default_platform :ios
 
 platform :ios do
-  # before_all do
-  #   cocoapods
-  # end
 
   desc "Runs all the tests"
   lane :test do
 
   end
-  
+
   desc "Certs"
   lane :certificates do
     match(type: "appstore")
     match(type: "development")
   end
-  
+
   lane :register_test_devices do
     register_devices(
       devices: {
@@ -24,20 +21,20 @@ platform :ios do
       }
     )
   end
-  
+
   desc "CI build"
   lane :ci_build do
     # certificates
-    
+
     # Test
     scan(
       workspace: "Dodies.lv.xcworkspace",
 			scheme: "Dodies.lv",
 			clean: true,
       devices: ["iPhone X", "iPad (5th generation)"]
-    ) 
+    )
   end
-  
+
   desc "Circle CI lane"
   lane :circleci do
     setup_circle_ci
@@ -62,16 +59,32 @@ platform :ios do
       output_name: "Dodies.lv.ipa",
       include_symbols: true
     )
-    
+
     testflight(
       skip_waiting_for_build_processing: true
     )
   end
 
+  desc "Deploy a new version to the App Store"
+  lane :release_github do
+    ensure_git_branch
+    version = get_version_number
+    changelog = changelog_from_git_commits(merge_commit_filtering: "exclude_merges")
+
+    github_release = set_github_release(
+      repository_name: "fassko/Dodies.lv",
+      api_token: ENV['GITHUB_TOKEN'],
+      name: version,
+      tag_name: version,
+      description: changelog,
+      commitish: "master"
+    )
+    sh("git fetch --tags")
+  end
+
   desc "Download dSYMs and upload to Testflight"
   lane :dsyms do
     download_dsyms(
-      platform: "ios",
       version: "latest"
     )
     upload_symbols_to_crashlytics(

@@ -1,0 +1,18 @@
+included:
+  - Dodies.lv
+  - Dodies.lvUITests
+excluded:
+  - Pods
+
+
+identifier_name:
+  excluded: # excluded via string array
+    - id
+    - URL
+    - st
+    - km
+
+disabled_rules:
+  - trailing_whitespace
+
+reporter: "xcode"
