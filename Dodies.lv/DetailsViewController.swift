@@ -15,7 +15,7 @@ import Kingfisher
 import Localize_Swift
 import Lightbox
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, Storyboarded {
 
   var point: DodiesAnnotation!
   var dodiesPointDetails: DodiesPointDetails!
@@ -42,8 +42,6 @@ class DetailsViewController: UIViewController {
     lengthTitle.text = "Length".localized()
     
     self.navigationItem.titleView = titleLabel
-    
-    image?.layer.cornerRadius = 10
     
     desc.isScrollEnabled = false
     desc.text = point.txt
@@ -81,10 +79,11 @@ class DetailsViewController: UIViewController {
     
     if let detailsImage = dodiesPointDetails.image, let imgURL = URL(string: detailsImage) {
       image?.kf.indicatorType = .activity
-      let processor = RoundCornerImageProcessor(cornerRadius: 10)
+      
+      let processor = RoundCornerImageProcessor(cornerRadius: 50)
       image?.kf.setImage(with: imgURL, options: [.transition(.fade(0.2)), .processor(processor)])
 
-      let singleTap = UITapGestureRecognizer(target: self, action: #selector(showImage(_:)))
+      let singleTap = UITapGestureRecognizer(target: self, action: #selector(showGallery(_:)))
       singleTap.numberOfTapsRequired = 1
       image?.isUserInteractionEnabled = true
       image?.addGestureRecognizer(singleTap)
@@ -169,7 +168,7 @@ class DetailsViewController: UIViewController {
   
   // pass object to details view
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "showDescription" {
+    if segue.identifier == StoryboardSegue.Main.showDescription.rawValue {
     
       if let description: DescriptionViewController = segue.destination as? DescriptionViewController {
         navigationItem.title = ""
@@ -192,18 +191,19 @@ class DetailsViewController: UIViewController {
     descHeight.constant = size.height + insets.top + insets.bottom
   }
   
-  @objc func showImage(_ sender: UITapGestureRecognizer) {
+  @objc func showGallery(_ sender: UITapGestureRecognizer) {
   
     guard let images = dodiesPointDetails.images, let pointTitle = point.title else { return }
 
-    let imageURLs = images.map { LightboxImage(imageURL: URL(string: $0)!, text: pointTitle) }
-    
-//    guard let imageURL = URL(string: point.img2.isEmpty ? point.img : point.img2), let pointTitle = point.title else { return }
+    LightboxConfig.CloseButton.text = "Close".localized()
+    let imageURLs = images.map {
+      LightboxImage(imageURL: URL(string: $0)!, text: pointTitle)
+    }
   
-    let controller = LightboxController(images: imageURLs)
-    controller.dynamicBackground = true
+    let lightbox = LightboxController(images: imageURLs)
+    lightbox.dynamicBackground = true
     
-    present(controller, animated: true, completion: nil)
+    present(lightbox, animated: true, completion: nil)
   }
   
 }

@@ -13,6 +13,10 @@
 		6326106820910C2700996FE8 /* MapViewController+MapBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326106720910C2700996FE8 /* MapViewController+MapBox.swift */; };
 		63330EC51DCF7B8F002194A3 /* Dodies_lvUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63330EC41DCF7B8F002194A3 /* Dodies_lvUITests.swift */; };
 		63475FEC1C5CC95500A9A5E4 /* DodiesPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */; };
+		634DABBC20950700003AB312 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634DABBB20950700003AB312 /* Storyboards.swift */; };
+		634DABBE20950905003AB312 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634DABBD20950905003AB312 /* Coordinator.swift */; };
+		634DABC02095093D003AB312 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634DABBF2095093D003AB312 /* Storyboarded.swift */; };
+		634DABC220950A2F003AB312 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634DABC120950A2F003AB312 /* MainCoordinator.swift */; };
 		636EA8361BA5BDF40071397A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EA8351BA5BDF40071397A /* AppDelegate.swift */; };
 		636EA83D1BA5BDF40071397A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636EA83B1BA5BDF40071397A /* Main.storyboard */; };
 		636EA8421BA5BDF40071397A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636EA8401BA5BDF40071397A /* LaunchScreen.storyboard */; };
@@ -126,6 +130,10 @@
 		63330EC41DCF7B8F002194A3 /* Dodies_lvUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dodies_lvUITests.swift; sourceTree = "<group>"; };
 		63330EC61DCF7B8F002194A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DodiesPoint.swift; sourceTree = "<group>"; };
+		634DABBB20950700003AB312 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		634DABBD20950905003AB312 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		634DABBF2095093D003AB312 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		634DABC120950A2F003AB312 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		6356E2FC1DC5FC980072540C /* Dodies.lv.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dodies.lv.entitlements; sourceTree = "<group>"; };
 		636EA8321BA5BDF40071397A /* Dodies.lv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dodies.lv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		636EA8351BA5BDF40071397A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -270,8 +278,12 @@
 			children = (
 				6356E2FC1DC5FC980072540C /* Dodies.lv.entitlements */,
 				636EA8351BA5BDF40071397A /* AppDelegate.swift */,
+				634DABBD20950905003AB312 /* Coordinator.swift */,
+				634DABC120950A2F003AB312 /* MainCoordinator.swift */,
+				634DABBF2095093D003AB312 /* Storyboarded.swift */,
 				63A1D5721F89704200DA6132 /* Constants.swift */,
 				63FB43D01F8A20DF002033CE /* Extensions.swift */,
+				634DABBB20950700003AB312 /* Storyboards.swift */,
 				63AFB7ED1C5D29B4004A58E1 /* Views */,
 				63AFB7EC1C5D29A7004A58E1 /* Models */,
 				636EA8431BA5BDF40071397A /* Info.plist */,
@@ -439,6 +451,7 @@
 				63EE49DC1DD78FC700E1F676 /* ShellScript */,
 				63008FE22055972E00B4869B /* Swiftlint */,
 				63AFB8021C5E4412004A58E1 /* Fabric */,
+				634DABBA20950481003AB312 /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -605,6 +618,20 @@
 			shellPath = /bin/sh;
 			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    \"${PODS_ROOT}/SwiftLint/swiftlint\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
+		634DABBA20950481003AB312 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which $PODS_ROOT/SwiftGen/bin/swiftgen >/dev/null; then\n$PODS_ROOT/SwiftGen/bin/swiftgen storyboards \"$PROJECT_DIR\" -t swift4 --output \"$PROJECT_DIR/Dodies.lv/Storyboards.swift\"\nelse\n    echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi";
+		};
 		63AFB8021C5E4412004A58E1 /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -693,14 +720,18 @@
 				63CA57A51BA5F41700A9F5DC /* DodiesAnnotation.swift in Sources */,
 				63475FEC1C5CC95500A9A5E4 /* DodiesPoint.swift in Sources */,
 				63B52196205EE18600850E41 /* Geometry.swift in Sources */,
+				634DABBC20950700003AB312 /* Storyboards.swift in Sources */,
+				634DABBE20950905003AB312 /* Coordinator.swift in Sources */,
 				63F5DC6E1C8358F200AEB195 /* AboutViewController.swift in Sources */,
 				6326106820910C2700996FE8 /* MapViewController+MapBox.swift in Sources */,
 				63B52192205EE16400850E41 /* Feature.swift in Sources */,
 				63B52194205EE17A00850E41 /* Property.swift in Sources */,
+				634DABC220950A2F003AB312 /* MainCoordinator.swift in Sources */,
 				63CA57A71BA606B800A9F5DC /* DetailsViewController.swift in Sources */,
 				63B5218F205EE13600850E41 /* FeatureCollection.swift in Sources */,
 				638EB5111CA6FBC100FA7903 /* DescriptionViewController.swift in Sources */,
 				6304EB011BA5C2C700B7CD49 /* MapViewController.swift in Sources */,
+				634DABC02095093D003AB312 /* Storyboarded.swift in Sources */,
 				63A1D5731F89704200DA6132 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

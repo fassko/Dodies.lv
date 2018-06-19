@@ -40,7 +40,10 @@ extension MapViewController {
         self?.pointDetails = pointDetails
         
         DispatchQueue.main.async {
-          self?.performSegue(withIdentifier: "details", sender: self)
+          guard let point = self?.selectedPoint else { return }
+          
+          self?.coordinator?.showDetails(point: point, details: pointDetails)
+          self?.selectedPoint = nil
         }
       }
       

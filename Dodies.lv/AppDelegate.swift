@@ -16,6 +16,7 @@ import RealmSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
+  var coordinator: MainCoordinator?
   
   func application(_ application: UIApplication,
                    willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
@@ -33,6 +34,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     } catch {
       print("Can't load Realm")
     }
+    
+    let navController = UINavigationController()
+    navController.navigationBar.barTintColor = UIColor(red: 0.42, green: 0.60, blue: 0.23, alpha: 1.0)
+    navController.navigationBar.tintColor = .white
+    
+    coordinator = MainCoordinator(navigationController: navController)
+    coordinator?.start()
+    
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window?.rootViewController = navController
+    window?.makeKeyAndVisible()
     
     return true
   }

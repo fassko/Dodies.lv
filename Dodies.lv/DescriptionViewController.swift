@@ -11,7 +11,7 @@ import Foundation
 
 import Crashlytics
 
-class DescriptionViewController: UIViewController {
+class DescriptionViewController: UIViewController, Storyboarded {
 
   var point: DodiesAnnotation?
 

@@ -17,7 +17,9 @@ import Crashlytics
 import Localize_Swift
 import SwiftSpinner
 
-class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate, Storyboarded {
+  
+  weak var coordinator: MainCoordinator?
 
   /// Map View
   var mapView: MGLMapView!
@@ -29,9 +31,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   var selectedPoint: DodiesAnnotation!
   
   var pointDetails: DodiesPointDetails!
-  
-  @IBOutlet weak var settingsButton: UIBarButtonItem!
-  @IBOutlet weak var aboutButton: UIBarButtonItem!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -46,8 +45,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     
     NotificationCenter.default.addObserver(self, selector: #selector(setUpButtons),
                                            name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
-    
-    setUpButtons()
     
     navigationItem.titleView = UIImageView(image: UIImage(named: "dodies_nav_logo"))
     
@@ -88,12 +85,24 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     } catch {
       print("Can't load points from Realm")
     }
+    
+    let aboutButton = UIBarButtonItem(title: "About".localized(),
+                                      style: .plain,
+                                      target: self,
+                                      action: #selector(about(sender:)))
+    navigationItem.rightBarButtonItem = aboutButton
+    
+    let settingsButton = UIBarButtonItem(title: "Settings".localized(),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(setLanguage(sender:)))
+    navigationItem.leftBarButtonItem = settingsButton
   }
   
   @objc func setUpButtons() {
     title = "Map".localized()
-    settingsButton.title = "Settings".localized()
-    aboutButton.title = "About".localized()
+    navigationItem.leftBarButtonItem?.title = "Settings".localized()
+    navigationItem.rightBarButtonItem?.title = "About".localized()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -101,12 +110,16 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   }
   
   // MARK: - Interface methods
+  @IBAction func about(sender: AnyObject) {
+    coordinator?.showAbout()
+  }
+  
   @IBAction func setLanguage(sender: AnyObject) {
     let actionSheet = UIAlertController(title: "Change language".localized(),
                                         message: "Please select language".localized(),
                                         preferredStyle: .actionSheet)
     
-    actionSheet.popoverPresentationController?.barButtonItem = settingsButton
+    actionSheet.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
 
     let cancelActionButton = UIAlertAction(title: "Cancel".localized(), style: .cancel)
     actionSheet.addAction(cancelActionButton)
@@ -212,7 +225,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     do {
       let realm = try Realm()
       
-      let points = realm.objects(DodiesPoint.self).filter("st = 'parbaudits'")
+      let points = realm.objects(DodiesPoint.self).filter("st = 'parbaudits'").filter("name = 'Aklā purva taka'")
       
       let mapAnnotations = points.toArray(type: DodiesPoint.self).map({ item -> DodiesAnnotation in
         let point = DodiesAnnotation(latitude: item.latitude, longitude: item.longitude,
@@ -264,18 +277,5 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     })
     
     task.resume()
-  }
-  
-  // pass object to details view
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "details" {
-    
-      if let details: DetailsViewController = segue.destination as? DetailsViewController {
-        details.point = selectedPoint
-        details.dodiesPointDetails = pointDetails
-        
-        selectedPoint = nil
-      }
-    }
   }
 }
