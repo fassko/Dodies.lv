@@ -5,27 +5,17 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: update_fastlane" time="2.869437">
+      <testcase classname="fastlane.lanes" name="0: update_fastlane" time="1.967835">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.001397">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.00104">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: download_dsyms" time="24.075098">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="3: upload_symbols_to_crashlytics" time="26.48557">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="4: clean_build_artifacts" time="0.001633">
+      <testcase classname="fastlane.lanes" name="2: xcodebuild" time="148.272453">
         
       </testcase>
     

@@ -51,6 +51,11 @@ Travis lane
 fastlane ios release
 ```
 
+### ios release_github
+```
+fastlane ios release_github
+```
+Deploy a new version to the App Store
 ### ios dsyms
 ```
 fastlane ios dsyms
