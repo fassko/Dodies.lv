@@ -48,3 +48,13 @@ class DodiesAnnotation: MGLPointAnnotation {
     fatalError("init(coder:) has not been implemented")
   }
 }
+
+extension DodiesAnnotation {
+  var icon: String {
+    if st == "parbaudits" {
+      return "\(tips)-active"
+    } else {
+      return "\(tips)-disabled"
+    }
+  }
+}

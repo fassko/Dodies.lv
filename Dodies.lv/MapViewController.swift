@@ -17,7 +17,9 @@ import Crashlytics
 import Localize_Swift
 import SwiftSpinner
 
-class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate, Storyboarded {
+  
+  weak var coordinator: MainCoordinator?
 
   /// Map View
   var mapView: MGLMapView!
@@ -28,8 +30,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   /// Selected point
   var selectedPoint: DodiesAnnotation!
   
-  @IBOutlet weak var settingsButton: UIBarButtonItem!
-  @IBOutlet weak var aboutButton: UIBarButtonItem!
+  var pointDetails: DodiesPointDetails!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,8 +46,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     NotificationCenter.default.addObserver(self, selector: #selector(setUpButtons),
                                            name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
     
-    setUpButtons()
-    
     navigationItem.titleView = UIImageView(image: UIImage(named: "dodies_nav_logo"))
     
     // ask user to allow location access
@@ -54,19 +53,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
       locationManager.requestWhenInUseAuthorization()
     }
     
-    // initialize the map view
-    let styleURL = URL(string: "mapbox://styles/normis/cilzp6g1h00grbjlwwsh52vig")
-    mapView = MGLMapView(frame: view.bounds, styleURL: styleURL)
-    mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    let swCoordinate = CLLocationCoordinate2D(latitude: 55.500, longitude: 20.500)
-    let neCoordinate = CLLocationCoordinate2D(latitude: 58.500, longitude: 28.500)
-    let visibleCoordinateBounds = MGLCoordinateBounds(sw: swCoordinate, ne: neCoordinate)
-    mapView.setVisibleCoordinateBounds(visibleCoordinateBounds, animated: false)
-    mapView.delegate = self
-    mapView.showsUserLocation = true
-    mapView.isRotateEnabled = false
-    mapView.attributionButton.isHidden = true
-    view.addSubview(mapView)
+    setUpMapView()
     
     // show loading view
     SwiftSpinner.setTitleFont(UIFont(name: "HelveticaNeue", size: 18)!)
@@ -86,12 +73,40 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     } catch {
       print("Can't load points from Realm")
     }
+    
+    let aboutButton = UIBarButtonItem(title: "About".localized(),
+                                      style: .plain,
+                                      target: self,
+                                      action: #selector(about(sender:)))
+    navigationItem.rightBarButtonItem = aboutButton
+    
+    let settingsButton = UIBarButtonItem(title: "Settings".localized(),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(setLanguage(sender:)))
+    navigationItem.leftBarButtonItem = settingsButton
+  }
+  
+  private func setUpMapView() {
+    // initialize the map view
+    let styleURL = URL(string: "mapbox://styles/normis/cilzp6g1h00grbjlwwsh52vig")
+    mapView = MGLMapView(frame: view.bounds, styleURL: styleURL)
+    mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    let swCoordinate = CLLocationCoordinate2D(latitude: 55.500, longitude: 20.500)
+    let neCoordinate = CLLocationCoordinate2D(latitude: 58.500, longitude: 28.500)
+    let visibleCoordinateBounds = MGLCoordinateBounds(sw: swCoordinate, ne: neCoordinate)
+    mapView.setVisibleCoordinateBounds(visibleCoordinateBounds, animated: false)
+    mapView.delegate = self
+    mapView.showsUserLocation = true
+    mapView.isRotateEnabled = false
+    mapView.attributionButton.isHidden = true
+    view.addSubview(mapView)
   }
   
   @objc func setUpButtons() {
     title = "Map".localized()
-    settingsButton.title = "Settings".localized()
-    aboutButton.title = "About".localized()
+    navigationItem.leftBarButtonItem?.title = "Settings".localized()
+    navigationItem.rightBarButtonItem?.title = "About".localized()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -99,12 +114,16 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   }
   
   // MARK: - Interface methods
+  @IBAction func about(sender: AnyObject) {
+    coordinator?.showAbout()
+  }
+  
   @IBAction func setLanguage(sender: AnyObject) {
     let actionSheet = UIAlertController(title: "Change language".localized(),
                                         message: "Please select language".localized(),
                                         preferredStyle: .actionSheet)
     
-    actionSheet.popoverPresentationController?.barButtonItem = settingsButton
+    actionSheet.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
 
     let cancelActionButton = UIAlertAction(title: "Cancel".localized(), style: .cancel)
     actionSheet.addAction(cancelActionButton)
@@ -211,6 +230,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
       let realm = try Realm()
       
       let points = realm.objects(DodiesPoint.self)
+      //.filter("st = 'parbaudits'").filter("name = 'Aklā purva taka'")
       
       let mapAnnotations = points.toArray(type: DodiesPoint.self).map({ item -> DodiesAnnotation in
         let point = DodiesAnnotation(latitude: item.latitude, longitude: item.longitude,
@@ -262,66 +282,5 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     })
     
     task.resume()
-  }
-  
-  // pass object to details view
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "details" || segue.identifier == "detailsWithPicture" {
-    
-      if let details: DetailsViewController = segue.destination as? DetailsViewController {
-        details.point = selectedPoint
-        
-        selectedPoint = nil
-      }
-    }
-  }
-
-}
-
-// MARK: - Mapbox implementation
-extension MapViewController {
-  
-  func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
-    do {
-      guard let selectedPoint = annotation as? DodiesAnnotation else { return nil }
-      
-      var icon = selectedPoint.tips
-      
-      if selectedPoint.st == "parbaudits" {
-        icon = "\(icon)-active"
-      } else {
-        icon = "\(icon)-disabled"
-      }
-      
-      var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: icon)
-      
-      if annotationImage == nil, let image = UIImage(named: icon) {
-        annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: icon)
-      }
-      
-      return annotationImage
-    }
-  }
-  
-  func mapView(_ mapView: MGLMapView, rightCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
-    return UIButton.init(type: UIButtonType.infoLight)
-  }
-  
-  func mapView(_ mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
-    if let point = annotation as? DodiesAnnotation {
-      selectedPoint = point
-      
-      performSegue(withIdentifier: "details", sender: self)
-      
-      mapView.deselectAnnotation(annotation, animated: true)
-    }
-  }
-  
-  func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-    if annotation.isKind(of: DodiesAnnotation.self) {
-      return true
-    }
-    
-    return false
   }
 }

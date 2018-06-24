@@ -1,47 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2ne-Pp-ydF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue-Medium</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Map-->
         <scene sceneID="Y8y-QB-Xur">
             <objects>
-                <viewController title="Map" id="ExX-va-15z" customClass="MapViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" title="Map" id="ExX-va-15z" customClass="MapViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MBT-y7-dyg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="UET-gh-G5d"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Nym-8i-f2e">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="AWE-G6-IA6">
-                            <connections>
-                                <action selector="setLanguageWithSender:" destination="ExX-va-15z" id="JJN-NI-bue"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="About" id="bQT-ha-IYa">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="WI0-B1-khR" kind="show" id="1qd-ok-JBP"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Nym-8i-f2e"/>
                     <connections>
-                        <outlet property="aboutButton" destination="bQT-ha-IYa" id="H1R-VE-jah"/>
-                        <outlet property="settingsButton" destination="AWE-G6-IA6" id="aCP-X6-Jnh"/>
                         <segue destination="OhH-yB-PB6" kind="show" identifier="details" id="qrl-ZH-Io7"/>
                     </connections>
                 </viewController>
@@ -52,13 +32,13 @@
         <!--About View Controller-->
         <scene sceneID="WE0-zS-N8J">
             <objects>
-                <viewController id="WI0-B1-khR" customClass="AboutViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutViewController" id="WI0-B1-khR" customClass="AboutViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3YZ-LH-glU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGn-JU-jG9">
-                                <rect key="frame" x="20" y="84" width="374" height="632"/>
+                                <rect key="frame" x="20" y="40" width="374" height="676"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Dodies.lv is a collection of free nature trails, hiking paths, birdwatching towers and picnic places in Latvia. 
 Would you like to spend some time in Latvian nature, make a fire, stay in a tent? Our map contains freely accessible places closer to nature, available at any time for anyone.  
@@ -113,41 +93,10 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
             </objects>
             <point key="canvasLocation" x="-52" y="-362"/>
         </scene>
-        <!--Description View Controller-->
-        <scene sceneID="g3c-qt-zin">
-            <objects>
-                <viewController id="Oe3-0f-KPq" customClass="DescriptionViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="k7G-xD-yNl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wml-tv-9HU">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="wml-tv-9HU" firstAttribute="leading" secondItem="B3h-wJ-fsu" secondAttribute="leading" id="0AL-CG-ntg"/>
-                            <constraint firstItem="wml-tv-9HU" firstAttribute="bottom" secondItem="k7G-xD-yNl" secondAttribute="bottom" id="DXi-tO-0pQ"/>
-                            <constraint firstItem="wml-tv-9HU" firstAttribute="top" secondItem="B3h-wJ-fsu" secondAttribute="top" id="abO-cR-ylb"/>
-                            <constraint firstItem="wml-tv-9HU" firstAttribute="trailing" secondItem="B3h-wJ-fsu" secondAttribute="trailing" id="npr-9z-EPI"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="B3h-wJ-fsu"/>
-                    </view>
-                    <connections>
-                        <outlet property="descriptionWebView" destination="wml-tv-9HU" id="5eS-rY-8OK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9nZ-Hz-D5A" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2380" y="-362"/>
-        </scene>
         <!--Details View Controller-->
         <scene sceneID="Shr-GK-ODT">
             <objects>
-                <viewController id="OhH-yB-PB6" customClass="DetailsViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" id="OhH-yB-PB6" customClass="DetailsViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hKQ-HV-Qt4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -156,7 +105,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="y5U-FN-NYu">
-                                        <rect key="frame" x="20" y="20" width="374" height="410"/>
+                                        <rect key="frame" x="20" y="20" width="374" height="390"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZjF-Fo-wlD">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="180"/>
@@ -175,10 +124,10 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GEa-ga-V2u">
-                                                <rect key="frame" x="0.0" y="300" width="374" height="110"/>
+                                                <rect key="frame" x="0.0" y="300" width="374" height="90"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6b6-gs-tBW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="110"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6b6-gs-tBW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="90"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Vw7-kb-Vh7">
                                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
@@ -191,13 +140,13 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KLv-1y-xYh">
-                                                                <rect key="frame" x="0.0" y="40" width="75" height="30"/>
+                                                                <rect key="frame" x="0.0" y="30" width="75" height="30"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nun-25-ZGM">
-                                                                <rect key="frame" x="0.0" y="80" width="75" height="30"/>
+                                                                <rect key="frame" x="0.0" y="60" width="75" height="30"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -210,8 +159,8 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                                             <constraint firstItem="nun-25-ZGM" firstAttribute="height" secondItem="Vw7-kb-Vh7" secondAttribute="height" id="mn1-p2-o0w"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ais-uT-cSi">
-                                                        <rect key="frame" x="85" y="0.0" width="289" height="110"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ais-uT-cSi">
+                                                        <rect key="frame" x="85" y="0.0" width="289" height="90"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gk-HT-kfi">
                                                                 <rect key="frame" x="0.0" y="0.0" width="289" height="30"/>
@@ -224,13 +173,13 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,2 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXa-kG-NMX">
-                                                                <rect key="frame" x="0.0" y="40" width="289" height="30"/>
+                                                                <rect key="frame" x="0.0" y="30" width="289" height="30"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02/08/2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8j-Sp-39T">
-                                                                <rect key="frame" x="0.0" y="80" width="289" height="30"/>
+                                                                <rect key="frame" x="0.0" y="60" width="289" height="30"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -282,7 +231,6 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                         <outlet property="image" destination="ZjF-Fo-wlD" id="CI1-Y1-la2"/>
                         <outlet property="lenght" destination="HXa-kG-NMX" id="Y1e-Jq-tqi"/>
                         <outlet property="lengthTitle" destination="KLv-1y-xYh" id="TA4-Dp-obu"/>
-                        <segue destination="Oe3-0f-KPq" kind="show" identifier="showDescription" id="MaO-rc-y36"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fm-Mb-ZsB" userLabel="First Responder" sceneMemberID="firstResponder"/>

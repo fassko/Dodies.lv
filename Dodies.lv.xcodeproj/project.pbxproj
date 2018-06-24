@@ -10,12 +10,16 @@
 		63008FE42055988A00B4869B /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63008FE32055988A00B4869B /* SnapshotHelper.swift */; };
 		6304EAFF1BA5C25900B7CD49 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6304EAFE1BA5C25900B7CD49 /* Settings.bundle */; };
 		6304EB011BA5C2C700B7CD49 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304EB001BA5C2C700B7CD49 /* MapViewController.swift */; };
+		6326106820910C2700996FE8 /* MapViewController+MapBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326106720910C2700996FE8 /* MapViewController+MapBox.swift */; };
 		63330EC51DCF7B8F002194A3 /* Dodies_lvUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63330EC41DCF7B8F002194A3 /* Dodies_lvUITests.swift */; };
 		63475FEC1C5CC95500A9A5E4 /* DodiesPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */; };
+		634DABBC20950700003AB312 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634DABBB20950700003AB312 /* Storyboards.swift */; };
+		634DABBE20950905003AB312 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634DABBD20950905003AB312 /* Coordinator.swift */; };
+		634DABC02095093D003AB312 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634DABBF2095093D003AB312 /* Storyboarded.swift */; };
+		634DABC220950A2F003AB312 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634DABC120950A2F003AB312 /* MainCoordinator.swift */; };
 		636EA8361BA5BDF40071397A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EA8351BA5BDF40071397A /* AppDelegate.swift */; };
 		636EA83D1BA5BDF40071397A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636EA83B1BA5BDF40071397A /* Main.storyboard */; };
 		636EA8421BA5BDF40071397A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636EA8401BA5BDF40071397A /* LaunchScreen.storyboard */; };
-		638EB5111CA6FBC100FA7903 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638EB5101CA6FBC100FA7903 /* DescriptionViewController.swift */; };
 		639026FC1D1D393C003BD31F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 639026FE1D1D393C003BD31F /* Localizable.strings */; };
 		639710851C8200F1003C3842 /* dodies_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710821C8200F1003C3842 /* dodies_logo.png */; };
 		639710861C8200F1003C3842 /* dodies_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710831C8200F1003C3842 /* dodies_logo@2x.png */; };
@@ -64,9 +68,12 @@
 		63B52192205EE16400850E41 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B52191205EE16400850E41 /* Feature.swift */; };
 		63B52194205EE17A00850E41 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B52193205EE17A00850E41 /* Property.swift */; };
 		63B52196205EE18600850E41 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B52195205EE18600850E41 /* Geometry.swift */; };
+		63C17CAB20D99989006CE826 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB43D01F8A20DF002033CE /* Extensions.swift */; };
 		63C322B31C836C050033CE5D /* dodies_logo_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B01C836C050033CE5D /* dodies_logo_green.png */; };
 		63C322B41C836C050033CE5D /* dodies_logo_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B11C836C050033CE5D /* dodies_logo_green@2x.png */; };
 		63C322B51C836C050033CE5D /* dodies_logo_green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B21C836C050033CE5D /* dodies_logo_green@3x.png */; };
+		63C86AC6208148C100588CE0 /* DodiesPointDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C86AC5208148C100588CE0 /* DodiesPointDetails.swift */; };
+		63C86AC8208149DD00588CE0 /* DetailsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C86AC7208149DD00588CE0 /* DetailsProvider.swift */; };
 		63CA57A51BA5F41700A9F5DC /* DodiesAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */; };
 		63CA57A71BA606B800A9F5DC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CA57A61BA606B800A9F5DC /* DetailsViewController.swift */; };
 		63F5DC681C8355BE00AEB195 /* dodies_nav_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F5DC651C8355BE00AEB195 /* dodies_nav_logo.png */; };
@@ -118,16 +125,20 @@
 		6304EB001BA5C2C700B7CD49 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		63224DB81D2AF4DA0015596F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63224DBA1D2AFA9F0015596F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		6326106720910C2700996FE8 /* MapViewController+MapBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+MapBox.swift"; sourceTree = "<group>"; };
 		63330EC21DCF7B8F002194A3 /* Dodies.lvUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Dodies.lvUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63330EC41DCF7B8F002194A3 /* Dodies_lvUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dodies_lvUITests.swift; sourceTree = "<group>"; };
 		63330EC61DCF7B8F002194A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DodiesPoint.swift; sourceTree = "<group>"; };
+		634DABBB20950700003AB312 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		634DABBD20950905003AB312 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		634DABBF2095093D003AB312 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		634DABC120950A2F003AB312 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		6356E2FC1DC5FC980072540C /* Dodies.lv.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dodies.lv.entitlements; sourceTree = "<group>"; };
 		636EA8321BA5BDF40071397A /* Dodies.lv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dodies.lv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		636EA8351BA5BDF40071397A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		636EA8411BA5BDF40071397A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		636EA8431BA5BDF40071397A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		638EB5101CA6FBC100FA7903 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		639026FD1D1D393C003BD31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		639027001D1D3DF7003BD31F /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		639710821C8200F1003C3842 /* dodies_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies_logo.png; sourceTree = "<group>"; };
@@ -180,6 +191,8 @@
 		63C322B01C836C050033CE5D /* dodies_logo_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies_logo_green.png; sourceTree = "<group>"; };
 		63C322B11C836C050033CE5D /* dodies_logo_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo_green@2x.png"; sourceTree = "<group>"; };
 		63C322B21C836C050033CE5D /* dodies_logo_green@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo_green@3x.png"; sourceTree = "<group>"; };
+		63C86AC5208148C100588CE0 /* DodiesPointDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DodiesPointDetails.swift; sourceTree = "<group>"; };
+		63C86AC7208149DD00588CE0 /* DetailsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsProvider.swift; sourceTree = "<group>"; };
 		63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DodiesAnnotation.swift; sourceTree = "<group>"; };
 		63CA57A61BA606B800A9F5DC /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		63F5DC651C8355BE00AEB195 /* dodies_nav_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies_nav_logo.png; sourceTree = "<group>"; };
@@ -264,8 +277,12 @@
 			children = (
 				6356E2FC1DC5FC980072540C /* Dodies.lv.entitlements */,
 				636EA8351BA5BDF40071397A /* AppDelegate.swift */,
+				634DABBD20950905003AB312 /* Coordinator.swift */,
+				634DABC120950A2F003AB312 /* MainCoordinator.swift */,
+				634DABBF2095093D003AB312 /* Storyboarded.swift */,
 				63A1D5721F89704200DA6132 /* Constants.swift */,
 				63FB43D01F8A20DF002033CE /* Extensions.swift */,
+				634DABBB20950700003AB312 /* Storyboards.swift */,
 				63AFB7ED1C5D29B4004A58E1 /* Views */,
 				63AFB7EC1C5D29A7004A58E1 /* Models */,
 				636EA8431BA5BDF40071397A /* Info.plist */,
@@ -344,6 +361,7 @@
 			children = (
 				63B52190205EE15800850E41 /* Feature */,
 				63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */,
+				63C86AC5208148C100588CE0 /* DodiesPointDetails.swift */,
 				63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */,
 			);
 			name = Models;
@@ -353,9 +371,10 @@
 			isa = PBXGroup;
 			children = (
 				6304EB001BA5C2C700B7CD49 /* MapViewController.swift */,
+				6326106720910C2700996FE8 /* MapViewController+MapBox.swift */,
+				63C86AC7208149DD00588CE0 /* DetailsProvider.swift */,
 				63F5DC6D1C8358F200AEB195 /* AboutViewController.swift */,
 				63CA57A61BA606B800A9F5DC /* DetailsViewController.swift */,
-				638EB5101CA6FBC100FA7903 /* DescriptionViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -426,11 +445,11 @@
 				636EA82F1BA5BDF40071397A /* Frameworks */,
 				636EA8301BA5BDF40071397A /* Resources */,
 				82AB2DA75AE43AF288FF62CF /* [CP] Embed Pods Frameworks */,
-				CB4E5E4E85FD07582AA18416 /* [CP] Copy Pods Resources */,
 				63EE49DB1DD78FA600E1F676 /* Embed Frameworks */,
 				63EE49DC1DD78FC700E1F676 /* ShellScript */,
 				63008FE22055972E00B4869B /* Swiftlint */,
 				63AFB8021C5E4412004A58E1 /* Fabric */,
+				634DABBA20950481003AB312 /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -597,6 +616,20 @@
 			shellPath = /bin/sh;
 			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    \"${PODS_ROOT}/SwiftLint/swiftlint\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
+		634DABBA20950481003AB312 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which $PODS_ROOT/SwiftGen/bin/swiftgen >/dev/null; then\n$PODS_ROOT/SwiftGen/bin/swiftgen storyboards \"$PROJECT_DIR\" -t swift4 --output \"$PROJECT_DIR/Dodies.lv/Storyboards.swift\"\nelse\n    echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi";
+		};
 		63AFB8021C5E4412004A58E1 /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -662,21 +695,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CB4E5E4E85FD07582AA18416 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -685,6 +703,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63330EC51DCF7B8F002194A3 /* Dodies_lvUITests.swift in Sources */,
+				63C17CAB20D99989006CE826 /* Extensions.swift in Sources */,
 				63008FE42055988A00B4869B /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -693,18 +712,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C86AC8208149DD00588CE0 /* DetailsProvider.swift in Sources */,
 				636EA8361BA5BDF40071397A /* AppDelegate.swift in Sources */,
+				63C86AC6208148C100588CE0 /* DodiesPointDetails.swift in Sources */,
 				63FB43D11F8A20DF002033CE /* Extensions.swift in Sources */,
 				63CA57A51BA5F41700A9F5DC /* DodiesAnnotation.swift in Sources */,
 				63475FEC1C5CC95500A9A5E4 /* DodiesPoint.swift in Sources */,
 				63B52196205EE18600850E41 /* Geometry.swift in Sources */,
+				634DABBC20950700003AB312 /* Storyboards.swift in Sources */,
+				634DABBE20950905003AB312 /* Coordinator.swift in Sources */,
 				63F5DC6E1C8358F200AEB195 /* AboutViewController.swift in Sources */,
+				6326106820910C2700996FE8 /* MapViewController+MapBox.swift in Sources */,
 				63B52192205EE16400850E41 /* Feature.swift in Sources */,
 				63B52194205EE17A00850E41 /* Property.swift in Sources */,
+				634DABC220950A2F003AB312 /* MainCoordinator.swift in Sources */,
 				63CA57A71BA606B800A9F5DC /* DetailsViewController.swift in Sources */,
 				63B5218F205EE13600850E41 /* FeatureCollection.swift in Sources */,
-				638EB5111CA6FBC100FA7903 /* DescriptionViewController.swift in Sources */,
 				6304EB011BA5C2C700B7CD49 /* MapViewController.swift in Sources */,
+				634DABC02095093D003AB312 /* Storyboarded.swift in Sources */,
 				63A1D5731F89704200DA6132 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -913,7 +938,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Dodies.lv/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.Dodies-lv";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -940,7 +965,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Dodies.lv/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.Dodies-lv";
 				PRODUCT_NAME = "$(TARGET_NAME)";

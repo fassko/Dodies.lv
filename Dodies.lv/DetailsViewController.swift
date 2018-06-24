@@ -14,10 +14,12 @@ import Crashlytics
 import Kingfisher
 import Localize_Swift
 import Lightbox
+import SafariServices
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, Storyboarded {
 
   var point: DodiesAnnotation!
+  var dodiesPointDetails: DodiesPointDetails!
   
   @IBOutlet weak var desc: UITextView!
   @IBOutlet weak var coordinatesButton: UIButton!
@@ -65,7 +67,7 @@ class DetailsViewController: UIViewController {
     }
     
     let formatterFrom = DateFormatter()
-    formatterFrom.dateFormat = "yyyy-MM-dd"
+    formatterFrom.dateFormat = "yyyy-MM-dd HH:mm:ss"
     
     if let date = formatterFrom.date(from: point.dat) {
       let formatter = DateFormatter()
@@ -76,12 +78,13 @@ class DetailsViewController: UIViewController {
       checked.isHidden = true
     }
     
-    if point.img != "" {
+    if let detailsImage = dodiesPointDetails.image, let imgURL = URL(string: detailsImage) {
       image?.kf.indicatorType = .activity
-      let processor = RoundCornerImageProcessor(cornerRadius: 10)
-      image?.kf.setImage(with: URL(string: point.img), options: [.transition(.fade(0.2)), .processor(processor)])
       
-      let singleTap = UITapGestureRecognizer(target: self, action: #selector(showImage(_:)))
+      let processor = RoundCornerImageProcessor(cornerRadius: 50)
+      image?.kf.setImage(with: imgURL, options: [.transition(.fade(0.2)), .processor(processor)])
+
+      let singleTap = UITapGestureRecognizer(target: self, action: #selector(showGallery(_:)))
       singleTap.numberOfTapsRequired = 1
       image?.isUserInteractionEnabled = true
       image?.addGestureRecognizer(singleTap)
@@ -102,15 +105,21 @@ class DetailsViewController: UIViewController {
   }
   
   @IBAction func showDescription(_ sender: Any) {
-    if !point.url.isEmpty {
-      performSegue(withIdentifier: "showDescription", sender: self)
-    } else {
+    guard !point.url.isEmpty, let url = URL(string: "https://dodies.lv/\(point.url)") else {
       let alert = UIAlertController(title: "Dodies.lv",
                                     message: "Sorry, but description isn't ready yet.".localized(),
                                     preferredStyle: .alert)
       alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
       self.present(alert, animated: true, completion: nil)
+      
+      return
     }
+      
+    let safariViewController = SFSafariViewController(url: url)
+    safariViewController.preferredBarTintColor = UIColor(red: 0.42, green: 0.60, blue: 0.23, alpha: 1.0)
+    safariViewController.preferredControlTintColor = .white
+    
+    present(safariViewController, animated: true, completion: nil)
   }
   
   @IBAction func openNavigation(_ sender: Any) {
@@ -124,8 +133,8 @@ class DetailsViewController: UIViewController {
     }
 
     let apple = UIAlertAction(title: "Apple Maps", style: .default) { _ in
-      let u = "http://maps.apple.com/?daddr=\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)"
-      UIApplication.shared.openURL(URL(string: u)!)
+      let path = "http://maps.apple.com/?daddr=\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)"
+      UIApplication.shared.open(URL(string: path)!, options: [:], completionHandler: nil)
     }
     
     let latitude = point.coordinate.latitude
@@ -133,22 +142,23 @@ class DetailsViewController: UIViewController {
 
     let google = UIAlertAction(title: "Google Maps", style: .default) { _ in
       if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
-        UIApplication.shared.openURL(URL(string:
-              "comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving")!)
-
+        let url = URL(string: "comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving")!
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
       } else {
         let link = "http://itunes.apple.com/us/app/id585027354"
-        UIApplication.shared.openURL(URL(string: link)!)
+        UIApplication.shared.open(URL(string: link)!, options: [:], completionHandler: nil)
         UIApplication.shared.isIdleTimerDisabled = true
       }
     }
 
     let waze = UIAlertAction(title: "Waze", style: .default) { _ in
       if UIApplication.shared.canOpenURL(URL(string: "waze://")!) {
-        UIApplication.shared.openURL(URL(string: "waze://?ll=\(latitude),\(longitude)&navigate=yes")!)
+        let wazeURL = URL(string: "waze://?ll=\(latitude),\(longitude)&navigate=yes")!
+        UIApplication.shared.open(wazeURL, options: [:], completionHandler: nil)
         UIApplication.shared.isIdleTimerDisabled = true
       } else {
-        UIApplication.shared.openURL(NSURL(string: "http://itunes.apple.com/us/app/id323229106")! as URL)
+        let wazeDownloadURL = URL(string: "http://itunes.apple.com/us/app/id323229106")!
+        UIApplication.shared.open(wazeDownloadURL, options: [:], completionHandler: nil)
         UIApplication.shared.isIdleTimerDisabled = true
       }
     }
@@ -162,17 +172,6 @@ class DetailsViewController: UIViewController {
     optionMenu.addAction(cancelAction)
     
     self.present(optionMenu, animated: true, completion: nil)
-  }
-  
-  // pass object to details view
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "showDescription" {
-    
-      if let description: DescriptionViewController = segue.destination as? DescriptionViewController {
-        navigationItem.title = ""
-        description.point = self.point
-      }
-    }
   }
   
   override func viewDidLayoutSubviews() {
@@ -189,17 +188,19 @@ class DetailsViewController: UIViewController {
     descHeight.constant = size.height + insets.top + insets.bottom
   }
   
-  @objc func showImage(_ sender: UITapGestureRecognizer) {
+  @objc func showGallery(_ sender: UITapGestureRecognizer) {
   
-    guard let imageURL = URL(string: point.img2.isEmpty ? point.img : point.img2),
-      let pointTitle = point.title else {
-        return
+    guard let images = dodiesPointDetails.images, let pointTitle = point.title else { return }
+
+    LightboxConfig.CloseButton.text = "Close".localized()
+    let imageURLs = images.map {
+      LightboxImage(imageURL: URL(string: $0)!, text: pointTitle)
     }
   
-    let controller = LightboxController(images: [LightboxImage(imageURL: imageURL, text: pointTitle)])
-    controller.dynamicBackground = true
+    let lightbox = LightboxController(images: imageURLs)
+    lightbox.dynamicBackground = true
     
-    present(controller, animated: true, completion: nil)
+    present(lightbox, animated: true, completion: nil)
   }
   
 }

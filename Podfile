@@ -11,4 +11,5 @@ target 'Dodies.lv' do
   pod 'Lightbox'
   pod 'RealmSwift'
   pod 'SwiftLint'
+  pod 'SwiftGen'
 end

@@ -10,7 +10,7 @@ import UIKit
 
 import Localize_Swift
 
-class AboutViewController: UIViewController {
+class AboutViewController: UIViewController, Storyboarded {
   
   @IBOutlet var aboutText: UITextView!
   
