@@ -53,19 +53,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
       locationManager.requestWhenInUseAuthorization()
     }
     
-    // initialize the map view
-    let styleURL = URL(string: "mapbox://styles/normis/cilzp6g1h00grbjlwwsh52vig")
-    mapView = MGLMapView(frame: view.bounds, styleURL: styleURL)
-    mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    let swCoordinate = CLLocationCoordinate2D(latitude: 55.500, longitude: 20.500)
-    let neCoordinate = CLLocationCoordinate2D(latitude: 58.500, longitude: 28.500)
-    let visibleCoordinateBounds = MGLCoordinateBounds(sw: swCoordinate, ne: neCoordinate)
-    mapView.setVisibleCoordinateBounds(visibleCoordinateBounds, animated: false)
-    mapView.delegate = self
-    mapView.showsUserLocation = true
-    mapView.isRotateEnabled = false
-    mapView.attributionButton.isHidden = true
-    view.addSubview(mapView)
+    setUpMapView()
     
     // show loading view
     SwiftSpinner.setTitleFont(UIFont(name: "HelveticaNeue", size: 18)!)
@@ -97,6 +85,22 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
                                          target: self,
                                          action: #selector(setLanguage(sender:)))
     navigationItem.leftBarButtonItem = settingsButton
+  }
+  
+  private func setUpMapView() {
+    // initialize the map view
+    let styleURL = URL(string: "mapbox://styles/normis/cilzp6g1h00grbjlwwsh52vig")
+    mapView = MGLMapView(frame: view.bounds, styleURL: styleURL)
+    mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    let swCoordinate = CLLocationCoordinate2D(latitude: 55.500, longitude: 20.500)
+    let neCoordinate = CLLocationCoordinate2D(latitude: 58.500, longitude: 28.500)
+    let visibleCoordinateBounds = MGLCoordinateBounds(sw: swCoordinate, ne: neCoordinate)
+    mapView.setVisibleCoordinateBounds(visibleCoordinateBounds, animated: false)
+    mapView.delegate = self
+    mapView.showsUserLocation = true
+    mapView.isRotateEnabled = false
+    mapView.attributionButton.isHidden = true
+    view.addSubview(mapView)
   }
   
   @objc func setUpButtons() {

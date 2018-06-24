@@ -20,7 +20,6 @@
 		636EA8361BA5BDF40071397A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EA8351BA5BDF40071397A /* AppDelegate.swift */; };
 		636EA83D1BA5BDF40071397A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636EA83B1BA5BDF40071397A /* Main.storyboard */; };
 		636EA8421BA5BDF40071397A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636EA8401BA5BDF40071397A /* LaunchScreen.storyboard */; };
-		638EB5111CA6FBC100FA7903 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638EB5101CA6FBC100FA7903 /* DescriptionViewController.swift */; };
 		639026FC1D1D393C003BD31F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 639026FE1D1D393C003BD31F /* Localizable.strings */; };
 		639710851C8200F1003C3842 /* dodies_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710821C8200F1003C3842 /* dodies_logo.png */; };
 		639710861C8200F1003C3842 /* dodies_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710831C8200F1003C3842 /* dodies_logo@2x.png */; };
@@ -140,7 +139,6 @@
 		636EA8351BA5BDF40071397A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		636EA8411BA5BDF40071397A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		636EA8431BA5BDF40071397A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		638EB5101CA6FBC100FA7903 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		639026FD1D1D393C003BD31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		639027001D1D3DF7003BD31F /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		639710821C8200F1003C3842 /* dodies_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies_logo.png; sourceTree = "<group>"; };
@@ -377,7 +375,6 @@
 				63C86AC7208149DD00588CE0 /* DetailsProvider.swift */,
 				63F5DC6D1C8358F200AEB195 /* AboutViewController.swift */,
 				63CA57A61BA606B800A9F5DC /* DetailsViewController.swift */,
-				638EB5101CA6FBC100FA7903 /* DescriptionViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -731,7 +728,6 @@
 				634DABC220950A2F003AB312 /* MainCoordinator.swift in Sources */,
 				63CA57A71BA606B800A9F5DC /* DetailsViewController.swift in Sources */,
 				63B5218F205EE13600850E41 /* FeatureCollection.swift in Sources */,
-				638EB5111CA6FBC100FA7903 /* DescriptionViewController.swift in Sources */,
 				6304EB011BA5C2C700B7CD49 /* MapViewController.swift in Sources */,
 				634DABC02095093D003AB312 /* Storyboarded.swift in Sources */,
 				63A1D5731F89704200DA6132 /* Constants.swift in Sources */,
@@ -942,7 +938,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Dodies.lv/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.Dodies-lv";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -969,7 +965,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Dodies.lv/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.Dodies-lv";
 				PRODUCT_NAME = "$(TARGET_NAME)";

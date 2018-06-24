@@ -63,8 +63,6 @@ internal enum StoryboardScene {
 
     internal static let aboutViewController = SceneType<Dodies_lv.AboutViewController>(storyboard: Main.self, identifier: "AboutViewController")
 
-    internal static let descriptionViewController = SceneType<Dodies_lv.DescriptionViewController>(storyboard: Main.self, identifier: "DescriptionViewController")
-
     internal static let detailsViewController = SceneType<Dodies_lv.DetailsViewController>(storyboard: Main.self, identifier: "DetailsViewController")
 
     internal static let mapViewController = SceneType<Dodies_lv.MapViewController>(storyboard: Main.self, identifier: "MapViewController")
@@ -74,7 +72,6 @@ internal enum StoryboardScene {
 internal enum StoryboardSegue {
   internal enum Main: String, SegueType {
     case details
-    case showDescription
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

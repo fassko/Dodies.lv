@@ -14,6 +14,7 @@ import Crashlytics
 import Kingfisher
 import Localize_Swift
 import Lightbox
+import SafariServices
 
 class DetailsViewController: UIViewController, Storyboarded {
 
@@ -104,15 +105,21 @@ class DetailsViewController: UIViewController, Storyboarded {
   }
   
   @IBAction func showDescription(_ sender: Any) {
-    if !point.url.isEmpty {
-      performSegue(withIdentifier: "showDescription", sender: self)
-    } else {
+    guard !point.url.isEmpty, let url = URL(string: "https://dodies.lv/\(point.url)") else {
       let alert = UIAlertController(title: "Dodies.lv",
                                     message: "Sorry, but description isn't ready yet.".localized(),
                                     preferredStyle: .alert)
       alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
       self.present(alert, animated: true, completion: nil)
+      
+      return
     }
+      
+    let safariViewController = SFSafariViewController(url: url)
+    safariViewController.preferredBarTintColor = UIColor(red: 0.42, green: 0.60, blue: 0.23, alpha: 1.0)
+    safariViewController.preferredControlTintColor = .white
+    
+    present(safariViewController, animated: true, completion: nil)
   }
   
   @IBAction func openNavigation(_ sender: Any) {
@@ -127,7 +134,7 @@ class DetailsViewController: UIViewController, Storyboarded {
 
     let apple = UIAlertAction(title: "Apple Maps", style: .default) { _ in
       let path = "http://maps.apple.com/?daddr=\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)"
-      UIApplication.shared.openURL(URL(string: path)!)
+      UIApplication.shared.open(URL(string: path)!, options: [:], completionHandler: nil)
     }
     
     let latitude = point.coordinate.latitude
@@ -135,22 +142,23 @@ class DetailsViewController: UIViewController, Storyboarded {
 
     let google = UIAlertAction(title: "Google Maps", style: .default) { _ in
       if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
-        UIApplication.shared.openURL(URL(string:
-              "comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving")!)
-
+        let url = URL(string: "comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving")!
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
       } else {
         let link = "http://itunes.apple.com/us/app/id585027354"
-        UIApplication.shared.openURL(URL(string: link)!)
+        UIApplication.shared.open(URL(string: link)!, options: [:], completionHandler: nil)
         UIApplication.shared.isIdleTimerDisabled = true
       }
     }
 
     let waze = UIAlertAction(title: "Waze", style: .default) { _ in
       if UIApplication.shared.canOpenURL(URL(string: "waze://")!) {
-        UIApplication.shared.openURL(URL(string: "waze://?ll=\(latitude),\(longitude)&navigate=yes")!)
+        let wazeURL = URL(string: "waze://?ll=\(latitude),\(longitude)&navigate=yes")!
+        UIApplication.shared.open(wazeURL, options: [:], completionHandler: nil)
         UIApplication.shared.isIdleTimerDisabled = true
       } else {
-        UIApplication.shared.openURL(NSURL(string: "http://itunes.apple.com/us/app/id323229106")! as URL)
+        let wazeDownloadURL = URL(string: "http://itunes.apple.com/us/app/id323229106")!
+        UIApplication.shared.open(wazeDownloadURL, options: [:], completionHandler: nil)
         UIApplication.shared.isIdleTimerDisabled = true
       }
     }
@@ -164,17 +172,6 @@ class DetailsViewController: UIViewController, Storyboarded {
     optionMenu.addAction(cancelAction)
     
     self.present(optionMenu, animated: true, completion: nil)
-  }
-  
-  // pass object to details view
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == StoryboardSegue.Main.showDescription.rawValue {
-    
-      if let description: DescriptionViewController = segue.destination as? DescriptionViewController {
-        navigationItem.title = ""
-        description.point = self.point
-      }
-    }
   }
   
   override func viewDidLayoutSubviews() {

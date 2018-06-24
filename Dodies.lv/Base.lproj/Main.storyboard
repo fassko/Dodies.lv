@@ -93,37 +93,6 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
             </objects>
             <point key="canvasLocation" x="-52" y="-362"/>
         </scene>
-        <!--Description View Controller-->
-        <scene sceneID="g3c-qt-zin">
-            <objects>
-                <viewController storyboardIdentifier="DescriptionViewController" id="Oe3-0f-KPq" customClass="DescriptionViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="k7G-xD-yNl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wml-tv-9HU">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="wml-tv-9HU" firstAttribute="leading" secondItem="B3h-wJ-fsu" secondAttribute="leading" id="0AL-CG-ntg"/>
-                            <constraint firstItem="wml-tv-9HU" firstAttribute="bottom" secondItem="k7G-xD-yNl" secondAttribute="bottom" id="DXi-tO-0pQ"/>
-                            <constraint firstItem="wml-tv-9HU" firstAttribute="top" secondItem="B3h-wJ-fsu" secondAttribute="top" id="abO-cR-ylb"/>
-                            <constraint firstItem="wml-tv-9HU" firstAttribute="trailing" secondItem="B3h-wJ-fsu" secondAttribute="trailing" id="npr-9z-EPI"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="B3h-wJ-fsu"/>
-                    </view>
-                    <connections>
-                        <outlet property="descriptionWebView" destination="wml-tv-9HU" id="5eS-rY-8OK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9nZ-Hz-D5A" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2380" y="-362"/>
-        </scene>
         <!--Details View Controller-->
         <scene sceneID="Shr-GK-ODT">
             <objects>
@@ -262,7 +231,6 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                         <outlet property="image" destination="ZjF-Fo-wlD" id="CI1-Y1-la2"/>
                         <outlet property="lenght" destination="HXa-kG-NMX" id="Y1e-Jq-tqi"/>
                         <outlet property="lengthTitle" destination="KLv-1y-xYh" id="TA4-Dp-obu"/>
-                        <segue destination="Oe3-0f-KPq" kind="show" identifier="showDescription" id="MaO-rc-y36"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fm-Mb-ZsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
