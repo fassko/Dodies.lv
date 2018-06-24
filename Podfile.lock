@@ -11,14 +11,14 @@ PODS:
     - Hue (~> 3.0)
     - Imaginary (~> 3.0)
   - Localize-Swift (2.0.0)
-  - Mapbox-iOS-SDK (4.0.2)
-  - Realm (3.7.3):
-    - Realm/Headers (= 3.7.3)
-  - Realm/Headers (3.7.3)
-  - RealmSwift (3.7.3):
-    - Realm (= 3.7.3)
+  - Mapbox-iOS-SDK (4.1.0)
+  - Realm (3.7.4):
+    - Realm/Headers (= 3.7.4)
+  - Realm/Headers (3.7.4)
+  - RealmSwift (3.7.4):
+    - Realm (= 3.7.4)
   - SwiftGen (5.3.0)
-  - SwiftLint (0.25.1)
+  - SwiftLint (0.26.0)
   - SwiftSpinner (1.5.0)
 
 DEPENDENCIES:
@@ -59,11 +59,11 @@ SPEC CHECKSUMS:
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
   Lightbox: 2dc267df8be2285bc7724cb11cbbf4aaaf59dced
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
-  Mapbox-iOS-SDK: 02b15b70167d54b45fdc059737672a3a68cd780f
-  Realm: f366e954e3330d4915a319e96cc04e2ee09a9ef2
-  RealmSwift: 56f111b1dd439973fbe1c066b067ac4702285441
+  Mapbox-iOS-SDK: f0a9813d5f08c096c1199eceb57ec6102b19cf54
+  Realm: a469bb59e33f9926102ccaea4349822c53b9117e
+  RealmSwift: a45861b21c180f5cf0f122144b9759fa8dde3e9e
   SwiftGen: 4379bd3640b0a212a0f6ea3c494adba385513d10
-  SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
+  SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
   SwiftSpinner: 4c058c7a1d6b444dd2e1d70988ead40783097133
 
 PODFILE CHECKSUM: f1fbe41a8d79d1bd3a0ca914347dfeaca5fe32f5
