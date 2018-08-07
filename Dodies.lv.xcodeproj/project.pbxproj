@@ -68,7 +68,6 @@
 		63B52192205EE16400850E41 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B52191205EE16400850E41 /* Feature.swift */; };
 		63B52194205EE17A00850E41 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B52193205EE17A00850E41 /* Property.swift */; };
 		63B52196205EE18600850E41 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B52195205EE18600850E41 /* Geometry.swift */; };
-		63C17CAB20D99989006CE826 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB43D01F8A20DF002033CE /* Extensions.swift */; };
 		63C322B31C836C050033CE5D /* dodies_logo_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B01C836C050033CE5D /* dodies_logo_green.png */; };
 		63C322B41C836C050033CE5D /* dodies_logo_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B11C836C050033CE5D /* dodies_logo_green@2x.png */; };
 		63C322B51C836C050033CE5D /* dodies_logo_green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B21C836C050033CE5D /* dodies_logo_green@3x.png */; };
@@ -703,7 +702,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				63330EC51DCF7B8F002194A3 /* Dodies_lvUITests.swift in Sources */,
-				63C17CAB20D99989006CE826 /* Extensions.swift in Sources */,
 				63008FE42055988A00B4869B /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
