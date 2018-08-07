@@ -15,7 +15,10 @@ jobs:
 
       - run:
           name: Reset simulators
-          command: fastlane snapshot reset_simulators
+          command: |
+            export LC_ALL=en_US.UTF-8
+            export LANG=en_US.UTF-8
+            fastlane snapshot reset_simulators --force
 
       - run:
           name: Before Install
