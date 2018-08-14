@@ -440,6 +440,7 @@
 			buildConfigurationList = 636EA8461BA5BDF40071397A /* Build configuration list for PBXNativeTarget "Dodies.lv" */;
 			buildPhases = (
 				09035CAAE9192C54B50C71E7 /* [CP] Check Pods Manifest.lock */,
+				634DABBA20950481003AB312 /* SwiftGen */,
 				636EA82E1BA5BDF40071397A /* Sources */,
 				636EA82F1BA5BDF40071397A /* Frameworks */,
 				636EA8301BA5BDF40071397A /* Resources */,
@@ -448,7 +449,6 @@
 				63EE49DC1DD78FC700E1F676 /* ShellScript */,
 				63008FE22055972E00B4869B /* Swiftlint */,
 				63AFB8021C5E4412004A58E1 /* Fabric */,
-				634DABBA20950481003AB312 /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -627,7 +627,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which $PODS_ROOT/SwiftGen/bin/swiftgen >/dev/null; then\n$PODS_ROOT/SwiftGen/bin/swiftgen storyboards \"$PROJECT_DIR\" -t swift4 --output \"$PROJECT_DIR/Dodies.lv/Storyboards.swift\"\nelse\n    echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi";
+			shellScript = "if which $PODS_ROOT/SwiftGen/bin/swiftgen >/dev/null; then\n$PODS_ROOT/SwiftGen/bin/swiftgen storyboards \"$PROJECT_DIR\" -t swift4 --output \"$PROJECT_DIR/Dodies.lv/Storyboards.swift\"\nelse\n    echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
 		};
 		63AFB8021C5E4412004A58E1 /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
