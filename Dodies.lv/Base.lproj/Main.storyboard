@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,8 +20,15 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="UET-gh-G5d"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Nym-8i-f2e"/>
+                    <navigationItem key="navigationItem" id="Nym-8i-f2e">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="2ZT-Jl-0hu">
+                            <connections>
+                                <action selector="aboutWithSender:" destination="ExX-va-15z" id="8VN-YN-3m7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="settingsBarButton" destination="2ZT-Jl-0hu" id="uWe-EL-AII"/>
                         <segue destination="OhH-yB-PB6" kind="show" identifier="details" id="qrl-ZH-Io7"/>
                     </connections>
                 </viewController>
@@ -29,16 +36,16 @@
             </objects>
             <point key="canvasLocation" x="717" y="-362"/>
         </scene>
-        <!--About View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="WE0-zS-N8J">
             <objects>
-                <viewController storyboardIdentifier="AboutViewController" id="WI0-B1-khR" customClass="AboutViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="WI0-B1-khR" customClass="SettingsViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3YZ-LH-glU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGn-JU-jG9">
-                                <rect key="frame" x="20" y="40" width="374" height="676"/>
+                                <rect key="frame" x="20" y="40" width="374" height="618"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Dodies.lv is a collection of free nature trails, hiking paths, birdwatching towers and picnic places in Latvia. 
 Would you like to spend some time in Latvian nature, make a fire, stay in a tent? Our map contains freely accessible places closer to nature, available at any time for anyone.  
@@ -51,24 +58,38 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUa-2e-OnP" customClass="DodiesButton" customModule="Dodies_lv" customModuleProvider="target">
+                                <rect key="frame" x="107" y="666" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="OOu-KW-qN3"/>
+                                    <constraint firstAttribute="height" constant="50" id="b9I-TS-mle"/>
+                                </constraints>
+                                <state key="normal" title="Change language"/>
+                                <connections>
+                                    <action selector="setLanguage:" destination="WI0-B1-khR" eventType="touchUpInside" id="mBM-sN-ks1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gGn-JU-jG9" firstAttribute="trailing" secondItem="2bE-vK-aGj" secondAttribute="trailing" constant="-20" id="6u9-2l-NXg"/>
                             <constraint firstItem="gGn-JU-jG9" firstAttribute="leading" secondItem="2bE-vK-aGj" secondAttribute="leading" constant="20" id="OLC-Ff-yyY"/>
                             <constraint firstItem="gGn-JU-jG9" firstAttribute="top" secondItem="2bE-vK-aGj" secondAttribute="top" constant="20" id="aL3-5D-mpr"/>
-                            <constraint firstItem="gGn-JU-jG9" firstAttribute="bottom" secondItem="2bE-vK-aGj" secondAttribute="bottom" constant="-20" id="liv-TO-yE5"/>
+                            <constraint firstItem="2bE-vK-aGj" firstAttribute="bottom" secondItem="NUa-2e-OnP" secondAttribute="bottom" constant="20" id="iS7-DF-jVe"/>
+                            <constraint firstItem="NUa-2e-OnP" firstAttribute="centerX" secondItem="3YZ-LH-glU" secondAttribute="centerX" id="lZW-of-RJg"/>
+                            <constraint firstItem="NUa-2e-OnP" firstAttribute="top" secondItem="gGn-JU-jG9" secondAttribute="bottom" constant="8" id="vb7-ar-HC6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2bE-vK-aGj"/>
                     </view>
                     <navigationItem key="navigationItem" id="OaH-jx-7aV"/>
                     <connections>
                         <outlet property="aboutText" destination="gGn-JU-jG9" id="JVg-qC-mQg"/>
+                        <outlet property="changeLanguageButton" destination="NUa-2e-OnP" id="bj0-Hz-27O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTt-6e-Mfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="716" y="389"/>
+            <point key="canvasLocation" x="714.49275362318849" y="388.85869565217394"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9z8-lU-Jv1">

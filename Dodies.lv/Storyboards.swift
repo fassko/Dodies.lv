@@ -61,11 +61,11 @@ internal enum StoryboardScene {
   internal enum Main: StoryboardType {
     internal static let storyboardName = "Main"
 
-    internal static let aboutViewController = SceneType<Dodies_lv.AboutViewController>(storyboard: Main.self, identifier: "AboutViewController")
-
     internal static let detailsViewController = SceneType<Dodies_lv.DetailsViewController>(storyboard: Main.self, identifier: "DetailsViewController")
 
     internal static let mapViewController = SceneType<Dodies_lv.MapViewController>(storyboard: Main.self, identifier: "MapViewController")
+
+    internal static let settingsViewController = SceneType<Dodies_lv.SettingsViewController>(storyboard: Main.self, identifier: "SettingsViewController")
   }
 }
 

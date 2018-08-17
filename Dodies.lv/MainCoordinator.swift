@@ -22,9 +22,10 @@ class MainCoordinator: Coordinator {
     navigationController.pushViewController(mapViewController, animated: false)
   }
   
-  func showAbout() {
-    let aboutViewController = AboutViewController.instantiate()
-    navigationController.pushViewController(aboutViewController, animated: true)
+  func showSettings() {
+    let settingsViewController = SettingsViewController.instantiate()
+    settingsViewController.coordinator = self
+    navigationController.pushViewController(settingsViewController, animated: true)
   }
   
   func showDetails(point: DodiesAnnotation, details: DodiesPointDetails) {
@@ -32,5 +33,9 @@ class MainCoordinator: Coordinator {
     detailsViewController.point = point
     detailsViewController.dodiesPointDetails = details
     navigationController.pushViewController(detailsViewController, animated: true)
+  }
+  
+  func reloadApp() {
+    self.start()
   }
 }

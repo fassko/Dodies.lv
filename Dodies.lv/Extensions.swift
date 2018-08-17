@@ -54,3 +54,10 @@ extension UIViewController {
     self.present(alert, animated: true, completion: nil)
   }
 }
+
+extension UIButton {
+  func setTitle(_ title: String) {
+    setTitle(title, for: .normal)
+    setTitle(title, for: .highlighted)
+  }
+}

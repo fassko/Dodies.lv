@@ -59,10 +59,15 @@ platform :ios do
     ci_build
   end
 
+  desc "Derived data"
+  lane :derived_data do
+    clear_derived_data
+  end
+
   lane :release do
     increment_build_number build_number: get_version_number + "." + Time.new.strftime("%y%m%d.%H%M")
 
-    clear_derived_data
+    derived_data
 
     gym(
       workspace: "Dodies.lv.xcworkspace",

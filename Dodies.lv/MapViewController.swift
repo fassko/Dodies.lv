@@ -30,14 +30,17 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   /// Selected point
   var selectedPoint: DodiesAnnotation!
   
+  /// Dodies point details
   var pointDetails: DodiesPointDetails!
-
+  
+  @IBOutlet weak var settingsBarButton: UIBarButtonItem!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     debugPrint(Realm.Configuration.defaultConfiguration.fileURL!)
     
-    if let language = UserDefaults.standard.string(forKey: Constants.languageKey.rawValue) {
+    if let language = UserDefaults.standard.string(forKey: Constants.languageKey) {
       Localize.setCurrentLanguage(language)
     } else {
       Localize.setCurrentLanguage("lv")
@@ -74,17 +77,11 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
       print("Can't load points from Realm")
     }
     
-    let aboutButton = UIBarButtonItem(title: "About".localized(),
+    let settingsButton = UIBarButtonItem(title: "Settings".localized(),
                                       style: .plain,
                                       target: self,
-                                      action: #selector(about(sender:)))
-    navigationItem.rightBarButtonItem = aboutButton
-    
-    let settingsButton = UIBarButtonItem(title: "Settings".localized(),
-                                         style: .plain,
-                                         target: self,
-                                         action: #selector(setLanguage(sender:)))
-    navigationItem.leftBarButtonItem = settingsButton
+                                      action: #selector(settings(sender:)))
+    navigationItem.rightBarButtonItem = settingsButton
   }
   
   private func setUpMapView() {
@@ -105,8 +102,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   
   @objc func setUpButtons() {
     title = "Map".localized()
-    navigationItem.leftBarButtonItem?.title = "Settings".localized()
-    navigationItem.rightBarButtonItem?.title = "About".localized()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -114,50 +109,14 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   }
   
   // MARK: - Interface methods
-  @IBAction func about(sender: AnyObject) {
-    coordinator?.showAbout()
-  }
-  
-  @IBAction func setLanguage(sender: AnyObject) {
-    let actionSheet = UIAlertController(title: "Change language".localized(),
-                                        message: "Please select language".localized(),
-                                        preferredStyle: .actionSheet)
-    
-    actionSheet.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
-
-    let cancelActionButton = UIAlertAction(title: "Cancel".localized(), style: .cancel)
-    actionSheet.addAction(cancelActionButton)
-
-    let saveActionButton: UIAlertAction = UIAlertAction(title: "Latvian".localized(), style: .default) { _ in
-      self.languageChanged(language: "lv")
-    }
-    actionSheet.addAction(saveActionButton)
-
-    let deleteActionButton: UIAlertAction = UIAlertAction(title: "English".localized(), style: .default) { _ in
-      self.languageChanged(language: "en")
-    }
-    actionSheet.addAction(deleteActionButton)
-    
-    self.present(actionSheet, animated: true, completion: nil)
-  }
-  
-  // MARK: - Additonal methods
-  func languageChanged(language: String) {
-    if language != UserDefaults.standard.string(forKey: Constants.languageKey.rawValue) {
-      UserDefaults.standard.set(language, forKey: Constants.languageKey.rawValue)
-      
-      Localize.setCurrentLanguage(language)
-    
-      SwiftSpinner.show("Downloading data".localized())
-      
-      downloadData()
-    }
+  @IBAction func settings(sender: AnyObject) {
+    coordinator?.showSettings()
   }
   
   // download data from server
   func downloadData() {
   
-    let language = UserDefaults.getValue(forKey: Constants.languageKey.rawValue, default: "lv")
+    let language = UserDefaults.getValue(forKey: Constants.languageKey, default: "lv")
   
     guard let url = URL(string: "http://dodies.lv/json/\(language).geojson") else { return }
     
@@ -275,10 +234,10 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
       
       guard let timestamp = Int(lastChangedDate.replacingOccurrences(of: "\n", with: "")) else { return }
       
-      if update, timestamp > UserDefaults.standard.integer(forKey: Constants.lastChangedTimestampKey.rawValue) {
+      if update, timestamp > UserDefaults.standard.integer(forKey: Constants.lastChangedTimestampKey) {
         self?.downloadData()
       } else {
-        UserDefaults.standard.set(timestamp, forKey: Constants.lastChangedTimestampKey.rawValue)
+        UserDefaults.standard.set(timestamp, forKey: Constants.lastChangedTimestampKey)
       }
     })
     
