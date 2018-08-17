@@ -34,6 +34,10 @@ class DetailsViewController: UIViewController, Storyboarded {
   
   @IBOutlet var descHeight: NSLayoutConstraint!
   
+  @IBOutlet weak var navigationButton: DodiesButton!
+  @IBOutlet weak var moreInfoButton: DodiesButton!
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -41,6 +45,9 @@ class DetailsViewController: UIViewController, Storyboarded {
     
     checkedTitle.text = "Checked".localized()
     lengthTitle.text = "Length".localized()
+    
+    navigationButton.setTitle("Navigation".localized())
+    moreInfoButton.setTitle("More Info".localized())
     
     self.navigationItem.titleView = titleLabel
     
@@ -123,7 +130,7 @@ class DetailsViewController: UIViewController, Storyboarded {
   }
   
   @IBAction func openNavigation(_ sender: Any) {
-    let optionMenu = UIAlertController(title: nil, message: "Navigate with".localized(), preferredStyle: .actionSheet)
+    let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     
     optionMenu.popoverPresentationController?.sourceView = coordinatesButton
     

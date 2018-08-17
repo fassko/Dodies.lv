@@ -27,6 +27,7 @@ import UIKit
   private func sharedInit() {
     backgroundColor = Constants.greenColor
     tintColor = .white
+    titleLabel?.font = UIFont(name: "HelveticaNeue", size: 18)
   }
 
 }
