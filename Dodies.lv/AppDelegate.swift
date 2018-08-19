@@ -32,11 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     do {
       _ = try Realm()
     } catch {
-      print("Can't load Realm")
+      fatalError("Can't load Realm")
     }
     
     let navController = UINavigationController()
-    navController.navigationBar.barTintColor = UIColor(red: 0.42, green: 0.60, blue: 0.23, alpha: 1.0)
+    navController.navigationBar.barTintColor = Constants.greenColor
     navController.navigationBar.tintColor = .white
     
     coordinator = MainCoordinator(navigationController: navController)

@@ -39,18 +39,17 @@ class SettingsViewController: UIViewController, Storyboarded {
     let cancelActionButton = UIAlertAction(title: "Cancel".localized(), style: .cancel)
     actionSheet.addAction(cancelActionButton)
     
-    let saveActionButton: UIAlertAction = UIAlertAction(title: "Latvian".localized(), style: .default) {[weak self] _ in
+    let saveActionButton = UIAlertAction(title: "Latvian".localized(), style: .default) {[weak self] _ in
       self?.languageChanged(language: "lv")
     }
     actionSheet.addAction(saveActionButton)
     
-    let deleteActionButton: UIAlertAction = UIAlertAction(title: "English".localized(), style: .default) {[weak self] _ in
+    let deleteActionButton = UIAlertAction(title: "English".localized(), style: .default) {[weak self] _ in
       self?.languageChanged(language: "en")
     }
     actionSheet.addAction(deleteActionButton)
     
     present(actionSheet, animated: true, completion: nil)
-
   }
   
   // MARK: - Additonal methods

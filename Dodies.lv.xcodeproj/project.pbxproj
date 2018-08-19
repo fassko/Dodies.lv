@@ -243,6 +243,20 @@
 			path = Dodies.lvUITests;
 			sourceTree = "<group>";
 		};
+		633A2579212A02CD007B64EA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				636EA8351BA5BDF40071397A /* AppDelegate.swift */,
+				634DABBD20950905003AB312 /* Coordinator.swift */,
+				634DABC120950A2F003AB312 /* MainCoordinator.swift */,
+				634DABBF2095093D003AB312 /* Storyboarded.swift */,
+				63A1D5721F89704200DA6132 /* Constants.swift */,
+				63FB43D01F8A20DF002033CE /* Extensions.swift */,
+				634DABBB20950700003AB312 /* Storyboards.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 		634073531C594A4300190BA4 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,13 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				6356E2FC1DC5FC980072540C /* Dodies.lv.entitlements */,
-				636EA8351BA5BDF40071397A /* AppDelegate.swift */,
-				634DABBD20950905003AB312 /* Coordinator.swift */,
-				634DABC120950A2F003AB312 /* MainCoordinator.swift */,
-				634DABBF2095093D003AB312 /* Storyboarded.swift */,
-				63A1D5721F89704200DA6132 /* Constants.swift */,
-				63FB43D01F8A20DF002033CE /* Extensions.swift */,
-				634DABBB20950700003AB312 /* Storyboards.swift */,
+				633A2579212A02CD007B64EA /* Core */,
 				63AFB7ED1C5D29B4004A58E1 /* Views */,
 				63AFB7EC1C5D29A7004A58E1 /* Models */,
 				636EA8431BA5BDF40071397A /* Info.plist */,

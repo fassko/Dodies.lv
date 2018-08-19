@@ -12,11 +12,11 @@ enum DetailsProvider {
   
   static func getFor(_ url: String, completion: @escaping (DodiesPointDetails?) -> Void) {
     
-    guard let url = URL(string: "https://dodies.lv\(url)?json=1") else { return }
+    let url = URL(string: "https://dodies.lv\(url)?json=1")!
 
     URLSession.shared.dataTask(with: url) { data, _, error in
       if let error = error {
-        print(error)
+        debugPrint(error)
         completion(nil)
       } else if let data = data {
         do {

@@ -25,7 +25,6 @@ class DetailsViewController: UIViewController, Storyboarded {
   @IBOutlet weak var coordinatesButton: UIButton!
   @IBOutlet weak var lenght: UILabel!
   @IBOutlet weak var checked: UILabel!
-  @IBOutlet weak var details: UIBarButtonItem!
   
   @IBOutlet weak var lengthTitle: UILabel!
   @IBOutlet weak var checkedTitle: UILabel!
@@ -40,7 +39,7 @@ class DetailsViewController: UIViewController, Storyboarded {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.title = point.name
+    title = point.name
     
     checkedTitle.text = "Checked".localized()
     lengthTitle.text = "Length".localized()
@@ -48,7 +47,7 @@ class DetailsViewController: UIViewController, Storyboarded {
     navigationButton.setTitle("Navigation".localized())
     moreInfoButton.setTitle("More Info".localized())
     
-    self.navigationItem.titleView = titleLabel
+    navigationItem.titleView = titleLabel
     
     desc.isScrollEnabled = false
     desc.text = dodiesPointDetails.description
@@ -58,7 +57,7 @@ class DetailsViewController: UIViewController, Storyboarded {
     descHeight.constant = desc.sizeThatFits(CGSize(width: desc.frame.size.width,
                                                    height: CGFloat.greatestFiniteMagnitude)).height
     
-    self.automaticallyAdjustsScrollViewInsets = false
+    automaticallyAdjustsScrollViewInsets = false
     
     let latitude = String(format: "%.5f", point.coordinate.latitude)
     let longitude = String(format: "%.5f", point.coordinate.longitude)
@@ -109,7 +108,7 @@ class DetailsViewController: UIViewController, Storyboarded {
                                     message: "Sorry, but description isn't ready yet.".localized(),
                                     preferredStyle: .alert)
       alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-      self.present(alert, animated: true, completion: nil)
+      present(alert, animated: true, completion: nil)
       
       return
     }
@@ -170,7 +169,7 @@ class DetailsViewController: UIViewController, Storyboarded {
     optionMenu.addAction(waze)
     optionMenu.addAction(cancelAction)
     
-    self.present(optionMenu, animated: true, completion: nil)
+    present(optionMenu, animated: true, completion: nil)
   }
   
   override func viewDidLayoutSubviews() {

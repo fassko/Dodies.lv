@@ -12,8 +12,6 @@ import CoreLocation
 
 import Mapbox
 import RealmSwift
-//import Fabric
-//import Crashlytics
 import Localize_Swift
 import SwiftSpinner
 
@@ -21,44 +19,52 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   
   weak var coordinator: MainCoordinator?
 
-  /// Map View
-  var mapView: MGLMapView!
-  
-  /// Location manager
-  let locationManager = CLLocationManager()
-  
-  /// Selected point
   var selectedPoint: DodiesAnnotation!
   
-  /// Dodies point details
   var pointDetails: DodiesPointDetails!
   
-  @IBOutlet weak var settingsBarButton: UIBarButtonItem!
+  private var language: String = {
+    guard let language = UserDefaults.standard.string(forKey: Constants.languageKey) else {
+      return "lv"
+    }
+    
+    return language
+  }()
+  
+  private let locationManager = CLLocationManager()
+  
+  private lazy var mapView: MGLMapView = {
+    let styleURL = URL(string: "mapbox://styles/normis/cilzp6g1h00grbjlwwsh52vig")
+    let mapView = MGLMapView(frame: view.bounds, styleURL: styleURL)
+    mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    let swCoordinate = CLLocationCoordinate2D(latitude: 55.500, longitude: 20.500)
+    let neCoordinate = CLLocationCoordinate2D(latitude: 58.500, longitude: 28.500)
+    let visibleCoordinateBounds = MGLCoordinateBounds(sw: swCoordinate, ne: neCoordinate)
+    mapView.setVisibleCoordinateBounds(visibleCoordinateBounds, animated: false)
+    mapView.delegate = self
+    mapView.showsUserLocation = true
+    mapView.isRotateEnabled = false
+    mapView.attributionButton.isHidden = true
+    
+    return mapView
+  }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     debugPrint(Realm.Configuration.defaultConfiguration.fileURL!)
-    
-    if let language = UserDefaults.standard.string(forKey: Constants.languageKey) {
-      Localize.setCurrentLanguage(language)
-    } else {
-      Localize.setCurrentLanguage("lv")
-    }
-    
-    NotificationCenter.default.addObserver(self, selector: #selector(setUpButtons),
-                                           name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
+    Localize.setCurrentLanguage(language)
     
     navigationItem.titleView = UIImageView(image: UIImage(named: "dodies_nav_logo"))
     
-    // ask user to allow location access
+    navigationItem.rightBarButtonItem?.title = "Settings".localized()
+    
     if CLLocationManager.authorizationStatus() == .notDetermined {
       locationManager.requestWhenInUseAuthorization()
     }
     
-    setUpMapView()
+    view.addSubview(mapView)
     
-    // show loading view
     SwiftSpinner.setTitleFont(UIFont(name: "HelveticaNeue", size: 18)!)
     SwiftSpinner.show("Downloading data".localized())
     
@@ -74,34 +80,8 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
         }
       }
     } catch {
-      print("Can't load points from Realm")
+      fatalError("Can't load points from Realm")
     }
-    
-    let settingsButton = UIBarButtonItem(title: "Settings".localized(),
-                                      style: .plain,
-                                      target: self,
-                                      action: #selector(settings(sender:)))
-    navigationItem.rightBarButtonItem = settingsButton
-  }
-  
-  private func setUpMapView() {
-    // initialize the map view
-    let styleURL = URL(string: "mapbox://styles/normis/cilzp6g1h00grbjlwwsh52vig")
-    mapView = MGLMapView(frame: view.bounds, styleURL: styleURL)
-    mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    let swCoordinate = CLLocationCoordinate2D(latitude: 55.500, longitude: 20.500)
-    let neCoordinate = CLLocationCoordinate2D(latitude: 58.500, longitude: 28.500)
-    let visibleCoordinateBounds = MGLCoordinateBounds(sw: swCoordinate, ne: neCoordinate)
-    mapView.setVisibleCoordinateBounds(visibleCoordinateBounds, animated: false)
-    mapView.delegate = self
-    mapView.showsUserLocation = true
-    mapView.isRotateEnabled = false
-    mapView.attributionButton.isHidden = true
-    view.addSubview(mapView)
-  }
-  
-  @objc func setUpButtons() {
-    title = "Map".localized()
   }
   
   // MARK: - Interface methods
@@ -110,21 +90,20 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   }
   
   // download data from server
-  func downloadData() {
-  
-    let language = UserDefaults.getValue(forKey: Constants.languageKey, default: "lv")
+  private func downloadData() {
   
     guard let url = URL(string: "http://dodies.lv/json/\(language).geojson") else { return }
     
     let task = URLSession.shared.dataTask(with: url, completionHandler: {[weak self] data, _, error in
       if let error = error {
-        debugPrint("Can't download data \(error) \(language)")
+        debugPrint("Can't download data \(error) \(String(describing: self?.language))")
         self?.showError(withMessage: "Can't download data. Please check your settings and try again.".localized())
       } else {
-        guard let data = data else { return }
-        
-        guard let features = try? JSONDecoder().decode(FeatureCollection.self, from: data).features else { return }
-        
+        guard let data = data,
+          let features = try? JSONDecoder().decode(FeatureCollection.self, from: data).features else {
+          return
+        }
+
         do {
           let realm = try Realm()
           
@@ -162,7 +141,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
             self?.loadPoints()
           }
         } catch {
-          print("Can't update points in Realm")
+          fatalError("Can't update points in Realm")
         }
       }
     })
@@ -171,14 +150,13 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   }
   
   // remove all annotation from mapview
-  func removeAllAnnotations() {
+  private func removeAllAnnotations() {
     guard let annotations = mapView.annotations else { return }
     
     mapView.removeAnnotations(annotations)
   }
   
-  // load points from realm database
-  func loadPoints(checkForUpdatedData: Bool = false) {
+  private func loadPoints(checkForUpdatedData: Bool = false) {
     
     do {
       let realm = try Realm()
@@ -215,27 +193,25 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   }
   
   // check if need to update
-  func checkLastChangedDate(update: Bool) {
-    guard let url = URL(string: "http://dodies.lv/apraksti/lastchanged.txt") else { return }
+  private func checkLastChangedDate(update: Bool) {
+    let url = URL(string: "http://dodies.lv/apraksti/lastchanged.txt")!
     
-    let task = URLSession.shared.dataTask(with: url, completionHandler: {[weak self] data, _, error in
+    URLSession.shared.dataTask(with: url) {[weak self] data, _, error in
       if let error = error {
         debugPrint("Can't get last changed date \(error)")
       }
       
-      guard let data = data else { return }
-      
-      guard let lastChangedDate = String(data: data, encoding: .utf8) else { return }
-      
-      guard let timestamp = Int(lastChangedDate.replacingOccurrences(of: "\n", with: "")) else { return }
+      guard let data = data,
+        let lastChangedDate = String(data: data, encoding: .utf8),
+        let timestamp = Int(lastChangedDate.replacingOccurrences(of: "\n", with: "")) else {
+        return
+      }
       
       if update, timestamp > UserDefaults.standard.integer(forKey: Constants.lastChangedTimestampKey) {
         self?.downloadData()
       } else {
         UserDefaults.standard.set(timestamp, forKey: Constants.lastChangedTimestampKey)
       }
-    })
-    
-    task.resume()
+    }.resume()
   }
 }
