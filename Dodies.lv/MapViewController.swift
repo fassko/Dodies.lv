@@ -12,8 +12,8 @@ import CoreLocation
 
 import Mapbox
 import RealmSwift
-import Fabric
-import Crashlytics
+//import Fabric
+//import Crashlytics
 import Localize_Swift
 import SwiftSpinner
 
@@ -104,10 +104,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     title = "Map".localized()
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    Answers.logContentView(withName: "Map", contentType: "Map", contentId: nil, customAttributes: nil)
-  }
-  
   // MARK: - Interface methods
   @IBAction func settings(sender: AnyObject) {
     coordinator?.showSettings()
@@ -123,7 +119,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     let task = URLSession.shared.dataTask(with: url, completionHandler: {[weak self] data, _, error in
       if let error = error {
         debugPrint("Can't download data \(error) \(language)")
-        Answers.logCustomEvent(withName: "CantDownloadData", customAttributes: ["language": language, "error": error])
         self?.showError(withMessage: "Can't download data. Please check your settings and try again.".localized())
       } else {
         guard let data = data else { return }

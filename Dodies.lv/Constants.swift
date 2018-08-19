@@ -12,5 +12,5 @@ import UIKit
 enum Constants {
   static let lastChangedTimestampKey = "LastChangedTimestamp"
   static let languageKey = "language"
-  static let greenColor = UIColor(red:0.42, green:0.60, blue:0.23, alpha:1.0)
+  static let greenColor = UIColor(red: 0.42, green: 0.60, blue: 0.23, alpha: 1.0)
 }

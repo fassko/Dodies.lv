@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-import Fabric
-import Crashlytics
+//import Fabric
+//import Crashlytics
 import Kingfisher
 import Localize_Swift
 import Lightbox
@@ -36,8 +36,7 @@ class DetailsViewController: UIViewController, Storyboarded {
   
   @IBOutlet weak var navigationButton: DodiesButton!
   @IBOutlet weak var moreInfoButton: DodiesButton!
-  
-  
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -98,13 +97,6 @@ class DetailsViewController: UIViewController, Storyboarded {
     } else {
       image?.isHidden = true
     }
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    Answers.logContentView(withName: "Details",
-                      contentType: "DodiesDetails",
-                      contentId: point.name,
-                      customAttributes: ["name": point.name, "description": point.description])
   }
   
   override func viewDidAppear(_ animated: Bool) {
