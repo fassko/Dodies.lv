@@ -19,7 +19,7 @@ platform :ios do
 
   desc "CI build"
   lane :ci_build do
-    # certificates
+    certificates
 
     # xcodebuild(
     #   workspace: "Dodies.lv.xcworkspace",
@@ -42,7 +42,8 @@ platform :ios do
       workspace: "Dodies.lv.xcworkspace",
 			scheme: "Dodies.lv",
 			clean: true,
-      devices: ["iPhone X", "iPad (5th generation)"]
+      devices: ["iPhone X"]
+      # devices: ["iPhone X", "iPad (5th generation)"]
     )
   end
 
