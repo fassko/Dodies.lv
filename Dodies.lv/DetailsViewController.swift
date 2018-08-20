@@ -128,7 +128,7 @@ class DetailsViewController: UIViewController, Storyboarded {
     let copy = UIAlertAction(title: "Copy coordiantes".localized(), style: .default) { _ in
       let pasteboard = UIPasteboard.general
       pasteboard.string = "\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)"
-      UIImpactFeedbackGenerator().impactOccurred()
+      UINotificationFeedbackGenerator().notificationOccurred(.success)
     }
 
     let apple = UIAlertAction(title: "Apple Maps", style: .default) { _ in
