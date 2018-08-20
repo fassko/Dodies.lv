@@ -57,6 +57,7 @@ class SettingsViewController: UIViewController, Storyboarded {
     UserDefaults.standard.set(language, forKey: Constants.languageKey)
     
     Localize.setCurrentLanguage(language)
+    UIImpactFeedbackGenerator().impactOccurred()
     coordinator?.reloadApp()
   }
 }
