@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var coordinator: MainCoordinator?
   
   func application(_ application: UIApplication,
-                   willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+                   didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+    Fabric.with([Crashlytics.self])
     
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
       schemaVersion: 4,
@@ -45,13 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.rootViewController = navController
     window?.makeKeyAndVisible()
-    
-    return true
-  }
-  
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
-    Fabric.with([Crashlytics.self])
     
     return true
   }
