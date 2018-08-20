@@ -50,7 +50,7 @@ class DetailsViewController: UIViewController, Storyboarded {
     navigationItem.titleView = titleLabel
     
     desc.isScrollEnabled = false
-    desc.text = dodiesPointDetails.description
+    desc.text = dodiesPointDetails.description.decodingHTMLEntities()
     
     desc.sizeToFit()
     desc.layoutIfNeeded()
