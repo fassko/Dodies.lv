@@ -55,6 +55,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     debugPrint(Realm.Configuration.defaultConfiguration.fileURL!)
     Localize.setCurrentLanguage(language)
     
+    navigationItem.title = "Map".localized()
     navigationItem.titleView = UIImageView(image: UIImage(named: "dodies_nav_logo"))
     
     navigationItem.rightBarButtonItem?.title = "Settings".localized()
