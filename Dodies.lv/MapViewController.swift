@@ -163,7 +163,7 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
       let realm = try Realm()
       
       let points = realm.objects(DodiesPoint.self)
-//      .filter("st = 'parbaudits'")
+        .filter("st = 'parbaudits'")
 //      .filter("name = 'Aklā purva taka'")
       
       let mapAnnotations = points.toArray(type: DodiesPoint.self).map({ item -> DodiesAnnotation in

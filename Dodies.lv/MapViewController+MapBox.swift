@@ -27,7 +27,7 @@ extension MapViewController {
   }
   
   func mapView(_ mapView: MGLMapView, rightCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
-    return UIButton.init(type: UIButtonType.infoLight)
+    return UIButton.init(type: UIButton.ButtonType.infoLight)
   }
   
   func mapView(_ mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {

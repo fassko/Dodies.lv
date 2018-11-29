@@ -62,7 +62,7 @@ class DetailsViewController: UIViewController, Storyboarded {
     let latitude = String(format: "%.5f", point.coordinate.latitude)
     let longitude = String(format: "%.5f", point.coordinate.longitude)
     coordinatesButton.setTitle("\(latitude), \(longitude)",
-      for: UIControlState.normal)
+      for: UIControl.State.normal)
     
     if point.km == "" {
       lenght.isHidden = true
@@ -107,7 +107,7 @@ class DetailsViewController: UIViewController, Storyboarded {
       let alert = UIAlertController(title: "Dodies.lv",
                                     message: "Sorry, but description isn't ready yet.".localized(),
                                     preferredStyle: .alert)
-      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
       present(alert, animated: true, completion: nil)
       
       return

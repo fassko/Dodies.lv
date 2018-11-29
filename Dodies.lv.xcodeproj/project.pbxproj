@@ -13,7 +13,6 @@
 		6326106820910C2700996FE8 /* MapViewController+MapBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6326106720910C2700996FE8 /* MapViewController+MapBox.swift */; };
 		63330EC51DCF7B8F002194A3 /* Dodies_lvUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63330EC41DCF7B8F002194A3 /* Dodies_lvUITests.swift */; };
 		63475FEC1C5CC95500A9A5E4 /* DodiesPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */; };
-		634DABBC20950700003AB312 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634DABBB20950700003AB312 /* Storyboards.swift */; };
 		634DABBE20950905003AB312 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634DABBD20950905003AB312 /* Coordinator.swift */; };
 		634DABC02095093D003AB312 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634DABBF2095093D003AB312 /* Storyboarded.swift */; };
 		634DABC220950A2F003AB312 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634DABC120950A2F003AB312 /* MainCoordinator.swift */; };
@@ -130,7 +129,6 @@
 		63330EC41DCF7B8F002194A3 /* Dodies_lvUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dodies_lvUITests.swift; sourceTree = "<group>"; };
 		63330EC61DCF7B8F002194A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DodiesPoint.swift; sourceTree = "<group>"; };
-		634DABBB20950700003AB312 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		634DABBD20950905003AB312 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		634DABBF2095093D003AB312 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		634DABC120950A2F003AB312 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 				634DABBF2095093D003AB312 /* Storyboarded.swift */,
 				63A1D5721F89704200DA6132 /* Constants.swift */,
 				63FB43D01F8A20DF002033CE /* Extensions.swift */,
-				634DABBB20950700003AB312 /* Storyboards.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -451,7 +448,6 @@
 			buildConfigurationList = 636EA8461BA5BDF40071397A /* Build configuration list for PBXNativeTarget "Dodies.lv" */;
 			buildPhases = (
 				09035CAAE9192C54B50C71E7 /* [CP] Check Pods Manifest.lock */,
-				634DABBA20950481003AB312 /* SwiftGen */,
 				636EA82E1BA5BDF40071397A /* Sources */,
 				636EA82F1BA5BDF40071397A /* Frameworks */,
 				636EA8301BA5BDF40071397A /* Resources */,
@@ -625,20 +621,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    \"${PODS_ROOT}/SwiftLint/swiftlint\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		634DABBA20950481003AB312 /* SwiftGen */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = SwiftGen;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which $PODS_ROOT/SwiftGen/bin/swiftgen >/dev/null; then\n$PODS_ROOT/SwiftGen/bin/swiftgen storyboards \"$PROJECT_DIR\" -t swift4 --output \"$PROJECT_DIR/Dodies.lv/Storyboards.swift\"\nelse\n    echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
-		};
 		63EE49DC1DD78FC700E1F676 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -658,9 +640,8 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
-				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
 				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
@@ -674,7 +655,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
@@ -687,7 +667,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -713,7 +693,6 @@
 				63CA57A51BA5F41700A9F5DC /* DodiesAnnotation.swift in Sources */,
 				63475FEC1C5CC95500A9A5E4 /* DodiesPoint.swift in Sources */,
 				63B52196205EE18600850E41 /* Geometry.swift in Sources */,
-				634DABBC20950700003AB312 /* Storyboards.swift in Sources */,
 				634DABBE20950905003AB312 /* Coordinator.swift in Sources */,
 				63B622F52127625D0094190D /* DodiesButton.swift in Sources */,
 				63F5DC6E1C8358F200AEB195 /* SettingsViewController.swift in Sources */,
@@ -786,7 +765,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = Dodies.lv;
 			};
 			name = Debug;
@@ -808,7 +787,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = Dodies.lv;
 			};
 			name = Release;
@@ -854,7 +833,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -862,7 +841,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -904,13 +883,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
@@ -942,7 +921,7 @@
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -969,7 +948,7 @@
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
