@@ -21,17 +21,17 @@ platform :ios do
   lane :ci_build do
     certificates
 
-    # xcodebuild(
-    #   workspace: "Dodies.lv.xcworkspace",
-    #   scheme: "Dodies.lv",
-    #   configuration: "Debug",
-    #   clean: true,
-    #   build: true,
-    #   build_settings: {
-    #     "CODE_SIGNING_REQUIRED" => "NO",
-    #     "CODE_SIGN_IDENTITY" => ""
-    #   }
-    # )
+    xcodebuild(
+      workspace: "Dodies.lv.xcworkspace",
+      scheme: "Dodies.lv",
+      configuration: "Debug",
+      clean: true,
+      build: true,
+      build_settings: {
+        "CODE_SIGNING_REQUIRED" => "NO",
+        "CODE_SIGN_IDENTITY" => ""
+      }
+    )
 
     test
   end
