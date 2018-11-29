@@ -19,7 +19,7 @@ platform :ios do
 
   desc "CI build"
   lane :ci_build do
-    certificates
+    # certificates
 
     xcodebuild(
       workspace: "Dodies.lv.xcworkspace",
