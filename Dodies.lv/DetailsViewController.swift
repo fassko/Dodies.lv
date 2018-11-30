@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-import Fabric
-import Crashlytics
+//import Fabric
+//import Crashlytics
 import Kingfisher
 import Localize_Swift
 import Lightbox
@@ -25,7 +25,6 @@ class DetailsViewController: UIViewController, Storyboarded {
   @IBOutlet weak var coordinatesButton: UIButton!
   @IBOutlet weak var lenght: UILabel!
   @IBOutlet weak var checked: UILabel!
-  @IBOutlet weak var details: UIBarButtonItem!
   
   @IBOutlet weak var lengthTitle: UILabel!
   @IBOutlet weak var checkedTitle: UILabel!
@@ -34,30 +33,36 @@ class DetailsViewController: UIViewController, Storyboarded {
   
   @IBOutlet var descHeight: NSLayoutConstraint!
   
+  @IBOutlet weak var navigationButton: DodiesButton!
+  @IBOutlet weak var moreInfoButton: DodiesButton!
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.title = point.name
+    title = point.name
     
     checkedTitle.text = "Checked".localized()
     lengthTitle.text = "Length".localized()
     
-    self.navigationItem.titleView = titleLabel
+    navigationButton.setTitle("Navigation".localized())
+    moreInfoButton.setTitle("More Info".localized())
+    
+    navigationItem.titleView = titleLabel
     
     desc.isScrollEnabled = false
-    desc.text = dodiesPointDetails.description
+    desc.text = dodiesPointDetails.description.decodingHTMLEntities()
     
     desc.sizeToFit()
     desc.layoutIfNeeded()
     descHeight.constant = desc.sizeThatFits(CGSize(width: desc.frame.size.width,
                                                    height: CGFloat.greatestFiniteMagnitude)).height
     
-    self.automaticallyAdjustsScrollViewInsets = false
+    automaticallyAdjustsScrollViewInsets = false
     
     let latitude = String(format: "%.5f", point.coordinate.latitude)
     let longitude = String(format: "%.5f", point.coordinate.longitude)
     coordinatesButton.setTitle("\(latitude), \(longitude)",
-      for: UIControlState.normal)
+      for: UIControl.State.normal)
     
     if point.km == "" {
       lenght.isHidden = true
@@ -93,13 +98,6 @@ class DetailsViewController: UIViewController, Storyboarded {
     }
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    Answers.logContentView(withName: "Details",
-                      contentType: "DodiesDetails",
-                      contentId: point.name,
-                      customAttributes: ["name": point.name, "description": point.description])
-  }
-  
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
   }
@@ -109,8 +107,8 @@ class DetailsViewController: UIViewController, Storyboarded {
       let alert = UIAlertController(title: "Dodies.lv",
                                     message: "Sorry, but description isn't ready yet.".localized(),
                                     preferredStyle: .alert)
-      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-      self.present(alert, animated: true, completion: nil)
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+      present(alert, animated: true, completion: nil)
       
       return
     }
@@ -123,13 +121,14 @@ class DetailsViewController: UIViewController, Storyboarded {
   }
   
   @IBAction func openNavigation(_ sender: Any) {
-    let optionMenu = UIAlertController(title: nil, message: "Navigate with".localized(), preferredStyle: .actionSheet)
+    let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     
     optionMenu.popoverPresentationController?.sourceView = coordinatesButton
     
     let copy = UIAlertAction(title: "Copy coordiantes".localized(), style: .default) { _ in
       let pasteboard = UIPasteboard.general
       pasteboard.string = "\(self.point.coordinate.latitude),\(self.point.coordinate.longitude)"
+      UINotificationFeedbackGenerator().notificationOccurred(.success)
     }
 
     let apple = UIAlertAction(title: "Apple Maps", style: .default) { _ in
@@ -171,7 +170,7 @@ class DetailsViewController: UIViewController, Storyboarded {
     optionMenu.addAction(waze)
     optionMenu.addAction(cancelAction)
     
-    self.present(optionMenu, animated: true, completion: nil)
+    present(optionMenu, animated: true, completion: nil)
   }
   
   override func viewDidLayoutSubviews() {

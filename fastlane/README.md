@@ -16,11 +16,6 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
-### ios test
-```
-fastlane ios test
-```
-Runs all the tests
 ### ios certificates
 ```
 fastlane ios certificates
@@ -36,6 +31,11 @@ fastlane ios register_test_devices
 fastlane ios ci_build
 ```
 CI build
+### ios test
+```
+fastlane ios test
+```
+Test
 ### ios circleci
 ```
 fastlane ios circleci
@@ -46,6 +46,11 @@ Circle CI lane
 fastlane ios travis
 ```
 Travis lane
+### ios derived_data
+```
+fastlane ios derived_data
+```
+Derived data
 ### ios release
 ```
 fastlane ios release

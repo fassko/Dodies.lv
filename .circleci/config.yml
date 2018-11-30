@@ -8,10 +8,17 @@ jobs:
 
     # Specify the Xcode version to use
     macos:
-      xcode: "9.4.0"
+      xcode: "10.1.0"
 
     steps:
       - checkout
+
+      - run:
+          name: Reset simulators
+          command: |
+            export LC_ALL=en_US.UTF-8
+            export LANG=en_US.UTF-8
+            fastlane snapshot reset_simulators --force
 
       - run:
           name: Before Install

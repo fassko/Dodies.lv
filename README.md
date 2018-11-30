@@ -1,6 +1,5 @@
 # Dodies.lv
-[![Build Status](https://travis-ci.org/fassko/Dodies.lv.svg?branch=master)](https://travis-ci.org/fassko/Dodies.lv)
-[![CircleCI](https://circleci.com/gh/fassko/Dodies.lv/tree/master.svg?style=svg)](https://circleci.com/gh/fassko/Dodies.lv/tree/master)
+[![Build Status](https://app.bitrise.io/app/da057b870428196e/status.svg?token=IJdwJCGa_eLpHhu6dox-oA&branch=master)](https://app.bitrise.io/app/da057b870428196e)
 
 iOS mobile app for <http://dodies.lv>
 

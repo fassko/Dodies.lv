@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var coordinator: MainCoordinator?
   
   func application(_ application: UIApplication,
-                   willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+    Fabric.with([Crashlytics.self])
     
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
       schemaVersion: 4,
@@ -32,26 +33,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     do {
       _ = try Realm()
     } catch {
-      print("Can't load Realm")
+      fatalError("Can't load Realm")
     }
     
     let navController = UINavigationController()
-    navController.navigationBar.barTintColor = UIColor(red: 0.42, green: 0.60, blue: 0.23, alpha: 1.0)
+    navController.navigationBar.barTintColor = Constants.greenColor
     navController.navigationBar.tintColor = .white
     
     coordinator = MainCoordinator(navigationController: navController)
     coordinator?.start()
     
-    window = UIWindow(frame: UIScreen.main.bounds)
+    window = UIWindow()
     window?.rootViewController = navController
     window?.makeKeyAndVisible()
-    
-    return true
-  }
-  
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
-    Fabric.with([Crashlytics.self])
     
     return true
   }

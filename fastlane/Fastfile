@@ -3,11 +3,6 @@ default_platform :ios
 
 platform :ios do
 
-  desc "Runs all the tests"
-  lane :test do
-
-  end
-
   desc "Certs"
   lane :certificates do
     match(type: "appstore")
@@ -26,43 +21,49 @@ platform :ios do
   lane :ci_build do
     # certificates
 
-    xcodebuild(
+    # test
+
+    gym(
       workspace: "Dodies.lv.xcworkspace",
       scheme: "Dodies.lv",
-      configuration: "Debug",
-      clean: true,
-      build: true,
-      build_settings: {
-        "CODE_SIGNING_REQUIRED" => "NO",
-        "CODE_SIGN_IDENTITY" => ""
-      }
+      clean: true
     )
+  end
 
-    # Test
-    # scan(
-    #   workspace: "Dodies.lv.xcworkspace",
-		# 	scheme: "Dodies.lv",
-		# 	clean: true,
-    #   devices: ["iPhone X", "iPad (5th generation)"]
-    # )
+  desc "Test"
+  lane :test do
+    scan(
+      workspace: "Dodies.lv.xcworkspace",
+			scheme: "Dodies.lv",
+			clean: true,
+      devices: ["iPhone X"]
+      # devices: ["iPhone X", "iPad (5th generation)"]
+    )
   end
 
   desc "Circle CI lane"
   lane :circleci do
     setup_circle_ci
+    certificates
     ci_build
   end
 
   desc "Travis lane"
   lane :travis do
     setup_travis
+    certificates
     ci_build
+  end
+
+  desc "Derived data"
+  lane :derived_data do
+    clear_derived_data
   end
 
   lane :release do
     increment_build_number build_number: get_version_number + "." + Time.new.strftime("%y%m%d.%H%M")
 
-    clear_derived_data
+    derived_data
 
     gym(
       workspace: "Dodies.lv.xcworkspace",

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +20,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="UET-gh-G5d"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Nym-8i-f2e"/>
+                    <navigationItem key="navigationItem" id="Nym-8i-f2e">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="2ZT-Jl-0hu">
+                            <connections>
+                                <action selector="settingsWithSender:" destination="ExX-va-15z" id="eKp-NI-btc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="OhH-yB-PB6" kind="show" identifier="details" id="qrl-ZH-Io7"/>
                     </connections>
@@ -29,16 +35,16 @@
             </objects>
             <point key="canvasLocation" x="717" y="-362"/>
         </scene>
-        <!--About View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="WE0-zS-N8J">
             <objects>
-                <viewController storyboardIdentifier="AboutViewController" id="WI0-B1-khR" customClass="AboutViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="WI0-B1-khR" customClass="SettingsViewController" customModule="Dodies_lv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3YZ-LH-glU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGn-JU-jG9">
-                                <rect key="frame" x="20" y="40" width="374" height="676"/>
+                                <rect key="frame" x="20" y="40" width="374" height="618"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Dodies.lv is a collection of free nature trails, hiking paths, birdwatching towers and picnic places in Latvia. 
 Would you like to spend some time in Latvian nature, make a fire, stay in a tent? Our map contains freely accessible places closer to nature, available at any time for anyone.  
@@ -51,47 +57,39 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUa-2e-OnP" customClass="DodiesButton" customModule="Dodies_lv" customModuleProvider="target">
+                                <rect key="frame" x="107" y="666" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="DAx-cA-ADO"/>
+                                    <constraint firstAttribute="width" constant="200" id="OOu-KW-qN3"/>
+                                    <constraint firstAttribute="height" constant="50" id="b9I-TS-mle"/>
+                                </constraints>
+                                <state key="normal" title="Change language"/>
+                                <connections>
+                                    <action selector="setLanguage:" destination="WI0-B1-khR" eventType="touchUpInside" id="mBM-sN-ks1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gGn-JU-jG9" firstAttribute="trailing" secondItem="2bE-vK-aGj" secondAttribute="trailing" constant="-20" id="6u9-2l-NXg"/>
                             <constraint firstItem="gGn-JU-jG9" firstAttribute="leading" secondItem="2bE-vK-aGj" secondAttribute="leading" constant="20" id="OLC-Ff-yyY"/>
                             <constraint firstItem="gGn-JU-jG9" firstAttribute="top" secondItem="2bE-vK-aGj" secondAttribute="top" constant="20" id="aL3-5D-mpr"/>
-                            <constraint firstItem="gGn-JU-jG9" firstAttribute="bottom" secondItem="2bE-vK-aGj" secondAttribute="bottom" constant="-20" id="liv-TO-yE5"/>
+                            <constraint firstItem="2bE-vK-aGj" firstAttribute="bottom" secondItem="NUa-2e-OnP" secondAttribute="bottom" constant="20" id="iS7-DF-jVe"/>
+                            <constraint firstItem="NUa-2e-OnP" firstAttribute="centerX" secondItem="3YZ-LH-glU" secondAttribute="centerX" id="lZW-of-RJg"/>
+                            <constraint firstItem="NUa-2e-OnP" firstAttribute="top" secondItem="gGn-JU-jG9" secondAttribute="bottom" constant="8" id="vb7-ar-HC6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2bE-vK-aGj"/>
                     </view>
                     <navigationItem key="navigationItem" id="OaH-jx-7aV"/>
                     <connections>
                         <outlet property="aboutText" destination="gGn-JU-jG9" id="JVg-qC-mQg"/>
+                        <outlet property="changeLanguageButton" destination="NUa-2e-OnP" id="bj0-Hz-27O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTt-6e-Mfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="716" y="389"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="9z8-lU-Jv1">
-            <objects>
-                <navigationController id="2ne-Pp-ydF" sceneMemberID="viewController">
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QFt-d7-cWG">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.42352941179999998" green="0.59607843140000005" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="ExX-va-15z" kind="relationship" relationship="rootViewController" id="AR8-AJ-gO3"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="whB-X4-80c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-52" y="-362"/>
+            <point key="canvasLocation" x="714.49275362318849" y="388.85869565217394"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="Shr-GK-ODT">
@@ -102,9 +100,9 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LeQ-1N-P4W">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="650"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="y5U-FN-NYu">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="y5U-FN-NYu" userLabel="Details Stack View">
                                         <rect key="frame" x="20" y="20" width="374" height="390"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZjF-Fo-wlD">
@@ -123,7 +121,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                             </textView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GEa-ga-V2u">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GEa-ga-V2u" userLabel="Details Stack View">
                                                 <rect key="frame" x="0.0" y="300" width="374" height="90"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6b6-gs-tBW">
@@ -204,38 +202,61 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                     <constraint firstAttribute="trailing" secondItem="y5U-FN-NYu" secondAttribute="trailing" constant="-20" id="qzB-SL-sdi"/>
                                 </constraints>
                             </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lJe-jc-T6U" userLabel="Buttons stack view">
+                                <rect key="frame" x="41.333333333333343" y="678" width="331.33333333333326" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdK-zg-a3M" customClass="DodiesButton" customModule="Dodies_lv" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="155.66666666666666" height="50"/>
+                                        <state key="normal" title="Navigation"/>
+                                        <connections>
+                                            <action selector="openNavigation:" destination="OhH-yB-PB6" eventType="touchUpInside" id="uQx-bg-24X"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDz-ta-4m0" customClass="DodiesButton" customModule="Dodies_lv" customModuleProvider="target">
+                                        <rect key="frame" x="175.66666666666669" y="0.0" width="155.66666666666669" height="50"/>
+                                        <state key="normal" title="More Info"/>
+                                        <connections>
+                                            <action selector="showDescription:" destination="OhH-yB-PB6" eventType="touchUpInside" id="5aq-9f-oer"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="eDz-ta-4m0" firstAttribute="height" secondItem="lJe-jc-T6U" secondAttribute="height" id="GJN-YX-ftv"/>
+                                    <constraint firstItem="YdK-zg-a3M" firstAttribute="height" secondItem="lJe-jc-T6U" secondAttribute="height" id="dno-5x-Tjm"/>
+                                    <constraint firstAttribute="height" constant="50" id="juC-hq-dtT"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="zpe-HO-gQb"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="aIm-B2-i0d" firstAttribute="top" secondItem="LeQ-1N-P4W" secondAttribute="top" id="3sP-Rj-YUB"/>
-                            <constraint firstItem="aIm-B2-i0d" firstAttribute="bottom" secondItem="LeQ-1N-P4W" secondAttribute="bottom" id="L3j-9V-ATY"/>
+                            <constraint firstItem="aIm-B2-i0d" firstAttribute="bottom" secondItem="LeQ-1N-P4W" secondAttribute="bottom" constant="66" id="L3j-9V-ATY"/>
                             <constraint firstItem="aIm-B2-i0d" firstAttribute="trailing" secondItem="LeQ-1N-P4W" secondAttribute="trailing" id="WSW-wH-vng"/>
+                            <constraint firstItem="lJe-jc-T6U" firstAttribute="centerX" secondItem="hKQ-HV-Qt4" secondAttribute="centerX" id="eot-xg-qjj"/>
                             <constraint firstItem="aIm-B2-i0d" firstAttribute="leading" secondItem="LeQ-1N-P4W" secondAttribute="leading" id="n7a-q4-uOc"/>
+                            <constraint firstItem="aIm-B2-i0d" firstAttribute="bottom" secondItem="lJe-jc-T6U" secondAttribute="bottom" constant="8" id="tU1-Q0-x9r"/>
+                            <constraint firstItem="lJe-jc-T6U" firstAttribute="width" secondItem="hKQ-HV-Qt4" secondAttribute="width" multiplier="0.8" id="xdG-JF-Nwf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aIm-B2-i0d"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LNJ-u1-PxZ">
-                        <barButtonItem key="rightBarButtonItem" title="Info" id="yl9-Ox-0hF">
-                            <connections>
-                                <action selector="showDescription:" destination="OhH-yB-PB6" id="4fb-WR-sBk"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="LNJ-u1-PxZ"/>
                     <connections>
                         <outlet property="checked" destination="B8j-Sp-39T" id="edI-cD-4pg"/>
                         <outlet property="checkedTitle" destination="nun-25-ZGM" id="F6C-6d-ywD"/>
                         <outlet property="coordinatesButton" destination="0gk-HT-kfi" id="6Yv-nj-ePN"/>
                         <outlet property="desc" destination="12D-Pe-Nql" id="8GP-t1-e8c"/>
                         <outlet property="descHeight" destination="d44-ur-3Bg" id="LO5-z4-N2U"/>
-                        <outlet property="details" destination="yl9-Ox-0hF" id="A9j-6c-Utu"/>
                         <outlet property="image" destination="ZjF-Fo-wlD" id="CI1-Y1-la2"/>
                         <outlet property="lenght" destination="HXa-kG-NMX" id="Y1e-Jq-tqi"/>
                         <outlet property="lengthTitle" destination="KLv-1y-xYh" id="TA4-Dp-obu"/>
+                        <outlet property="moreInfoButton" destination="eDz-ta-4m0" id="IOe-pu-LgU"/>
+                        <outlet property="navigationButton" destination="YdK-zg-a3M" id="M2b-QG-Qfz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fm-Mb-ZsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1543" y="-362"/>
+            <point key="canvasLocation" x="1542.0289855072465" y="-362.77173913043481"/>
         </scene>
     </scenes>
 </document>

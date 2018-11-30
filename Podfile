@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '10.0'
 use_frameworks!
 
 target 'Dodies.lv' do
@@ -11,5 +11,4 @@ target 'Dodies.lv' do
   pod 'Lightbox'
   pod 'RealmSwift'
   pod 'SwiftLint'
-  pod 'SwiftGen'
 end
