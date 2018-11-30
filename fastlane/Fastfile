@@ -44,12 +44,14 @@ platform :ios do
   desc "Circle CI lane"
   lane :circleci do
     setup_circle_ci
+    certificates
     ci_build
   end
 
   desc "Travis lane"
   lane :travis do
     setup_travis
+    certificates
     ci_build
   end
 
