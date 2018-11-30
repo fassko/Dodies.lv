@@ -19,17 +19,15 @@ platform :ios do
 
   desc "CI build"
   lane :ci_build do
-    certificates
+    # certificates
 
-    xcodebuild(
+    # test
+
+    gym(
       workspace: "Dodies.lv.xcworkspace",
       scheme: "Dodies.lv",
-      configuration: "Debug",
-      clean: true,
-      build: true
+      clean: true
     )
-
-    test
   end
 
   desc "Test"
