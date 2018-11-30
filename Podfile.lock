@@ -15,7 +15,7 @@ PODS:
   - Realm/Headers (3.12.0)
   - RealmSwift (3.12.0):
     - Realm (= 3.12.0)
-  - SwiftLint (0.29.0)
+  - SwiftLint (0.29.1)
   - SwiftSpinner (1.6.2)
 
 DEPENDENCIES:
@@ -55,7 +55,7 @@ SPEC CHECKSUMS:
   Mapbox-iOS-SDK: 204c04713477cf2a88c52c5a8eed1790eb75a02a
   Realm: cdaef23c4ddb36ab1ddffed23f5a7f3332fc5585
   RealmSwift: 5576324033f0aa5ef1e0a839a3da2281dff47a7f
-  SwiftLint: d4e7443d93e2bbe868dc302e6c7ac30b469d6a14
+  SwiftLint: 6772320e40b52049053a518c17db9b0634a0b45a
   SwiftSpinner: 3a4c6dea425e5a31b908a8b1dd5dcd1ad4d96340
 
 PODFILE CHECKSUM: 029e25ed08e9b08aa641d00935e6fb15d0d902d8

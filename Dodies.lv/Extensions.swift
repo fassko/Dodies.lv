@@ -10,6 +10,8 @@ import Foundation
 
 import RealmSwift
 
+// swiftlint:disable file_length
+
 extension UserDefaults {
   /**
     Get value with default value
