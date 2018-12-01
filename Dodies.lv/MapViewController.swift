@@ -72,8 +72,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
   }
   
   private func setupMapView() {
-    let centerCoordinate = CLLocationCoordinate2D(latitude: 56.8800000, longitude: 24.6061111)
-    let region = MKCoordinateRegion(center: centerCoordinate, latitudinalMeters: 200000, longitudinalMeters: 500000)
+    
+    var centerCoordinate = CLLocationCoordinate2D(latitude: 56.8800000, longitude: 24.6061111)
+    var region = MKCoordinateRegion(center: centerCoordinate, latitudinalMeters: 200000, longitudinalMeters: 500000)
+    
+    if CommandLine.arguments.contains("-UITest") {
+      centerCoordinate = CLLocationCoordinate2D(latitude: 56.716568, longitude: 23.017921)
+      region = MKCoordinateRegion(center: centerCoordinate, latitudinalMeters: 9000, longitudinalMeters: 9000)
+    }
+    
     mapView.setRegion(region, animated: false)
     
     mapView.delegate = self
@@ -169,10 +176,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     
     do {
       let realm = try Realm()
+   
+      let points = { () -> Results<DodiesPoint> in
+        if CommandLine.arguments.contains("-UITest") {
+          return realm.objects(DodiesPoint.self)
+            .filter("name = 'Kartavkalna taka'")
+        } else {
+          return realm.objects(DodiesPoint.self)
+            .filter("txt != ''")
+        }
+      }()
       
-      let points = realm.objects(DodiesPoint.self)
-//        .filter("st = 'parbaudits'")
-//      .filter("name = 'Aklā purva taka'")
+//      let points =
+////        .filter("st = 'parbaudits'")
+//      .filter("name = 'Kartavkalna taka'")
       
       let mapAnnotations = points.toArray(type: DodiesPoint.self).map { item in
         DodiesAnnotation(latitude: item.latitude,

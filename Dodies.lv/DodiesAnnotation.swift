@@ -84,7 +84,9 @@ class PicnicAnnotationView: DodiesAnnotationView {
   }
 }
 
-class DodiesAnnotation: NSObject, MKAnnotation {
+class DodiesAnnotation: NSObject, MKAnnotation, UIAccessibilityIdentification {
+  var accessibilityIdentifier: String?
+  
   let coordinate: CLLocationCoordinate2D
   
   var color: UIColor {
@@ -135,8 +137,9 @@ class DodiesAnnotation: NSObject, MKAnnotation {
     default:
       type = .trail
     }
-    
     coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    
+    accessibilityIdentifier = name
   }
   
   required init?(coder aDecoder: NSCoder) {
