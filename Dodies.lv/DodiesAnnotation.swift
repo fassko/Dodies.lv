@@ -40,7 +40,7 @@ class TrailAnnotationView: DodiesAnnotationView {
   override func prepareForDisplay() {
     super.prepareForDisplay()
     markerTintColor = Constants.trailColor
-    glyphImage = #imageLiteral(resourceName: "trail")
+    glyphImage = Constants.trailImage
   }
 }
 
@@ -60,7 +60,7 @@ class TowerAnnotationView: DodiesAnnotationView {
     super.prepareForDisplay()
     displayPriority = .defaultLow
     markerTintColor = Constants.towerColor
-    glyphImage = #imageLiteral(resourceName: "binoculars")
+    glyphImage = Constants.towerImage
   }
 }
 
@@ -80,12 +80,12 @@ class PicnicAnnotationView: DodiesAnnotationView {
     super.prepareForDisplay()
     displayPriority = .defaultLow
     markerTintColor = Constants.picnicColor
-    glyphImage = #imageLiteral(resourceName: "picnic-table")
+    glyphImage = Constants.picnicImage
   }
 }
 
 class DodiesAnnotation: NSObject, MKAnnotation {
-  var coordinate: CLLocationCoordinate2D
+  let coordinate: CLLocationCoordinate2D
   
   var color: UIColor {
     return {
@@ -111,14 +111,16 @@ class DodiesAnnotation: NSObject, MKAnnotation {
   var name: String
   var tips: String
   var km: String
-  var txt: String
   var dat: String
   var url: String
   
-  init(latitude: Double, longitude: Double,
-       name: String, tips: String,
-       st: String, km: String,
-       txt: String, dat: String,
+  init(latitude: Double,
+       longitude: Double,
+       name: String,
+       tips: String,
+       st: String,
+       km: String,
+       dat: String,
        url: String) {
     
     self.latitude = latitude
@@ -128,20 +130,17 @@ class DodiesAnnotation: NSObject, MKAnnotation {
     self.dat = dat
     self.km = km
     self.url = url
-    self.txt = txt
     
     switch tips {
     case "tornis":
       type = .tower
-    case "piknins":
+    case "pikniks":
       type = .picnic
     default:
       type = .trail
     }
     
-    self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-    
-    super.init()
+    coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
   }
   
   required init?(coder aDecoder: NSCoder) {

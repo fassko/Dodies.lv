@@ -23,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Fabric.with([Crashlytics.self])
     
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 4,
+      schemaVersion: 6,
       migrationBlock: { migration, oldSchemaVersion in
-        if oldSchemaVersion < 1 {
+        if oldSchemaVersion < 6 {
           migration.deleteData(forType: DodiesPoint.className())
         }
     })

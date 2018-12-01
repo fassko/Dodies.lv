@@ -58,6 +58,11 @@ class DetailsViewController: UIViewController, Storyboarded {
                                                    height: CGFloat.greatestFiniteMagnitude)).height
     desc.contentInsetAdjustmentBehavior = .never
     
+    setupDetails()
+    setupImage()
+  }
+  
+  private func setupDetails() {
     let latitude = String(format: "%.5f", point.coordinate.latitude)
     let longitude = String(format: "%.5f", point.coordinate.longitude)
     coordinatesButton.setTitle("\(latitude), \(longitude)",
@@ -81,13 +86,15 @@ class DetailsViewController: UIViewController, Storyboarded {
       checkedTitle.isHidden = true
       checked.isHidden = true
     }
-    
+  }
+  
+  private func setupImage() {
     if let detailsImage = dodiesPointDetails.image, let imgURL = URL(string: detailsImage) {
       image?.kf.indicatorType = .activity
       
       let processor = RoundCornerImageProcessor(cornerRadius: 50)
       image?.kf.setImage(with: imgURL, options: [.transition(.fade(0.2)), .processor(processor)])
-
+      
       let singleTap = UITapGestureRecognizer(target: self, action: #selector(showGallery(_:)))
       singleTap.numberOfTapsRequired = 1
       image?.isUserInteractionEnabled = true

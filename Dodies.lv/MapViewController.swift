@@ -35,44 +35,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
   
   private let locationManager = CLLocationManager()
   
-//  private lazy var mapView: MGLMapView = {
-//    let styleURL = URL(string: "mapbox://styles/normis/cilzp6g1h00grbjlwwsh52vig")
-//    let mapView = MGLMapView(frame: view.bounds, styleURL: styleURL)
-//    mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//    let swCoordinate = CLLocationCoordinate2D(latitude: 55.500, longitude: 20.500)
-//    let neCoordinate = CLLocationCoordinate2D(latitude: 58.500, longitude: 28.500)
-//    let visibleCoordinateBounds = MGLCoordinateBounds(sw: swCoordinate, ne: neCoordinate)
-//    mapView.setVisibleCoordinateBounds(visibleCoordinateBounds, animated: false)
-//    mapView.delegate = self
-//    mapView.showsUserLocation = true
-//    mapView.isRotateEnabled = false
-//    mapView.attributionButton.isHidden = true
-//
-//    return mapView
-//  }()
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let centerCoordinate = CLLocationCoordinate2D(latitude: 56.8800000, longitude: 24.6061111)
-    let region = MKCoordinateRegion(center: centerCoordinate, latitudinalMeters: 200000, longitudinalMeters: 500000)
-    mapView.setRegion(region, animated: false)
-    
-    mapView.delegate = self
-    mapView.showsUserLocation = true
-    mapView.isRotateEnabled = true
-    
-//    mapView.register(DodiesAnnotation.self,
-//                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-    mapView.register(TrailAnnotationView.self,
-                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-    mapView.register(TowerAnnotationView.self,
-                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-    mapView.register(PicnicAnnotationView.self,
-                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-    
-    mapView.register(ClusterAnnotationView.self,
-                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
+    setupMapView()
     
     debugPrint(Realm.Configuration.defaultConfiguration.fileURL!)
     Localize.setCurrentLanguage(language)
@@ -105,6 +71,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     }
   }
   
+  private func setupMapView() {
+    let centerCoordinate = CLLocationCoordinate2D(latitude: 56.8800000, longitude: 24.6061111)
+    let region = MKCoordinateRegion(center: centerCoordinate, latitudinalMeters: 200000, longitudinalMeters: 500000)
+    mapView.setRegion(region, animated: false)
+    
+    mapView.delegate = self
+    mapView.showsUserLocation = true
+    mapView.isRotateEnabled = true
+    
+    mapView.register(TrailAnnotationView.self,
+                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+    mapView.register(TowerAnnotationView.self,
+                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+    mapView.register(PicnicAnnotationView.self,
+                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+    
+    mapView.register(ClusterAnnotationView.self,
+                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
+  }
+  
   // MARK: - Interface methods
   @IBAction func settings(sender: AnyObject) {
     coordinator?.showSettings()
@@ -134,8 +120,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
           
           let realmObjects = features.map({ feature -> DodiesPoint in
             let dodiesPoint = DodiesPoint()
-            dodiesPoint.latitude = feature.geometry.coordinates[0]
-            dodiesPoint.longitude = feature.geometry.coordinates[1]
+            dodiesPoint.latitude = feature.geometry.coordinates[1]
+            dodiesPoint.longitude = feature.geometry.coordinates[0]
             
             let properties = feature.properties
             dodiesPoint.name = properties.name
@@ -188,20 +174,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
 //        .filter("st = 'parbaudits'")
 //      .filter("name = 'Aklā purva taka'")
       
-      let mapAnnotations = points.toArray(type: DodiesPoint.self).map { item -> DodiesAnnotation in
-        
-        let point = DodiesAnnotation(latitude: item.latitude,
-                                     longitude: item.longitude,
-                                     name: item.name,
-                                     tips: item.tips,
-                                     st: item.st,
-                                     km: item.km,
-                                     txt: item.txt,
-                                     dat: item.dat,
-                                     url: item.url)
-        point.coordinate = CLLocationCoordinate2DMake(item.longitude, item.latitude)
-        
-        return point
+      let mapAnnotations = points.toArray(type: DodiesPoint.self).map { item in
+        DodiesAnnotation(latitude: item.latitude,
+                         longitude: item.longitude,
+                         name: item.name,
+                         tips: item.tips,
+                         st: item.st,
+                         km: item.km,
+                         dat: item.dat,
+                         url: item.url)
       }
       
       DispatchQueue.main.async {

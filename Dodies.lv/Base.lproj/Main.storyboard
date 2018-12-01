@@ -69,12 +69,12 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUa-2e-OnP" customClass="DodiesButton" customModule="Dodies_lv" customModuleProvider="target">
-                                <rect key="frame" x="107" y="666" width="200" height="50"/>
+                                <rect key="frame" x="121" y="666" width="172" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="DAx-cA-ADO"/>
-                                    <constraint firstAttribute="width" constant="200" id="OOu-KW-qN3"/>
                                     <constraint firstAttribute="height" constant="50" id="b9I-TS-mle"/>
                                 </constraints>
+                                <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <state key="normal" title="Change language"/>
                                 <connections>
                                     <action selector="setLanguage:" destination="WI0-B1-khR" eventType="touchUpInside" id="mBM-sN-ks1"/>
