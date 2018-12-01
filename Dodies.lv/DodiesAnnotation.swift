@@ -106,8 +106,6 @@ class DodiesAnnotation: NSObject, MKAnnotation {
     return name
   }
   
-  var latitude: Double
-  var longitude: Double
   var name: String
   var tips: String
   var km: String
@@ -123,8 +121,6 @@ class DodiesAnnotation: NSObject, MKAnnotation {
        dat: String,
        url: String) {
     
-    self.latitude = latitude
-    self.longitude = longitude
     self.name = name
     self.tips = tips
     self.dat = dat
