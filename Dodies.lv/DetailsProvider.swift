@@ -8,23 +8,28 @@
 
 import Foundation
 
+enum Result<Value> {
+  case success(Value)
+  case failure(Error)
+}
+
 enum DetailsProvider {
   
-  static func getFor(_ url: String, completion: @escaping (DodiesPointDetails?) -> Void) {
+  static func getFor(_ url: String, completion: @escaping (Result<DodiesPointDetails>) -> Void) {
     
     let url = URL(string: "https://dodies.lv\(url)?json=1")!
 
     URLSession.shared.dataTask(with: url) { data, _, error in
       if let error = error {
         debugPrint(error)
-        completion(nil)
+        completion(.failure(error))
       } else if let data = data {
         do {
           let details = try JSONDecoder().decode(DodiesPointDetails.self, from: data)
-          completion(details)
+          completion(.success(details))
         } catch let error {
           print(error)
-          completion(nil)
+          completion(.failure(error))
         }
       }
     }.resume()

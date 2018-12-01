@@ -10,18 +10,20 @@ import Foundation
 import UIKit
 import CoreLocation
 
-import Mapbox
+import MapKit
 import RealmSwift
 import Localize_Swift
 import SwiftSpinner
 
-class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate, Storyboarded {
+class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboarded {
   
   weak var coordinator: MainCoordinator?
 
   var selectedPoint: DodiesAnnotation!
   
   var pointDetails: DodiesPointDetails!
+  
+  @IBOutlet private weak var mapView: MKMapView!
   
   private var language: String = {
     guard let language = UserDefaults.standard.string(forKey: Constants.languageKey) else {
@@ -33,24 +35,44 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   
   private let locationManager = CLLocationManager()
   
-  private lazy var mapView: MGLMapView = {
-    let styleURL = URL(string: "mapbox://styles/normis/cilzp6g1h00grbjlwwsh52vig")
-    let mapView = MGLMapView(frame: view.bounds, styleURL: styleURL)
-    mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    let swCoordinate = CLLocationCoordinate2D(latitude: 55.500, longitude: 20.500)
-    let neCoordinate = CLLocationCoordinate2D(latitude: 58.500, longitude: 28.500)
-    let visibleCoordinateBounds = MGLCoordinateBounds(sw: swCoordinate, ne: neCoordinate)
-    mapView.setVisibleCoordinateBounds(visibleCoordinateBounds, animated: false)
-    mapView.delegate = self
-    mapView.showsUserLocation = true
-    mapView.isRotateEnabled = false
-    mapView.attributionButton.isHidden = true
-    
-    return mapView
-  }()
+//  private lazy var mapView: MGLMapView = {
+//    let styleURL = URL(string: "mapbox://styles/normis/cilzp6g1h00grbjlwwsh52vig")
+//    let mapView = MGLMapView(frame: view.bounds, styleURL: styleURL)
+//    mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//    let swCoordinate = CLLocationCoordinate2D(latitude: 55.500, longitude: 20.500)
+//    let neCoordinate = CLLocationCoordinate2D(latitude: 58.500, longitude: 28.500)
+//    let visibleCoordinateBounds = MGLCoordinateBounds(sw: swCoordinate, ne: neCoordinate)
+//    mapView.setVisibleCoordinateBounds(visibleCoordinateBounds, animated: false)
+//    mapView.delegate = self
+//    mapView.showsUserLocation = true
+//    mapView.isRotateEnabled = false
+//    mapView.attributionButton.isHidden = true
+//
+//    return mapView
+//  }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    let centerCoordinate = CLLocationCoordinate2D(latitude: 56.8800000, longitude: 24.6061111)
+    let region = MKCoordinateRegion(center: centerCoordinate, latitudinalMeters: 200000, longitudinalMeters: 500000)
+    mapView.setRegion(region, animated: false)
+    
+    mapView.delegate = self
+    mapView.showsUserLocation = true
+    mapView.isRotateEnabled = true
+    
+//    mapView.register(DodiesAnnotation.self,
+//                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+    mapView.register(TrailAnnotationView.self,
+                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+    mapView.register(TowerAnnotationView.self,
+                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+    mapView.register(PicnicAnnotationView.self,
+                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+    
+    mapView.register(ClusterAnnotationView.self,
+                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
     
     debugPrint(Realm.Configuration.defaultConfiguration.fileURL!)
     Localize.setCurrentLanguage(language)
@@ -63,8 +85,6 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
     if CLLocationManager.authorizationStatus() == .notDetermined {
       locationManager.requestWhenInUseAuthorization()
     }
-    
-    view.addSubview(mapView)
     
     SwiftSpinner.setTitleFont(UIFont(name: "HelveticaNeue", size: 18)!)
     SwiftSpinner.show("Downloading data".localized())
@@ -152,7 +172,9 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
   
   // remove all annotation from mapview
   private func removeAllAnnotations() {
-    guard let annotations = mapView.annotations else { return }
+    let annotations = mapView.annotations
+    
+    guard annotations.isEmpty else { return }
     
     mapView.removeAnnotations(annotations)
   }
@@ -166,21 +188,25 @@ class MapViewController: UIViewController, MGLMapViewDelegate, CLLocationManager
 //        .filter("st = 'parbaudits'")
 //      .filter("name = 'Aklā purva taka'")
       
-      let mapAnnotations = points.toArray(type: DodiesPoint.self).map({ item -> DodiesAnnotation in
-        let point = DodiesAnnotation(latitude: item.latitude, longitude: item.longitude,
-                                     name: item.name, tips: item.tips,
-                                     st: item.st, km: item.km,
-                                     txt: item.txt, dat: item.dat,
-                                     img: item.img, img2: item.img2, url: item.url)
+      let mapAnnotations = points.toArray(type: DodiesPoint.self).map { item -> DodiesAnnotation in
+        
+        let point = DodiesAnnotation(latitude: item.latitude,
+                                     longitude: item.longitude,
+                                     name: item.name,
+                                     tips: item.tips,
+                                     st: item.st,
+                                     km: item.km,
+                                     txt: item.txt,
+                                     dat: item.dat,
+                                     url: item.url)
         point.coordinate = CLLocationCoordinate2DMake(item.longitude, item.latitude)
-        point.title = item.name
         
         return point
-      })
+      }
       
-      mapView.addAnnotations(mapAnnotations)
-
       DispatchQueue.main.async {
+        
+        self.mapView.addAnnotations(mapAnnotations)
         SwiftSpinner.hide()
         
         if checkForUpdatedData {

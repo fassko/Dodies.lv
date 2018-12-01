@@ -56,8 +56,7 @@ class DetailsViewController: UIViewController, Storyboarded {
     desc.layoutIfNeeded()
     descHeight.constant = desc.sizeThatFits(CGSize(width: desc.frame.size.width,
                                                    height: CGFloat.greatestFiniteMagnitude)).height
-    
-    automaticallyAdjustsScrollViewInsets = false
+    desc.contentInsetAdjustmentBehavior = .never
     
     let latitude = String(format: "%.5f", point.coordinate.latitude)
     let longitude = String(format: "%.5f", point.coordinate.longitude)

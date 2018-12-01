@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let navController = UINavigationController()
     navController.navigationBar.barTintColor = Constants.greenColor
     navController.navigationBar.tintColor = .white
+    navController.navigationBar.isTranslucent = true
     
     coordinator = MainCoordinator(navigationController: navController)
     coordinator?.start()

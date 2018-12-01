@@ -49,8 +49,6 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>MGLMapboxAccessToken</key>
-	<string>sk.eyJ1Ijoibm9ybWlzIiwiYSI6ImNpbTBjZzQ5bTAwaTZ2OW00YXBlMjRpaDYifQ.QfD2KOVBvTqzu2AcQIOHTA</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
