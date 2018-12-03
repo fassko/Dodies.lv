@@ -33,6 +33,8 @@ class SettingsViewController: UIViewController, Storyboarded {
                                         message: "Please select language".localized(),
                                         preferredStyle: .actionSheet)
     
+    actionSheet.popoverPresentationController?.sourceView = changeLanguageButton
+    
     actionSheet.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
     
     let cancelActionButton = UIAlertAction(title: "Cancel".localized(), style: .cancel)
