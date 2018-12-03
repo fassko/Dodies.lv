@@ -18,7 +18,7 @@ enum Constants {
   static let towerColor = #colorLiteral(red: 0.3960784314, green: 0.7058823529, blue: 0.7333333333, alpha: 1)
   static let picnicColor = #colorLiteral(red: 0.9294117647, green: 0.4196078431, blue: 0.003921568627, alpha: 1)
   
-  static let trailImage = #imageLiteral(resourceName: "trail")
-  static let towerImage = #imageLiteral(resourceName: "binoculars")
+  static let trailImage = #imageLiteral(resourceName: "signpost")
+  static let towerImage = #imageLiteral(resourceName: "binoculars.pdf")
   static let picnicImage = #imageLiteral(resourceName: "picnic-table")
 }
