@@ -9,7 +9,6 @@ PODS:
   - Lightbox (2.3.0):
     - Imaginary (~> 4.0)
   - Localize-Swift (2.0.0)
-  - Mapbox-iOS-SDK (4.6.0)
   - Realm (3.12.0):
     - Realm/Headers (= 3.12.0)
   - Realm/Headers (3.12.0)
@@ -24,7 +23,6 @@ DEPENDENCIES:
   - Kingfisher
   - Lightbox
   - Localize-Swift
-  - Mapbox-iOS-SDK
   - RealmSwift
   - SwiftLint
   - SwiftSpinner
@@ -38,7 +36,6 @@ SPEC REPOS:
     - Kingfisher
     - Lightbox
     - Localize-Swift
-    - Mapbox-iOS-SDK
     - Realm
     - RealmSwift
     - SwiftLint
@@ -52,12 +49,11 @@ SPEC CHECKSUMS:
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   Lightbox: d317750e4132bfb871a5307cfe0a2c7d6a583c65
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
-  Mapbox-iOS-SDK: 204c04713477cf2a88c52c5a8eed1790eb75a02a
   Realm: cdaef23c4ddb36ab1ddffed23f5a7f3332fc5585
   RealmSwift: 5576324033f0aa5ef1e0a839a3da2281dff47a7f
   SwiftLint: 6772320e40b52049053a518c17db9b0634a0b45a
   SwiftSpinner: 3a4c6dea425e5a31b908a8b1dd5dcd1ad4d96340
 
-PODFILE CHECKSUM: 029e25ed08e9b08aa641d00935e6fb15d0d902d8
+PODFILE CHECKSUM: 0e821f20509751c064f2b2adec9fa44d7210373b
 
 COCOAPODS: 1.6.0.beta.2

@@ -3,7 +3,6 @@
 //  Example
 //
 //  Created by Felix Krause on 10/8/15.
-//  Copyright © 2015 Felix Krause. All rights reserved.
 //
 
 // -----------------------------------------------------
@@ -115,10 +114,14 @@ open class Snapshot: NSObject {
         } catch {
             print("Couldn't detect/set locale...")
         }
+        
         if locale.isEmpty {
             locale = Locale(identifier: deviceLanguage).identifier
         }
-        app.launchArguments += ["-AppleLocale", "\"\(locale)\""]
+        
+        if !locale.isEmpty {
+            app.launchArguments += ["-AppleLocale", "\"\(locale)\""]
+        }
     }
 
     class func setLaunchArguments(_ app: XCUIApplication) {
@@ -161,7 +164,8 @@ open class Snapshot: NSObject {
                 return
             }
             
-            let screenshot = app.windows.firstMatch.screenshot()
+            let window = app.windows.firstMatch
+            let screenshot = window.screenshot()
             guard let simulator = ProcessInfo().environment["SIMULATOR_DEVICE_NAME"], let screenshotsDir = screenshotsDirectory else { return }
             let path = screenshotsDir.appendingPathComponent("\(simulator)-\(name).png")
             do {
@@ -253,7 +257,7 @@ private extension XCUIElementQuery {
     }
 
     var deviceStatusBars: XCUIElementQuery {
-        let deviceWidth = XCUIApplication().frame.width
+        let deviceWidth = XCUIApplication().windows.firstMatch.frame.width
 
         let isStatusBar = NSPredicate { (evaluatedObject, _) in
             guard let element = evaluatedObject as? XCUIElementAttributes else { return false }
@@ -273,4 +277,4 @@ private extension CGFloat {
 
 // Please don't remove the lines below
 // They are used to detect outdated configuration files
-// SnapshotHelperVersion [1.9]
+// SnapshotHelperVersion [1.13]

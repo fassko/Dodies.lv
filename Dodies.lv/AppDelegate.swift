@@ -23,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Fabric.with([Crashlytics.self])
     
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 4,
+      schemaVersion: 6,
       migrationBlock: { migration, oldSchemaVersion in
-        if oldSchemaVersion < 1 {
+        if oldSchemaVersion < 6 {
           migration.deleteData(forType: DodiesPoint.className())
         }
     })
@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let navController = UINavigationController()
     navController.navigationBar.barTintColor = Constants.greenColor
     navController.navigationBar.tintColor = .white
+    navController.navigationBar.isTranslucent = true
     
     coordinator = MainCoordinator(navigationController: navController)
     coordinator?.start()

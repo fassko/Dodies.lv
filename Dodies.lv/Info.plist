@@ -23,7 +23,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.9.1.181129.1919</string>
+	<string>1.9.1.181203.2304</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -49,8 +49,6 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>MGLMapboxAccessToken</key>
-	<string>sk.eyJ1Ijoibm9ybWlzIiwiYSI6ImNpbTBjZzQ5bTAwaTZ2OW00YXBlMjRpaDYifQ.QfD2KOVBvTqzu2AcQIOHTA</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

@@ -17,7 +17,18 @@
                     <view key="view" contentMode="scaleToFill" id="MBT-y7-dyg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="efZ-VV-Wpb">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="efZ-VV-Wpb" firstAttribute="top" secondItem="UET-gh-G5d" secondAttribute="top" id="Mdl-eo-zqk"/>
+                            <constraint firstItem="efZ-VV-Wpb" firstAttribute="leading" secondItem="MBT-y7-dyg" secondAttribute="leading" id="Wo7-ex-iRQ"/>
+                            <constraint firstItem="efZ-VV-Wpb" firstAttribute="bottom" secondItem="MBT-y7-dyg" secondAttribute="bottom" id="shv-Wx-DQF"/>
+                            <constraint firstItem="efZ-VV-Wpb" firstAttribute="trailing" secondItem="MBT-y7-dyg" secondAttribute="trailing" id="zcT-57-uul"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UET-gh-G5d"/>
                     </view>
                     <navigationItem key="navigationItem" id="Nym-8i-f2e">
@@ -28,12 +39,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="OhH-yB-PB6" kind="show" identifier="details" id="qrl-ZH-Io7"/>
+                        <outlet property="mapView" destination="efZ-VV-Wpb" id="yFg-jt-tJ2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vWe-c8-cWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="717" y="-362"/>
+            <point key="canvasLocation" x="714.49275362318849" y="-362.77173913043481"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="WE0-zS-N8J">
@@ -58,12 +69,12 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUa-2e-OnP" customClass="DodiesButton" customModule="Dodies_lv" customModuleProvider="target">
-                                <rect key="frame" x="107" y="666" width="200" height="50"/>
+                                <rect key="frame" x="121" y="666" width="172" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="DAx-cA-ADO"/>
-                                    <constraint firstAttribute="width" constant="200" id="OOu-KW-qN3"/>
                                     <constraint firstAttribute="height" constant="50" id="b9I-TS-mle"/>
                                 </constraints>
+                                <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <state key="normal" title="Change language"/>
                                 <connections>
                                     <action selector="setLanguage:" destination="WI0-B1-khR" eventType="touchUpInside" id="mBM-sN-ks1"/>
