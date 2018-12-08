@@ -18,15 +18,17 @@ platform :ios do
   end
 
   desc "CI build"
-  lane :ci_build do
-    # certificates
+  lane :build_for_release do
+    increment_build_number build_number: get_version_number + "." + Time.new.strftime("%y%m%d.%H%M")
 
-    # test
+    derived_data
 
     gym(
       workspace: "Dodies.lv.xcworkspace",
       scheme: "Dodies.lv",
-      clean: true
+      clean: true,
+      output_name: "Dodies.lv.ipa",
+      include_symbols: true
     )
   end
 
@@ -41,37 +43,13 @@ platform :ios do
     )
   end
 
-  desc "Circle CI lane"
-  lane :circleci do
-    setup_circle_ci
-    certificates
-    ci_build
-  end
-
-  desc "Travis lane"
-  lane :travis do
-    setup_travis
-    certificates
-    ci_build
-  end
-
   desc "Derived data"
   lane :derived_data do
     clear_derived_data
   end
 
   lane :release do
-    increment_build_number build_number: get_version_number + "." + Time.new.strftime("%y%m%d.%H%M")
-
-    derived_data
-
-    gym(
-      workspace: "Dodies.lv.xcworkspace",
-      scheme: "Dodies.lv",
-      clean: true,
-      output_name: "Dodies.lv.ipa",
-      include_symbols: true
-    )
+    build_for_release
 
     testflight(
       skip_waiting_for_build_processing: true
