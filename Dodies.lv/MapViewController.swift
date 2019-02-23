@@ -14,6 +14,7 @@ import MapKit
 import RealmSwift
 import Localize_Swift
 import SwiftSpinner
+import PromiseKit
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboarded {
   
@@ -25,7 +26,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
   
   @IBOutlet private weak var mapView: MKMapView!
   
-  private var language: String = {
+  var language: String = {
     guard let language = UserDefaults.standard.string(forKey: Constants.languageKey) else {
       return "lv"
     }
@@ -99,66 +100,29 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
   }
   
   // download data from server
-  private func downloadData() {
-  
-    guard let url = URL(string: "http://dodies.lv/json/\(language).geojson") else { return }
-    
-    let task = URLSession.shared.dataTask(with: url, completionHandler: {[weak self] data, _, error in
-      if let error = error {
-        debugPrint("Can't download data \(error) \(String(describing: self?.language))")
-        self?.showError(withMessage: "Can't download data. Please check your settings and try again.".localized())
-      } else {
-        guard let data = data,
-          let features = try? JSONDecoder().decode(FeatureCollection.self, from: data).features else {
-          return
-        }
-
-        do {
-          let realm = try Realm()
-          
-          try realm.write {
-            realm.deleteAll()
-          }
-          
-          let realmObjects = features.map({ feature -> DodiesPoint in
-            let dodiesPoint = DodiesPoint()
-            dodiesPoint.latitude = feature.geometry.coordinates[1]
-            dodiesPoint.longitude = feature.geometry.coordinates[0]
-            
-            let properties = feature.properties
-            dodiesPoint.name = properties.name
-            dodiesPoint.tips = properties.tips
-            dodiesPoint.st = properties.st
-            dodiesPoint.km = properties.km
-            dodiesPoint.txt = properties.txt
-            dodiesPoint.dat = properties.dat
-            dodiesPoint.img = properties.img
-            dodiesPoint.img2 = properties.img2
-            dodiesPoint.url = properties.url
-            
-            return dodiesPoint
-          })
-          
-          try realm.write {
-            realm.add(realmObjects)
-          }
-          
-          self?.checkLastChangedDate(update: false)
-          
-          DispatchQueue.main.async {
-            self?.removeAllAnnotations()
-            self?.loadPoints()
-          }
-        } catch {
-          fatalError("Can't update points in Realm")
-        }
+  func downloadData() {
+    firstly {
+      deleteData()
+    }.then { _ in
+      self.downloadData(with: .taka)
+    }.then {_ in
+      self.downloadData(with: .tornis)
+    }
+    .then { _ in
+      self.downloadData(with: .pikniks)
+    }.done { _ in
+      self.checkLastChangedDate(update: false)
+      
+      DispatchQueue.main.async {
+        self.removeAllAnnotations()
+        self.loadPoints()
       }
-    })
-    
-    task.resume()
+    }.catch {
+      debugPrint("Can't download data \($0)")
+    }
   }
   
-  // remove all annotation from mapview
+  /// Remove all annotation from mapview
   private func removeAllAnnotations() {
     let annotations = mapView.annotations
     
@@ -189,7 +153,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
       }
       
       DispatchQueue.main.async {
-        
         self.mapView.addAnnotations(mapAnnotations)
         SwiftSpinner.hide()
         
@@ -200,29 +163,5 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     } catch {
       print("Can't load points")
     }
-    
-  }
-  
-  // check if need to update
-  private func checkLastChangedDate(update: Bool) {
-    let url = URL(string: "http://dodies.lv/apraksti/lastchanged.txt")!
-    
-    URLSession.shared.dataTask(with: url) {[weak self] data, _, error in
-      if let error = error {
-        debugPrint("Can't get last changed date \(error)")
-      }
-      
-      guard let data = data,
-        let lastChangedDate = String(data: data, encoding: .utf8),
-        let timestamp = Int(lastChangedDate.replacingOccurrences(of: "\n", with: "")) else {
-        return
-      }
-      
-      if update, timestamp > UserDefaults.standard.integer(forKey: Constants.lastChangedTimestampKey) {
-        self?.downloadData()
-      } else {
-        UserDefaults.standard.set(timestamp, forKey: Constants.lastChangedTimestampKey)
-      }
-    }.resume()
   }
 }

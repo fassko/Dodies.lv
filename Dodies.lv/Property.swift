@@ -9,13 +9,14 @@
 import Foundation
 
 /// Feature properties
+// swiftlint:disable identifier_name
 struct Property: Codable {
   
   /// Name
-  var name: String
+  var na: String
   
   /// Type
-  var tips: String
+  var ti: FeatureType
   
   /// Status
   var st: String

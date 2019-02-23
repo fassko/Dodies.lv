@@ -5,16 +5,25 @@ PODS:
   - Fabric (1.9.0)
   - Imaginary (4.2.0):
     - Cache (~> 5.0)
-  - Kingfisher (4.10.1)
+  - Kingfisher (5.1.1)
   - Lightbox (2.3.0):
     - Imaginary (~> 4.0)
   - Localize-Swift (2.0.0)
-  - Realm (3.12.0):
-    - Realm/Headers (= 3.12.0)
-  - Realm/Headers (3.12.0)
-  - RealmSwift (3.12.0):
-    - Realm (= 3.12.0)
-  - SwiftLint (0.29.1)
+  - PromiseKit (6.8.3):
+    - PromiseKit/CorePromise (= 6.8.3)
+    - PromiseKit/Foundation (= 6.8.3)
+    - PromiseKit/UIKit (= 6.8.3)
+  - PromiseKit/CorePromise (6.8.3)
+  - PromiseKit/Foundation (6.8.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.8.3):
+    - PromiseKit/CorePromise
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
+  - SwiftLint (0.30.1)
   - SwiftSpinner (1.6.2)
 
 DEPENDENCIES:
@@ -23,6 +32,7 @@ DEPENDENCIES:
   - Kingfisher
   - Lightbox
   - Localize-Swift
+  - PromiseKit
   - RealmSwift
   - SwiftLint
   - SwiftSpinner
@@ -36,6 +46,7 @@ SPEC REPOS:
     - Kingfisher
     - Lightbox
     - Localize-Swift
+    - PromiseKit
     - Realm
     - RealmSwift
     - SwiftLint
@@ -46,14 +57,15 @@ SPEC CHECKSUMS:
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   Imaginary: dae33d06dbc2ada22f98afef5eb45cc061311a2c
-  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  Kingfisher: 2558186963e5be42d98c5b110ccb3130148b77e4
   Lightbox: d317750e4132bfb871a5307cfe0a2c7d6a583c65
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
-  Realm: cdaef23c4ddb36ab1ddffed23f5a7f3332fc5585
-  RealmSwift: 5576324033f0aa5ef1e0a839a3da2281dff47a7f
-  SwiftLint: 6772320e40b52049053a518c17db9b0634a0b45a
+  PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
+  SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
   SwiftSpinner: 3a4c6dea425e5a31b908a8b1dd5dcd1ad4d96340
 
-PODFILE CHECKSUM: 0e821f20509751c064f2b2adec9fa44d7210373b
+PODFILE CHECKSUM: 623d439fb13debc746a1aada245623bbb89db048
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.6.0
