@@ -14,6 +14,7 @@ import MapKit
 import RealmSwift
 import Localize_Swift
 import SwiftSpinner
+import PromiseKit
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboarded {
   
@@ -100,62 +101,87 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
   
   // download data from server
   private func downloadData() {
-  
-    guard let url = URL(string: "http://dodies.lv/json/\(language).geojson") else { return }
+    do {
+      let realm = try Realm()
+      
+      try realm.write {
+        realm.deleteAll()
+      }
+    } catch {
+      fatalError("Can't update points in Realm")
+    }
     
-    let task = URLSession.shared.dataTask(with: url, completionHandler: {[weak self] data, _, error in
-      if let error = error {
-        debugPrint("Can't download data \(error) \(String(describing: self?.language))")
-        self?.showError(withMessage: "Can't download data. Please check your settings and try again.".localized())
-      } else {
-        guard let data = data,
-          let features = try? JSONDecoder().decode(FeatureCollection.self, from: data).features else {
-          return
-        }
+    firstly {
+      downloadData(with: .taka)
+    }.then {_ in
+      self.downloadData(with: .tornis)
+    }
+    .then { _ in
+      self.downloadData(with: .pikniks)
+    }.done { _ in
+      self.checkLastChangedDate(update: false)
+      
+      DispatchQueue.main.async {
+        self.removeAllAnnotations()
+        self.loadPoints()
+      }
+    }.catch {
+      debugPrint("Can't download data \($0)")
+    }
+  }
+  
+  private func downloadData(with type: FeatureType) -> Promise<Bool> {
+    return Promise { promise in
+    
+      let url = URL(string: "https://dodies.lv/json/\(language)\(type.rawValue).geojson")!
+      
+      let task = URLSession.shared.dataTask(with: url) {[weak self] data, _, error in
+        if let error = error {
+          debugPrint("Can't download data \(error) \(String(describing: self?.language))")
+          self?.showError(withMessage: "Can't download data. Please check your settings and try again.".localized())
+          promise.reject(error)
+        } else {
+        
+          guard let data = data,
+            let features = try? JSONDecoder().decode(FeatureCollection.self, from: data).features else {
+            return
+          }
 
-        do {
-          let realm = try Realm()
-          
-          try realm.write {
-            realm.deleteAll()
-          }
-          
-          let realmObjects = features.map({ feature -> DodiesPoint in
-            let dodiesPoint = DodiesPoint()
-            dodiesPoint.latitude = feature.geometry.coordinates[1]
-            dodiesPoint.longitude = feature.geometry.coordinates[0]
+          do {
+            let realm = try Realm()
             
-            let properties = feature.properties
-            dodiesPoint.name = properties.name
-            dodiesPoint.tips = properties.tips
-            dodiesPoint.st = properties.st
-            dodiesPoint.km = properties.km
-            dodiesPoint.txt = properties.txt
-            dodiesPoint.dat = properties.dat
-            dodiesPoint.img = properties.img
-            dodiesPoint.img2 = properties.img2
-            dodiesPoint.url = properties.url
+            let realmObjects = features.map { feature -> DodiesPoint in
+              let dodiesPoint = DodiesPoint()
+              dodiesPoint.latitude = feature.geometry.coordinates[1]
+              dodiesPoint.longitude = feature.geometry.coordinates[0]
+              
+              let properties = feature.properties
+              dodiesPoint.name = properties.na
+              dodiesPoint.tips = properties.ti.rawValue
+              dodiesPoint.st = properties.st
+              dodiesPoint.km = properties.km
+              dodiesPoint.txt = properties.txt
+              dodiesPoint.dat = properties.dat
+              dodiesPoint.img = properties.img
+              dodiesPoint.img2 = properties.img2
+              dodiesPoint.url = properties.url
+              
+              return dodiesPoint
+            }
             
-            return dodiesPoint
-          })
-          
-          try realm.write {
-            realm.add(realmObjects)
+            try realm.write {
+              realm.add(realmObjects)
+              promise.fulfill(true)
+            }
+          } catch {
+            promise.reject(error)
+            fatalError("Can't update points in Realm")
           }
-          
-          self?.checkLastChangedDate(update: false)
-          
-          DispatchQueue.main.async {
-            self?.removeAllAnnotations()
-            self?.loadPoints()
-          }
-        } catch {
-          fatalError("Can't update points in Realm")
         }
       }
-    })
-    
-    task.resume()
+      
+      task.resume()
+    }
   }
   
   // remove all annotation from mapview
@@ -205,7 +231,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
   
   // check if need to update
   private func checkLastChangedDate(update: Bool) {
-    let url = URL(string: "http://dodies.lv/apraksti/lastchanged.txt")!
+    let url = URL(string: "https://dodies.lv/apraksti/lastchanged.txt")!
     
     URLSession.shared.dataTask(with: url) {[weak self] data, _, error in
       if let error = error {

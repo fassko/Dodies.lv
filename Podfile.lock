@@ -9,6 +9,15 @@ PODS:
   - Lightbox (2.3.0):
     - Imaginary (~> 4.0)
   - Localize-Swift (2.0.0)
+  - PromiseKit (6.8.3):
+    - PromiseKit/CorePromise (= 6.8.3)
+    - PromiseKit/Foundation (= 6.8.3)
+    - PromiseKit/UIKit (= 6.8.3)
+  - PromiseKit/CorePromise (6.8.3)
+  - PromiseKit/Foundation (6.8.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.8.3):
+    - PromiseKit/CorePromise
   - Realm (3.13.1):
     - Realm/Headers (= 3.13.1)
   - Realm/Headers (3.13.1)
@@ -23,6 +32,7 @@ DEPENDENCIES:
   - Kingfisher
   - Lightbox
   - Localize-Swift
+  - PromiseKit
   - RealmSwift
   - SwiftLint
   - SwiftSpinner
@@ -36,6 +46,7 @@ SPEC REPOS:
     - Kingfisher
     - Lightbox
     - Localize-Swift
+    - PromiseKit
     - Realm
     - RealmSwift
     - SwiftLint
@@ -49,11 +60,12 @@ SPEC CHECKSUMS:
   Kingfisher: 2558186963e5be42d98c5b110ccb3130148b77e4
   Lightbox: d317750e4132bfb871a5307cfe0a2c7d6a583c65
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
+  PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
   RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
   SwiftSpinner: 3a4c6dea425e5a31b908a8b1dd5dcd1ad4d96340
 
-PODFILE CHECKSUM: 0e821f20509751c064f2b2adec9fa44d7210373b
+PODFILE CHECKSUM: 623d439fb13debc746a1aada245623bbb89db048
 
 COCOAPODS: 1.6.0
