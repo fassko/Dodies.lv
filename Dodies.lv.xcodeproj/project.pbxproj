@@ -19,6 +19,7 @@
 		636EA83D1BA5BDF40071397A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636EA83B1BA5BDF40071397A /* Main.storyboard */; };
 		636EA8421BA5BDF40071397A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636EA8401BA5BDF40071397A /* LaunchScreen.storyboard */; };
 		637C52FE22216E6900875618 /* FeatureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637C52FD22216E6900875618 /* FeatureType.swift */; };
+		637C53002221944200875618 /* MapViewController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637C52FF2221944200875618 /* MapViewController+Data.swift */; };
 		637E9C5021B2F31600050173 /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E9C4F21B2F31600050173 /* ClusterAnnotationView.swift */; };
 		639026FC1D1D393C003BD31F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 639026FE1D1D393C003BD31F /* Localizable.strings */; };
 		639710851C8200F1003C3842 /* dodies_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710821C8200F1003C3842 /* dodies_logo.png */; };
@@ -105,6 +106,7 @@
 		636EA8411BA5BDF40071397A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		636EA8431BA5BDF40071397A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		637C52FD22216E6900875618 /* FeatureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureType.swift; sourceTree = "<group>"; };
+		637C52FF2221944200875618 /* MapViewController+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Data.swift"; sourceTree = "<group>"; };
 		637E9C4F21B2F31600050173 /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
 		639026FD1D1D393C003BD31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		639027001D1D3DF7003BD31F /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				6304EB001BA5C2C700B7CD49 /* MapViewController.swift */,
+				637C52FF2221944200875618 /* MapViewController+Data.swift */,
 				6326106720910C2700996FE8 /* MapViewController+MapKit.swift */,
 				63C86AC7208149DD00588CE0 /* DetailsProvider.swift */,
 				63F5DC6D1C8358F200AEB195 /* SettingsViewController.swift */,
@@ -547,6 +550,7 @@
 				6326106820910C2700996FE8 /* MapViewController+MapKit.swift in Sources */,
 				63B52192205EE16400850E41 /* Feature.swift in Sources */,
 				63B52194205EE17A00850E41 /* Property.swift in Sources */,
+				637C53002221944200875618 /* MapViewController+Data.swift in Sources */,
 				634DABC220950A2F003AB312 /* MainCoordinator.swift in Sources */,
 				63CA57A71BA606B800A9F5DC /* DetailsViewController.swift in Sources */,
 				63B5218F205EE13600850E41 /* FeatureCollection.swift in Sources */,

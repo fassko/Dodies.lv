@@ -26,7 +26,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
   
   @IBOutlet private weak var mapView: MKMapView!
   
-  private var language: String = {
+  var language: String = {
     guard let language = UserDefaults.standard.string(forKey: Constants.languageKey) else {
       return "lv"
     }
@@ -100,19 +100,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
   }
   
   // download data from server
-  private func downloadData() {
-    do {
-      let realm = try Realm()
-      
-      try realm.write {
-        realm.deleteAll()
-      }
-    } catch {
-      fatalError("Can't update points in Realm")
-    }
-    
+  func downloadData() {
     firstly {
-      downloadData(with: .taka)
+      deleteData()
+    }.then { _ in
+      self.downloadData(with: .taka)
     }.then {_ in
       self.downloadData(with: .tornis)
     }
@@ -130,61 +122,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     }
   }
   
-  private func downloadData(with type: FeatureType) -> Promise<Bool> {
-    return Promise { promise in
-    
-      let url = URL(string: "https://dodies.lv/json/\(language)\(type.rawValue).geojson")!
-      
-      let task = URLSession.shared.dataTask(with: url) {[weak self] data, _, error in
-        if let error = error {
-          debugPrint("Can't download data \(error) \(String(describing: self?.language))")
-          self?.showError(withMessage: "Can't download data. Please check your settings and try again.".localized())
-          promise.reject(error)
-        } else {
-        
-          guard let data = data,
-            let features = try? JSONDecoder().decode(FeatureCollection.self, from: data).features else {
-            return
-          }
-
-          do {
-            let realm = try Realm()
-            
-            let realmObjects = features.map { feature -> DodiesPoint in
-              let dodiesPoint = DodiesPoint()
-              dodiesPoint.latitude = feature.geometry.coordinates[1]
-              dodiesPoint.longitude = feature.geometry.coordinates[0]
-              
-              let properties = feature.properties
-              dodiesPoint.name = properties.na
-              dodiesPoint.tips = properties.ti.rawValue
-              dodiesPoint.st = properties.st
-              dodiesPoint.km = properties.km
-              dodiesPoint.txt = properties.txt
-              dodiesPoint.dat = properties.dat
-              dodiesPoint.img = properties.img
-              dodiesPoint.img2 = properties.img2
-              dodiesPoint.url = properties.url
-              
-              return dodiesPoint
-            }
-            
-            try realm.write {
-              realm.add(realmObjects)
-              promise.fulfill(true)
-            }
-          } catch {
-            promise.reject(error)
-            fatalError("Can't update points in Realm")
-          }
-        }
-      }
-      
-      task.resume()
-    }
-  }
-  
-  // remove all annotation from mapview
+  /// Remove all annotation from mapview
   private func removeAllAnnotations() {
     let annotations = mapView.annotations
     
@@ -227,28 +165,5 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
       print("Can't load points")
     }
     
-  }
-  
-  // check if need to update
-  private func checkLastChangedDate(update: Bool) {
-    let url = URL(string: "https://dodies.lv/apraksti/lastchanged.txt")!
-    
-    URLSession.shared.dataTask(with: url) {[weak self] data, _, error in
-      if let error = error {
-        debugPrint("Can't get last changed date \(error)")
-      }
-      
-      guard let data = data,
-        let lastChangedDate = String(data: data, encoding: .utf8),
-        let timestamp = Int(lastChangedDate.replacingOccurrences(of: "\n", with: "")) else {
-        return
-      }
-      
-      if update, timestamp > UserDefaults.standard.integer(forKey: Constants.lastChangedTimestampKey) {
-        self?.downloadData()
-      } else {
-        UserDefaults.standard.set(timestamp, forKey: Constants.lastChangedTimestampKey)
-      }
-    }.resume()
   }
 }
