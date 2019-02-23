@@ -26,9 +26,9 @@ Certs
 fastlane ios register_test_devices
 ```
 
-### ios ci_build
+### ios build_for_release
 ```
-fastlane ios ci_build
+fastlane ios build_for_release
 ```
 CI build
 ### ios test
@@ -36,16 +36,6 @@ CI build
 fastlane ios test
 ```
 Test
-### ios circleci
-```
-fastlane ios circleci
-```
-Circle CI lane
-### ios travis
-```
-fastlane ios travis
-```
-Travis lane
 ### ios derived_data
 ```
 fastlane ios derived_data
