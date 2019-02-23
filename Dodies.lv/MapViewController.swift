@@ -153,7 +153,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
       }
       
       DispatchQueue.main.async {
-        
         self.mapView.addAnnotations(mapAnnotations)
         SwiftSpinner.hide()
         
@@ -164,6 +163,5 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     } catch {
       print("Can't load points")
     }
-    
   }
 }
