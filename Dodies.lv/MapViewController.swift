@@ -139,12 +139,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
       let points = realm.objects(DodiesPoint.self)
         .filter("txt != ''")
 //        .filter("st = 'parbaudits'")
-//        .filter("name = 'Kartavkalna taka'")
+//        .filter("name BEGINSWITH 'Atpūtas vieta'")
       
       let mapAnnotations = points.toArray(type: DodiesPoint.self).map { item in
         DodiesAnnotation(latitude: item.latitude,
                          longitude: item.longitude,
-                         name: item.name,
+                         name: item.name.removingHTMLEntities,
                          tips: item.tips,
                          st: item.st,
                          km: item.km,

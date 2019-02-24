@@ -10,6 +10,7 @@ import Foundation
 
 import PromiseKit
 import RealmSwift
+import HTMLString
 
 extension MapViewController {
   
@@ -55,7 +56,7 @@ extension MapViewController {
               dodiesPoint.longitude = feature.geometry.coordinates[0]
               
               let properties = feature.properties
-              dodiesPoint.name = properties.na
+              dodiesPoint.name = properties.na.removingHTMLEntities
               dodiesPoint.tips = properties.ti.rawValue
               dodiesPoint.st = properties.st
               dodiesPoint.km = properties.km
