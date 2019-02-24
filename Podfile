@@ -11,4 +11,5 @@ target 'Dodies.lv' do
   pod 'RealmSwift'
   pod 'SwiftLint'
   pod 'PromiseKit'
+  pod 'HTMLString'
 end

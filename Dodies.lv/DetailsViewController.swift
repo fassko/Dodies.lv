@@ -9,12 +9,11 @@
 import Foundation
 import UIKit
 
-//import Fabric
-//import Crashlytics
 import Kingfisher
 import Localize_Swift
 import Lightbox
 import SafariServices
+import HTMLString
 
 class DetailsViewController: UIViewController, Storyboarded {
 
@@ -39,7 +38,7 @@ class DetailsViewController: UIViewController, Storyboarded {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    title = point.name
+    title = point.name.removingHTMLEntities
     
     checkedTitle.text = "Checked".localized()
     lengthTitle.text = "Length".localized()
@@ -50,7 +49,7 @@ class DetailsViewController: UIViewController, Storyboarded {
     navigationItem.titleView = titleLabel
     
     desc.isScrollEnabled = false
-    desc.text = dodiesPointDetails.description.decodingHTMLEntities()
+    desc.text = dodiesPointDetails.description.removingHTMLEntities
     
     desc.sizeToFit()
     desc.layoutIfNeeded()
