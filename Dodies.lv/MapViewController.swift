@@ -140,6 +140,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
         .filter("txt != ''")
 //        .filter("st = 'parbaudits'")
 //        .filter("name BEGINSWITH 'Atpūtas vieta'")
+//        .filter("name BEGINSWITH 'Taevaskoja'")
       
       let mapAnnotations = points.toArray(type: DodiesPoint.self).map { item in
         DodiesAnnotation(latitude: item.latitude,
