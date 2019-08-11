@@ -6,7 +6,7 @@ PODS:
   - HTMLString (5.0.0)
   - Imaginary (4.2.0):
     - Cache (~> 5.0)
-  - Kingfisher (5.7.0)
+  - Kingfisher (5.7.1)
   - Lightbox (2.3.0):
     - Imaginary (~> 4.0)
   - Localize-Swift (2.0.0)
@@ -61,7 +61,7 @@ SPEC CHECKSUMS:
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   HTMLString: 20374dc0195423d02569e87561f01153fca0c364
   Imaginary: dae33d06dbc2ada22f98afef5eb45cc061311a2c
-  Kingfisher: c7d211b54f1f30d8060aadab177d52b4349c825b
+  Kingfisher: 176d377ad339113c99ad4980cbae687f807e20fe
   Lightbox: d317750e4132bfb871a5307cfe0a2c7d6a583c65
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
   PromiseKit: 1fdaeb6c0a94a5114fcb814ff3d772b86886ad4e
