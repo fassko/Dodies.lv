@@ -39,7 +39,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    setupMapView()
+    setupMap()
     
     debugPrint(Realm.Configuration.defaultConfiguration.fileURL!)
     Localize.setCurrentLanguage(language)
@@ -72,7 +72,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     }
   }
   
-  private func setupMapView() {
+  private func setupMap() {
     
     let centerCoordinate = CLLocationCoordinate2D(latitude: 56.8800000, longitude: 24.6061111)
     let region = MKCoordinateRegion(center: centerCoordinate, latitudinalMeters: 200000, longitudinalMeters: 500000)
@@ -82,6 +82,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     mapView.delegate = self
     mapView.showsUserLocation = true
     mapView.isRotateEnabled = true
+    
+    mapView.showsScale = true
     
     mapView.register(TrailAnnotationView.self,
                      forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)

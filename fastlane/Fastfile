@@ -21,10 +21,8 @@ platform :ios do
   lane :build_for_release do
     increment_build_number build_number: get_version_number + "." + Time.new.strftime("%y%m%d.%H%M")
 
-    derived_data
-
     gym(
-      workspace: "Dodies.lv.xcworkspace",
+      project: "Dodies.lv.xcodeproj",
       scheme: "Dodies.lv",
       clean: true,
       output_name: "Dodies.lv.ipa",
@@ -35,7 +33,7 @@ platform :ios do
   desc "Test"
   lane :test do
     scan(
-      workspace: "Dodies.lv.xcworkspace",
+      project: "Dodies.lv.xcodeproj",
 			scheme: "Dodies.lv",
 			clean: true,
       devices: ["iPhone X"]

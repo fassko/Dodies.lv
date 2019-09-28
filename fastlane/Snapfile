@@ -8,6 +8,6 @@ languages([
 ])
 
 scheme "Dodies.lv"
-workspace "./Dodies.lv.xcworkspace"
+project "./Dodies.lv.xcodeproj"
 
 clear_previous_screenshots(true)
