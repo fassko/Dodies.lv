@@ -8,8 +8,6 @@
 
 import UIKit
 
-import Fabric
-import Crashlytics
 import RealmSwift
 
 @UIApplicationMain
@@ -20,8 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-    Fabric.with([Crashlytics.self])
-    
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
       schemaVersion: 6,
       migrationBlock: { migration, oldSchemaVersion in

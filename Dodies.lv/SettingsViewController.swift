@@ -32,8 +32,8 @@ class SettingsViewController: UIViewController, Storyboarded {
     let actionSheet = UIAlertController(title: "Change language".localized(),
                                         message: "Please select language".localized(),
                                         preferredStyle: .actionSheet)
-    
     actionSheet.popoverPresentationController?.sourceView = changeLanguageButton
+    actionSheet.view.tintColor = Constants.greenColor
     
     actionSheet.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
     
@@ -56,7 +56,7 @@ class SettingsViewController: UIViewController, Storyboarded {
   // MARK: - Additonal methods
   private func languageChanged(language: String) {
     UserDefaults.standard.set(language, forKey: Constants.languageKey)
-    
+    UserDefaults.standard.removeObject(forKey: Constants.lastChangedTimestampKey)
     Localize.setCurrentLanguage(language)
     UINotificationFeedbackGenerator().notificationOccurred(.success)
     coordinator?.reloadApp()
