@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController, Storyboarded {
                                         message: "Please select language".localized(),
                                         preferredStyle: .actionSheet)
     actionSheet.popoverPresentationController?.sourceView = changeLanguageButton
-    actionSheet.view.tintColor = Constants.greenColor
+    actionSheet.view.tintColor = Constants.lightGreen
     
     actionSheet.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
     

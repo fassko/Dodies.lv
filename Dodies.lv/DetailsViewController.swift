@@ -126,7 +126,7 @@ class DetailsViewController: UIViewController, Storyboarded {
   @IBAction func openNavigation(_ sender: Any) {
     let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     optionMenu.popoverPresentationController?.sourceView = coordinatesButton
-    optionMenu.view.tintColor = Constants.greenColor
+    optionMenu.view.tintColor = Constants.lightGreen
     
     let copy = UIAlertAction(title: "Copy coordiantes".localized(), style: .default) { _ in
       let pasteboard = UIPasteboard.general

@@ -19,19 +19,27 @@ import PromiseKit
 class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboarded {
   
   weak var coordinator: MainCoordinator?
-
-  var selectedPoint: DodiesAnnotation!
-  
-  var pointDetails: DodiesPointDetails!
   
   @IBOutlet private weak var mapView: MKMapView!
   
-  var language: String = {
+  private var selectedPoint: DodiesAnnotation!
+  private var pointDetails: DodiesPointDetails!
+  
+  lazy var language: String = {
     guard let language = UserDefaults.standard.string(forKey: Constants.languageKey) else {
       return "lv"
     }
     
     return language
+  }()
+  
+  lazy var lastCheckedDate: String? = {
+    guard let lastCheckedDate = UserDefaults.standard.string(forKey: Constants.lastChangedTimestampKey) else {
+      return nil
+    }
+    
+    return lastCheckedDate
+    
   }()
   
   private let locationManager = CLLocationManager()
@@ -60,7 +68,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
       let realm = try Realm()
       
       // check if need to update data
-      if realm.objects(DodiesPoint.self).count == 0 {
+      if realm.objects(DodiesPoint.self).isEmpty || lastCheckedDate == nil {
         downloadData()
       } else {
         DispatchQueue.global(qos: .background).async {
