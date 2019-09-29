@@ -12,7 +12,9 @@ import UIKit
 enum Constants {
   static let lastChangedTimestampKey = "LastChangedTimestamp"
   static let languageKey = "language"
-  static let greenColor = UIColor(red: 0.42, green: 0.60, blue: 0.23, alpha: 1.0)
+  
+  static let greenColor = UIColor(named: "dodies-green")
+  static let lightGreen = UIColor(named: "light-green")
   
   static let trailColor = #colorLiteral(red: 0.9960784314, green: 0.7882352941, blue: 0.3568627451, alpha: 1)
   static let towerColor = #colorLiteral(red: 0.3960784314, green: 0.7058823529, blue: 0.7333333333, alpha: 1)
@@ -21,4 +23,6 @@ enum Constants {
   static let trailImage = #imageLiteral(resourceName: "signpost")
   static let towerImage = #imageLiteral(resourceName: "binoculars.pdf")
   static let picnicImage = #imageLiteral(resourceName: "picnic-table")
+  
+  static let buttonCornerRadius: CGFloat = 5.0
 }

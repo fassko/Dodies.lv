@@ -19,14 +19,13 @@ import PromiseKit
 class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboarded {
   
   weak var coordinator: MainCoordinator?
-
-  var selectedPoint: DodiesAnnotation!
-  
-  var pointDetails: DodiesPointDetails!
   
   @IBOutlet private weak var mapView: MKMapView!
   
-  var language: String = {
+  private var selectedPoint: DodiesAnnotation!
+  private var pointDetails: DodiesPointDetails!
+  
+  lazy var language: String = {
     guard let language = UserDefaults.standard.string(forKey: Constants.languageKey) else {
       return "lv"
     }
@@ -34,12 +33,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     return language
   }()
   
+  lazy var lastCheckedDate: String? = {
+    guard let lastCheckedDate = UserDefaults.standard.string(forKey: Constants.lastChangedTimestampKey) else {
+      return nil
+    }
+    
+    return lastCheckedDate
+    
+  }()
+  
   private let locationManager = CLLocationManager()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    setupMapView()
+    setupMap()
     
     debugPrint(Realm.Configuration.defaultConfiguration.fileURL!)
     Localize.setCurrentLanguage(language)
@@ -60,7 +68,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
       let realm = try Realm()
       
       // check if need to update data
-      if realm.objects(DodiesPoint.self).count == 0 {
+      if realm.objects(DodiesPoint.self).isEmpty || lastCheckedDate == nil {
         downloadData()
       } else {
         DispatchQueue.global(qos: .background).async {
@@ -72,7 +80,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     }
   }
   
-  private func setupMapView() {
+  private func setupMap() {
     
     let centerCoordinate = CLLocationCoordinate2D(latitude: 56.8800000, longitude: 24.6061111)
     let region = MKCoordinateRegion(center: centerCoordinate, latitudinalMeters: 200000, longitudinalMeters: 500000)
@@ -82,6 +90,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     mapView.delegate = self
     mapView.showsUserLocation = true
     mapView.isRotateEnabled = true
+    
+    mapView.showsScale = true
     
     mapView.register(TrailAnnotationView.self,
                      forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
@@ -136,11 +146,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     do {
       let realm = try Realm()
    
-      let points = realm.objects(DodiesPoint.self)
-        .filter("txt != ''")
-//        .filter("st = 'parbaudits'")
-//        .filter("name BEGINSWITH 'Atpūtas vieta'")
-//        .filter("name BEGINSWITH 'Taevaskoja'")
+      let points: Results<DodiesPoint> = {
+        if CommandLine.arguments.contains("-local") {
+          return realm.objects(DodiesPoint.self)
+            .filter("txt != ''")
+//            .filter("st = 'parbaudits'")
+//            .filter("name BEGINSWITH 'Atpūtas vieta'")
+            .filter("name BEGINSWITH 'Viesatas upesloku takas'")
+        } else {
+          return realm.objects(DodiesPoint.self)
+            .filter("txt != ''")
+        }
+      }()
       
       let mapAnnotations = points.toArray(type: DodiesPoint.self).map { item in
         DodiesAnnotation(latitude: item.latitude,

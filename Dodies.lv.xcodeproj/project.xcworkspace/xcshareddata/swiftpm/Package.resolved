@@ -1,0 +1,97 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Cache",
+        "repositoryURL": "https://github.com/fassko/Cache",
+        "state": {
+          "branch": "master",
+          "revision": "9e4ec388aada963cb6c3ce68fcac6abdcadd4320",
+          "version": null
+        }
+      },
+      {
+        "package": "HTMLString",
+        "repositoryURL": "https://github.com/alexaubry/HTMLString",
+        "state": {
+          "branch": null,
+          "revision": "373048cc4084dd7481c86e3bee41612eff93b14d",
+          "version": "5.0.0"
+        }
+      },
+      {
+        "package": "Imaginary",
+        "repositoryURL": "https://github.com/fassko/Imaginary",
+        "state": {
+          "branch": "master",
+          "revision": "2847cd255160dabf4317d08843ab6ed8d16f2a67",
+          "version": null
+        }
+      },
+      {
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher",
+        "state": {
+          "branch": null,
+          "revision": "ea84ff22e8c6da676354b162476aad0efd013d7d",
+          "version": "5.8.1"
+        }
+      },
+      {
+        "package": "Lightbox",
+        "repositoryURL": "https://github.com/fassko/Lightbox",
+        "state": {
+          "branch": "master",
+          "revision": "b2b00a26165ab9bc66c2a9adf7bef0cfc8249cd9",
+          "version": null
+        }
+      },
+      {
+        "package": "Localize_Swift",
+        "repositoryURL": "https://github.com/marmelroy/Localize-Swift",
+        "state": {
+          "branch": "master",
+          "revision": "19123eef354205d52978daf60d86c92d1a9e5c50",
+          "version": null
+        }
+      },
+      {
+        "package": "PromiseKit",
+        "repositoryURL": "https://github.com/mxcl/PromiseKit.git",
+        "state": {
+          "branch": null,
+          "revision": "4d8d1287d2e50c53a9f8430ffe88925292838c57",
+          "version": "6.11.0"
+        }
+      },
+      {
+        "package": "Realm",
+        "repositoryURL": "https://github.com/realm/realm-cocoa.git",
+        "state": {
+          "branch": "master",
+          "revision": "6d52751b9c9aa7e6e6b8413721543133a05ad79e",
+          "version": null
+        }
+      },
+      {
+        "package": "RealmCore",
+        "repositoryURL": "https://github.com/realm/realm-core",
+        "state": {
+          "branch": null,
+          "revision": "512dfaa4f59930e193c92e00ba1924bde69b19de",
+          "version": "5.23.5"
+        }
+      },
+      {
+        "package": "SwiftSpinner",
+        "repositoryURL": "https://github.com/icanzilb/SwiftSpinner",
+        "state": {
+          "branch": null,
+          "revision": "b11109c98524526af3a1c6f69c5818862acda6fb",
+          "version": "2.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

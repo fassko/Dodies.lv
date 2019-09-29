@@ -57,6 +57,9 @@ class DetailsViewController: UIViewController, Storyboarded {
                                                    height: CGFloat.greatestFiniteMagnitude)).height
     desc.contentInsetAdjustmentBehavior = .never
     
+    navigationButton.layer.cornerRadius = Constants.buttonCornerRadius
+    moreInfoButton.layer.cornerRadius = Constants.buttonCornerRadius
+    
     setupDetails()
     setupImage()
   }
@@ -90,9 +93,7 @@ class DetailsViewController: UIViewController, Storyboarded {
   private func setupImage() {
     if let detailsImage = dodiesPointDetails.image, let imgURL = URL(string: detailsImage) {
       image?.kf.indicatorType = .activity
-      
-      let processor = RoundCornerImageProcessor(cornerRadius: 50)
-      image?.kf.setImage(with: imgURL, options: [.transition(.fade(0.2)), .processor(processor)])
+      image?.kf.setImage(with: imgURL, options: [.transition(.fade(0.2))])
       
       let singleTap = UITapGestureRecognizer(target: self, action: #selector(showGallery(_:)))
       singleTap.numberOfTapsRequired = 1
@@ -119,7 +120,7 @@ class DetailsViewController: UIViewController, Storyboarded {
     }
       
     let safariViewController = SFSafariViewController(url: url)
-    safariViewController.preferredBarTintColor = UIColor(red: 0.42, green: 0.60, blue: 0.23, alpha: 1.0)
+    safariViewController.preferredBarTintColor = Constants.greenColor
     safariViewController.preferredControlTintColor = .white
     
     present(safariViewController, animated: true, completion: nil)
@@ -127,8 +128,8 @@ class DetailsViewController: UIViewController, Storyboarded {
   
   @IBAction func openNavigation(_ sender: Any) {
     let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-    
     optionMenu.popoverPresentationController?.sourceView = coordinatesButton
+    optionMenu.view.tintColor = Constants.lightGreen
     
     let copy = UIAlertAction(title: "Copy coordiantes".localized(), style: .default) { _ in
       let pasteboard = UIPasteboard.general
@@ -201,10 +202,11 @@ class DetailsViewController: UIViewController, Storyboarded {
       LightboxImage(imageURL: URL(string: $0)!, text: pointTitle)
     }
   
-    let lightbox = LightboxController(images: imageURLs)
-    lightbox.dynamicBackground = true
+    let lightboxController = LightboxController(images: imageURLs)
+    lightboxController.dynamicBackground = true
+    lightboxController.modalPresentationStyle = .fullScreen
     
-    present(lightbox, animated: true, completion: nil)
+    present(lightboxController, animated: true, completion: nil)
   }
   
 }
