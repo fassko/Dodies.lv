@@ -23,4 +23,6 @@ enum Constants {
   static let trailImage = #imageLiteral(resourceName: "signpost")
   static let towerImage = #imageLiteral(resourceName: "binoculars.pdf")
   static let picnicImage = #imageLiteral(resourceName: "picnic-table")
+  
+  static let buttonCornerRadius: CGFloat = 5.0
 }

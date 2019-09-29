@@ -23,6 +23,8 @@ class SettingsViewController: UIViewController, Storyboarded {
     
     navigationItem.titleView = UIImageView(image: UIImage(named: "dodies_nav_logo"))
     changeLanguageButton.setTitle("Change Language".localized())
+    changeLanguageButton.layer.cornerRadius = Constants.buttonCornerRadius
+    
     //swiftlint:disable line_length
     aboutText.text = "Dodies.lv is a collection of free nature trails, hiking paths, birdwatching towers and picnic places in Latvia. \nWould you like to spend some time in Latvian nature, make a fire, stay in a tent? Our map contains freely accessible places closer to nature, available at any time for anyone.\n\nThe green icons represent places which we have verified ourselves, they have photos and longer descriptions.\nThe grey icons show places we have not yet given our approval.\n\nHiking in Latvia is now made simple, select a point of interest and use Google Maps, Waze or Apple Maps to navigate there.".localized()
     aboutText.contentInsetAdjustmentBehavior = .never

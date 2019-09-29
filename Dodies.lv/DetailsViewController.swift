@@ -57,6 +57,9 @@ class DetailsViewController: UIViewController, Storyboarded {
                                                    height: CGFloat.greatestFiniteMagnitude)).height
     desc.contentInsetAdjustmentBehavior = .never
     
+    navigationButton.layer.cornerRadius = Constants.buttonCornerRadius
+    moreInfoButton.layer.cornerRadius = Constants.buttonCornerRadius
+    
     setupDetails()
     setupImage()
   }
