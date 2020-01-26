@@ -19,6 +19,7 @@ class MainCoordinator: Coordinator {
   func start() {
     let mapViewController = MapViewController.instantiate()
     mapViewController.coordinator = self
+    mapViewController.dodiesAPI = DodiesAPI()
     navigationController.pushViewController(mapViewController, animated: false)
   }
   

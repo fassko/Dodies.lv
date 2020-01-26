@@ -35,17 +35,15 @@ extension MapViewController: MKMapViewDelegate {
       return
     }
     
-    DetailsProvider.getFor(annotation.url) {[weak self] result in
+    dodiesAPI?.getPointDetails(annotation.url) {[weak self] result in
       switch result {
       case .success(let details):
-        DispatchQueue.main.async {
-          self?.coordinator?.showDetails(point: annotation, details: details)
-        }
+        self?.coordinator?.showDetails(point: annotation, details: details)
       case .failure(let error):
         print(error)
       }
     }
-
+    
     mapView.deselectAnnotation(annotation, animated: true)
   }
 }

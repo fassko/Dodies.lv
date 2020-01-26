@@ -44,6 +44,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
   
   private let locationManager = CLLocationManager()
   
+  internal var dodiesAPI: DodiesAPIProtocol?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
