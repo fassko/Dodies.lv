@@ -32,16 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       fatalError("Can't load Realm")
     }
     
-    let navController = UINavigationController()
-    navController.navigationBar.barTintColor = Constants.greenColor
-    navController.navigationBar.tintColor = .white
-    navController.navigationBar.isTranslucent = true
-    
-    coordinator = MainCoordinator(navigationController: navController)
-    coordinator?.start()
-    
     window = UIWindow()
-    window?.rootViewController = navController
+    coordinator = MainCoordinator(window: window)
+    coordinator?.start()
     window?.makeKeyAndVisible()
     
     return true

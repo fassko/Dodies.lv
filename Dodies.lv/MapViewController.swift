@@ -137,7 +137,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
   /// Remove all annotation from mapview
   private func removeAllAnnotations() {
     let annotations = mapView.annotations
-    
     guard annotations.isEmpty else { return }
     
     mapView.removeAnnotations(annotations)
@@ -154,22 +153,27 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
             .filter("txt != ''")
 //            .filter("st = 'parbaudits'")
 //            .filter("name BEGINSWITH 'Atpūtas vieta'")
-            .filter("name BEGINSWITH 'Viesatas upesloku takas'")
+            .filter("name BEGINSWITH 'Viesatas upesloku taka'")
         } else {
           return realm.objects(DodiesPoint.self)
             .filter("txt != ''")
         }
       }()
       
-      let mapAnnotations = points.toArray(type: DodiesPoint.self).map { item in
-        DodiesAnnotation(latitude: item.latitude,
+      let mapAnnotations = points.toArray(type: DodiesPoint.self).map { item -> DodiesAnnotation in
+        let annotation = DodiesAnnotation(latitude: item.latitude,
                          longitude: item.longitude,
                          name: item.name.removingHTMLEntities,
                          tips: item.tips,
                          st: item.st,
                          km: item.km,
                          dat: item.dat,
-                         url: item.url)
+                         url: item.url,
+                         img: item.img)
+        
+        
+        
+        return annotation
       }
       
       DispatchQueue.main.async {

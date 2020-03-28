@@ -16,7 +16,7 @@ extension MapViewController: MKMapViewDelegate {
     guard let annotation = annotation as? DodiesAnnotation else {
       return nil
     }
-    
+ 
     switch annotation.type {
     case .trail:
       return TrailAnnotationView(annotation: annotation, reuseIdentifier: TrailAnnotationView.ReuseID)

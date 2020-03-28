@@ -7,8 +7,9 @@
 //
 
 import Foundation
-
 import MapKit
+
+import Kingfisher
 
 enum PointType: String {
   case trail
@@ -30,7 +31,25 @@ class TrailAnnotationView: DodiesAnnotationView {
 
   override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
     super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
+    
     clusteringIdentifier = PointType.trail.rawValue
+    
+    let annotationImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+    annotationImageView.image = UIImage(named: "signpost")
+    leftCalloutAccessoryView = annotationImageView
+    annotationImageView.kf.indicatorType = .activity
+    
+    let options: KingfisherOptionsInfo = [
+      .scaleFactor(UIScreen.main.scale),
+      .transition(.fade(0.5))
+    ]
+    
+    if let annotation = annotation as? DodiesAnnotation, let imgURL = URL(string: annotation.img) {
+      annotationImageView.kf.setImage(
+        with: imgURL,
+        placeholder: UIImage(named: "signpost"),
+        options: options)
+    }
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -50,6 +69,23 @@ class TowerAnnotationView: DodiesAnnotationView {
   override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
     super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
     clusteringIdentifier = PointType.tower.rawValue
+    
+    let annotationImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+    annotationImageView.image = UIImage(named: "binoculars")
+    leftCalloutAccessoryView = annotationImageView
+    annotationImageView.kf.indicatorType = .activity
+    
+    let options: KingfisherOptionsInfo = [
+      .scaleFactor(UIScreen.main.scale),
+      .transition(.fade(0.5))
+    ]
+    
+    if let annotation = annotation as? DodiesAnnotation, let imgURL = URL(string: annotation.img) {
+      annotationImageView.kf.setImage(
+        with: imgURL,
+        placeholder: UIImage(named: "binoculars"),
+        options: options)
+    }
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -70,6 +106,23 @@ class PicnicAnnotationView: DodiesAnnotationView {
   override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
     super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
     clusteringIdentifier = PointType.picnic.rawValue
+    
+    let annotationImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+    annotationImageView.image = UIImage(named: "picnic-table")
+    leftCalloutAccessoryView = annotationImageView
+    annotationImageView.kf.indicatorType = .activity
+    
+    let options: KingfisherOptionsInfo = [
+      .scaleFactor(UIScreen.main.scale),
+      .transition(.fade(0.5))
+    ]
+    
+    if let annotation = annotation as? DodiesAnnotation, let imgURL = URL(string: annotation.img) {
+      annotationImageView.kf.setImage(
+        with: imgURL,
+        placeholder: UIImage(named: "picnic-table"),
+        options: options)
+    }
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -113,6 +166,7 @@ class DodiesAnnotation: NSObject, MKAnnotation, UIAccessibilityIdentification {
   var km: String
   var dat: String
   var url: String
+  var img: String
   
   init(latitude: Double,
        longitude: Double,
@@ -121,13 +175,15 @@ class DodiesAnnotation: NSObject, MKAnnotation, UIAccessibilityIdentification {
        st: String,
        km: String,
        dat: String,
-       url: String) {
+       url: String,
+       img: String) {
     
     self.name = name
     self.tips = tips
     self.dat = dat
     self.km = km
     self.url = url
+    self.img = img
     
     switch tips {
     case "tornis":
