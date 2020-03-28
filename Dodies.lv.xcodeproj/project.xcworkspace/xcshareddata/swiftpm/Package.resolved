@@ -2,6 +2,24 @@
   "object": {
     "pins": [
       {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "59037bfd28aa963a7916f1eb22a74107a3522f16",
+          "version": "5.0.5"
+        }
+      },
+      {
+        "package": "AlamofireImage",
+        "repositoryURL": "https://github.com/Alamofire/AlamofireImage.git",
+        "state": {
+          "branch": null,
+          "revision": "5384f5509cb37075c468002fb49ffe0faa82e2ad",
+          "version": "4.0.3"
+        }
+      },
+      {
         "package": "Cache",
         "repositoryURL": "https://github.com/fassko/Cache",
         "state": {
@@ -20,6 +38,15 @@
         }
       },
       {
+        "package": "ImageSlideshow",
+        "repositoryURL": "https://github.com/fassko/ImageSlideshow",
+        "state": {
+          "branch": "master",
+          "revision": "25b3a538c698d34f6bebd8fb04441fba07e643de",
+          "version": null
+        }
+      },
+      {
         "package": "Imaginary",
         "repositoryURL": "https://github.com/fassko/Imaginary",
         "state": {
@@ -33,8 +60,8 @@
         "repositoryURL": "https://github.com/onevcat/Kingfisher",
         "state": {
           "branch": null,
-          "revision": "44bfa76787a0f07e4d5ae3304e9d4f631fd519bd",
-          "version": "5.13.0"
+          "revision": "56075f629bc3915e1bfa876d175df67e1a7cbe3c",
+          "version": "5.13.2"
         }
       },
       {
@@ -80,6 +107,15 @@
           "branch": null,
           "revision": "35662ff940e340bf630ad1d1d88acfc7af18bee6",
           "version": "5.23.8"
+        }
+      },
+      {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
+        "state": {
+          "branch": null,
+          "revision": "2dcf1b65994d92ef8806f52dc41aa6fdd677489c",
+          "version": "5.6.1"
         }
       },
       {

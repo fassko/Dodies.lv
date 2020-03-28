@@ -46,7 +46,7 @@ platform :ios do
     clear_derived_data
   end
 
-  lane :release do
+  lane :beta do
     build_for_release
 
     testflight(

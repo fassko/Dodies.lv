@@ -41,9 +41,9 @@ Test
 fastlane ios derived_data
 ```
 Derived data
-### ios release
+### ios beta
 ```
-fastlane ios release
+fastlane ios beta
 ```
 
 ### ios release_github

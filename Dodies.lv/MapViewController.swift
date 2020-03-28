@@ -171,17 +171,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
                          url: item.url,
                          img: item.img)
         
-        
-        
         return annotation
       }
       
-      DispatchQueue.main.async {
-        self.mapView.addAnnotations(mapAnnotations)
+      DispatchQueue.main.async {[weak self] in
+        self?.removeAllAnnotations()
+        self?.mapView.addAnnotations(mapAnnotations)
         SwiftSpinner.hide()
         
         if checkForUpdatedData {
-          self.checkLastChangedDate(update: true)
+          self?.checkLastChangedDate(update: true)
         }
       }
     } catch {
