@@ -118,7 +118,7 @@ class DetailsViewController: UIViewController, Storyboarded {
         slideShow.pageIndicator = nil
       }
       
-      slideShow.activityIndicator = DefaultActivityIndicator()
+      slideShow.activityIndicator = DefaultActivityIndicator(style: .white, color: UIColor(named: "currentIndicator"))
       
       slideShow.setImageInputs(source)
       
