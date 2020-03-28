@@ -215,17 +215,17 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                 </constraints>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lJe-jc-T6U" userLabel="Buttons stack view">
-                                <rect key="frame" x="41.5" y="804" width="331" height="50"/>
+                                <rect key="frame" x="41.5" y="814" width="331" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdK-zg-a3M" customClass="DodiesButton" customModule="Dodies_lv" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="155.5" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="155.5" height="40"/>
                                         <state key="normal" title="Navigation"/>
                                         <connections>
                                             <action selector="openNavigation:" destination="OhH-yB-PB6" eventType="touchUpInside" id="uQx-bg-24X"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDz-ta-4m0" customClass="DodiesButton" customModule="Dodies_lv" customModuleProvider="target">
-                                        <rect key="frame" x="175.5" y="0.0" width="155.5" height="50"/>
+                                        <rect key="frame" x="175.5" y="0.0" width="155.5" height="40"/>
                                         <state key="normal" title="More Info"/>
                                         <connections>
                                             <action selector="showDescription:" destination="OhH-yB-PB6" eventType="touchUpInside" id="5aq-9f-oer"/>
@@ -235,7 +235,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                 <constraints>
                                     <constraint firstItem="eDz-ta-4m0" firstAttribute="height" secondItem="lJe-jc-T6U" secondAttribute="height" id="GJN-YX-ftv"/>
                                     <constraint firstItem="YdK-zg-a3M" firstAttribute="height" secondItem="lJe-jc-T6U" secondAttribute="height" id="dno-5x-Tjm"/>
-                                    <constraint firstAttribute="height" constant="50" id="juC-hq-dtT"/>
+                                    <constraint firstAttribute="height" constant="40" id="juC-hq-dtT"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="zpe-HO-gQb"/>
                                 </constraints>
                             </stackView>
