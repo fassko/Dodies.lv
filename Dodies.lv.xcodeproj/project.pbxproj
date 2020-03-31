@@ -27,6 +27,7 @@
 		639710871C8200F1003C3842 /* dodies_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710841C8200F1003C3842 /* dodies_logo@3x.png */; };
 		639710891C821568003C3842 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 639710881C821568003C3842 /* GoogleService-Info.plist */; };
 		63A1D5731F89704200DA6132 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A1D5721F89704200DA6132 /* Constants.swift */; };
+		63A1FDAE23DD7353009F857F /* DodiesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A1FDAD23DD7353009F857F /* DodiesAPI.swift */; };
 		63A818C81C6294F9006F7F80 /* Valmiera.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 63A818C71C6294F9006F7F80 /* Valmiera.gpx */; };
 		63ADE337233FB25500A2022B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 63ADE336233FB25500A2022B /* Kingfisher */; };
 		63AFB7DE1C5CF614004A58E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7DD1C5CF613004A58E1 /* Assets.xcassets */; };
@@ -43,7 +44,6 @@
 		63C322B51C836C050033CE5D /* dodies_logo_green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C322B21C836C050033CE5D /* dodies_logo_green@3x.png */; };
 		63C79148233FA84000156625 /* Lightbox in Frameworks */ = {isa = PBXBuildFile; productRef = 63C79147233FA84000156625 /* Lightbox */; };
 		63C86AC6208148C100588CE0 /* DodiesPointDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C86AC5208148C100588CE0 /* DodiesPointDetails.swift */; };
-		63C86AC8208149DD00588CE0 /* DetailsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C86AC7208149DD00588CE0 /* DetailsProvider.swift */; };
 		63CA57A51BA5F41700A9F5DC /* DodiesAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */; };
 		63CA57A71BA606B800A9F5DC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CA57A61BA606B800A9F5DC /* DetailsViewController.swift */; };
 		63CFCF57233FA0CD0040A04F /* SwiftSpinner in Frameworks */ = {isa = PBXBuildFile; productRef = 63CFCF56233FA0CD0040A04F /* SwiftSpinner */; };
@@ -52,6 +52,11 @@
 		63CFCF64233FA21B0040A04F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63CFCF63233FA21B0040A04F /* RealmSwift */; };
 		63CFCF67233FA2560040A04F /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 63CFCF66233FA2560040A04F /* PromiseKit */; };
 		63CFCF6A233FA2840040A04F /* HTMLString in Frameworks */ = {isa = PBXBuildFile; productRef = 63CFCF69233FA2840040A04F /* HTMLString */; };
+		63D22173242FA7AF0025C2C6 /* DodiesAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D22172242FA7AF0025C2C6 /* DodiesAnnotationView.swift */; };
+		63D22175242FA7F10025C2C6 /* TrailAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D22174242FA7F10025C2C6 /* TrailAnnotationView.swift */; };
+		63D22177242FA80E0025C2C6 /* TowerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D22176242FA80E0025C2C6 /* TowerAnnotationView.swift */; };
+		63D22179242FA81B0025C2C6 /* PicnicAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D22178242FA81B0025C2C6 /* PicnicAnnotationView.swift */; };
+		63DDC241242F9AE9006F7876 /* ImageSlideshow/Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 63DDC240242F9AE9006F7876 /* ImageSlideshow/Kingfisher */; };
 		63F5DC681C8355BE00AEB195 /* dodies_nav_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F5DC651C8355BE00AEB195 /* dodies_nav_logo.png */; };
 		63F5DC691C8355BE00AEB195 /* dodies_nav_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F5DC661C8355BE00AEB195 /* dodies_nav_logo@2x.png */; };
 		63F5DC6A1C8355BE00AEB195 /* dodies_nav_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F5DC671C8355BE00AEB195 /* dodies_nav_logo@3x.png */; };
@@ -120,6 +125,7 @@
 		639710841C8200F1003C3842 /* dodies_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo@3x.png"; sourceTree = "<group>"; };
 		639710881C821568003C3842 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		63A1D5721F89704200DA6132 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		63A1FDAD23DD7353009F857F /* DodiesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DodiesAPI.swift; sourceTree = "<group>"; };
 		63A818C71C6294F9006F7F80 /* Valmiera.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Valmiera.gpx; sourceTree = "<group>"; };
 		63AFB7DD1C5CF613004A58E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63AFB7FA1C5E375D004A58E1 /* dodies@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies@3x.png"; sourceTree = "<group>"; };
@@ -134,9 +140,12 @@
 		63C322B11C836C050033CE5D /* dodies_logo_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo_green@2x.png"; sourceTree = "<group>"; };
 		63C322B21C836C050033CE5D /* dodies_logo_green@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_logo_green@3x.png"; sourceTree = "<group>"; };
 		63C86AC5208148C100588CE0 /* DodiesPointDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DodiesPointDetails.swift; sourceTree = "<group>"; };
-		63C86AC7208149DD00588CE0 /* DetailsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsProvider.swift; sourceTree = "<group>"; };
 		63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DodiesAnnotation.swift; sourceTree = "<group>"; };
 		63CA57A61BA606B800A9F5DC /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		63D22172242FA7AF0025C2C6 /* DodiesAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DodiesAnnotationView.swift; sourceTree = "<group>"; };
+		63D22174242FA7F10025C2C6 /* TrailAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailAnnotationView.swift; sourceTree = "<group>"; };
+		63D22176242FA80E0025C2C6 /* TowerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerAnnotationView.swift; sourceTree = "<group>"; };
+		63D22178242FA81B0025C2C6 /* PicnicAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicnicAnnotationView.swift; sourceTree = "<group>"; };
 		63F5DC651C8355BE00AEB195 /* dodies_nav_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies_nav_logo.png; sourceTree = "<group>"; };
 		63F5DC661C8355BE00AEB195 /* dodies_nav_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_nav_logo@2x.png"; sourceTree = "<group>"; };
 		63F5DC671C8355BE00AEB195 /* dodies_nav_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_nav_logo@3x.png"; sourceTree = "<group>"; };
@@ -173,6 +182,7 @@
 				63CFCF5F233FA1D10040A04F /* Localize_Swift in Frameworks */,
 				E9DE3C02EFB5BBC2D2729C40 /* CoreMedia.framework in Frameworks */,
 				63CFCF62233FA21B0040A04F /* Realm in Frameworks */,
+				63DDC241242F9AE9006F7876 /* ImageSlideshow/Kingfisher in Frameworks */,
 				85C729650F800A83805648BF /* CoreVideo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,9 +246,9 @@
 			isa = PBXGroup;
 			children = (
 				6356E2FC1DC5FC980072540C /* Dodies.lv.entitlements */,
+				63A1FDAC23DD7343009F857F /* API */,
 				633A2579212A02CD007B64EA /* Core */,
 				63AFB7ED1C5D29B4004A58E1 /* Views */,
-				63AFB7EC1C5D29A7004A58E1 /* Models */,
 				636EA8431BA5BDF40071397A /* Info.plist */,
 				634073531C594A4300190BA4 /* Interface */,
 				63AFB7DD1C5CF613004A58E1 /* Assets.xcassets */,
@@ -247,6 +257,15 @@
 				639026FE1D1D393C003BD31F /* Localizable.strings */,
 			);
 			path = Dodies.lv;
+			sourceTree = "<group>";
+		};
+		63A1FDAC23DD7343009F857F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				63AFB7EC1C5D29A7004A58E1 /* Models */,
+				63A1FDAD23DD7353009F857F /* DodiesAPI.swift */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 		63AFB7EB1C5D2973004A58E1 /* Images */ = {
@@ -275,6 +294,10 @@
 				63475FEB1C5CC95500A9A5E4 /* DodiesPoint.swift */,
 				63C86AC5208148C100588CE0 /* DodiesPointDetails.swift */,
 				63CA57A41BA5F41700A9F5DC /* DodiesAnnotation.swift */,
+				63D22172242FA7AF0025C2C6 /* DodiesAnnotationView.swift */,
+				63D22174242FA7F10025C2C6 /* TrailAnnotationView.swift */,
+				63D22176242FA80E0025C2C6 /* TowerAnnotationView.swift */,
+				63D22178242FA81B0025C2C6 /* PicnicAnnotationView.swift */,
 				637E9C4F21B2F31600050173 /* ClusterAnnotationView.swift */,
 			);
 			name = Models;
@@ -286,7 +309,6 @@
 				6304EB001BA5C2C700B7CD49 /* MapViewController.swift */,
 				637C52FF2221944200875618 /* MapViewController+Data.swift */,
 				6326106720910C2700996FE8 /* MapViewController+MapKit.swift */,
-				63C86AC7208149DD00588CE0 /* DetailsProvider.swift */,
 				63F5DC6D1C8358F200AEB195 /* SettingsViewController.swift */,
 				63CA57A61BA606B800A9F5DC /* DetailsViewController.swift */,
 				63B622F42127625D0094190D /* DodiesButton.swift */,
@@ -366,6 +388,7 @@
 				63CFCF69233FA2840040A04F /* HTMLString */,
 				63C79147233FA84000156625 /* Lightbox */,
 				63ADE336233FB25500A2022B /* Kingfisher */,
+				63DDC240242F9AE9006F7876 /* ImageSlideshow/Kingfisher */,
 			);
 			productName = Dodies.lv;
 			productReference = 636EA8321BA5BDF40071397A /* Dodies.lv.app */;
@@ -390,7 +413,6 @@
 					636EA8311BA5BDF40071397A = {
 						CreatedOnToolsVersion = 7.1;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -423,6 +445,7 @@
 				63CFCF68233FA2840040A04F /* XCRemoteSwiftPackageReference "HTMLString" */,
 				63C79146233FA84000156625 /* XCRemoteSwiftPackageReference "Lightbox" */,
 				63ADE335233FB25500A2022B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				63DDC23F242F9AE8006F7876 /* XCRemoteSwiftPackageReference "ImageSlideshow" */,
 			);
 			productRefGroup = 636EA8331BA5BDF40071397A /* Products */;
 			projectDirPath = "";
@@ -500,8 +523,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63C86AC8208149DD00588CE0 /* DetailsProvider.swift in Sources */,
 				636EA8361BA5BDF40071397A /* AppDelegate.swift in Sources */,
+				63D22179242FA81B0025C2C6 /* PicnicAnnotationView.swift in Sources */,
 				637E9C5021B2F31600050173 /* ClusterAnnotationView.swift in Sources */,
 				63C86AC6208148C100588CE0 /* DodiesPointDetails.swift in Sources */,
 				637C52FE22216E6900875618 /* FeatureType.swift in Sources */,
@@ -510,17 +533,21 @@
 				63475FEC1C5CC95500A9A5E4 /* DodiesPoint.swift in Sources */,
 				63B52196205EE18600850E41 /* Geometry.swift in Sources */,
 				634DABBE20950905003AB312 /* Coordinator.swift in Sources */,
+				63D22177242FA80E0025C2C6 /* TowerAnnotationView.swift in Sources */,
 				63B622F52127625D0094190D /* DodiesButton.swift in Sources */,
 				63F5DC6E1C8358F200AEB195 /* SettingsViewController.swift in Sources */,
 				6326106820910C2700996FE8 /* MapViewController+MapKit.swift in Sources */,
 				63B52192205EE16400850E41 /* Feature.swift in Sources */,
 				63B52194205EE17A00850E41 /* Property.swift in Sources */,
+				63D22175242FA7F10025C2C6 /* TrailAnnotationView.swift in Sources */,
+				63A1FDAE23DD7353009F857F /* DodiesAPI.swift in Sources */,
 				637C53002221944200875618 /* MapViewController+Data.swift in Sources */,
 				634DABC220950A2F003AB312 /* MainCoordinator.swift in Sources */,
 				63CA57A71BA606B800A9F5DC /* DetailsViewController.swift in Sources */,
 				63B5218F205EE13600850E41 /* FeatureCollection.swift in Sources */,
 				6304EB011BA5C2C700B7CD49 /* MapViewController.swift in Sources */,
 				634DABC02095093D003AB312 /* Storyboarded.swift in Sources */,
+				63D22173242FA7AF0025C2C6 /* DodiesAnnotationView.swift in Sources */,
 				63A1D5731F89704200DA6132 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,7 +677,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.11.0.190929.1035;
+				CURRENT_PROJECT_VERSION = 1.12.200328.1748;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -717,7 +744,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.11.0.190929.1035;
+				CURRENT_PROJECT_VERSION = 1.12.200328.1748;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -750,8 +777,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3SGNZQGS68;
 				ENABLE_BITCODE = YES;
@@ -762,10 +790,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.11.0;
+				MARKETING_VERSION = 1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.Dodies-lv";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6ce7d206-45f0-4e73-8a20-310adbcbce4b";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.fassko.Dodies-lv";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -789,7 +817,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.11.0;
+				MARKETING_VERSION = 1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.Dodies-lv";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "334705a6-af7c-42ae-8215-32bf7fe3481d";
@@ -839,7 +867,7 @@
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.8.1;
+				minimumVersion = 5.13.0;
 			};
 		};
 		63C79146233FA84000156625 /* XCRemoteSwiftPackageReference "Lightbox" */ = {
@@ -862,8 +890,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marmelroy/Localize-Swift";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.0;
 			};
 		};
 		63CFCF60233FA21B0040A04F /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
@@ -879,7 +907,7 @@
 			repositoryURL = "https://github.com/mxcl/PromiseKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.11.0;
+				minimumVersion = 6.13.1;
 			};
 		};
 		63CFCF68233FA2840040A04F /* XCRemoteSwiftPackageReference "HTMLString" */ = {
@@ -888,6 +916,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
+			};
+		};
+		63DDC23F242F9AE8006F7876 /* XCRemoteSwiftPackageReference "ImageSlideshow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fassko/ImageSlideshow";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -932,6 +968,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63CFCF68233FA2840040A04F /* XCRemoteSwiftPackageReference "HTMLString" */;
 			productName = HTMLString;
+		};
+		63DDC240242F9AE9006F7876 /* ImageSlideshow/Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63DDC23F242F9AE8006F7876 /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
+			productName = ImageSlideshow/Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

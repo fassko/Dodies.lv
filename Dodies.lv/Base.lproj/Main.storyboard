@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -113,17 +113,17 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                 <rect key="frame" x="0.0" y="44" width="414" height="752"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="y5U-FN-NYu" userLabel="Details Stack View">
-                                        <rect key="frame" x="20" y="20" width="374" height="390"/>
+                                        <rect key="frame" x="20" y="20" width="374" height="460"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZjF-Fo-wlD">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="180"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWR-ro-CNP" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="250"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="180" id="aMc-Fg-SgM"/>
+                                                    <constraint firstAttribute="height" constant="250" id="Ypa-oe-zOt"/>
                                                 </constraints>
-                                            </imageView>
+                                            </view>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12D-Pe-Nql">
-                                                <rect key="frame" x="0.0" y="190" width="374" height="100"/>
+                                                <rect key="frame" x="0.0" y="260" width="374" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="d44-ur-3Bg"/>
                                                 </constraints>
@@ -134,7 +134,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GEa-ga-V2u" userLabel="Details Stack View">
-                                                <rect key="frame" x="0.0" y="300" width="374" height="90"/>
+                                                <rect key="frame" x="0.0" y="370" width="374" height="90"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6b6-gs-tBW">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="90"/>
@@ -215,17 +215,17 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                 </constraints>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lJe-jc-T6U" userLabel="Buttons stack view">
-                                <rect key="frame" x="41.5" y="804" width="331" height="50"/>
+                                <rect key="frame" x="41.5" y="814" width="331" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdK-zg-a3M" customClass="DodiesButton" customModule="Dodies_lv" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="155.5" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="155.5" height="40"/>
                                         <state key="normal" title="Navigation"/>
                                         <connections>
                                             <action selector="openNavigation:" destination="OhH-yB-PB6" eventType="touchUpInside" id="uQx-bg-24X"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDz-ta-4m0" customClass="DodiesButton" customModule="Dodies_lv" customModuleProvider="target">
-                                        <rect key="frame" x="175.5" y="0.0" width="155.5" height="50"/>
+                                        <rect key="frame" x="175.5" y="0.0" width="155.5" height="40"/>
                                         <state key="normal" title="More Info"/>
                                         <connections>
                                             <action selector="showDescription:" destination="OhH-yB-PB6" eventType="touchUpInside" id="5aq-9f-oer"/>
@@ -235,7 +235,7 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                 <constraints>
                                     <constraint firstItem="eDz-ta-4m0" firstAttribute="height" secondItem="lJe-jc-T6U" secondAttribute="height" id="GJN-YX-ftv"/>
                                     <constraint firstItem="YdK-zg-a3M" firstAttribute="height" secondItem="lJe-jc-T6U" secondAttribute="height" id="dno-5x-Tjm"/>
-                                    <constraint firstAttribute="height" constant="50" id="juC-hq-dtT"/>
+                                    <constraint firstAttribute="height" constant="40" id="juC-hq-dtT"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="zpe-HO-gQb"/>
                                 </constraints>
                             </stackView>
@@ -259,11 +259,11 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                         <outlet property="coordinatesButton" destination="0gk-HT-kfi" id="6Yv-nj-ePN"/>
                         <outlet property="desc" destination="12D-Pe-Nql" id="8GP-t1-e8c"/>
                         <outlet property="descHeight" destination="d44-ur-3Bg" id="LO5-z4-N2U"/>
-                        <outlet property="image" destination="ZjF-Fo-wlD" id="CI1-Y1-la2"/>
                         <outlet property="lenght" destination="HXa-kG-NMX" id="Y1e-Jq-tqi"/>
                         <outlet property="lengthTitle" destination="KLv-1y-xYh" id="TA4-Dp-obu"/>
                         <outlet property="moreInfoButton" destination="eDz-ta-4m0" id="IOe-pu-LgU"/>
                         <outlet property="navigationButton" destination="YdK-zg-a3M" id="M2b-QG-Qfz"/>
+                        <outlet property="slideShow" destination="yWR-ro-CNP" id="J2C-iN-pLS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fm-Mb-ZsB" userLabel="First Responder" sceneMemberID="firstResponder"/>

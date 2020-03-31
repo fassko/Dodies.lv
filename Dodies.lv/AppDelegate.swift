@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 6,
+      schemaVersion: 7,
       migrationBlock: { migration, oldSchemaVersion in
-        if oldSchemaVersion < 6 {
+        if oldSchemaVersion < 7 {
           migration.deleteData(forType: DodiesPoint.className())
         }
     })
@@ -32,16 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       fatalError("Can't load Realm")
     }
     
-    let navController = UINavigationController()
-    navController.navigationBar.barTintColor = Constants.greenColor
-    navController.navigationBar.tintColor = .white
-    navController.navigationBar.isTranslucent = true
-    
-    coordinator = MainCoordinator(navigationController: navController)
-    coordinator?.start()
-    
     window = UIWindow()
-    window?.rootViewController = navController
+    coordinator = MainCoordinator(window: window)
+    coordinator?.start()
     window?.makeKeyAndVisible()
     
     return true

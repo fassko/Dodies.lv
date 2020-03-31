@@ -14,6 +14,8 @@ import Localize_Swift
 import Lightbox
 import SafariServices
 import HTMLString
+import ImageSlideshow
+import ImageSlideshowKingfisher
 
 class DetailsViewController: UIViewController, Storyboarded {
 
@@ -28,7 +30,7 @@ class DetailsViewController: UIViewController, Storyboarded {
   @IBOutlet weak var lengthTitle: UILabel!
   @IBOutlet weak var checkedTitle: UILabel!
   
-  @IBOutlet weak var image: UIImageView?
+  @IBOutlet weak var slideShow: ImageSlideshow!
   
   @IBOutlet var descHeight: NSLayoutConstraint!
   
@@ -91,16 +93,39 @@ class DetailsViewController: UIViewController, Storyboarded {
   }
   
   private func setupImage() {
-    if let detailsImage = dodiesPointDetails.image, let imgURL = URL(string: detailsImage) {
-      image?.kf.indicatorType = .activity
-      image?.kf.setImage(with: imgURL, options: [.transition(.fade(0.2))])
+    guard let images = dodiesPointDetails.images else { return }
+    
+    let source = images.compactMap { image -> KingfisherSource? in
+      guard let url = URL(string: image) else {
+        return nil
+      }
       
-      let singleTap = UITapGestureRecognizer(target: self, action: #selector(showGallery(_:)))
-      singleTap.numberOfTapsRequired = 1
-      image?.isUserInteractionEnabled = true
-      image?.addGestureRecognizer(singleTap)
+      return KingfisherSource(url: url, options: [.transition(.fade(0.5))])
+    }
+    
+    if !source.isEmpty {
+      slideShow.slideshowInterval = 5.0
+      slideShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
+      slideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
+      
+      if source.count < 10 {
+        
+        let pageControl = UIPageControl()
+        pageControl.currentPageIndicatorTintColor = UIColor(named: "currentIndicator")
+        pageControl.pageIndicatorTintColor = UIColor(named: "pageIndicator")
+        slideShow.pageIndicator = pageControl
+      } else {
+        slideShow.pageIndicator = nil
+      }
+      
+      slideShow.activityIndicator = DefaultActivityIndicator(style: .white, color: UIColor(named: "currentIndicator"))
+      
+      slideShow.setImageInputs(source)
+      
+      let recognizer = UITapGestureRecognizer(target: self, action: #selector(showGallery(_:)))
+      slideShow.addGestureRecognizer(recognizer)
     } else {
-      image?.isHidden = true
+      slideShow?.isHidden = true
     }
   }
   
@@ -194,15 +219,19 @@ class DetailsViewController: UIViewController, Storyboarded {
   }
   
   @objc func showGallery(_ sender: UITapGestureRecognizer) {
-  
     guard let images = dodiesPointDetails.images, let pointTitle = point.title else { return }
+    
+    let source = images.compactMap { image -> LightboxImage? in
+      guard let url = URL(string: image) else {
+        return nil
+      }
+      
+      return LightboxImage(imageURL: url, text: pointTitle)
+    }
 
     LightboxConfig.CloseButton.text = "Close".localized()
-    let imageURLs = images.map {
-      LightboxImage(imageURL: URL(string: $0)!, text: pointTitle)
-    }
   
-    let lightboxController = LightboxController(images: imageURLs)
+    let lightboxController = LightboxController(images: source)
     lightboxController.dynamicBackground = true
     lightboxController.modalPresentationStyle = .fullScreen
     
