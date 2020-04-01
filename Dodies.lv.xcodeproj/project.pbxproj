@@ -29,7 +29,6 @@
 		63A1D5731F89704200DA6132 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A1D5721F89704200DA6132 /* Constants.swift */; };
 		63A1FDAE23DD7353009F857F /* DodiesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A1FDAD23DD7353009F857F /* DodiesAPI.swift */; };
 		63A818C81C6294F9006F7F80 /* Valmiera.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 63A818C71C6294F9006F7F80 /* Valmiera.gpx */; };
-		63ADE337233FB25500A2022B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 63ADE336233FB25500A2022B /* Kingfisher */; };
 		63AFB7DE1C5CF614004A58E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7DD1C5CF613004A58E1 /* Assets.xcassets */; };
 		63AFB7FD1C5E375D004A58E1 /* dodies@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7FA1C5E375D004A58E1 /* dodies@3x.png */; };
 		63AFB7FE1C5E375D004A58E1 /* dodies@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AFB7FB1C5E375D004A58E1 /* dodies@2x.png */; };
@@ -56,15 +55,16 @@
 		63D22175242FA7F10025C2C6 /* TrailAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D22174242FA7F10025C2C6 /* TrailAnnotationView.swift */; };
 		63D22177242FA80E0025C2C6 /* TowerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D22176242FA80E0025C2C6 /* TowerAnnotationView.swift */; };
 		63D22179242FA81B0025C2C6 /* PicnicAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D22178242FA81B0025C2C6 /* PicnicAnnotationView.swift */; };
-		63DDC241242F9AE9006F7876 /* ImageSlideshow/Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 63DDC240242F9AE9006F7876 /* ImageSlideshow/Kingfisher */; };
 		63F5DC681C8355BE00AEB195 /* dodies_nav_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F5DC651C8355BE00AEB195 /* dodies_nav_logo.png */; };
 		63F5DC691C8355BE00AEB195 /* dodies_nav_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F5DC661C8355BE00AEB195 /* dodies_nav_logo@2x.png */; };
 		63F5DC6A1C8355BE00AEB195 /* dodies_nav_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F5DC671C8355BE00AEB195 /* dodies_nav_logo@3x.png */; };
 		63F5DC6E1C8358F200AEB195 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5DC6D1C8358F200AEB195 /* SettingsViewController.swift */; };
 		63FB43D11F8A20DF002033CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB43D01F8A20DF002033CE /* Extensions.swift */; };
+		63FC3C5E2433D37400C7F25F /* ImageSlideshow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FC3C5D2433D37400C7F25F /* ImageSlideshow.framework */; };
 		85C729650F800A83805648BF /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AF1134CA26703A49A9743A /* CoreVideo.framework */; };
 		B0A6015EEB563D5CE1632337 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77C2166C966DA4C74287D2E /* AssetsLibrary.framework */; };
 		B3657DB1D51808CC9F398BAD /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA935C440CF8789F4B31728 /* CoreTelephony.framework */; };
+		D76E36116D486BEEB7F39209 /* Pods_Dodies_lv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D443AB0D7CD8599C35D423 /* Pods_Dodies_lv.framework */; };
 		DCA640AAC54F50636DE9CA48 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBDFEB8CA3AE6DB6339C9371 /* SystemConfiguration.framework */; };
 		E85A8E3394C58810FCB21913 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E1434CC811198D7ABBC850 /* QuartzCore.framework */; };
 		E9DE3C02EFB5BBC2D2729C40 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51BD83EEEE8577C71768DA2A /* CoreMedia.framework */; };
@@ -96,6 +96,7 @@
 /* Begin PBXFileReference section */
 		19AF1134CA26703A49A9743A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		23AF73FE2269A626C5FB6864 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		32BD1EAE558831D9DF9A372C /* Pods-Dodies.lv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dodies.lv.debug.xcconfig"; path = "Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv.debug.xcconfig"; sourceTree = "<group>"; };
 		4FA100D0445174EEB4D06F4F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		51BD83EEEE8577C71768DA2A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		63008FE32055988A00B4869B /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
@@ -151,9 +152,12 @@
 		63F5DC671C8355BE00AEB195 /* dodies_nav_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodies_nav_logo@3x.png"; sourceTree = "<group>"; };
 		63F5DC6D1C8358F200AEB195 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		63FB43D01F8A20DF002033CE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		63FC3C5D2433D37400C7F25F /* ImageSlideshow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ImageSlideshow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E1434CC811198D7ABBC850 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7767A95B179EACCBAA332B10 /* Pods-Dodies.lv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dodies.lv.release.xcconfig"; path = "Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv.release.xcconfig"; sourceTree = "<group>"; };
 		7EA935C440CF8789F4B31728 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		BBDFEB8CA3AE6DB6339C9371 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E2D443AB0D7CD8599C35D423 /* Pods_Dodies_lv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dodies_lv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77C2166C966DA4C74287D2E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -169,9 +173,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63FC3C5E2433D37400C7F25F /* ImageSlideshow.framework in Frameworks */,
 				63CFCF64233FA21B0040A04F /* RealmSwift in Frameworks */,
 				B0A6015EEB563D5CE1632337 /* AssetsLibrary.framework in Frameworks */,
-				63ADE337233FB25500A2022B /* Kingfisher in Frameworks */,
 				B3657DB1D51808CC9F398BAD /* CoreTelephony.framework in Frameworks */,
 				63CFCF6A233FA2840040A04F /* HTMLString in Frameworks */,
 				DCA640AAC54F50636DE9CA48 /* SystemConfiguration.framework in Frameworks */,
@@ -182,8 +186,8 @@
 				63CFCF5F233FA1D10040A04F /* Localize_Swift in Frameworks */,
 				E9DE3C02EFB5BBC2D2729C40 /* CoreMedia.framework in Frameworks */,
 				63CFCF62233FA21B0040A04F /* Realm in Frameworks */,
-				63DDC241242F9AE9006F7876 /* ImageSlideshow/Kingfisher in Frameworks */,
 				85C729650F800A83805648BF /* CoreVideo.framework in Frameworks */,
+				D76E36116D486BEEB7F39209 /* Pods_Dodies_lv.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +234,7 @@
 				63330EC31DCF7B8F002194A3 /* Dodies.lvUITests */,
 				636EA8331BA5BDF40071397A /* Products */,
 				8C2F2D88B0A6E2B639989CBF /* Frameworks */,
+				7F03BC6D663EE7229889319A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -328,9 +333,19 @@
 			name = Feature;
 			sourceTree = "<group>";
 		};
+		7F03BC6D663EE7229889319A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				32BD1EAE558831D9DF9A372C /* Pods-Dodies.lv.debug.xcconfig */,
+				7767A95B179EACCBAA332B10 /* Pods-Dodies.lv.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8C2F2D88B0A6E2B639989CBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				63FC3C5D2433D37400C7F25F /* ImageSlideshow.framework */,
 				E77C2166C966DA4C74287D2E /* AssetsLibrary.framework */,
 				4FA100D0445174EEB4D06F4F /* CoreText.framework */,
 				7EA935C440CF8789F4B31728 /* CoreTelephony.framework */,
@@ -339,6 +354,7 @@
 				23AF73FE2269A626C5FB6864 /* AVFoundation.framework */,
 				51BD83EEEE8577C71768DA2A /* CoreMedia.framework */,
 				19AF1134CA26703A49A9743A /* CoreVideo.framework */,
+				E2D443AB0D7CD8599C35D423 /* Pods_Dodies_lv.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -368,8 +384,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 636EA8461BA5BDF40071397A /* Build configuration list for PBXNativeTarget "Dodies.lv" */;
 			buildPhases = (
+				F9273151B6B6C7730B2579C9 /* [CP] Check Pods Manifest.lock */,
 				636EA82E1BA5BDF40071397A /* Sources */,
 				636EA82F1BA5BDF40071397A /* Frameworks */,
+				6562B4BC169BACACAA9E82B3 /* [CP] Embed Pods Frameworks */,
 				636EA8301BA5BDF40071397A /* Resources */,
 				63EE49DB1DD78FA600E1F676 /* Embed Frameworks */,
 				63008FE22055972E00B4869B /* Swiftlint */,
@@ -387,8 +405,6 @@
 				63CFCF66233FA2560040A04F /* PromiseKit */,
 				63CFCF69233FA2840040A04F /* HTMLString */,
 				63C79147233FA84000156625 /* Lightbox */,
-				63ADE336233FB25500A2022B /* Kingfisher */,
-				63DDC240242F9AE9006F7876 /* ImageSlideshow/Kingfisher */,
 			);
 			productName = Dodies.lv;
 			productReference = 636EA8321BA5BDF40071397A /* Dodies.lv.app */;
@@ -444,8 +460,6 @@
 				63CFCF65233FA2560040A04F /* XCRemoteSwiftPackageReference "PromiseKit" */,
 				63CFCF68233FA2840040A04F /* XCRemoteSwiftPackageReference "HTMLString" */,
 				63C79146233FA84000156625 /* XCRemoteSwiftPackageReference "Lightbox" */,
-				63ADE335233FB25500A2022B /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				63DDC23F242F9AE8006F7876 /* XCRemoteSwiftPackageReference "ImageSlideshow" */,
 			);
 			productRefGroup = 636EA8331BA5BDF40071397A /* Products */;
 			projectDirPath = "";
@@ -506,6 +520,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which \"swiftlint\" >/dev/null; then\n    \"swiftlint\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		6562B4BC169BACACAA9E82B3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dodies.lv/Pods-Dodies.lv-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9273151B6B6C7730B2579C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dodies.lv-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -682,7 +735,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -749,7 +802,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -775,6 +828,7 @@
 		};
 		636EA8471BA5BDF40071397A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32BD1EAE558831D9DF9A372C /* Pods-Dodies.lv.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -783,9 +837,12 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3SGNZQGS68;
 				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Dodies.lv/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -804,15 +861,19 @@
 		};
 		636EA8481BA5BDF40071397A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7767A95B179EACCBAA332B10 /* Pods-Dodies.lv.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
 				DEVELOPMENT_TEAM = 3SGNZQGS68;
 				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Dodies.lv/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -862,14 +923,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		63ADE335233FB25500A2022B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.13.0;
-			};
-		};
 		63C79146233FA84000156625 /* XCRemoteSwiftPackageReference "Lightbox" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/fassko/Lightbox";
@@ -918,22 +971,9 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		63DDC23F242F9AE8006F7876 /* XCRemoteSwiftPackageReference "ImageSlideshow" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/fassko/ImageSlideshow";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		63ADE336233FB25500A2022B /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 63ADE335233FB25500A2022B /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
 		63C79147233FA84000156625 /* Lightbox */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 63C79146233FA84000156625 /* XCRemoteSwiftPackageReference "Lightbox" */;
@@ -968,11 +1008,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63CFCF68233FA2840040A04F /* XCRemoteSwiftPackageReference "HTMLString" */;
 			productName = HTMLString;
-		};
-		63DDC240242F9AE9006F7876 /* ImageSlideshow/Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 63DDC23F242F9AE8006F7876 /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
-			productName = ImageSlideshow/Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

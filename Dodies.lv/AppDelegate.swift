@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 7,
+      schemaVersion: 8,
       migrationBlock: { migration, oldSchemaVersion in
-        if oldSchemaVersion < 7 {
+        if oldSchemaVersion < 8 {
           migration.deleteData(forType: DodiesPoint.className())
         }
     })

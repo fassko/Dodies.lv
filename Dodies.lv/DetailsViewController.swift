@@ -15,7 +15,6 @@ import Lightbox
 import SafariServices
 import HTMLString
 import ImageSlideshow
-import ImageSlideshowKingfisher
 
 class DetailsViewController: UIViewController, Storyboarded {
 
