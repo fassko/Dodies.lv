@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-import RealmSwift
-
 extension UserDefaults {
   /**
     Get value with default value
@@ -25,12 +23,6 @@ extension UserDefaults {
     }
     
     return value
-  }
-}
-
-extension Results {
-  func toArray<T>(type: T.Type) -> [T] {
-    return compactMap { $0 as? T }
   }
 }
 

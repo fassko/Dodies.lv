@@ -7,8 +7,7 @@
 //
 
 import UIKit
-
-import RealmSwift
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,19 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-    Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 8,
-      migrationBlock: { migration, oldSchemaVersion in
-        if oldSchemaVersion < 8 {
-          migration.deleteData(forType: DodiesPoint.className())
-        }
-    })
-    
-    do {
-      _ = try Realm()
-    } catch {
-      fatalError("Can't load Realm")
-    }
+    let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    print(urls[urls.count-1] as URL)
     
     window = UIWindow()
     coordinator = MainCoordinator(window: window)
@@ -38,6 +26,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window?.makeKeyAndVisible()
     
     return true
+  }
+  
+  func applicationWillTerminate(_ application: UIApplication) {
+    self.saveContext()
+  }
+  
+  lazy var persistentContainer: NSPersistentContainer = {
+    let container = NSPersistentContainer(name: "Dodies")
+    container.loadPersistentStores { _, error in
+      let documentsDirectory = FileManager.SearchPathDirectory.documentDirectory
+      let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+      let paths = NSSearchPathForDirectoriesInDomains(documentsDirectory, userDomainMask, true)
+      debugPrint(paths[0])
+      
+      if let error = error as NSError? {
+        fatalError("Unresolved error \(error), \(error.userInfo)")
+      }
+    }
+    return container
+  }()
+  
+  func saveContext () {
+    let context = persistentContainer.viewContext
+    if context.hasChanges {
+      do {
+        try context.save()
+      } catch {
+        let nserror = error as NSError
+        fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+      }
+    }
   }
 
 }

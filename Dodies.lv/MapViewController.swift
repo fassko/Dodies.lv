@@ -7,11 +7,10 @@
 //
 
 import Foundation
-import UIKit
 import CoreLocation
+import UIKit
 
 import MapKit
-import RealmSwift
 import Localize_Swift
 import SwiftSpinner
 import PromiseKit
@@ -46,12 +45,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
   
   internal var dodiesAPI: DodiesAPIProtocol?
   
+  internal let dataProvider = DataProvider()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     setupMap()
     
-    debugPrint(Realm.Configuration.defaultConfiguration.fileURL!)
     Localize.setCurrentLanguage(language)
     
     navigationItem.title = "Map".localized()
@@ -66,19 +66,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     SwiftSpinner.setTitleFont(UIFont(name: "HelveticaNeue", size: 18)!)
     SwiftSpinner.show("Downloading data".localized())
     
-    do {
-      let realm = try Realm()
-      
-      // check if need to update data
-      if realm.objects(DodiesPoint.self).isEmpty || lastCheckedDate == nil {
-        downloadData()
-      } else {
-        DispatchQueue.global(qos: .background).async {
-          self.loadPoints(checkForUpdatedData: true)
-        }
-      }
-    } catch {
-      fatalError("Can't load points from Realm")
+    if dataProvider.isEmpty {
+      downloadData()
+    } else {
+      loadPoints(checkForUpdatedData: true)
     }
   }
   
@@ -143,48 +134,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
   }
   
   private func loadPoints(checkForUpdatedData: Bool = false) {
+    let mapAnnotations = dataProvider.loadPoints().map { point in
+      DodiesAnnotation(latitude: point.latitude,
+                       longitude: point.longitude,
+                       name: point.name,
+                       type: point.type,
+                       st: point.status,
+                       km: point.km,
+                       checkedDate: point.checkedDate,
+                       url: point.url,
+                       img: point.img)
+    }
     
-    do {
-      let realm = try Realm()
-   
-      let points: Results<DodiesPoint> = {
-        if CommandLine.arguments.contains("-local") {
-          return realm.objects(DodiesPoint.self)
-            .filter("txt != ''")
-//            .filter("st = 'parbaudits'")
-//            .filter("name BEGINSWITH 'Atpūtas vieta'")
-            .filter("name BEGINSWITH 'Viesatas upesloku taka'")
-        } else {
-          return realm.objects(DodiesPoint.self)
-          .filter("txt != ''")
-        }
-      }()
+    DispatchQueue.main.async { [weak self] in
+      self?.removeAllAnnotations()
+      self?.mapView.addAnnotations(mapAnnotations)
+      SwiftSpinner.hide()
       
-      let mapAnnotations = points.toArray(type: DodiesPoint.self).map { item -> DodiesAnnotation in
-        let annotation = DodiesAnnotation(latitude: item.latitude,
-                         longitude: item.longitude,
-                         name: item.name.removingHTMLEntities,
-                         tips: item.tips,
-                         st: item.st,
-                         km: item.km,
-                         dat: item.dat,
-                         url: item.url,
-                         img: item.img)
-        
-        return annotation
+      if checkForUpdatedData {
+        self?.checkLastChangedDate(update: true)
       }
-      
-      DispatchQueue.main.async {[weak self] in
-        self?.removeAllAnnotations()
-        self?.mapView.addAnnotations(mapAnnotations)
-        SwiftSpinner.hide()
-        
-        if checkForUpdatedData {
-          self?.checkLastChangedDate(update: true)
-        }
-      }
-    } catch {
-      print("Can't load points")
     }
   }
 }

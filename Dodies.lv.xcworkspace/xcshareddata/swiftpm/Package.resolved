@@ -56,24 +56,6 @@
         }
       },
       {
-        "package": "Realm",
-        "repositoryURL": "https://github.com/realm/realm-cocoa.git",
-        "state": {
-          "branch": "master",
-          "revision": "c766959951702087b70b3dd748d78e87b43a3bf9",
-          "version": null
-        }
-      },
-      {
-        "package": "RealmCore",
-        "repositoryURL": "https://github.com/realm/realm-core",
-        "state": {
-          "branch": null,
-          "revision": "35662ff940e340bf630ad1d1d88acfc7af18bee6",
-          "version": "5.23.8"
-        }
-      },
-      {
         "package": "SwiftSpinner",
         "repositoryURL": "https://github.com/icanzilb/SwiftSpinner",
         "state": {

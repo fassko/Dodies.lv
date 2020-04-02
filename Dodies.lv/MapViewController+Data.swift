@@ -7,25 +7,21 @@
 //
 
 import Foundation
+import UIKit
 
 import PromiseKit
-import RealmSwift
 import HTMLString
 
 extension MapViewController {
   
   func deleteData() -> Promise<Void> {
     Promise<Void> { seal in
-      do {
-        let realm = try Realm()
-        
-        try realm.write {
-          realm.deleteAll()
+      DispatchQueue.main.async { [weak self] in
+        if let error = self?.dataProvider.delete() {
+          seal.reject(error)
+        } else {
           seal.fulfill(())
         }
-      } catch {
-        seal.reject(error)
-        fatalError("Can't update points in Realm")
       }
     }
   }
@@ -35,17 +31,12 @@ extension MapViewController {
       dodiesAPI?.downloadData(language: language, with: type) { result in
         switch result {
         case .success(let points):
-          do {
-            let realm = try Realm()
-            try realm.write {
-              realm.add(points)
-              seal.fulfill(())
-            }
-          } catch {
-            seal.reject(error)
-            fatalError("Can't update points in Realm")
+          DispatchQueue.main.async { [weak self] in
+            self?.dataProvider.save(points)
+            seal.fulfill(())
           }
         case .failure(let error):
+          print(error)
           seal.reject(error)
         }
       }

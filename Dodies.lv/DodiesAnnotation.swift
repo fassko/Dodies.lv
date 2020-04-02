@@ -40,36 +40,36 @@ class DodiesAnnotation: NSObject, MKAnnotation, UIAccessibilityIdentification {
   }
   
   var name: String
-  var tips: String
   var km: String
-  var dat: String
+  var checkedDate: String
   var url: String
   var img: String
   
   init(latitude: Double,
        longitude: Double,
        name: String,
-       tips: String,
+       type: String,
        st: String,
        km: String,
-       dat: String,
+       checkedDate: String,
        url: String,
        img: String) {
     
     self.name = name
-    self.tips = tips
-    self.dat = dat
+    self.checkedDate = checkedDate
     self.km = km
     self.url = url
     self.img = img
     
-    switch tips {
+    self.type = .picnic
+    
+    switch type {
     case "tornis":
-      type = .tower
+      self.type = .tower
     case "pikniks":
-      type = .picnic
+      self.type = .picnic
     default:
-      type = .trail
+      self.type = .trail
     }
     coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     

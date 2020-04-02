@@ -81,7 +81,7 @@ class DetailsViewController: UIViewController, Storyboarded {
     let formatterFrom = DateFormatter()
     formatterFrom.dateFormat = "yyyy-MM-dd HH:mm:ss"
     
-    if let date = formatterFrom.date(from: point.dat) {
+    if let date = formatterFrom.date(from: point.checkedDate) {
       let formatter = DateFormatter()
       formatter.dateFormat = "dd.MM.yyyy"
       checked.text = formatter.string(from: date)
