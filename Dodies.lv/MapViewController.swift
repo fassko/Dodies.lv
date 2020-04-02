@@ -156,7 +156,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
             .filter("name BEGINSWITH 'Viesatas upesloku taka'")
         } else {
           return realm.objects(DodiesPoint.self)
-            .filter("txt != ''")
+          .filter("txt != ''")
         }
       }()
       

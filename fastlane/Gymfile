@@ -12,7 +12,7 @@
 
 output_directory "./"
 
-project "Dodies.lv.xcodeproj"
+workspace "Dodies.lv.xcworkspace"
 scheme "Dodies.lv"
 clean true
 output_name "Dodies.lv.ipa"
