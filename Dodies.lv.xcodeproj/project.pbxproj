@@ -730,7 +730,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.12.200328.1748;
+				CURRENT_PROJECT_VERSION = 1.13.200401.1912;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -797,7 +797,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.12.200328.1748;
+				CURRENT_PROJECT_VERSION = 1.13.200401.1912;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -847,7 +847,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.12;
+				MARKETING_VERSION = 1.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.Dodies-lv";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -878,7 +878,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.12;
+				MARKETING_VERSION = 1.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.Dodies-lv";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "334705a6-af7c-42ae-8215-32bf7fe3481d";
