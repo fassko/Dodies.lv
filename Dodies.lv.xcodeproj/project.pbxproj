@@ -23,6 +23,7 @@
 		638EEE142435E5A9009AD1CA /* Dodies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 638EEE122435E5A9009AD1CA /* Dodies.xcdatamodeld */; };
 		638EEE162435F113009AD1CA /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638EEE152435F113009AD1CA /* Point.swift */; };
 		638EEE1924361659009AD1CA /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638EEE1824361659009AD1CA /* DataProvider.swift */; };
+		638EEE1B24362310009AD1CA /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638EEE1A24362310009AD1CA /* Photos.framework */; };
 		639026FC1D1D393C003BD31F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 639026FE1D1D393C003BD31F /* Localizable.strings */; };
 		639710851C8200F1003C3842 /* dodies_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710821C8200F1003C3842 /* dodies_logo.png */; };
 		639710861C8200F1003C3842 /* dodies_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 639710831C8200F1003C3842 /* dodies_logo@2x.png */; };
@@ -62,7 +63,6 @@
 		63FB43D11F8A20DF002033CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB43D01F8A20DF002033CE /* Extensions.swift */; };
 		63FC3C5E2433D37400C7F25F /* ImageSlideshow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FC3C5D2433D37400C7F25F /* ImageSlideshow.framework */; };
 		85C729650F800A83805648BF /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AF1134CA26703A49A9743A /* CoreVideo.framework */; };
-		B0A6015EEB563D5CE1632337 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77C2166C966DA4C74287D2E /* AssetsLibrary.framework */; };
 		B3657DB1D51808CC9F398BAD /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA935C440CF8789F4B31728 /* CoreTelephony.framework */; };
 		D76E36116D486BEEB7F39209 /* Pods_Dodies_lv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D443AB0D7CD8599C35D423 /* Pods_Dodies_lv.framework */; };
 		DCA640AAC54F50636DE9CA48 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBDFEB8CA3AE6DB6339C9371 /* SystemConfiguration.framework */; };
@@ -121,6 +121,7 @@
 		638EEE132435E5A9009AD1CA /* Dodies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dodies.xcdatamodel; sourceTree = "<group>"; };
 		638EEE152435F113009AD1CA /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		638EEE1824361659009AD1CA /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		638EEE1A24362310009AD1CA /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		639026FD1D1D393C003BD31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		639027001D1D3DF7003BD31F /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		639710821C8200F1003C3842 /* dodies_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodies_logo.png; sourceTree = "<group>"; };
@@ -176,7 +177,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				63FC3C5E2433D37400C7F25F /* ImageSlideshow.framework in Frameworks */,
-				B0A6015EEB563D5CE1632337 /* AssetsLibrary.framework in Frameworks */,
 				B3657DB1D51808CC9F398BAD /* CoreTelephony.framework in Frameworks */,
 				63CFCF6A233FA2840040A04F /* HTMLString in Frameworks */,
 				DCA640AAC54F50636DE9CA48 /* SystemConfiguration.framework in Frameworks */,
@@ -186,6 +186,7 @@
 				63CFCF67233FA2560040A04F /* PromiseKit in Frameworks */,
 				63CFCF5F233FA1D10040A04F /* Localize_Swift in Frameworks */,
 				E9DE3C02EFB5BBC2D2729C40 /* CoreMedia.framework in Frameworks */,
+				638EEE1B24362310009AD1CA /* Photos.framework in Frameworks */,
 				85C729650F800A83805648BF /* CoreVideo.framework in Frameworks */,
 				D76E36116D486BEEB7F39209 /* Pods_Dodies_lv.framework in Frameworks */,
 			);
@@ -355,6 +356,7 @@
 		8C2F2D88B0A6E2B639989CBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				638EEE1A24362310009AD1CA /* Photos.framework */,
 				63FC3C5D2433D37400C7F25F /* ImageSlideshow.framework */,
 				E77C2166C966DA4C74287D2E /* AssetsLibrary.framework */,
 				4FA100D0445174EEB4D06F4F /* CoreText.framework */,
@@ -739,7 +741,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kristaps Grinbergs (MMGQCA8E72)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.13.200401.1912;
+				CURRENT_PROJECT_VERSION = 1.13.200402.1635;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -806,7 +808,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kristaps Grinbergs (3SGNZQGS68)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.13.200401.1912;
+				CURRENT_PROJECT_VERSION = 1.13.200402.1635;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
