@@ -63,14 +63,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
       locationManager.requestWhenInUseAuthorization()
     }
     
-    SwiftSpinner.setTitleFont(UIFont(name: "HelveticaNeue", size: 18)!)
-    SwiftSpinner.show("Downloading data".localized())
+    showSpinner()
     
     if dataProvider.isEmpty {
       downloadData()
     } else {
       loadPoints(checkForUpdatedData: true)
     }
+  }
+  
+  private func showSpinner() {
+    SwiftSpinner.setTitleFont(UIFont(name: "HelveticaNeue", size: 18)!)
+    SwiftSpinner.show("Downloading data".localized())
   }
   
   private func setupMap() {
@@ -102,6 +106,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     coordinator?.showSettings()
   }
   
+  @IBAction func reloadData(_ sender: Any) {
+    showSpinner()
+    downloadData()
+  }
+  
+  
   // download data from server
   func downloadData() {
     firstly {
@@ -117,7 +127,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
       self.checkLastChangedDate(update: false)
       
       DispatchQueue.main.async {
-        self.removeAllAnnotations()
         self.loadPoints()
       }
     }.catch {
@@ -128,9 +137,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
   /// Remove all annotation from mapview
   private func removeAllAnnotations() {
     let annotations = mapView.annotations
-    guard annotations.isEmpty else { return }
-    
-    mapView.removeAnnotations(annotations)
+    if !annotations.isEmpty {
+      mapView.removeAnnotations(annotations)
+    }
   }
   
   private func loadPoints(checkForUpdatedData: Bool = false) {
