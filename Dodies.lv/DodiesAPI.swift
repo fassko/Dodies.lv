@@ -12,7 +12,7 @@ protocol DodiesAPIProtocol {
   func downloadData(language: String,
                     with featureType: FeatureType,
                     session: URLSession,
-                    _ completion: @escaping (Result<[DodiesPoint], DodiesAPIError>) -> Void)
+                    _ completion: @escaping (Result<[Point], DodiesAPIError>) -> Void)
   
   func getLastChangedDate(session: URLSession,
                           _ completion: @escaping (Result<Int, Error>) -> Void)
@@ -26,7 +26,7 @@ extension DodiesAPIProtocol {
   func downloadData(language: String,
                     with featureType: FeatureType,
                     session: URLSession = URLSession.shared,
-                    _ completion: @escaping (Result<[DodiesPoint], DodiesAPIError>) -> Void) {
+                    _ completion: @escaping (Result<[Point], DodiesAPIError>) -> Void) {
     downloadData(language: language, with: featureType, session: session, completion)
   }
   
@@ -55,7 +55,7 @@ struct DodiesAPI: DodiesAPIProtocol {
   func downloadData(language: String,
                     with featureType: FeatureType,
                     session: URLSession = URLSession.shared,
-                    _ completion: @escaping (Result<[DodiesPoint], DodiesAPIError>) -> Void) {
+                    _ completion: @escaping (Result<[Point], DodiesAPIError>) -> Void) {
     let url = URL(string: "\(address)/json/\(language)\(featureType.rawValue).geojson")!
     
     session.dataTask(with: url) { data, _, error in
@@ -73,23 +73,19 @@ struct DodiesAPI: DodiesAPIProtocol {
       do {
         let features = try JSONDecoder().decode(FeatureCollection.self, from: data).features
         
-        let points = features.map { feature -> DodiesPoint in
-          let dodiesPoint = DodiesPoint()
-          dodiesPoint.latitude = feature.geometry.coordinates[1]
-          dodiesPoint.longitude = feature.geometry.coordinates[0]
-          
+        let points = features.map { feature -> Point in
           let properties = feature.properties
-          dodiesPoint.name = properties.na.removingHTMLEntities
-          dodiesPoint.tips = properties.ti.rawValue
-          dodiesPoint.st = properties.st
-          dodiesPoint.km = properties.km
-          dodiesPoint.txt = properties.txt
-          dodiesPoint.dat = properties.dat
-          dodiesPoint.img = properties.img
-          dodiesPoint.img2 = properties.img2
-          dodiesPoint.url = properties.url
           
-          return dodiesPoint
+          let point = Point(name: properties.na.removingHTMLEntities,
+                            latitude: feature.geometry.coordinates[1],
+                            longitude: feature.geometry.coordinates[0],
+                            status: properties.st,
+                            type: properties.ti.rawValue,
+                            url: properties.url,
+                            img: properties.img,
+                            km: properties.km,
+                            checkedDate: properties.dat)
+          return point
         }
         
         completion(.success(points))
