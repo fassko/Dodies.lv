@@ -143,13 +143,13 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="GPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SmI-wY-72J">
-                                                                <rect key="frame" x="0.0" y="5" width="70.5" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="5" width="34.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djX-4w-LWw">
-                                                                <rect key="frame" x="80.5" y="0.0" width="293.5" height="30"/>
+                                                                <rect key="frame" x="44.5" y="0.0" width="329.5" height="30"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <state key="normal" title="56.9197, 24.73025">
                                                                     <color key="titleColor" red="0.42352941179999998" green="0.59607843140000005" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -164,13 +164,13 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                                         <rect key="frame" x="0.0" y="35" width="374" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0w7-2N-wT0">
-                                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="56" height="30"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,2 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwV-TX-d2e">
-                                                                <rect key="frame" x="80.5" y="0.0" width="293.5" height="30"/>
+                                                                <rect key="frame" x="66" y="0.0" width="308" height="30"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <color key="textColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -195,10 +195,6 @@ Hiking in Latvia is now made simple, select a point of interest and use Google M
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="HCy-Mi-m0H" firstAttribute="width" secondItem="SmI-wY-72J" secondAttribute="width" id="KLy-af-ddB"/>
-                                                    <constraint firstItem="HCy-Mi-m0H" firstAttribute="width" secondItem="0w7-2N-wT0" secondAttribute="width" id="zRF-HB-n90"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>

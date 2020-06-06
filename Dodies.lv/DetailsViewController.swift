@@ -81,10 +81,10 @@ class DetailsViewController: UIViewController, Storyboarded {
       for: UIControl.State.normal)
     
     if point.km == "" {
-      lenght.isHidden = true
-      lengthTitle.isHidden = true
+      lengthStackView.isHidden = true
     } else {
       lenght.text = "\(point.km) km"
+      lengthStackView.isHidden = false
     }
     
     let formatterFrom = DateFormatter()
@@ -94,9 +94,9 @@ class DetailsViewController: UIViewController, Storyboarded {
       let formatter = DateFormatter()
       formatter.dateFormat = "dd.MM.yyyy"
       checked.text = formatter.string(from: date)
+      checkedStackView.isHidden = false
     } else {
-      checkedTitle.isHidden = true
-      checked.isHidden = true
+      checkedStackView.isHidden = true
     }
   }
   
