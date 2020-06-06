@@ -26,7 +26,10 @@ class DetailsViewController: UIViewController, Storyboarded {
   @IBOutlet weak var lenght: UILabel!
   @IBOutlet weak var checked: UILabel!
   
+  @IBOutlet weak var lengthStackView: UIStackView!
   @IBOutlet weak var lengthTitle: UILabel!
+  
+  @IBOutlet weak var checkedStackView: UIStackView!
   @IBOutlet weak var checkedTitle: UILabel!
   
   @IBOutlet weak var slideShow: ImageSlideshow!
@@ -60,6 +63,12 @@ class DetailsViewController: UIViewController, Storyboarded {
     
     navigationButton.layer.cornerRadius = Constants.buttonCornerRadius
     moreInfoButton.layer.cornerRadius = Constants.buttonCornerRadius
+    
+    navigationButton.titleLabel?.adjustsFontForContentSizeCategory = true
+    navigationButton.titleLabel?.font = .preferredFont(forTextStyle: .title2)
+    
+    moreInfoButton.titleLabel?.adjustsFontForContentSizeCategory = true
+    moreInfoButton.titleLabel?.font = .preferredFont(forTextStyle: .title2)
     
     setupDetails()
     setupImage()
