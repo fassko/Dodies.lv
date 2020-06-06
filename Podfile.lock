@@ -5,9 +5,9 @@ PODS:
   - ImageSlideshow/Kingfisher (1.8.3):
     - ImageSlideshow/Core
     - Kingfisher (> 3.0)
-  - Kingfisher (5.13.3):
-    - Kingfisher/Core (= 5.13.3)
-  - Kingfisher/Core (5.13.3)
+  - Kingfisher (5.14.0):
+    - Kingfisher/Core (= 5.14.0)
+  - Kingfisher/Core (5.14.0)
 
 DEPENDENCIES:
   - ImageSlideshow
@@ -21,7 +21,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   ImageSlideshow: 4694d7d699a1549582e7cc631fb392d8f91630f3
-  Kingfisher: d2b3d6a7200c93b34de9afcdf25c8dd9282ec277
+  Kingfisher: 7b64389a43139c903ec434788344c288217c792d
 
 PODFILE CHECKSUM: 5bf24953f6cb11c6516abf8baba083bfb6b92b8a
 

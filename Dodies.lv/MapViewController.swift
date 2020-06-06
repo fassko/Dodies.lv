@@ -111,7 +111,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     downloadData()
   }
   
-  
   // download data from server
   func downloadData() {
     firstly {
