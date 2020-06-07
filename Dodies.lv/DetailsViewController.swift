@@ -26,7 +26,10 @@ class DetailsViewController: UIViewController, Storyboarded {
   @IBOutlet weak var lenght: UILabel!
   @IBOutlet weak var checked: UILabel!
   
+  @IBOutlet weak var lengthStackView: UIStackView!
   @IBOutlet weak var lengthTitle: UILabel!
+  
+  @IBOutlet weak var checkedStackView: UIStackView!
   @IBOutlet weak var checkedTitle: UILabel!
   
   @IBOutlet weak var slideShow: ImageSlideshow!
@@ -61,6 +64,12 @@ class DetailsViewController: UIViewController, Storyboarded {
     navigationButton.layer.cornerRadius = Constants.buttonCornerRadius
     moreInfoButton.layer.cornerRadius = Constants.buttonCornerRadius
     
+    navigationButton.titleLabel?.adjustsFontForContentSizeCategory = true
+    navigationButton.titleLabel?.font = .preferredFont(forTextStyle: .title2)
+    
+    moreInfoButton.titleLabel?.adjustsFontForContentSizeCategory = true
+    moreInfoButton.titleLabel?.font = .preferredFont(forTextStyle: .title2)
+    
     setupDetails()
     setupImage()
   }
@@ -72,10 +81,10 @@ class DetailsViewController: UIViewController, Storyboarded {
       for: UIControl.State.normal)
     
     if point.km == "" {
-      lenght.isHidden = true
-      lengthTitle.isHidden = true
+      lengthStackView.isHidden = true
     } else {
       lenght.text = "\(point.km) km"
+      lengthStackView.isHidden = false
     }
     
     let formatterFrom = DateFormatter()
@@ -85,9 +94,9 @@ class DetailsViewController: UIViewController, Storyboarded {
       let formatter = DateFormatter()
       formatter.dateFormat = "dd.MM.yyyy"
       checked.text = formatter.string(from: date)
+      checkedStackView.isHidden = false
     } else {
-      checkedTitle.isHidden = true
-      checked.isHidden = true
+      checkedStackView.isHidden = true
     }
   }
   

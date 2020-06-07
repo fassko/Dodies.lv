@@ -19,6 +19,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
   
   weak var coordinator: MainCoordinator?
   
+  @IBOutlet private weak var settingsButton: UIBarButtonItem!
   @IBOutlet private weak var mapView: MKMapView!
   
   private var selectedPoint: DodiesAnnotation!
@@ -57,7 +58,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     navigationItem.title = "Map".localized()
     navigationItem.titleView = UIImageView(image: UIImage(named: "dodies_nav_logo"))
     
-    navigationItem.rightBarButtonItem?.title = "Settings".localized()
+    settingsButton.title = "Settings".localized()
     
     if CLLocationManager.authorizationStatus() == .notDetermined {
       locationManager.requestWhenInUseAuthorization()
@@ -110,7 +111,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, Storyboard
     showSpinner()
     downloadData()
   }
-  
   
   // download data from server
   func downloadData() {
